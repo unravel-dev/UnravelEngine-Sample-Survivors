@@ -1,0 +1,544 @@
+{
+ "animation_controller": {
+  "parameters": [
+   {
+    "name": "Speed",
+    "type": 0,
+    "default_float": 0.0,
+    "default_int": 0,
+    "default_bool": false
+   }
+  ],
+  "layers": [
+   {
+    "name": "Base",
+    "weight": 1.0,
+    "blend_mode": 0,
+    "mask": [],
+    "default_state": "Locomotion",
+    "states": [
+     {
+      "name": "Locomotion",
+      "motion": 1,
+      "clip": {
+       "uid": "nil"
+      },
+      "parameter_x": "Speed",
+      "parameter_y": "",
+      "points": [
+       {
+        "clip": {
+         "uid": "2554b717-3ad7-3a40-bb85-95d7e833fd4e"
+        },
+        "position": {
+         "x": 0.0,
+         "y": 0.0
+        }
+       },
+       {
+        "clip": {
+         "uid": "aa3df75d-be3f-6b4c-bc39-f3f8804c56d4"
+        },
+        "position": {
+         "x": 2.0,
+         "y": 0.0
+        }
+       },
+       {
+        "clip": {
+         "uid": "9676f1d6-67c0-1f44-aa95-68d5b51ad29b"
+        },
+        "position": {
+         "x": 5.0,
+         "y": 0.0
+        }
+       }
+      ],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": true,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     {
+      "name": "Dodge",
+      "motion": 0,
+      "clip": {
+       "uid": "58747cda-e160-3345-bc7b-6eb20800a232"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 300.0,
+       "y": 0.0
+      }
+     },
+     {
+      "name": "Spin",
+      "motion": 0,
+      "clip": {
+       "uid": "15def212-3217-6c40-affd-6d861aa71952"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": true,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 300.0,
+       "y": 70.0
+      }
+     },
+     {
+      "name": "Leap",
+      "motion": 0,
+      "clip": {
+       "uid": "c9b9489b-333d-b14e-8e89-7616ed7b65a2"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 300.0,
+       "y": 140.0
+      }
+     },
+     {
+      "name": "Cheer",
+      "motion": 0,
+      "clip": {
+       "uid": "5b765ad1-f76f-714e-9c1c-0593c4c0e753"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": true,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 300.0,
+       "y": 210.0
+      }
+     },
+     {
+      "name": "Death",
+      "motion": 0,
+      "clip": {
+       "uid": "519cab09-caff-d042-93f5-6568afd9b416"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 300.0,
+       "y": 280.0
+      }
+     },
+     {
+      "name": "Hit",
+      "motion": 0,
+      "clip": {
+       "uid": "6e3a2561-9da4-6a44-8883-21f0140f8e3e"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 300.0,
+       "y": 350.0
+      }
+     }
+    ],
+    "transitions": [],
+    "entry_position": {
+     "x": -260.0,
+     "y": 0.0
+    },
+    "any_state_position": {
+     "x": -260.0,
+     "y": 120.0
+    }
+   },
+   {
+    "name": "Upper",
+    "weight": 0.0,
+    "blend_mode": 0,
+    "mask": [
+     {
+      "bone": "spine",
+      "weight": 1.0,
+      "include_children": true
+     }
+    ],
+    "default_state": "UpperIdle",
+    "states": [
+     {
+      "name": "UpperIdle",
+      "motion": 0,
+      "clip": {
+       "uid": "2554b717-3ad7-3a40-bb85-95d7e833fd4e"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": true,
+      "cycle_offset": 0.0,
+      "tag": "",
+      "editor_position": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     {
+      "name": "Slash",
+      "motion": 0,
+      "clip": {
+       "uid": "0eac567e-54c6-c44b-83ec-33708221c8c8"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 0.0
+      }
+     },
+     {
+      "name": "SlashDiagonal",
+      "motion": 0,
+      "clip": {
+       "uid": "3ee029f1-fe61-4d4c-8ea9-82ca890232e0"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 70.0
+      }
+     },
+     {
+      "name": "Chop",
+      "motion": 0,
+      "clip": {
+       "uid": "de1bfbc5-f40e-8548-b09c-fe4eec5e530e"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 140.0
+      }
+     },
+     {
+      "name": "Stab",
+      "motion": 0,
+      "clip": {
+       "uid": "dc643d36-26c9-f947-9048-baf2d098b037"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 210.0
+      }
+     },
+     {
+      "name": "HeavyChop",
+      "motion": 0,
+      "clip": {
+       "uid": "76363acc-8caa-154c-9bb6-02726d589051"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 280.0
+      }
+     },
+     {
+      "name": "HeavySlice",
+      "motion": 0,
+      "clip": {
+       "uid": "b2f19862-2525-214d-bea4-215f493cfbce"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 350.0
+      }
+     },
+     {
+      "name": "DualChop",
+      "motion": 0,
+      "clip": {
+       "uid": "a725281c-4ea4-cc48-978d-d4195df6d3f3"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 420.0
+      }
+     },
+     {
+      "name": "DualSlice",
+      "motion": 0,
+      "clip": {
+       "uid": "e54b98bf-bd24-024b-8e3e-bab375c145e1"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 490.0
+      }
+     },
+     {
+      "name": "Shoot",
+      "motion": 0,
+      "clip": {
+       "uid": "03161d66-edd2-7f40-a876-d4f0c65b42b6"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 560.0
+      }
+     },
+     {
+      "name": "Throw",
+      "motion": 0,
+      "clip": {
+       "uid": "30985c16-7970-704a-97f5-97e801cdcc36"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 630.0
+      }
+     },
+     {
+      "name": "CastShoot",
+      "motion": 0,
+      "clip": {
+       "uid": "dc73077f-62df-ca42-8056-6eb8f13a05a0"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 700.0
+      }
+     },
+     {
+      "name": "CastRaise",
+      "motion": 0,
+      "clip": {
+       "uid": "0acaf500-3df2-ee43-a084-ac4c270e90f8"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 770.0
+      }
+     },
+     {
+      "name": "CastLong",
+      "motion": 0,
+      "clip": {
+       "uid": "667a084f-afdc-e949-a52a-ca083d285c44"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 840.0
+      }
+     },
+     {
+      "name": "Block",
+      "motion": 0,
+      "clip": {
+       "uid": "bf97ab1f-2790-1f48-8560-dc37e70f7eab"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 910.0
+      }
+     },
+     {
+      "name": "Reload",
+      "motion": 0,
+      "clip": {
+       "uid": "9aad03cc-9492-744d-9800-37a87d113010"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 980.0
+      }
+     },
+     {
+      "name": "UpperSpin",
+      "motion": 0,
+      "clip": {
+       "uid": "b57912d4-f7a0-c048-9667-f45515ada82b"
+      },
+      "parameter_x": "",
+      "parameter_y": "",
+      "points": [],
+      "speed": 1.0,
+      "speed_parameter": "",
+      "loop": false,
+      "cycle_offset": 0.0,
+      "tag": "Attack",
+      "editor_position": {
+       "x": 300.0,
+       "y": 1050.0
+      }
+     }
+    ],
+    "transitions": [],
+    "entry_position": {
+     "x": -260.0,
+     "y": 0.0
+    },
+    "any_state_position": {
+     "x": -260.0,
+     "y": 120.0
+    }
+   }
+  ],
+  "preview_model": {
+   "uid": "252e1a50-72a2-c244-b678-8e9c0c930c48"
+  }
+ }
+}

@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Barrowlight Level Up</title>
+    <link type="text/rcss" href="engine:/data/ui/rml.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/theme.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/LevelUp.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/phone.rcss"/>
+</head>
+<!--
+    Level-up card picker. LevelUpScreen.cs fills the three cards, flies them in (staggered 0.06 s), handles
+    pick / reroll / banish / skip from mouse, touch, keys 1-3, R, X, Q and the gamepad, then flies the picked
+    icon to its HUD slot. A card's frame class (r-common...) colours its .rarity-border and .rarity-text.
+-->
+<body class="levelup">
+    <div class="dim"/>
+    <div class="safe">
+        <div id="header" class="screen-header">
+            <div id="title" class="heading">LEVEL UP</div>
+            <div id="subtitle" class="subheading">LEVEL 2</div>
+        </div>
+
+        <div id="cards">
+            <div class="card-slot">
+                <div class="card nav rarity-border">
+                    <div class="card-glow"/>
+                    <div class="card-head">
+                        <div class="card-tag">NEW</div>
+                        <div class="card-banish"><img src="app:/data/UI/Glyphs/cross.png"/></div>
+                    </div>
+                    <div class="card-icon-wrap"><img class="card-icon" src="app:/data/UI/Icons/oathblade_arc.png"/></div>
+                    <div class="card-name">Oathblade Arc</div>
+                    <div class="card-rarity rarity-text">COMMON WEAPON</div>
+                    <div class="card-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+                    <div class="card-rule"/>
+                    <div class="card-desc">Damage 14 -&gt; 18</div>
+                    <div class="card-evo"><img class="card-evo-icon" src="app:/data/UI/Icons/iron_heart.png"/><span class="card-evo-text">Evolves with Iron Heart</span></div>
+                    <div class="card-key"><span class="keycap kbd-only">1</span></div>
+                    <div class="card-flash flash-layer"/>
+                </div>
+            </div>
+            <div class="card-slot">
+                <div class="card nav rarity-border">
+                    <div class="card-glow"/>
+                    <div class="card-head">
+                        <div class="card-tag">NEW</div>
+                        <div class="card-banish"><img src="app:/data/UI/Glyphs/cross.png"/></div>
+                    </div>
+                    <div class="card-icon-wrap"><img class="card-icon" src="app:/data/UI/Icons/whetstone.png"/></div>
+                    <div class="card-name">Whetstone</div>
+                    <div class="card-rarity rarity-text">COMMON PASSIVE</div>
+                    <div class="card-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+                    <div class="card-rule"/>
+                    <div class="card-desc">Might +8% -&gt; +16%</div>
+                    <div class="card-evo"><img class="card-evo-icon" src="app:/data/UI/Icons/skullsplitter.png"/><span class="card-evo-text">Evolves Ravager Chop</span></div>
+                    <div class="card-key"><span class="keycap kbd-only">2</span></div>
+                    <div class="card-flash flash-layer"/>
+                </div>
+            </div>
+            <div class="card-slot">
+                <div class="card nav rarity-border">
+                    <div class="card-glow"/>
+                    <div class="card-head">
+                        <div class="card-tag">NEW</div>
+                        <div class="card-banish"><img src="app:/data/UI/Glyphs/cross.png"/></div>
+                    </div>
+                    <div class="card-icon-wrap"><img class="card-icon" src="app:/data/UI/Icons/storm_totem.png"/></div>
+                    <div class="card-name">Storm Totem</div>
+                    <div class="card-rarity rarity-text">RARE WEAPON</div>
+                    <div class="card-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+                    <div class="card-rule"/>
+                    <div class="card-desc">Damage 9</div>
+                    <div class="card-evo"><img class="card-evo-icon" src="app:/data/UI/Icons/quickening_hourglass.png"/><span class="card-evo-text">Evolves with Quickening Hourglass</span></div>
+                    <div class="card-key"><span class="keycap kbd-only">3</span></div>
+                    <div class="card-flash flash-layer"/>
+                </div>
+            </div>
+        </div>
+
+        <div id="actions">
+            <div id="reroll" class="btn nav">
+                <span class="hint"><span class="keycap kbd-only">R</span><img class="padglyph pad-only" src="app:/data/UI/Glyphs/buttonY.png"/></span>REROLL<span id="reroll-count" class="count">0</span>
+            </div>
+            <div id="banish-hint" class="no-touch">
+                <span class="hint"><span class="keycap kbd-only">X</span><img class="padglyph pad-only" src="app:/data/UI/Glyphs/buttonX.png"/></span>BANISH<span id="banish-count" class="count">0</span>
+            </div>
+            <div id="skip" class="btn nav">
+                <span class="hint"><span class="keycap kbd-only">Q</span><img class="padglyph pad-only" src="app:/data/UI/Glyphs/buttonSelect.png"/></span>SKIP<span class="count">+5</span><img class="glyph" src="app:/data/UI/Icons/gold.png"/>
+            </div>
+        </div>
+    </div>
+    <img id="fly" src="app:/data/UI/Icons/skull.png"/>
+</body>
+</html>

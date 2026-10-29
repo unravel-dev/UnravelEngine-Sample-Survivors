@@ -1,0 +1,41 @@
+/*
+ * Phone layouts (body.phone): the shared part, linked last by every document. GameUI (UILayout) sets "phone" on
+ * touch screens whose short side is under 3.6 in and sizes 1rem to about 1 mm, so a landscape phone gets roughly
+ * 100-125 x 48-60 rem inside its safe area (S26 Ultra: about 119 x 56). Phone rules keep text at 1.6rem or more
+ * (1.9rem for reading text, about 1.9 mm), touch targets at 6rem or more, lists scrolling (touch drag scrolls)
+ * instead of overflowing, and the touch joystick's corner (bottom left 40% x 65%, or bottom right) free of HUD
+ * elements. This file sizes the shared pieces (buttons, type, panels, tags, pips, scrollbars, sliders); each
+ * screen's own phone rules end its <Screen>.rcss.
+ */
+
+body.phone .btn {
+	padding: 2rem 2.6rem 2.1rem 2.6rem;
+	font-size: 2.2rem;
+}
+
+body.phone .btn.small {
+	padding: 1.8rem 2rem 1.9rem 2rem;
+	font-size: 2.2rem;
+}
+
+body.phone .heading { font-size: 3.4rem; letter-spacing: 0.3rem; }
+body.phone .subheading { font-size: 1.7rem; letter-spacing: 0.3rem; }
+body.phone .label { font-size: 1.7rem; }
+body.phone .panel { padding: 1.4rem 1.8rem; }
+body.phone .corner { width: 3.4rem; height: 3.4rem; }
+body.phone .divider { height: 1.6rem; margin: 0.3rem 0; }
+body.phone .segmented .seg { padding: 1.3rem 1.2rem; font-size: 1.7rem; }
+body.phone .own { font-size: 1.6rem; padding: 0.25rem 1rem 0.3rem 0.4rem; }
+body.phone .own-emblem { width: 2.4rem; height: 2.4rem; }
+body.phone .pip { width: 0.9rem; height: 0.9rem; }
+
+body.phone scrollbarvertical { width: 1.6rem; }
+body.phone scrollbarvertical sliderbar { width: 1.2rem; margin-left: 0.2rem; }
+
+body.phone input.range { height: 1.6rem; margin: 1.2rem 0; }
+body.phone input.range sliderbar, body.phone input.range sliderbar:disabled, body.phone input.range:hover sliderbar, body.phone input.range sliderbar:active {
+	width: 3.6rem;
+	height: 3.6rem;
+	margin-top: -1rem;
+	border-radius: 1.8rem;
+}

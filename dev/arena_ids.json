@@ -1,0 +1,17 @@
+{
+ "groups": {
+  "LEVEL": "b00f1a95-6314-9c4b-8ef6-3b0a2c559a2a",
+  "Ground": "b9328efa-8a7e-6245-a22f-4d9e994fa472",
+  "Sanctum": "bcba2946-4689-814d-9ba4-70fa7db52ddb",
+  "Graveyards": "64cd966c-2419-0342-9057-cece8df676a0",
+  "Paths": "5b03618e-1ec3-5a47-8a5e-f5eae07b38b8",
+  "Moor": "58496eef-c687-664b-89e9-ca55e055087f",
+  "Edge": "5f0b1113-894b-e441-a334-c1e528dc1a1f",
+  "Lights": "e57ebc17-1228-684f-b048-0972104e7ca7",
+  "Graveyard_NE": "14d05002-f790-d847-bab4-fe1dd621dc2f",
+  "Graveyard_SE": "24df3f16-c3a9-b44c-8012-39ef8a711302",
+  "Graveyard_SW": "9e6a50e2-6af1-4541-bc3f-7ba4922758ff",
+  "Graveyard_NW": "f03ca3e4-b16e-7748-9c76-b050f346c010"
+ },
+ "ground": "d8ffa103-bc70-ea4a-b616-05a37c614ebd"
+}

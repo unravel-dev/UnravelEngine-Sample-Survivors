@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Barrowlight HUD</title>
+    <link type="text/rcss" href="engine:/data/ui/rml.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/theme.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/Hud.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/phone.rcss"/>
+</head>
+<!--
+    The in-run HUD. Model "hud" is HudModel (HudScreen.cs): slots, level, time, kills, gold, the active
+    ability, and the events of the slots and buttons. The XP bar, the cooldown sweep and the pops are written by
+    HudScreen directly. The body ignores the pointer (the world gets clicks and touches) except the active and
+    pause buttons and the filled slots: a tap / click on a slot or on the active's "?" badge pauses and opens the
+    item details; the active fires on press (mousedown), not on release.
+-->
+<body data-model="hud" class="hud">
+    <div class="safe">
+        <div id="xp-row">
+            <div id="level-badge">
+                <div id="level-label">LV</div>
+                <div id="level" class="number">{{ level }}</div>
+            </div>
+            <div id="xp-frame">
+                <progress id="xp" direction="right" value="0"/>
+                <div id="xp-flash" class="flash-layer"/>
+            </div>
+        </div>
+
+        <div id="top-center">
+            <div id="timer" class="number">{{ time }}</div>
+            <div id="kills-wrap" class="row">
+                <img class="glyph" src="app:/data/UI/Icons/skull.png"/>
+                <span id="kills" class="number">{{ kills }}</span>
+            </div>
+        </div>
+
+        <div id="top-right" class="row">
+            <div id="gold-wrap" class="row">
+                <img class="glyph" src="app:/data/UI/Icons/gold.png"/>
+                <span id="gold" class="number">{{ gold }}</span>
+            </div>
+            <div id="pause-btn" data-event-click="Pause()">
+                <img src="app:/data/UI/Glyphs/pause.png"/>
+            </div>
+        </div>
+
+        <div id="slots">
+            <div class="slot-group">
+            <div class="slot weapon" data-for="s, i : weapons" data-class-empty="!s.filled" data-class-evolved="s.evolved" data-class-ready="s.canEvolve" data-event-click="OpenWeapon(i)">
+                <div class="slot-frame">
+                    <img class="slot-icon" data-if="s.filled" data-attr-src="s.icon"/>
+                    <div class="ready-ring"/>
+                    <div class="evo-tag" data-if="s.evolved">E</div>
+                </div>
+                <div class="pips" data-if="s.showPips">
+                    <div class="pip" data-for="p : s.pips" data-class-on="p"><span class="fill-marker"/></div>
+                </div>
+            </div>
+            </div>
+            <div id="passive-slots" class="slot-group">
+            <div class="slot passive" data-for="s, i : passives" data-class-empty="!s.filled" data-event-click="OpenPassive(i)">
+                <div class="slot-frame">
+                    <img class="slot-icon" data-if="s.filled" data-attr-src="s.icon"/>
+                </div>
+                <div class="pips" data-if="s.showPips">
+                    <div class="pip" data-for="p : s.pips" data-class-on="p"><span class="fill-marker"/></div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="active">
+            <div id="active-ring"/>
+            <div id="active-frame" data-event-mousedown="UseActive()">
+                <img id="active-icon" data-attr-src="activeIcon"/>
+                <progress id="active-sweep" direction="clockwise" value="0"/>
+            </div>
+            <div id="active-key">
+                <span class="keycap kbd-only">SPACE</span>
+                <img class="padglyph pad-only" src="app:/data/UI/Glyphs/buttonA.png"/>
+            </div>
+            <div id="active-info" data-event-click="OpenActive()"><span>?</span></div>
+        </div>
+    </div>
+</body>
+</html>

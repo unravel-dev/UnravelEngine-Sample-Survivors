@@ -1,0 +1,225 @@
+/* Results. Lengths in rem. */
+
+/* A .fill (theme.rcss): spans the safe area so rows can anchor to its bottom. */
+#intro {
+	animation: 0.5s cubic-out screen-in;
+}
+
+#victory-glow { visibility: hidden; }
+#victory-glow.on {
+	visibility: visible;
+	decorator: radial-gradient(circle at 50% 10%, #ffc94c40, #ffc94c00 60%);
+	animation: 2s sine-in-out infinite alternate pulse-opacity;
+}
+
+/* A .screen-header (theme.rcss). */
+#res-banner {
+	top: 5rem;
+	animation: 0.7s back-out banner-drop;
+}
+
+@keyframes banner-drop {
+	0% { opacity: 0; transform: scale(1.5); }
+	100% { opacity: 1; transform: scale(1); }
+}
+
+#res-title {
+	font-family: "GT Display";
+	font-size: 8rem;
+	letter-spacing: 1rem;
+	color: #ff8a6a;
+	font-effect: outline(3dp #1a0505), glow(0dp 18dp 0dp 0dp #ff2a1a90);
+}
+
+#res-banner.victory #res-title {
+	color: #ffd98a;
+	font-effect: outline(3dp #1a0d05), glow(0dp 18dp 0dp 0dp #ffb83aa0);
+}
+
+#res-sub {
+	font-family: "GT Semi";
+	font-size: 1.8rem;
+	letter-spacing: 0.4rem;
+	color: #a99f8f;
+}
+
+#tiles {
+	position: absolute;
+	top: 21rem;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.tile {
+	width: 21rem;
+	margin: 0 1rem;
+	padding: 1.2rem 0 1.4rem 0;
+	text-align: center;
+	decorator: vertical-gradient(#1e1828e8 #0c0a11f0);
+	border: 1dp #4a3e2c;
+	border-radius: 0.8rem;
+}
+
+.tile .glyph { width: 3.2rem; height: 3.2rem; }
+
+.tile-value {
+	font-family: "GT Display";
+	font-size: 3.4rem;
+	color: #ffffff;
+	font-effect: outline(2dp #08060c);
+}
+
+.gold-tile .tile-value { color: #ffd98a; }
+
+.tile-label {
+	font-family: "GT Heavy";
+	font-size: 1.2rem;
+	letter-spacing: 0.3rem;
+	color: #8a7d66;
+}
+
+#table-panel {
+	position: absolute;
+	top: 37rem;
+	left: 50%;
+	width: 100rem;
+	margin-left: -50rem;
+	padding: 1.6rem 2.4rem;
+}
+
+.table-row {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 4.2rem;
+	border-bottom: 1dp #ffffff10;
+}
+
+.table-head {
+	height: 2.8rem;
+	font-family: "GT Heavy";
+	font-size: 1.2rem;
+	letter-spacing: 0.2rem;
+	color: #c9a45c;
+}
+
+.c-name {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-family: "GT Heavy";
+	font-size: 1.6rem;
+}
+
+.table-head .c-name { font-size: 1.2rem; }
+
+.c-num {
+	width: 14rem;
+	text-align: right;
+	font-family: "GT Heavy";
+	font-size: 1.6rem;
+	color: #ece4d4;
+}
+
+.table-head .c-num { font-size: 1.2rem; color: #c9a45c; }
+
+.t-icon { width: 3.4rem; height: 3.4rem; margin-right: 1rem; }
+.c-name .own { margin-left: 1rem; }
+
+.share {
+	position: absolute;
+	left: 4.4rem;
+	right: 0;
+	bottom: 0.2rem;
+	height: 0.3rem;
+}
+
+.share-fill {
+	height: 0.3rem;
+	decorator: horizontal-gradient(#c08a2e #ffd27a);
+	border-radius: 0.15rem;
+}
+
+.table-row.top .c-name { color: #ffd98a; }
+.table-row.evolved .c-name { color: #ffc94c; }
+
+#res-extra {
+	margin-top: 1rem;
+	font-size: 1.4rem;
+	color: #a99f8f;
+	text-align: center;
+}
+
+#res-news {
+	position: absolute;
+	top: 81rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-family: "GT Heavy";
+	font-size: 1.8rem;
+	letter-spacing: 0.2rem;
+	color: #7fe39a;
+	visibility: hidden;
+}
+
+#res-news.has { visibility: visible; animation: 0.6s back-out banner-drop; }
+
+#res-actions {
+	position: absolute;
+	top: 87rem;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#res-actions .btn { margin: 0 1rem; min-width: 18rem; }
+
+body.short #res-banner { top: 1.5rem; }
+body.short #res-title { font-size: 6rem; }
+body.short #tiles { top: 13rem; }
+body.short #table-panel { top: 25.5rem; }
+body.short .table-row { height: 3.4rem; }
+body.short #res-news { top: 67rem; }
+body.short #res-actions { top: 72rem; }
+body.compact #table-panel { width: 88rem; margin-left: -44rem; }
+body.compact .c-num { width: 11rem; }
+
+/* ---------- phone: compact tiles, scrolling table, buttons at the bottom ---------- */
+
+body.phone #table-panel .corner { display: none; }
+body.phone #res-banner { top: 0.6rem; }
+body.phone #res-title { font-size: 4.6rem; letter-spacing: 0.6rem; }
+body.phone #res-sub { font-size: 1.7rem; }
+body.phone #tiles { top: 8.6rem; }
+body.phone .tile { width: 22rem; margin: 0 0.6rem; padding: 0.6rem 0 0.8rem 0; }
+body.phone .tile .glyph { display: none; }
+body.phone .tile-value { font-size: 2.8rem; }
+body.phone .tile-label { font-size: 1.5rem; }
+body.phone #table-panel {
+	top: 16.6rem;
+	bottom: 11.6rem;
+	left: 3%;
+	right: 3%;
+	width: auto;
+	margin-left: 0;
+	padding: 1rem 1.6rem;
+	overflow-y: auto;
+}
+body.phone .table-row { height: 4rem; }
+body.phone .table-head { height: 2.8rem; font-size: 1.5rem; }
+body.phone .c-name { font-size: 1.9rem; flex-wrap: wrap; }
+body.phone .c-num { width: 12rem; font-size: 1.9rem; }
+body.phone .table-head .c-name, body.phone .table-head .c-num { font-size: 1.5rem; }
+body.phone .t-icon { width: 3.2rem; height: 3.2rem; }
+body.phone #res-extra { font-size: 1.7rem; }
+body.phone #res-news { top: auto; bottom: 8.6rem; font-size: 1.8rem; }
+body.phone #res-actions { top: auto; bottom: 1rem; left: 2rem; right: 2rem; }
+body.phone #res-actions .btn { flex: 1 1 0; min-width: 0; margin: 0 0.6rem; padding-left: 0.8rem; padding-right: 0.8rem; }

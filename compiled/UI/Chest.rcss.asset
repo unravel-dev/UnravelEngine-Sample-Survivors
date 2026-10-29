@@ -1,0 +1,186 @@
+/* Chest reel. Lengths in rem. */
+
+/* A .screen-header (theme.rcss). */
+#chest-header {
+	top: 11rem;
+}
+
+#chest-icon {
+	display: block;
+	width: 9.6rem;
+	height: 9.6rem;
+	margin: 0 auto 0.4rem auto;
+	animation: 0.5s back-out chest-pop;
+}
+
+@keyframes chest-pop {
+	0% { transform: scale(0.4) rotate(-12deg); }
+	60% { transform: scale(1.2) rotate(6deg); }
+	100% { transform: scale(1) rotate(0deg); }
+}
+
+#reels {
+	position: absolute;
+	top: 36rem;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.reel {
+	width: 18rem;
+	margin: 0 1.2rem;
+	text-align: center;
+}
+
+/* The reel's frame class (r-common...) colours this border once it lands (.rarity-border, theme.rcss). */
+.reel-window {
+	position: relative;
+	width: 15rem;
+	height: 15rem;
+	margin: 0 auto;
+	decorator: vertical-gradient(#1a1422 #0a080e);
+	border: 3dp #4a3e2c;
+	border-radius: 1.4rem;
+	box-shadow: #000000d0 0 1rem 3rem 0, #00000090 0 0 1.6rem 0 inset;
+}
+
+.reel-glow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 1.2rem;
+	visibility: hidden;
+}
+
+.reel-icon {
+	position: absolute;
+	left: 1.1rem;
+	top: 1.1rem;
+	width: 12.8rem;
+	height: 12.8rem;
+}
+
+/* A .flash-layer (theme.rcss), shown when the reel lands. */
+.reel-flash {
+	border-radius: 1.2rem;
+	background-color: #ffffff;
+	visibility: hidden;
+}
+
+.reel.landed .reel-flash { visibility: visible; animation: 0.4s cubic-out reel-flash; }
+.reel.landed .reel-window { animation: 0.35s back-out reel-thunk; }
+.reel.landed .reel-glow { visibility: visible; }
+
+@keyframes reel-flash {
+	0% { opacity: 0.95; }
+	100% { opacity: 0; }
+}
+
+@keyframes reel-thunk {
+	0% { transform: scale(1.18); }
+	100% { transform: scale(1); }
+}
+
+.reel.r-common .reel-glow { decorator: radial-gradient(circle at 50% 50%, #b8b8b840, #b8b8b800 70%); }
+.reel.r-uncommon .reel-glow { decorator: radial-gradient(circle at 50% 50%, #4ccb6a50, #4ccb6a00 70%); }
+.reel.r-rare .reel-glow { decorator: radial-gradient(circle at 50% 50%, #4c8dff60, #4c8dff00 70%); }
+.reel.r-epic .reel-glow { decorator: radial-gradient(circle at 50% 50%, #b05cff70, #b05cff00 70%); }
+.reel.r-boon .reel-glow { decorator: radial-gradient(circle at 50% 50%, #6fdcb460, #6fdcb400 70%); }
+.reel.r-evolution .reel-glow {
+	decorator: radial-gradient(circle at 50% 50%, #ffc94c90, #ffc94c00 72%);
+	animation: 0.8s sine-in-out infinite alternate pulse-opacity;
+}
+
+.reel-name {
+	margin-top: 1.2rem;
+	font-family: "GT Display";
+	font-size: 1.9rem;
+	color: #ffffff;
+	font-effect: outline(2dp #08060c);
+	visibility: hidden;
+}
+
+.reel-tag {
+	margin-top: 0.3rem;
+	font-family: "GT Heavy";
+	font-size: 1.3rem;
+	letter-spacing: 0.2rem;
+	color: #a99f8f;
+	visibility: hidden;
+}
+
+.reel-own {
+	margin-top: 0.5rem;
+	height: 2.6rem;
+	visibility: hidden;
+}
+
+.reel.landed .reel-name, .reel.landed .reel-tag, .reel.landed .reel-own { visibility: visible; }
+.reel.r-evolution .reel-tag { color: #ffc94c; }
+
+#chest-gold {
+	position: absolute;
+	top: 64rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+	visibility: hidden;
+}
+
+#chest-gold .glyph { width: 3.6rem; height: 3.6rem; margin-right: 0.8rem; }
+
+#chest-gold-text {
+	font-size: 3.6rem;
+	color: #ffd98a;
+}
+
+body.done #chest-gold { visibility: visible; animation: 0.3s back-out chest-pop; }
+
+#chest-footer {
+	position: absolute;
+	top: 72rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+#chest-continue {
+	display: inline-block;
+	min-width: 26rem;
+	visibility: hidden;
+}
+
+body.done #chest-continue { visibility: visible; }
+
+#chest-hint {
+	margin-top: 1.6rem;
+	font-size: 1.5rem;
+	letter-spacing: 0.2rem;
+	color: #a99f8f;
+}
+
+body.done #chest-hint { visibility: hidden; }
+
+/* ---------- phone: smaller reels, gold and Continue moved up ---------- */
+
+body.phone #chest-header { top: 1rem; }
+body.phone #chest-icon { display: none; }
+body.phone #chest-title { font-size: 3.6rem; }
+body.phone #chest-sub { display: none; }
+body.phone #reels { top: 7rem; }
+body.phone .reel { width: 19rem; margin: 0 0.5rem; }
+body.phone .reel-window { width: 13rem; height: 13rem; }
+body.phone .reel-icon { left: 0.9rem; top: 0.9rem; width: 11rem; height: 11rem; }
+body.phone .reel-name { margin-top: 0.8rem; font-size: 2rem; }
+body.phone .reel-tag { font-size: 1.7rem; }
+body.phone .reel-own { height: 3.2rem; }
+body.phone #chest-gold { top: 32rem; }
+body.phone #chest-gold-text { font-size: 3rem; }
+body.phone #chest-gold .glyph { width: 3rem; height: 3rem; }
+body.phone #chest-footer { top: auto; bottom: 1rem; }
+body.phone #chest-hint { margin-top: 1rem; font-size: 1.9rem; }

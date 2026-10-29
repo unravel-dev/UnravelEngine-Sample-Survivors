@@ -1,0 +1,313 @@
+/* Hero select. Lengths in rem. */
+
+/* A .fill (theme.rcss): spans the safe area so rows can anchor to its bottom. */
+#intro {
+	animation: 0.4s cubic-out screen-in;
+}
+
+/* A .screen-header (theme.rcss). */
+#hs-header {
+	top: 5rem;
+}
+
+#hero-row {
+	position: absolute;
+	top: 16rem;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.hero-card {
+	position: relative;
+	width: 36rem;
+	height: 72rem;
+	margin: 0 1.1rem;
+	padding: 1.4rem;
+	decorator: vertical-gradient(#1e1828f4 #0c0a11f8);
+	border: 2dp #4a3e2c;
+	border-radius: 1.2rem;
+	box-shadow: #000000c0 0 1.2rem 3rem 0;
+	transition: transform 0.15s cubic-out;
+}
+
+.hero-card:hover, body.show-focus .hero-card.nav-focus { transform: translateY(-0.8rem); border-color: #8a7040; }
+
+.hero-card.selected {
+	border-color: #ffc94c;
+	box-shadow: #000000c0 0 1.2rem 3rem 0, #ffc94c60 0 0 2.4rem 0.2rem;
+	transform: translateY(-1.2rem);
+}
+
+.hero-portrait {
+	position: relative;
+	width: 33.2rem;
+	height: 26rem;
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 1dp #6b553080;
+}
+
+.portrait {
+	position: absolute;
+	left: 0;
+	top: -3.6rem;
+	width: 33.2rem;
+	height: 33.2rem;
+}
+
+.hero-card.locked .portrait { filter: grayscale(1) brightness(0.45); }
+
+.hero-lock {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 9.6rem;
+	height: 9.6rem;
+	margin-left: -4.8rem;
+	margin-top: -4.8rem;
+}
+
+.hero-lock img { display: block; width: 100%; height: 100%; }
+
+.hero-skulls {
+	position: absolute;
+	right: 0.8rem;
+	top: 0.8rem;
+	display: flex;
+	flex-direction: row;
+}
+
+.hero-skulls .skull { width: 2.4rem; height: 2.4rem; margin-left: 0.2rem; decorator: image("app:/data/UI/Icons/dread.png"); image-color: #ffffff40; }
+.hero-skulls .skull.on { image-color: #ffffffff; }
+
+.hero-name {
+	margin-top: 1.2rem;
+	font-family: "GT Display";
+	font-size: 3.2rem;
+	letter-spacing: 0.3rem;
+	text-align: center;
+	color: #ffffff;
+	font-effect: outline(2dp #08060c);
+}
+
+.hero-card.selected .hero-name { color: #ffd98a; }
+
+.hero-title {
+	font-family: "GT Semi";
+	font-size: 1.4rem;
+	letter-spacing: 0.3rem;
+	text-align: center;
+	color: #a99f8f;
+	margin-bottom: 1rem;
+}
+
+.stat-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 2.2rem;
+}
+
+.stat-label {
+	width: 8rem;
+	font-family: "GT Heavy";
+	font-size: 1.2rem;
+	letter-spacing: 0.15rem;
+	color: #c9a45c;
+}
+
+.segs {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: row;
+}
+
+.seg {
+	flex: 1 1 auto;
+	height: 0.9rem;
+	margin-right: 0.25rem;
+	background-color: #2a2430;
+	border-radius: 0.2rem;
+}
+
+.seg.on { decorator: horizontal-gradient(#c08a2e #ffd27a); }
+
+.stat-value {
+	width: 6.4rem;
+	text-align: right;
+	font-family: "GT Heavy";
+	font-size: 1.4rem;
+	color: #ece4d4;
+}
+
+.hero-abilities { margin-top: 1rem; }
+
+.ability {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin-top: 0.9rem;
+}
+
+.ability-icon {
+	width: 4.4rem;
+	height: 4.4rem;
+	margin-right: 1rem;
+	flex: 0 0 auto;
+}
+
+.ability-body { flex: 1 1 auto; }
+
+.ability-kind {
+	font-family: "GT Heavy";
+	font-size: 1.05rem;
+	letter-spacing: 0.2rem;
+	color: #8a7d66;
+}
+
+.ability-name {
+	font-family: "GT Heavy";
+	font-size: 1.5rem;
+	color: #ffd98a;
+}
+
+.ability-text {
+	font-size: 1.25rem;
+	line-height: 1.7rem;
+	color: #c8bfaf;
+}
+
+.hero-hint {
+	margin-top: 2.4rem;
+	padding: 1.4rem;
+	text-align: center;
+	border: 1dp #6b553060;
+	border-radius: 0.8rem;
+	background-color: #00000060;
+}
+
+.hint-title {
+	font-family: "GT Display";
+	font-size: 1.8rem;
+	letter-spacing: 0.4rem;
+	color: #a99f8f;
+}
+
+.hint-text {
+	margin-top: 0.6rem;
+	font-size: 1.5rem;
+	color: #ece4d4;
+}
+
+.hint-progress {
+	margin-top: 0.4rem;
+	font-size: 1.3rem;
+	color: #c9a45c;
+}
+
+.hero-best {
+	position: absolute;
+	left: 1.4rem;
+	right: 1.4rem;
+	bottom: 1.2rem;
+	text-align: center;
+	font-size: 1.2rem;
+	color: #8a7d66;
+}
+
+#hs-bottom {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 92rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#hs-bottom .btn { margin: 0 1.4rem; }
+#hs-start { min-width: 30rem; }
+#hs-start.disabled { color: #6e6676; }
+
+#dread {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0 2rem;
+}
+
+.dread-step { width: 4.6rem; padding-left: 0; padding-right: 0; }
+
+#dread-value {
+	width: 22rem;
+	text-align: center;
+}
+
+#dread-label {
+	font-family: "GT Display";
+	font-size: 2rem;
+	letter-spacing: 0.3rem;
+	color: #ff8a6a;
+}
+
+#dread-text { font-size: 1.2rem; color: #a99f8f; }
+
+/* Short screens (phones): smaller portraits, no ability texts. */
+body.short #hs-header { top: 2rem; }
+body.short #hero-row { top: 10rem; }
+body.short .hero-card { height: 62rem; }
+body.short .hero-portrait { height: 20rem; }
+body.short .ability-text { display: none; }
+body.short #hs-bottom { top: 74rem; }
+/* 4:3 screens: narrower cards. */
+body.compact .hero-card { width: 32rem; margin: 0 0.6rem; }
+body.compact .hero-portrait { width: 29.2rem; }
+body.compact .portrait { width: 29.2rem; height: 29.2rem; top: -2rem; }
+
+/* ---------- phone: four compact cards, sized to their content, centered ---------- */
+
+body.phone #hs-header { top: 0.8rem; }
+body.phone #hs-header .heading { font-size: 3.2rem; }
+body.phone #hs-header .subheading { display: none; }
+body.phone #hero-row { top: 6.4rem; left: 1rem; right: 1rem; align-items: flex-start; }
+body.phone .hero-card {
+	width: 25rem;
+	height: auto;
+	margin: 0 0.7rem;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+body.phone .hero-card.selected, body.phone .hero-card:hover, body.phone.show-focus .hero-card.nav-focus { transform: none; }
+body.phone .hero-portrait { width: 100%; height: 8.5rem; overflow: visible; border-width: 0; }
+body.phone .portrait { left: 50%; top: 0; width: 8.5rem; height: 8.5rem; margin-left: -4.25rem; }
+body.phone .hero-lock { width: 7rem; height: 7rem; margin-left: -3.5rem; margin-top: -3.5rem; }
+body.phone .hero-skulls .skull { width: 2rem; height: 2rem; }
+body.phone .hero-name { margin: 0.5rem 0 0.3rem 0; font-size: 2.2rem; letter-spacing: 0.1rem; }
+body.phone .hero-title { display: none; }
+body.phone .stat-row { height: 2.4rem; }
+body.phone .stat-label { width: 7.4rem; font-size: 1.5rem; }
+body.phone.heroes .stat-value { display: none; }
+body.phone .segs .seg { height: 1rem; }
+body.phone .hero-abilities { margin-top: 0.4rem; }
+body.phone .ability { margin-top: 0.6rem; align-items: center; }
+body.phone .ability-icon { width: 3.2rem; height: 3.2rem; margin-right: 0.7rem; }
+body.phone .ability-kind { display: none; }
+body.phone .ability-name { font-size: 1.6rem; }
+body.phone .ability-text { display: none; }
+body.phone .hero-hint { margin-top: 1rem; padding: 0.8rem; }
+body.phone .hint-title { font-size: 2rem; }
+body.phone .hint-text { font-size: 1.7rem; }
+body.phone .hint-progress { font-size: 1.6rem; }
+body.phone .hero-best { display: none; }
+body.phone #hs-bottom { top: auto; bottom: 1rem; }
+body.phone #hs-bottom .btn { margin: 0 1rem; }
+body.phone #hs-start { min-width: 26rem; }
+body.phone .dread-step { width: 6.8rem; }
+body.phone #dread { margin: 0 1rem; }
+body.phone #dread-value { width: 17rem; }
+body.phone #dread-label { font-size: 2rem; }
+body.phone #dread-text { display: none; }

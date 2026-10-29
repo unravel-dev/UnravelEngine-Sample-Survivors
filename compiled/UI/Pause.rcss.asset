@@ -1,0 +1,161 @@
+/* Pause and build summary. Lengths in rem. */
+
+/* A .fill (theme.rcss): spans the safe area so rows can anchor to its bottom. */
+#intro {
+	animation: 0.3s cubic-out screen-in;
+}
+
+/* A .screen-header (theme.rcss). */
+#pause-header {
+	top: 6rem;
+}
+
+#pause-body {
+	position: absolute;
+	top: 17rem;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+#build { width: 62rem; margin-right: 2rem; }
+#stats { width: 40rem; margin-right: 2rem; }
+
+.section { display: block; margin: 0.4rem 0 1rem 0; }
+.section.second { margin-top: 1.6rem; }
+
+.weapon-row, .passive-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 0.8rem;
+}
+
+.row-icon {
+	width: 5rem;
+	height: 5rem;
+	margin-right: 1.2rem;
+	flex: 0 0 auto;
+}
+
+.row-icon.small { width: 3.8rem; height: 3.8rem; margin-right: 1rem; }
+
+.row-body { flex: 1 1 auto; }
+
+.row-top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.row-name {
+	flex: 1 1 auto;
+	font-family: "GT Heavy";
+	font-size: 1.7rem;
+	color: #ffffff;
+}
+
+.row-top .own { margin: 0 1rem; }
+
+.row-rank {
+	font-family: "GT Display";
+	font-size: 1.4rem;
+	letter-spacing: 0.1rem;
+	color: #c9a45c;
+}
+
+.weapon-row.evolved .row-rank { color: #ffc94c; }
+.weapon-row.evolved .row-name { color: #ffd98a; }
+
+.row-line {
+	font-size: 1.35rem;
+	color: #a99f8f;
+}
+
+#passive-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.passive-row {
+	width: 28rem;
+	margin-right: 1.4rem;
+}
+
+.empty-note { font-size: 1.4rem; color: #6e6676; }
+
+.stat-line {
+	display: flex;
+	flex-direction: row;
+	min-height: 2.5rem;
+	padding: 0.2rem 0;
+	align-items: center;
+	border-bottom: 1dp #ffffff10;
+}
+
+.stat-name {
+	flex: 1 1 auto;
+	font-size: 1.4rem;
+	color: #c8bfaf;
+}
+
+.stat-value {
+	margin-left: 1rem;
+	text-align: right;
+	font-family: "GT Heavy";
+	font-size: 1.5rem;
+	color: #ece4d4;
+}
+
+.stat-line.boosted .stat-value { color: #7fe39a; }
+
+#pause-actions {
+	width: 28rem;
+	display: flex;
+	flex-direction: column;
+}
+
+#pause-actions .btn { margin-bottom: 1.4rem; }
+#abandon.confirm { color: #ffd0c8; border-color: #ff6a50; decorator: vertical-gradient(#4a1a18 #24100e); }
+
+#pause-damage {
+	margin-top: 1rem;
+	font-size: 1.3rem;
+	line-height: 1.9rem;
+}
+
+body.short #pause-header { top: 2rem; }
+body.short #pause-body { top: 11rem; }
+body.short .stat-line { height: 2.1rem; }
+body.short .weapon-row { margin-bottom: 0.4rem; }
+body.compact #build { width: 52rem; }
+body.compact .passive-row { width: 23rem; }
+body.compact #stats { width: 34rem; }
+body.compact #pause-actions { width: 22rem; }
+
+/* ---------- phone: three columns; long lists scroll ---------- */
+
+body.phone #pause-header { top: 0.6rem; }
+body.phone #pause-header .heading { font-size: 3.2rem; }
+body.phone #pause-header .subheading { font-size: 1.7rem; }
+body.phone #pause-body { top: 8.2rem; bottom: 1rem; align-items: stretch; }
+body.phone #build { width: 44%; height: 100%; box-sizing: border-box; margin-right: 1.2rem; overflow-y: auto; }
+body.phone #stats { width: 31%; height: 100%; box-sizing: border-box; margin-right: 1.2rem; overflow-y: auto; }
+body.phone #build .corner, body.phone #stats .corner { display: none; }
+body.phone #pause-actions { width: 21%; }
+body.phone #pause-actions .btn { margin-bottom: 1rem; padding-left: 1rem; padding-right: 1rem; }
+body.phone .row-icon { width: 5rem; height: 5rem; margin-right: 1rem; }
+body.phone .row-icon.small { width: 4.4rem; height: 4.4rem; }
+body.phone .row-top { flex-wrap: wrap; }
+body.phone .row-name { font-size: 2rem; }
+body.phone .row-rank { font-size: 1.7rem; }
+body.phone .row-line { font-size: 1.7rem; }
+body.phone .passive-row { width: 100%; margin-right: 0; }
+body.phone.pause .stat-line { min-height: 3rem; }
+body.phone.pause .stat-name { font-size: 1.8rem; }
+body.phone.pause .stat-value { font-size: 1.9rem; }
+body.phone #pause-damage { font-size: 1.7rem; line-height: 2.3rem; }

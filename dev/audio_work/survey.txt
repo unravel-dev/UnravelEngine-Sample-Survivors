@@ -1,0 +1,699 @@
+﻿sfx_80_rpg/extracted/blade_01.ogg                                                 0.29s pk   -1.0 L  -14.8 c   6213Hz
+sfx_80_rpg/extracted/blade_02.ogg                                                 0.31s pk   -0.3 L  -14.3 c   7137Hz
+sfx_80_rpg/extracted/blade_03.ogg                                                 0.40s pk   -0.4 L  -16.1 c   6209Hz
+sfx_80_rpg/extracted/book_01.ogg                                                  0.72s pk   -0.5 L  -19.7 c   4538Hz
+sfx_80_rpg/extracted/book_02.ogg                                                  0.88s pk   -5.9 L  -19.6 c   4132Hz
+sfx_80_rpg/extracted/book_03.ogg                                                  1.22s pk   -6.1 L  -17.6 c   5413Hz
+sfx_80_rpg/extracted/book_04.ogg                                                  1.15s pk   -7.0 L  -23.1 c   4239Hz
+sfx_80_rpg/extracted/chain_01.ogg                                                 0.51s pk   -0.9 L  -10.1 c   8848Hz
+sfx_80_rpg/extracted/chain_02.ogg                                                 0.49s pk   -2.8 L  -10.9 c   9055Hz
+sfx_80_rpg/extracted/chain_03.ogg                                                 0.93s pk   -4.3 L  -14.1 c   8643Hz
+sfx_80_rpg/extracted/creature_die_01.ogg                                          1.06s pk   -1.4 L  -12.6 c    365Hz
+sfx_80_rpg/extracted/creature_hurt_01.ogg                                         0.62s pk   -3.3 L  -12.2 c   1109Hz
+sfx_80_rpg/extracted/creature_hurt_02.ogg                                         0.68s pk   -4.0 L  -16.3 c   2638Hz
+sfx_80_rpg/extracted/creature_misc_01.ogg                                         0.26s pk   -5.3 L  -18.1 c   2859Hz
+sfx_80_rpg/extracted/creature_misc_02.ogg                                         0.19s pk   -8.7 L  -21.9 c   4355Hz
+sfx_80_rpg/extracted/creature_misc_03.ogg                                         0.64s pk   -7.6 L  -18.4 c   3428Hz
+sfx_80_rpg/extracted/creature_misc_04.ogg                                         0.55s pk   -6.0 L  -19.7 c   4025Hz
+sfx_80_rpg/extracted/creature_misc_05.ogg                                         0.60s pk   -3.2 L  -15.7 c   2205Hz
+sfx_80_rpg/extracted/creature_misc_06.ogg                                         0.42s pk   -0.1 L  -17.2 c   6989Hz
+sfx_80_rpg/extracted/creature_misc_07.ogg                                         0.35s pk   -8.3 L  -21.1 c   5859Hz
+sfx_80_rpg/extracted/creature_misc_08.ogg                                         0.46s pk   -3.3 L  -19.0 c   5684Hz
+sfx_80_rpg/extracted/creature_monster_01.ogg                                      0.26s pk   -1.8 L  -15.7 c   4611Hz
+sfx_80_rpg/extracted/creature_monster_02.ogg                                      0.24s pk   -1.9 L  -17.1 c   4747Hz
+sfx_80_rpg/extracted/creature_monster_03.ogg                                      0.99s pk  -12.6 L  -23.5 c    409Hz
+sfx_80_rpg/extracted/creature_monster_04.ogg                                      0.72s pk  -11.8 L  -22.7 c    504Hz
+sfx_80_rpg/extracted/creature_roar_01.ogg                                         0.64s pk   -0.5 L   -8.8 c    350Hz
+sfx_80_rpg/extracted/creature_roar_02.ogg                                         1.04s pk   -1.5 L  -14.0 c    463Hz
+sfx_80_rpg/extracted/creature_roar_03.ogg                                         1.16s pk   -0.1 L   -9.8 c    795Hz
+sfx_80_rpg/extracted/creature_slime_01.ogg                                        0.67s pk   -4.1 L  -14.9 c   3960Hz
+sfx_80_rpg/extracted/creature_slime_02.ogg                                        0.74s pk   -2.9 L  -17.3 c   4417Hz
+sfx_80_rpg/extracted/creature_slime_03.ogg                                        0.48s pk   -4.0 L  -15.2 c   4851Hz
+sfx_80_rpg/extracted/creature_slime_04.ogg                                        0.62s pk   -4.2 L  -13.9 c   6877Hz
+sfx_80_rpg/extracted/item_coins_01.ogg                                            0.41s pk    0.4 L  -21.3 c   4590Hz
+sfx_80_rpg/extracted/item_coins_02.ogg                                            0.62s pk   -0.9 L  -19.6 c   3986Hz
+sfx_80_rpg/extracted/item_coins_03.ogg                                            0.48s pk   -1.5 L  -19.6 c   5208Hz
+sfx_80_rpg/extracted/item_coins_04.ogg                                            1.61s pk    0.2 L  -18.9 c   4402Hz
+sfx_80_rpg/extracted/item_gem_01.ogg                                              0.25s pk   -0.1 L  -18.2 c   2817Hz
+sfx_80_rpg/extracted/item_gem_02.ogg                                              0.20s pk   -4.8 L  -25.6 c   4327Hz
+sfx_80_rpg/extracted/item_gem_03.ogg                                              0.29s pk   -0.0 L  -20.9 c   4249Hz
+sfx_80_rpg/extracted/item_gem_04.ogg                                              0.59s pk    0.6 L  -19.2 c   5560Hz
+sfx_80_rpg/extracted/item_misc_01.ogg                                             0.41s pk    0.0 L  -18.4 c   4052Hz
+sfx_80_rpg/extracted/item_misc_02.ogg                                             0.44s pk    0.1 L  -15.0 c   5113Hz
+sfx_80_rpg/extracted/item_misc_03.ogg                                             0.34s pk   -0.3 L  -18.3 c   5969Hz
+sfx_80_rpg/extracted/item_misc_04.ogg                                             0.38s pk   -0.3 L  -17.9 c   5564Hz
+sfx_80_rpg/extracted/item_misc_05.ogg                                             0.39s pk   -2.3 L  -15.0 c   8429Hz
+sfx_80_rpg/extracted/item_misc_06.ogg                                             0.72s pk   -2.2 L  -13.9 c   7356Hz
+sfx_80_rpg/extracted/item_stone_01.ogg                                            0.73s pk   -2.4 L  -18.3 c   2814Hz
+sfx_80_rpg/extracted/item_stone_02.ogg                                            0.30s pk   -1.7 L  -22.5 c   5876Hz
+sfx_80_rpg/extracted/item_stone_03.ogg                                            0.39s pk   -1.8 L  -18.7 c   7091Hz
+sfx_80_rpg/extracted/item_stone_04.ogg                                            0.30s pk   -0.8 L  -18.5 c   7191Hz
+sfx_80_rpg/extracted/item_wood_01.ogg                                             0.54s pk   -0.3 L  -16.1 c   3984Hz
+sfx_80_rpg/extracted/item_wood_02.ogg                                             0.26s pk   -6.8 L  -23.5 c   3359Hz
+sfx_80_rpg/extracted/item_wood_03.ogg                                             0.33s pk   -0.4 L  -14.3 c   4181Hz
+sfx_80_rpg/extracted/lock_01.ogg                                                  0.41s pk   -1.3 L  -20.9 c   6974Hz
+sfx_80_rpg/extracted/lock_02.ogg                                                  0.40s pk    0.4 L  -20.5 c   4909Hz
+sfx_80_rpg/extracted/lock_03.ogg                                                  0.34s pk   -2.8 L  -22.4 c   5308Hz
+sfx_80_rpg/extracted/metal_01.ogg                                                 0.58s pk   -1.2 L  -18.2 c   6590Hz
+sfx_80_rpg/extracted/metal_02.ogg                                                 0.56s pk   -1.3 L  -10.6 c   5987Hz
+sfx_80_rpg/extracted/metal_03.ogg                                                 0.43s pk   -0.1 L  -11.5 c   6129Hz
+sfx_80_rpg/extracted/misc_01.ogg                                                  0.34s pk   -0.0 L  -20.6 c   4565Hz
+sfx_80_rpg/extracted/misc_02.ogg                                                  0.54s pk   -3.2 L  -14.7 c   1214Hz
+sfx_80_rpg/extracted/misc_03.ogg                                                  0.24s pk  -11.7 L  -24.7 c   4152Hz
+sfx_80_rpg/extracted/spell_01.ogg                                                 0.63s pk    0.3 L  -11.2 c   4229Hz
+sfx_80_rpg/extracted/spell_02.ogg                                                 0.55s pk   -0.6 L  -11.0 c   4748Hz
+sfx_80_rpg/extracted/spell_fire_01.ogg                                            1.06s pk  -17.6 L  -31.5 c   4790Hz
+sfx_80_rpg/extracted/spell_fire_02.ogg                                            1.07s pk  -24.2 L  -34.1 c   5000Hz
+sfx_80_rpg/extracted/spell_fire_03.ogg                                            1.93s pk  -14.7 L  -30.7 c   5133Hz
+sfx_80_rpg/extracted/spell_fire_04.ogg                                            1.59s pk  -15.2 L  -32.2 c   4987Hz
+sfx_80_rpg/extracted/spell_fire_05.ogg                                            1.24s pk  -19.5 L  -30.6 c   4104Hz
+sfx_80_rpg/extracted/spell_fire_06.ogg                                            1.00s pk  -11.6 L  -24.3 c   4951Hz
+sfx_80_rpg/extracted/spell_fire_07.ogg                                            0.65s pk  -17.2 L  -26.7 c   2723Hz
+sfx_80_rpg/extracted/stones_01.ogg                                                0.68s pk   -0.2 L  -18.8 c   3218Hz
+sfx_80_rpg/extracted/stones_02.ogg                                                0.78s pk    0.0 L  -18.7 c   3487Hz
+sfx_80_rpg/extracted/stones_03.ogg                                                1.20s pk    0.1 L  -16.8 c   4015Hz
+sfx_80_rpg/extracted/stones_04.ogg                                                0.38s pk   -0.2 L  -15.3 c   4163Hz
+sfx_80_rpg/extracted/wood_01.ogg                                                  0.24s pk   -1.7 L  -20.7 c   5135Hz
+sfx_80_rpg/extracted/wood_02.ogg                                                  0.19s pk   -0.4 L  -21.4 c   3887Hz
+sfx_80_rpg/extracted/wood_03.ogg                                                  0.30s pk    0.1 L  -15.9 c   3302Hz
+sfx_80_rpg/extracted/wood_04.ogg                                                  0.65s pk   -1.1 L  -18.2 c   6195Hz
+sfx_80_rpg/extracted/wood_05.ogg                                                  0.39s pk   -2.2 L  -18.0 c   3053Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/magic1.wav                     0.88s pk   -3.2 L  -12.7 c   2253Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/spell.wav                      3.25s pk   -5.3 L  -15.6 c   1739Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/swing.wav                      0.23s pk   -0.2 L  -17.0 c   1764Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/swing2.wav                     0.15s pk   -0.1 L  -16.9 c   1485Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/swing3.wav                     0.14s pk   -0.3 L  -16.0 c   1941Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/sword-unsheathe.wav            0.54s pk   -2.4 L   -9.8 c   6935Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/sword-unsheathe2.wav           0.37s pk   -1.3 L  -14.1 c   7834Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/sword-unsheathe3.wav           0.51s pk   -3.1 L  -12.0 c   8363Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/sword-unsheathe4.wav           0.48s pk   -2.0 L  -13.0 c   8326Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/battle/sword-unsheathe5.wav           0.42s pk   -3.2 L  -11.0 c   8602Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/interface/interface1.wav              0.19s pk   -0.2 L  -16.6 c   3038Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/interface/interface2.wav              0.45s pk   -0.1 L  -15.4 c   2648Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/interface/interface3.wav              0.45s pk   -0.5 L  -10.4 c   2829Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/interface/interface4.wav              0.41s pk    0.0 L   -9.0 c   2463Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/interface/interface5.wav              0.41s pk    0.0 L   -5.8 c   2660Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/interface/interface6.wav              0.50s pk   -0.3 L  -10.0 c    903Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/armor-light.wav             0.50s pk   -0.6 L  -13.3 c   4380Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/beads.wav                   0.50s pk   -0.4 L  -23.2 c   7684Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/bottle.wav                  0.48s pk   -1.0 L  -12.2 c   3440Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/bubble.wav                  0.46s pk   -0.3 L  -13.6 c   1774Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/bubble2.wav                 0.44s pk   -0.1 L  -14.9 c   1865Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/bubble3.wav                 0.73s pk   -0.2 L  -13.5 c   2123Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/chainmail1.wav              0.58s pk   -1.2 L  -15.7 c   6398Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/chainmail2.wav              0.75s pk   -1.4 L  -13.7 c   5035Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/cloth-heavy.wav             0.41s pk   -1.1 L  -15.2 c   2496Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/cloth.wav                   0.46s pk   -0.1 L  -15.2 c   2086Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/coin.wav                    0.60s pk   -1.6 L  -11.0 c   9136Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/coin2.wav                   1.00s pk   -0.2 L  -13.2 c   7278Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/coin3.wav                   0.31s pk   -2.2 L  -15.1 c   7228Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/metal-ringing.wav           0.52s pk   -0.5 L   -8.2 c   6295Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/metal-small1.wav            0.53s pk   -3.0 L  -19.1 c   6576Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/metal-small2.wav            0.33s pk   -0.3 L  -16.9 c   6588Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/metal-small3.wav            0.46s pk   -2.7 L  -17.4 c   7365Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/inventory/wood-small.wav              0.31s pk   -0.1 L  -13.7 c   5303Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/burp.wav                         1.21s pk   -0.4 L  -10.2 c    663Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/random1.wav                      0.99s pk   -0.1 L   -4.7 c   2963Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/random2.wav                      0.42s pk   -3.7 L  -15.3 c   5399Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/random3.wav                      0.40s pk   -4.9 L  -15.7 c   6668Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/random4.wav                      0.69s pk   -3.6 L  -16.1 c   6397Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/random5.wav                      0.39s pk   -1.4 L  -15.9 c   2517Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/misc/random6.wav                      0.50s pk   -1.1 L  -13.5 c   3174Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/beetle/bite-small.wav             0.38s pk   -3.8 L  -17.0 c   4733Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/beetle/bite-small2.wav            0.35s pk   -2.3 L  -19.8 c   4672Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/beetle/bite-small3.wav            0.52s pk   -2.7 L  -17.5 c   5447Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/giant/giant1.wav                  0.65s pk   -1.2 L  -12.4 c   1158Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/giant/giant2.wav                  0.93s pk   -1.0 L  -11.5 c    976Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/giant/giant3.wav                  0.62s pk   -1.5 L  -15.3 c   1575Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/giant/giant4.wav                  0.54s pk   -0.6 L  -10.3 c   1182Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/giant/giant5.wav                  0.71s pk   -0.8 L  -10.9 c   1041Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr1.wav         0.44s pk   -0.5 L  -14.0 c   1516Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr10.wav        0.54s pk   -0.4 L  -14.1 c   2045Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr11.wav        0.75s pk   -0.4 L  -14.0 c   2022Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr12.wav        0.44s pk   -0.5 L  -13.6 c   2136Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr13.wav        0.54s pk   -0.7 L  -14.1 c   2199Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr14.wav        1.06s pk   -0.7 L  -14.1 c   2132Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr15.wav        0.38s pk   -2.5 L  -14.5 c   1908Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr2.wav         0.50s pk   -0.5 L  -14.1 c   1485Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr3.wav         0.54s pk   -0.8 L  -13.8 c   1623Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr4.wav         0.70s pk   -2.2 L  -16.2 c   1604Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr5.wav         0.92s pk   -1.4 L  -13.4 c   1944Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr6.wav         0.71s pk   -2.7 L  -13.9 c   1945Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr7.wav         0.65s pk   -1.5 L  -12.9 c   2165Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr8.wav         0.58s pk   -3.1 L  -15.6 c   2509Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/gutteral beast/mnstr9.wav         0.75s pk   -1.4 L  -13.4 c   1601Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/misc/wolfman.wav                  0.41s pk   -1.4 L  -11.8 c   2425Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/ogre/ogre1.wav                    0.40s pk   -0.9 L  -12.8 c   1500Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/ogre/ogre2.wav                    0.59s pk   -0.8 L  -11.4 c   1687Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/ogre/ogre3.wav                    0.58s pk   -0.7 L  -12.0 c   1501Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/ogre/ogre4.wav                    0.58s pk   -0.6 L  -11.8 c   1997Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/ogre/ogre5.wav                    0.34s pk   -0.9 L  -14.7 c   1352Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade1.wav                  0.53s pk   -1.2 L  -13.4 c   1945Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade10.wav                 1.01s pk   -1.2 L  -12.5 c   2526Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade11.wav                 1.12s pk   -0.8 L  -10.9 c   2487Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade12.wav                 1.31s pk   -1.1 L  -11.1 c   2108Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade13.wav                 1.15s pk   -0.7 L  -11.1 c   2345Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade14.wav                 0.56s pk   -0.4 L  -11.8 c   2702Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade15.wav                 0.65s pk   -0.4 L  -11.8 c   2691Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade2.wav                  0.55s pk   -1.8 L  -13.5 c   1841Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade3.wav                  0.59s pk   -0.3 L  -12.4 c   1844Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade4.wav                  0.67s pk   -0.3 L  -12.4 c   1852Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade5.wav                  0.67s pk   -1.2 L  -14.4 c   2390Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade6.wav                  1.10s pk   -1.2 L  -13.2 c   2524Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade7.wav                  1.24s pk   -1.4 L  -12.1 c   1970Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade8.wav                  1.64s pk   -0.9 L  -13.2 c   2414Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/shade/shade9.wav                  1.56s pk   -0.7 L  -11.3 c   2147Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime1.wav                  0.28s pk   -2.1 L  -19.6 c   3508Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime10.wav                 0.35s pk   -1.6 L  -17.5 c   3369Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime2.wav                  0.32s pk   -1.3 L  -22.0 c   4385Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime3.wav                  0.25s pk   -0.9 L  -22.5 c   4184Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime4.wav                  0.28s pk   -3.9 L  -20.9 c   3287Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime5.wav                  0.28s pk   -1.3 L  -17.1 c   3019Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime6.wav                  0.42s pk   -0.9 L  -18.7 c   3012Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime7.wav                  0.35s pk   -4.6 L  -20.9 c   3346Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime8.wav                  0.56s pk   -1.5 L  -18.1 c   3905Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/NPC/slime/slime9.wav                  0.49s pk   -1.9 L  -18.1 c   3814Hz
+sfx_rpg_sound_pack/extracted/RPG Sound Pack/world/door.wav                        1.00s pk   -0.7 L  -14.7 c   3938Hz
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._magic1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._magic1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._spell.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._spell.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._swing.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._swing.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._swing2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._swing2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._swing3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._swing3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\battle\._sword-unsheathe5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface6.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\interface\._interface6.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._armor-light.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._armor-light.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._beads.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._beads.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bottle.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bottle.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bubble.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bubble.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bubble2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bubble2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bubble3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._bubble3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._chainmail1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._chainmail1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._chainmail2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._chainmail2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._cloth-heavy.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._cloth-heavy.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._cloth.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._cloth.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._coin.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._coin.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._coin2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._coin2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._coin3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._coin3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-ringing.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-ringing.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-small1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-small1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-small2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-small2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-small3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._metal-small3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._wood-small.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\inventory\._wood-small.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._burp.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._burp.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random6.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\misc\._random6.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\beetle\._bite-small.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\beetle\._bite-small.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\beetle\._bite-small2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\beetle\._bite-small2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\beetle\._bite-small3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\beetle\._bite-small3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\giant\._giant5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr10.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr10.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr11.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr11.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr12.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr12.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr13.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr13.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr14.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr14.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr15.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr15.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr6.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr6.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr7.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr7.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr8.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr8.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr9.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\gutteral beast\._mnstr9.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\misc\._wolfman.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\misc\._wolfman.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\ogre\._ogre5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade10.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade10.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade11.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade11.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade12.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade12.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade13.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade13.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade14.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade14.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade15.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade15.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade6.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade6.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade7.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade7.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade8.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade8.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade9.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\shade\._shade9.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime1.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime10.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime10.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime2.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime3.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime4.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime5.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime6.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime6.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime7.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime7.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime8.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime8.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime9.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\NPC\slime\._slime9.wav
+sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\world\._door.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_rpg_sound_pack\extracted\__MACOSX\RPG Sound Pack\world\._door.wav
+sfx_swishes/extracted/swishes/swish-1.wav                                         0.13s pk   -0.3 L  -15.0 c   2120Hz
+sfx_swishes/extracted/swishes/swish-10.wav                                        0.12s pk   -0.5 L  -15.9 c   1893Hz
+sfx_swishes/extracted/swishes/swish-11.wav                                        0.10s pk   -0.4 L  -14.4 c   1920Hz
+sfx_swishes/extracted/swishes/swish-12.wav                                        0.08s pk   -0.2 L  -15.2 c   1673Hz
+sfx_swishes/extracted/swishes/swish-13.wav                                        0.07s pk   -0.5 L  -14.3 c   2272Hz
+sfx_swishes/extracted/swishes/swish-2.wav                                         0.10s pk   -0.2 L  -15.1 c   1427Hz
+sfx_swishes/extracted/swishes/swish-3.wav                                         0.15s pk   -0.3 L  -10.4 c   1465Hz
+sfx_swishes/extracted/swishes/swish-4.wav                                         0.15s pk   -0.1 L  -13.8 c   1603Hz
+sfx_swishes/extracted/swishes/swish-5.wav                                         0.13s pk   -0.2 L  -13.9 c   1593Hz
+sfx_swishes/extracted/swishes/swish-6.wav                                         0.14s pk   -0.4 L  -14.2 c   1654Hz
+sfx_swishes/extracted/swishes/swish-7.wav                                         0.19s pk   -0.3 L  -11.5 c   1488Hz
+sfx_swishes/extracted/swishes/swish-8.wav                                         0.15s pk   -0.3 L  -13.3 c   1321Hz
+sfx_swishes/extracted/swishes/swish-9.wav                                         0.20s pk   -0.3 L  -13.2 c   1873Hz
+sfx_swishes\extracted\__MACOSX\swishes\._swish-1.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-1.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-10.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-10.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-11.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-11.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-12.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-12.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-13.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-13.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-2.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-2.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-3.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-3.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-4.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-4.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-5.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-5.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-6.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-6.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-7.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-7.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-8.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-8.wav
+sfx_swishes\extracted\__MACOSX\swishes\._swish-9.wav: ERROR not a wav C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_swishes\extracted\__MACOSX\swishes\._swish-9.wav
+sfx_bone_breaks/extracted/Deep Break 1.wav                                        0.93s pk   -1.6 L  -15.9 c   1197Hz
+sfx_bone_breaks/extracted/Deep Break 10.wav                                       0.65s pk   -5.0 L  -19.5 c   1475Hz
+sfx_bone_breaks/extracted/Deep Break 2.wav                                        0.79s pk   -3.3 L  -19.4 c   1638Hz
+sfx_bone_breaks/extracted/Deep Break 3.wav                                        0.83s pk   -4.1 L  -19.3 c   1469Hz
+sfx_bone_breaks/extracted/Deep Break 4.wav                                        0.94s pk   -3.7 L  -18.9 c   1519Hz
+sfx_bone_breaks/extracted/Deep Break 5.wav                                        0.78s pk   -9.0 L  -22.8 c   2082Hz
+sfx_bone_breaks/extracted/Deep Break 6.wav                                        0.78s pk   -1.6 L  -16.1 c   1213Hz
+sfx_bone_breaks/extracted/Deep Break 7.wav                                        0.88s pk   -4.4 L  -20.8 c   1575Hz
+sfx_bone_breaks/extracted/Deep Break 8.wav                                        0.83s pk   -3.0 L  -17.6 c   1550Hz
+sfx_bone_breaks/extracted/Deep Break 9.wav                                        0.56s pk   -4.3 L  -21.5 c   1465Hz
+sfx_bones_rattle/extracted/0.ogg                                                  0.14s pk   -1.3 L  -20.8 c   3494Hz
+sfx_bones_rattle/extracted/1.ogg                                                  0.11s pk   -1.7 L  -22.4 c   4238Hz
+sfx_bones_rattle/extracted/2.ogg                                                  0.14s pk   -0.9 L  -18.3 c   4077Hz
+sfx_bones_rattle/extracted/3.ogg                                                  0.12s pk   -1.7 L  -20.9 c   4029Hz
+sfx_bones_rattle/extracted/4.ogg                                                  0.09s pk   -1.5 L  -23.0 c   3139Hz
+sfx_bones_rattle/extracted/5.ogg                                                  0.13s pk   -2.0 L  -22.4 c   4145Hz
+sfx_bones_rattle/extracted/6.ogg                                                  0.15s pk   -0.9 L  -21.3 c   4699Hz
+sfx_bones_rattle/extracted/7.ogg                                                  0.07s pk   -0.9 L  -20.3 c   4669Hz
+sfx_bones_rattle/extracted/8.ogg                                                  0.12s pk   -1.4 L  -21.6 c   4396Hz
+sfx_bones_rattle/extracted/9.ogg                                                  0.10s pk   -1.8 L  -20.4 c   4211Hz
+sfx_gem/gem-gather-stereo.wav                                                     0.19s pk  -14.9 L  -28.4 c  12884Hz
+sfx_soundpack01/extracted/Alarm.aif                                               7.62s pk   -8.9 L  -18.5 c   6494Hz
+sfx_soundpack01/extracted/Coin01.aif                                              2.55s pk  -14.0 L  -26.3 c   5862Hz
+sfx_soundpack01/extracted/Downer01.aif                                            1.67s pk   -9.4 L  -21.7 c   1705Hz
+sfx_soundpack01/extracted/FX01.aif                                                2.38s pk  -15.1 L  -21.1 c   7026Hz
+sfx_soundpack01/extracted/FX02.aif                                                4.68s pk  -19.8 L  -27.7 c   4367Hz
+sfx_soundpack01/extracted/Rise01.aif                                              1.76s pk   -7.1 L  -22.3 c   7401Hz
+sfx_soundpack01/extracted/Rise02.aif                                              1.60s pk   -4.0 L  -16.8 c   6162Hz
+sfx_soundpack01/extracted/Rise03.aif                                              1.56s pk   -4.8 L  -18.0 c   4066Hz
+sfx_soundpack01/extracted/Rise04.aif                                              3.40s pk  -19.6 L  -27.9 c   4110Hz
+sfx_soundpack01/extracted/Rise05.aif                                              3.53s pk  -13.6 L  -22.0 c   1520Hz
+sfx_soundpack01/extracted/Rise06.aif                                              2.58s pk  -15.7 L  -22.5 c   6467Hz
+sfx_soundpack01/extracted/Rise07.aif                                              2.50s pk  -15.7 L  -24.0 c   2717Hz
+sfx_soundpack01/extracted/Upper01.aif                                             3.44s pk   -7.8 L  -18.6 c    986Hz
+sfx_soundpack01\extracted\__MACOSX\._Alarm.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Alarm.aif
+sfx_soundpack01\extracted\__MACOSX\._Coin01.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Coin01.aif
+sfx_soundpack01\extracted\__MACOSX\._Downer01.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Downer01.aif
+sfx_soundpack01\extracted\__MACOSX\._FX01.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._FX01.aif
+sfx_soundpack01\extracted\__MACOSX\._FX02.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._FX02.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise01.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise01.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise02.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise02.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise03.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise03.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise04.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise04.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise05.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise05.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise06.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise06.aif
+sfx_soundpack01\extracted\__MACOSX\._Rise07.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Rise07.aif
+sfx_soundpack01\extracted\__MACOSX\._Upper01.aif: ERROR not aiff C:\Workspace\github\UnravelEngine\_downloads\survivors\sfx_soundpack01\extracted\__MACOSX\._Upper01.aif
+kenney_impact_sounds/extracted/Audio/footstep_carpet_000.ogg                      0.14s pk   -1.1 L  -22.8 c   1973Hz
+kenney_impact_sounds/extracted/Audio/footstep_carpet_001.ogg                      0.14s pk   -1.1 L  -19.3 c   3076Hz
+kenney_impact_sounds/extracted/Audio/footstep_carpet_002.ogg                      0.14s pk   -1.1 L  -19.3 c   3076Hz
+kenney_impact_sounds/extracted/Audio/footstep_carpet_003.ogg                      0.14s pk   -1.1 L  -22.7 c   1656Hz
+kenney_impact_sounds/extracted/Audio/footstep_carpet_004.ogg                      0.14s pk   -1.1 L  -22.7 c   1656Hz
+kenney_impact_sounds/extracted/Audio/footstep_concrete_000.ogg                    0.11s pk   -0.9 L  -22.5 c    553Hz
+kenney_impact_sounds/extracted/Audio/footstep_concrete_001.ogg                    0.11s pk   -1.2 L  -24.1 c   1814Hz
+kenney_impact_sounds/extracted/Audio/footstep_concrete_002.ogg                    0.11s pk   -1.0 L  -24.0 c   1624Hz
+kenney_impact_sounds/extracted/Audio/footstep_concrete_003.ogg                    0.11s pk   -1.1 L  -23.2 c    761Hz
+kenney_impact_sounds/extracted/Audio/footstep_concrete_004.ogg                    0.11s pk   -1.0 L  -22.4 c    536Hz
+kenney_impact_sounds/extracted/Audio/footstep_grass_000.ogg                       0.78s pk   -1.1 L  -22.7 c   1422Hz
+kenney_impact_sounds/extracted/Audio/footstep_grass_001.ogg                       0.67s pk   -1.2 L  -22.0 c   2755Hz
+kenney_impact_sounds/extracted/Audio/footstep_grass_002.ogg                       0.69s pk   -1.1 L  -22.5 c   2597Hz
+kenney_impact_sounds/extracted/Audio/footstep_grass_003.ogg                       0.67s pk   -0.9 L  -23.0 c   1383Hz
+kenney_impact_sounds/extracted/Audio/footstep_grass_004.ogg                       0.59s pk   -1.1 L  -22.6 c   1491Hz
+kenney_impact_sounds/extracted/Audio/footstep_snow_000.ogg                        0.37s pk   -0.9 L  -17.9 c   2830Hz
+kenney_impact_sounds/extracted/Audio/footstep_snow_001.ogg                        0.37s pk   -1.0 L  -14.6 c   1915Hz
+kenney_impact_sounds/extracted/Audio/footstep_snow_002.ogg                        0.37s pk   -1.0 L  -15.0 c   1757Hz
+kenney_impact_sounds/extracted/Audio/footstep_snow_003.ogg                        0.37s pk   -0.9 L  -19.3 c   1989Hz
+kenney_impact_sounds/extracted/Audio/footstep_snow_004.ogg                        0.37s pk   -1.1 L  -18.6 c   1995Hz
+kenney_impact_sounds/extracted/Audio/footstep_wood_000.ogg                        0.25s pk   -0.9 L  -19.3 c    185Hz
+kenney_impact_sounds/extracted/Audio/footstep_wood_001.ogg                        0.25s pk   -1.0 L  -18.3 c    238Hz
+kenney_impact_sounds/extracted/Audio/footstep_wood_002.ogg                        0.25s pk   -0.9 L  -18.0 c    196Hz
+kenney_impact_sounds/extracted/Audio/footstep_wood_003.ogg                        0.25s pk   -1.1 L  -20.1 c    191Hz
+kenney_impact_sounds/extracted/Audio/footstep_wood_004.ogg                        0.25s pk   -1.0 L  -18.4 c    199Hz
+kenney_impact_sounds/extracted/Audio/impactBell_heavy_000.ogg                     1.48s pk   -1.1 L  -17.5 c    842Hz
+kenney_impact_sounds/extracted/Audio/impactBell_heavy_001.ogg                     1.74s pk   -1.2 L  -15.6 c    868Hz
+kenney_impact_sounds/extracted/Audio/impactBell_heavy_002.ogg                     0.70s pk   -0.8 L  -17.0 c    776Hz
+kenney_impact_sounds/extracted/Audio/impactBell_heavy_003.ogg                     0.65s pk   -1.0 L  -17.8 c   1085Hz
+kenney_impact_sounds/extracted/Audio/impactBell_heavy_004.ogg                     0.30s pk   -1.1 L  -18.9 c    619Hz
+kenney_impact_sounds/extracted/Audio/impactGeneric_light_000.ogg                  0.14s pk   -1.2 L  -20.1 c   1188Hz
+kenney_impact_sounds/extracted/Audio/impactGeneric_light_001.ogg                  0.12s pk   -1.0 L  -21.7 c   1155Hz
+kenney_impact_sounds/extracted/Audio/impactGeneric_light_002.ogg                  0.14s pk   -1.0 L  -21.0 c   1227Hz
+kenney_impact_sounds/extracted/Audio/impactGeneric_light_003.ogg                  0.14s pk   -1.1 L  -21.6 c   1145Hz
+kenney_impact_sounds/extracted/Audio/impactGeneric_light_004.ogg                  0.14s pk   -0.9 L  -21.3 c   1299Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_heavy_000.ogg                    0.24s pk   -1.1 L  -21.4 c    882Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_heavy_001.ogg                    0.43s pk   -1.0 L  -21.8 c    783Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_heavy_002.ogg                    0.25s pk   -0.9 L  -22.1 c    732Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_heavy_003.ogg                    0.17s pk   -0.9 L  -19.4 c    768Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_heavy_004.ogg                    0.40s pk   -1.2 L  -20.9 c    636Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_light_000.ogg                    0.21s pk   -1.6 L  -17.2 c   2011Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_light_001.ogg                    0.21s pk   -0.9 L  -16.8 c   2104Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_light_002.ogg                    0.21s pk   -1.2 L  -15.8 c   2409Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_light_003.ogg                    0.21s pk   -1.1 L  -16.9 c   2010Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_light_004.ogg                    0.21s pk   -0.8 L  -16.8 c   1885Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_medium_000.ogg                   0.54s pk   -1.2 L  -20.0 c   1011Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_medium_001.ogg                   0.54s pk   -0.9 L  -19.5 c   1312Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_medium_002.ogg                   0.54s pk   -1.0 L  -20.5 c    947Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_medium_003.ogg                   0.54s pk   -1.3 L  -19.7 c   1296Hz
+kenney_impact_sounds/extracted/Audio/impactGlass_medium_004.ogg                   0.54s pk   -1.4 L  -18.1 c   1144Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_heavy_000.ogg                    0.17s pk   -0.9 L  -21.1 c   1448Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_heavy_001.ogg                    0.36s pk   -1.1 L  -20.8 c   1231Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_heavy_002.ogg                    0.12s pk   -1.2 L  -20.7 c   1531Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_heavy_003.ogg                    0.21s pk   -1.0 L  -20.7 c   1366Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_heavy_004.ogg                    0.13s pk   -1.3 L  -21.1 c   1161Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_light_000.ogg                    0.35s pk   -1.0 L  -13.1 c   2883Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_light_001.ogg                    0.25s pk   -0.9 L  -13.9 c   2805Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_light_002.ogg                    0.24s pk   -1.4 L  -14.5 c   3300Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_light_003.ogg                    0.48s pk   -1.5 L  -11.6 c   3686Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_light_004.ogg                    0.21s pk   -1.3 L  -15.2 c   2723Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_medium_000.ogg                   0.27s pk   -1.2 L  -17.2 c   1896Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_medium_001.ogg                   0.14s pk   -1.2 L  -18.5 c   1562Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_medium_002.ogg                   0.12s pk   -1.1 L  -21.1 c   1224Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_medium_003.ogg                   0.25s pk   -1.4 L  -17.7 c   2062Hz
+kenney_impact_sounds/extracted/Audio/impactMetal_medium_004.ogg                   0.11s pk   -1.0 L  -20.6 c   1409Hz
+kenney_impact_sounds/extracted/Audio/impactMining_000.ogg                         0.94s pk   -1.1 L  -13.6 c   1648Hz
+kenney_impact_sounds/extracted/Audio/impactMining_001.ogg                         0.87s pk   -1.0 L  -13.9 c   2178Hz
+kenney_impact_sounds/extracted/Audio/impactMining_002.ogg                         0.80s pk   -1.2 L  -17.4 c   2282Hz
+kenney_impact_sounds/extracted/Audio/impactMining_003.ogg                         0.99s pk   -1.0 L  -15.8 c   2055Hz
+kenney_impact_sounds/extracted/Audio/impactMining_004.ogg                         0.83s pk   -0.9 L  -14.6 c   1620Hz
+kenney_impact_sounds/extracted/Audio/impactPlank_medium_000.ogg                   0.78s pk   -1.2 L  -16.3 c   2188Hz
+kenney_impact_sounds/extracted/Audio/impactPlank_medium_001.ogg                   0.78s pk   -1.0 L  -13.4 c   1407Hz
+kenney_impact_sounds/extracted/Audio/impactPlank_medium_002.ogg                   0.78s pk   -1.0 L  -13.8 c   1889Hz
+kenney_impact_sounds/extracted/Audio/impactPlank_medium_003.ogg                   0.78s pk   -1.0 L  -14.2 c   1743Hz
+kenney_impact_sounds/extracted/Audio/impactPlank_medium_004.ogg                   0.78s pk   -0.9 L  -17.6 c   2552Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_heavy_000.ogg                    0.49s pk   -1.0 L  -17.9 c   3360Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_heavy_001.ogg                    0.35s pk   -0.9 L  -17.4 c   2261Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_heavy_002.ogg                    0.49s pk   -1.4 L  -17.9 c   3669Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_heavy_003.ogg                    0.35s pk   -1.2 L  -16.9 c   2355Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_heavy_004.ogg                    0.56s pk   -0.6 L  -18.1 c   3331Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_light_000.ogg                    0.54s pk   -1.0 L  -18.8 c   3878Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_light_001.ogg                    0.65s pk   -1.3 L  -19.2 c   4060Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_light_002.ogg                    0.49s pk   -0.9 L  -18.5 c   4012Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_light_003.ogg                    0.53s pk   -1.2 L  -17.3 c   4273Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_light_004.ogg                    0.66s pk   -1.3 L  -18.1 c   4098Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_medium_000.ogg                   0.61s pk   -1.4 L  -18.8 c   3299Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_medium_001.ogg                   0.62s pk   -1.1 L  -17.8 c   3627Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_medium_002.ogg                   0.52s pk   -1.1 L  -18.5 c   3365Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_medium_003.ogg                   0.65s pk   -1.2 L  -16.7 c   2981Hz
+kenney_impact_sounds/extracted/Audio/impactPlate_medium_004.ogg                   0.53s pk   -1.0 L  -17.1 c   3327Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_heavy_000.ogg                    0.65s pk   -1.0 L  -12.6 c    518Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_heavy_001.ogg                    0.54s pk   -1.2 L  -12.5 c    739Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_heavy_002.ogg                    0.46s pk   -1.0 L  -12.3 c    322Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_heavy_003.ogg                    0.47s pk   -0.9 L  -12.6 c    791Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_heavy_004.ogg                    0.54s pk   -1.0 L  -12.5 c    548Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_medium_000.ogg                   0.43s pk   -1.1 L  -13.7 c    525Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_medium_001.ogg                   0.40s pk   -1.1 L  -13.6 c    638Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_medium_002.ogg                   0.54s pk   -0.8 L  -13.3 c   1114Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_medium_003.ogg                   0.46s pk   -0.9 L  -13.8 c    754Hz
+kenney_impact_sounds/extracted/Audio/impactPunch_medium_004.ogg                   0.54s pk   -1.0 L  -13.2 c    556Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_heavy_000.ogg                     0.51s pk   -0.9 L  -13.0 c    173Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_heavy_001.ogg                     0.57s pk   -1.0 L  -13.0 c    175Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_heavy_002.ogg                     0.57s pk   -0.9 L  -12.7 c    166Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_heavy_003.ogg                     0.54s pk   -1.0 L  -13.2 c    154Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_heavy_004.ogg                     0.50s pk   -1.0 L  -13.0 c    165Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_medium_000.ogg                    0.12s pk   -1.0 L  -16.3 c    220Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_medium_001.ogg                    0.18s pk   -0.9 L  -15.5 c    204Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_medium_002.ogg                    0.14s pk   -1.0 L  -16.1 c    236Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_medium_003.ogg                    0.14s pk   -0.9 L  -16.0 c    189Hz
+kenney_impact_sounds/extracted/Audio/impactSoft_medium_004.ogg                    0.15s pk   -1.0 L  -15.8 c    225Hz
+kenney_impact_sounds/extracted/Audio/impactTin_medium_000.ogg                     0.16s pk   -1.0 L  -20.7 c   1327Hz
+kenney_impact_sounds/extracted/Audio/impactTin_medium_001.ogg                     0.17s pk   -1.5 L  -21.9 c   1609Hz
+kenney_impact_sounds/extracted/Audio/impactTin_medium_002.ogg                     0.13s pk   -1.1 L  -22.1 c   1461Hz
+kenney_impact_sounds/extracted/Audio/impactTin_medium_003.ogg                     0.21s pk   -1.1 L  -21.6 c   1476Hz
+kenney_impact_sounds/extracted/Audio/impactTin_medium_004.ogg                     0.18s pk   -1.2 L  -21.6 c   1640Hz
+kenney_impact_sounds/extracted/Audio/impactWood_heavy_000.ogg                     0.31s pk   -0.9 L  -17.5 c    319Hz
+kenney_impact_sounds/extracted/Audio/impactWood_heavy_001.ogg                     0.31s pk   -0.9 L  -17.4 c    325Hz
+kenney_impact_sounds/extracted/Audio/impactWood_heavy_002.ogg                     0.31s pk   -1.0 L  -17.6 c    282Hz
+kenney_impact_sounds/extracted/Audio/impactWood_heavy_003.ogg                     0.31s pk   -0.9 L  -17.8 c    346Hz
+kenney_impact_sounds/extracted/Audio/impactWood_heavy_004.ogg                     0.31s pk   -1.0 L  -17.6 c    356Hz
+kenney_impact_sounds/extracted/Audio/impactWood_light_000.ogg                     0.27s pk   -1.1 L  -19.0 c    868Hz
+kenney_impact_sounds/extracted/Audio/impactWood_light_001.ogg                     0.27s pk   -0.9 L  -21.2 c    523Hz
+kenney_impact_sounds/extracted/Audio/impactWood_light_002.ogg                     0.27s pk   -1.1 L  -18.9 c    820Hz
+kenney_impact_sounds/extracted/Audio/impactWood_light_003.ogg                     0.27s pk   -0.9 L  -21.0 c    462Hz
+kenney_impact_sounds/extracted/Audio/impactWood_light_004.ogg                     0.27s pk   -1.2 L  -21.7 c    644Hz
+kenney_impact_sounds/extracted/Audio/impactWood_medium_000.ogg                    0.33s pk   -1.0 L  -18.8 c    360Hz
+kenney_impact_sounds/extracted/Audio/impactWood_medium_001.ogg                    0.33s pk   -1.0 L  -18.9 c    348Hz
+kenney_impact_sounds/extracted/Audio/impactWood_medium_002.ogg                    0.33s pk   -1.1 L  -18.6 c    618Hz
+kenney_impact_sounds/extracted/Audio/impactWood_medium_003.ogg                    0.33s pk   -1.0 L  -18.9 c    363Hz
+kenney_impact_sounds/extracted/Audio/impactWood_medium_004.ogg                    0.33s pk   -1.1 L  -18.3 c    554Hz
+kenney_interface_sounds/extracted/Audio/back_001.ogg                              0.06s pk   -1.0 L  -20.6 c   3030Hz
+kenney_interface_sounds/extracted/Audio/back_002.ogg                              0.07s pk   -1.0 L  -17.0 c   1223Hz
+kenney_interface_sounds/extracted/Audio/back_003.ogg                              0.09s pk   -0.9 L  -19.6 c   4686Hz
+kenney_interface_sounds/extracted/Audio/back_004.ogg                              0.07s pk   -0.9 L  -17.5 c   1282Hz
+kenney_interface_sounds/extracted/Audio/bong_001.ogg                              0.12s pk   -0.9 L  -16.6 c    291Hz
+kenney_interface_sounds/extracted/Audio/click_001.ogg                             0.10s pk   -1.4 L  -26.0 c   4849Hz
+kenney_interface_sounds/extracted/Audio/click_002.ogg                             0.01s pk   -0.9 L  -13.7 c   2670Hz
+kenney_interface_sounds/extracted/Audio/click_003.ogg                             0.01s pk   -1.4 L  -13.9 c   2721Hz
+kenney_interface_sounds/extracted/Audio/click_004.ogg                             0.01s pk   -1.2 L  -13.0 c   9937Hz
+kenney_interface_sounds/extracted/Audio/click_005.ogg                             0.01s pk   -1.2 L  -13.8 c   3290Hz
+kenney_interface_sounds/extracted/Audio/close_001.ogg                             0.15s pk   -0.9 L  -10.0 c  12237Hz
+kenney_interface_sounds/extracted/Audio/close_002.ogg                             0.31s pk   -1.0 L  -10.0 c   9847Hz
+kenney_interface_sounds/extracted/Audio/close_003.ogg                             0.31s pk   -0.9 L   -9.1 c  11061Hz
+kenney_interface_sounds/extracted/Audio/close_004.ogg                             0.32s pk   -1.0 L   -9.8 c  12076Hz
+kenney_interface_sounds/extracted/Audio/confirmation_001.ogg                      0.29s pk   -0.9 L   -8.6 c    656Hz
+kenney_interface_sounds/extracted/Audio/confirmation_002.ogg                      0.54s pk   -1.0 L   -9.3 c   2302Hz
+kenney_interface_sounds/extracted/Audio/confirmation_003.ogg                      0.32s pk   -1.0 L   -8.0 c   3218Hz
+kenney_interface_sounds/extracted/Audio/confirmation_004.ogg                      0.49s pk   -0.9 L   -5.7 c   1380Hz
+kenney_interface_sounds/extracted/Audio/drop_001.ogg                              0.11s pk   -0.9 L  -19.0 c   2100Hz
+kenney_interface_sounds/extracted/Audio/drop_002.ogg                              0.19s pk   -1.1 L  -17.7 c    795Hz
+kenney_interface_sounds/extracted/Audio/drop_003.ogg                              0.19s pk   -1.1 L  -17.5 c    850Hz
+kenney_interface_sounds/extracted/Audio/drop_004.ogg                              0.29s pk   -0.9 L  -16.8 c    797Hz
+kenney_interface_sounds/extracted/Audio/error_001.ogg                             0.16s pk   -0.8 L  -14.8 c   8359Hz
+kenney_interface_sounds/extracted/Audio/error_002.ogg                             0.16s pk    0.6 L  -15.2 c   9058Hz
+kenney_interface_sounds/extracted/Audio/error_003.ogg                             0.53s pk   -0.5 L  -13.0 c   5942Hz
+kenney_interface_sounds/extracted/Audio/error_004.ogg                             0.10s pk   -1.3 L  -16.2 c   2789Hz
+kenney_interface_sounds/extracted/Audio/error_005.ogg                             0.50s pk   -1.0 L  -15.0 c   1309Hz
+kenney_interface_sounds/extracted/Audio/error_006.ogg                             0.50s pk   -0.8 L  -13.1 c   1712Hz
+kenney_interface_sounds/extracted/Audio/error_007.ogg                             0.19s pk   -0.9 L  -11.8 c   4668Hz
+kenney_interface_sounds/extracted/Audio/error_008.ogg                             0.14s pk   -1.0 L  -20.7 c   2264Hz
+kenney_interface_sounds/extracted/Audio/glass_001.ogg                             0.28s pk   -1.0 L  -13.9 c   2203Hz
+kenney_interface_sounds/extracted/Audio/glass_002.ogg                             0.13s pk   -1.0 L  -16.2 c   2298Hz
+kenney_interface_sounds/extracted/Audio/glass_003.ogg                             0.12s pk   -0.9 L  -13.8 c   2047Hz
+kenney_interface_sounds/extracted/Audio/glass_004.ogg                             0.69s pk   -1.1 L   -7.1 c   7440Hz
+kenney_interface_sounds/extracted/Audio/glass_005.ogg                             0.11s pk   -0.9 L  -17.0 c   2846Hz
+kenney_interface_sounds/extracted/Audio/glass_006.ogg                             0.11s pk   -1.0 L  -17.1 c   2246Hz
+kenney_interface_sounds/extracted/Audio/glitch_001.ogg                            0.02s pk   -1.0 L  -13.6 c   2576Hz
+kenney_interface_sounds/extracted/Audio/glitch_002.ogg                            0.03s pk   -1.2 L  -15.7 c   5298Hz
+kenney_interface_sounds/extracted/Audio/glitch_003.ogg                            0.01s pk   -0.5 L  -10.1 c   7072Hz
+kenney_interface_sounds/extracted/Audio/glitch_004.ogg                            0.02s pk   -0.9 L  -13.1 c   4440Hz
+kenney_interface_sounds/extracted/Audio/maximize_001.ogg                          0.26s pk   -1.0 L   -6.9 c   5786Hz
+kenney_interface_sounds/extracted/Audio/maximize_002.ogg                          0.26s pk   -0.9 L   -4.2 c   5420Hz
+kenney_interface_sounds/extracted/Audio/maximize_003.ogg                          0.21s pk   -0.9 L  -14.2 c   7626Hz
+kenney_interface_sounds/extracted/Audio/maximize_004.ogg                          0.42s pk   -0.9 L   -7.6 c   9952Hz
+kenney_interface_sounds/extracted/Audio/maximize_005.ogg                          0.53s pk   -0.9 L   -6.6 c   9254Hz
+kenney_interface_sounds/extracted/Audio/maximize_006.ogg                          0.38s pk   -0.9 L  -10.6 c    422Hz
+kenney_interface_sounds/extracted/Audio/maximize_007.ogg                          0.19s pk   -1.0 L   -8.9 c   2418Hz
+kenney_interface_sounds/extracted/Audio/maximize_008.ogg                          0.23s pk   -0.9 L  -11.0 c    377Hz
+kenney_interface_sounds/extracted/Audio/maximize_009.ogg                          0.22s pk   -0.9 L   -8.1 c   1290Hz
+kenney_interface_sounds/extracted/Audio/minimize_001.ogg                          0.26s pk   -0.9 L   -6.9 c   5785Hz
+kenney_interface_sounds/extracted/Audio/minimize_002.ogg                          0.26s pk   -0.9 L   -4.2 c   5422Hz
+kenney_interface_sounds/extracted/Audio/minimize_003.ogg                          0.21s pk   -1.0 L  -14.2 c   7629Hz
+kenney_interface_sounds/extracted/Audio/minimize_004.ogg                          0.42s pk   -0.9 L   -7.6 c   9951Hz
+kenney_interface_sounds/extracted/Audio/minimize_005.ogg                          0.53s pk   -0.8 L   -6.6 c   9260Hz
+kenney_interface_sounds/extracted/Audio/minimize_006.ogg                          0.38s pk   -1.0 L  -10.5 c    421Hz
+kenney_interface_sounds/extracted/Audio/minimize_007.ogg                          0.19s pk   -1.0 L   -8.9 c   2419Hz
+kenney_interface_sounds/extracted/Audio/minimize_008.ogg                          0.23s pk   -0.9 L  -11.0 c    378Hz
+kenney_interface_sounds/extracted/Audio/minimize_009.ogg                          0.22s pk   -0.9 L   -8.1 c   1291Hz
+kenney_interface_sounds/extracted/Audio/open_001.ogg                              0.15s pk   -0.9 L  -10.0 c  12232Hz
+kenney_interface_sounds/extracted/Audio/open_002.ogg                              0.31s pk   -0.9 L  -10.0 c   9843Hz
+kenney_interface_sounds/extracted/Audio/open_003.ogg                              0.31s pk   -1.0 L   -9.2 c  11057Hz
+kenney_interface_sounds/extracted/Audio/open_004.ogg                              0.32s pk   -1.0 L   -9.8 c  12073Hz
+kenney_interface_sounds/extracted/Audio/pluck_001.ogg                             0.10s pk    0.4 L  -18.5 c   8640Hz
+kenney_interface_sounds/extracted/Audio/pluck_002.ogg                             0.16s pk   -0.5 L  -17.5 c   9279Hz
+kenney_interface_sounds/extracted/Audio/question_001.ogg                          0.49s pk   -0.9 L   -5.1 c   1410Hz
+kenney_interface_sounds/extracted/Audio/question_002.ogg                          0.33s pk   -0.9 L   -6.3 c    729Hz
+kenney_interface_sounds/extracted/Audio/question_003.ogg                          0.33s pk   -0.9 L   -3.8 c   2418Hz
+kenney_interface_sounds/extracted/Audio/question_004.ogg                          0.33s pk   -0.9 L   -6.5 c    487Hz
+kenney_interface_sounds/extracted/Audio/scratch_001.ogg                           0.14s pk   -0.9 L   -8.5 c   7499Hz
+kenney_interface_sounds/extracted/Audio/scratch_002.ogg                           0.14s pk   -1.0 L   -7.5 c   7716Hz
+kenney_interface_sounds/extracted/Audio/scratch_003.ogg                           0.12s pk   -1.0 L  -16.0 c  12224Hz
+kenney_interface_sounds/extracted/Audio/scratch_004.ogg                           0.33s pk   -1.0 L  -15.2 c   7248Hz
+kenney_interface_sounds/extracted/Audio/scratch_005.ogg                           0.33s pk   -1.0 L  -10.2 c   6969Hz
+kenney_interface_sounds/extracted/Audio/scroll_001.ogg                            1.00s pk   -0.9 L  -18.3 c  11964Hz
+kenney_interface_sounds/extracted/Audio/scroll_002.ogg                            1.00s pk   -0.9 L  -22.8 c   2209Hz
+kenney_interface_sounds/extracted/Audio/scroll_003.ogg                            1.00s pk   -0.9 L  -21.1 c   3878Hz
+kenney_interface_sounds/extracted/Audio/scroll_004.ogg                            1.00s pk   -0.9 L  -17.1 c   6357Hz
+kenney_interface_sounds/extracted/Audio/scroll_005.ogg                            1.00s pk   -0.9 L  -15.5 c   4835Hz
+kenney_interface_sounds/extracted/Audio/select_001.ogg                            0.04s pk   -1.1 L  -15.3 c   3095Hz
+kenney_interface_sounds/extracted/Audio/select_002.ogg                            0.04s pk   -1.0 L  -15.8 c   2503Hz
+kenney_interface_sounds/extracted/Audio/select_003.ogg                            0.38s pk   -0.8 L  -10.2 c   4105Hz
+kenney_interface_sounds/extracted/Audio/select_004.ogg                            0.38s pk   -0.7 L  -11.6 c   2920Hz
+kenney_interface_sounds/extracted/Audio/select_005.ogg                            0.38s pk   -1.3 L  -12.4 c   2058Hz
+kenney_interface_sounds/extracted/Audio/select_006.ogg                            1.94s pk   -0.8 L  -10.3 c    984Hz
+kenney_interface_sounds/extracted/Audio/select_007.ogg                            0.05s pk   -1.0 L  -12.4 c   7330Hz
+kenney_interface_sounds/extracted/Audio/select_008.ogg                            0.05s pk   -1.0 L  -16.0 c  11041Hz
+kenney_interface_sounds/extracted/Audio/switch_001.ogg                            0.62s pk   -1.0 L  -17.3 c   4735Hz
+kenney_interface_sounds/extracted/Audio/switch_002.ogg                            0.61s pk   -0.9 L  -19.6 c   2422Hz
+kenney_interface_sounds/extracted/Audio/switch_003.ogg                            0.50s pk   -0.9 L  -17.9 c   3246Hz
+kenney_interface_sounds/extracted/Audio/switch_004.ogg                            0.50s pk   -1.0 L  -22.3 c   4756Hz
+kenney_interface_sounds/extracted/Audio/switch_005.ogg                            0.61s pk   -2.3 L  -22.1 c   2474Hz
+kenney_interface_sounds/extracted/Audio/switch_006.ogg                            0.61s pk   -4.9 L  -26.1 c   2240Hz
+kenney_interface_sounds/extracted/Audio/switch_007.ogg                            0.61s pk   -2.7 L  -22.4 c   1888Hz
+kenney_interface_sounds/extracted/Audio/tick_001.ogg                              0.02s pk   -0.8 L  -15.6 c  11170Hz
+kenney_interface_sounds/extracted/Audio/tick_002.ogg                              0.02s pk   -1.2 L  -14.4 c  10717Hz
+kenney_interface_sounds/extracted/Audio/tick_004.ogg                              0.05s pk   -0.9 L  -12.9 c   3775Hz
+kenney_interface_sounds/extracted/Audio/toggle_001.ogg                            0.14s pk   -0.9 L  -11.2 c   4025Hz
+kenney_interface_sounds/extracted/Audio/toggle_002.ogg                            0.14s pk   -0.9 L   -8.4 c   4538Hz
+kenney_interface_sounds/extracted/Audio/toggle_003.ogg                            0.14s pk   -0.9 L  -10.0 c   8218Hz
+kenney_interface_sounds/extracted/Audio/toggle_004.ogg                            0.07s pk   -0.9 L  -14.2 c   5065Hz
+kenney_scifi_sounds/extracted/Audio/computerNoise_000.ogg                         5.00s pk   -1.0 L   -4.4 c   1741Hz
+kenney_scifi_sounds/extracted/Audio/computerNoise_001.ogg                         5.00s pk   -1.0 L   -6.3 c   1710Hz
+kenney_scifi_sounds/extracted/Audio/computerNoise_002.ogg                         5.00s pk   -0.9 L   -8.8 c   2040Hz
+kenney_scifi_sounds/extracted/Audio/computerNoise_003.ogg                         5.00s pk   -1.0 L   -8.0 c   2046Hz
+kenney_scifi_sounds/extracted/Audio/doorClose_000.ogg                             0.53s pk   -0.9 L  -10.1 c  12346Hz
+kenney_scifi_sounds/extracted/Audio/doorClose_001.ogg                             0.53s pk   -0.9 L   -7.9 c  12124Hz
+kenney_scifi_sounds/extracted/Audio/doorClose_002.ogg                             0.53s pk   -1.0 L   -8.6 c  12050Hz
+kenney_scifi_sounds/extracted/Audio/doorOpen_000.ogg                              0.53s pk   -0.9 L  -10.1 c  12342Hz
+kenney_scifi_sounds/extracted/Audio/doorOpen_001.ogg                              0.53s pk   -1.0 L   -7.9 c  12128Hz
+kenney_scifi_sounds/extracted/Audio/doorOpen_002.ogg                              0.53s pk   -1.0 L   -8.6 c  12040Hz
+kenney_scifi_sounds/extracted/Audio/engineCircular_000.ogg                        5.00s pk   -1.0 L  -13.7 c   5183Hz
+kenney_scifi_sounds/extracted/Audio/engineCircular_001.ogg                        5.00s pk   -0.9 L  -12.9 c   4465Hz
+kenney_scifi_sounds/extracted/Audio/engineCircular_002.ogg                        5.00s pk   -1.0 L  -11.8 c   3778Hz
+kenney_scifi_sounds/extracted/Audio/engineCircular_003.ogg                        5.00s pk   -0.9 L  -13.2 c   5290Hz
+kenney_scifi_sounds/extracted/Audio/engineCircular_004.ogg                        5.00s pk   -0.9 L  -13.8 c   5664Hz
+kenney_scifi_sounds/extracted/Audio/explosionCrunch_000.ogg                       0.78s pk   -1.0 L  -13.3 c   3324Hz
+kenney_scifi_sounds/extracted/Audio/explosionCrunch_001.ogg                       1.36s pk   -1.0 L  -11.5 c   3441Hz
+kenney_scifi_sounds/extracted/Audio/explosionCrunch_002.ogg                       1.26s pk   -1.0 L  -12.5 c   2246Hz
+kenney_scifi_sounds/extracted/Audio/explosionCrunch_003.ogg                       1.55s pk   -1.0 L  -14.6 c   4155Hz
+kenney_scifi_sounds/extracted/Audio/explosionCrunch_004.ogg                       1.98s pk   -1.0 L  -15.4 c   2787Hz
+kenney_scifi_sounds/extracted/Audio/forceField_000.ogg                            0.95s pk   -0.9 L   -5.3 c    682Hz
+kenney_scifi_sounds/extracted/Audio/forceField_001.ogg                            0.95s pk   -0.9 L   -5.7 c    637Hz
+kenney_scifi_sounds/extracted/Audio/forceField_002.ogg                            0.96s pk   -0.9 L   -5.3 c   1044Hz
+kenney_scifi_sounds/extracted/Audio/forceField_003.ogg                            0.96s pk   -0.9 L   -5.5 c    731Hz
+kenney_scifi_sounds/extracted/Audio/forceField_004.ogg                            0.95s pk   -0.9 L   -5.4 c    783Hz
+kenney_scifi_sounds/extracted/Audio/impactMetal_000.ogg                           0.63s pk   -0.9 L  -15.6 c    513Hz
+kenney_scifi_sounds/extracted/Audio/impactMetal_001.ogg                           0.69s pk   -0.9 L  -17.8 c    193Hz
+kenney_scifi_sounds/extracted/Audio/impactMetal_002.ogg                           0.47s pk   -0.9 L  -16.4 c    343Hz
+kenney_scifi_sounds/extracted/Audio/impactMetal_003.ogg                           0.78s pk   -0.9 L  -14.9 c    456Hz
+kenney_scifi_sounds/extracted/Audio/impactMetal_004.ogg                           0.39s pk   -0.9 L  -16.8 c    623Hz
+kenney_scifi_sounds/extracted/Audio/laserLarge_000.ogg                            0.68s pk   -0.9 L  -10.7 c   6530Hz
+kenney_scifi_sounds/extracted/Audio/laserLarge_001.ogg                            0.72s pk   -0.9 L  -10.4 c   4769Hz
+kenney_scifi_sounds/extracted/Audio/laserLarge_002.ogg                            0.74s pk   -0.8 L   -9.9 c  10155Hz
+kenney_scifi_sounds/extracted/Audio/laserLarge_003.ogg                            0.72s pk   -0.9 L  -10.6 c   6978Hz
+kenney_scifi_sounds/extracted/Audio/laserLarge_004.ogg                            0.69s pk   -0.9 L  -10.1 c   8291Hz
+kenney_scifi_sounds/extracted/Audio/laserRetro_000.ogg                            0.24s pk   -0.9 L   -4.5 c   4895Hz
+kenney_scifi_sounds/extracted/Audio/laserRetro_001.ogg                            0.24s pk   -0.9 L   -5.1 c   4148Hz
+kenney_scifi_sounds/extracted/Audio/laserRetro_002.ogg                            0.26s pk   -0.9 L   -9.9 c   5836Hz
+kenney_scifi_sounds/extracted/Audio/laserRetro_003.ogg                            0.25s pk   -0.9 L   -2.6 c   7376Hz
+kenney_scifi_sounds/extracted/Audio/laserRetro_004.ogg                            0.28s pk   -0.9 L   -6.6 c   3010Hz
+kenney_scifi_sounds/extracted/Audio/laserSmall_000.ogg                            0.24s pk   -5.7 L  -19.0 c   3343Hz
+kenney_scifi_sounds/extracted/Audio/laserSmall_001.ogg                            0.25s pk   -2.5 L  -15.3 c   8590Hz
+kenney_scifi_sounds/extracted/Audio/laserSmall_002.ogg                            0.34s pk   -5.7 L  -15.4 c   5980Hz
+kenney_scifi_sounds/extracted/Audio/laserSmall_003.ogg                            0.30s pk   -7.7 L  -17.2 c   3663Hz
+kenney_scifi_sounds/extracted/Audio/laserSmall_004.ogg                            0.41s pk   -3.2 L  -18.5 c   2967Hz
+kenney_scifi_sounds/extracted/Audio/lowFrequency_explosion_000.ogg                2.00s pk   -0.9 L  -11.1 c     95Hz
+kenney_scifi_sounds/extracted/Audio/lowFrequency_explosion_001.ogg                1.00s pk   -0.8 L  -10.4 c    113Hz
+kenney_scifi_sounds/extracted/Audio/slime_000.ogg                                 0.50s pk   -1.0 L  -20.4 c   3966Hz
+kenney_scifi_sounds/extracted/Audio/slime_001.ogg                                 4.71s pk   -1.0 L  -17.0 c   2053Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLarge_000.ogg                      5.00s pk   -0.9 L  -11.4 c   3099Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLarge_001.ogg                      5.00s pk   -0.9 L   -8.1 c   6207Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLarge_002.ogg                      5.00s pk   -0.9 L   -8.6 c   6150Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLarge_003.ogg                      5.00s pk   -0.9 L   -7.2 c   6776Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLarge_004.ogg                      5.00s pk   -0.9 L   -9.1 c   5514Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLow_000.ogg                        5.01s pk   -1.0 L   -7.9 c    298Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLow_001.ogg                        5.00s pk   -0.9 L   -8.4 c    399Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLow_002.ogg                        5.00s pk   -0.9 L  -14.5 c    438Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLow_003.ogg                        5.00s pk   -1.0 L  -10.7 c    394Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineLow_004.ogg                        5.00s pk   -1.0 L  -10.3 c    295Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineSmall_000.ogg                      5.01s pk   -0.9 L  -10.5 c    737Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineSmall_001.ogg                      5.00s pk   -1.0 L  -16.2 c    917Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineSmall_002.ogg                      5.00s pk   -1.1 L  -14.1 c    757Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineSmall_003.ogg                      5.00s pk   -0.9 L  -16.5 c    985Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngineSmall_004.ogg                      5.00s pk   -1.0 L  -11.8 c    968Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngine_000.ogg                           5.00s pk   -1.0 L  -11.8 c   1368Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngine_001.ogg                           5.00s pk   -1.0 L  -11.8 c   1928Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngine_002.ogg                           5.00s pk   -0.9 L  -12.8 c   1649Hz
+kenney_scifi_sounds/extracted/Audio/spaceEngine_003.ogg                           5.00s pk   -0.9 L   -9.7 c    875Hz
+kenney_scifi_sounds/extracted/Audio/thrusterFire_000.ogg                          5.00s pk   -1.0 L  -17.2 c   8596Hz
+kenney_scifi_sounds/extracted/Audio/thrusterFire_001.ogg                          5.00s pk   -0.9 L  -16.8 c   7704Hz
+kenney_scifi_sounds/extracted/Audio/thrusterFire_002.ogg                          5.00s pk   -1.0 L  -17.1 c   8920Hz
+kenney_scifi_sounds/extracted/Audio/thrusterFire_003.ogg                          5.00s pk   -1.0 L  -16.3 c   6024Hz
+kenney_scifi_sounds/extracted/Audio/thrusterFire_004.ogg                          5.00s pk   -0.9 L  -18.2 c  10006Hz
+kenney_rpg_audio/extracted/Audio/beltHandle1.ogg                                  0.28s pk   -4.1 L  -21.0 c  11672Hz
+kenney_rpg_audio/extracted/Audio/beltHandle2.ogg                                  0.48s pk   -4.4 L  -22.9 c  11375Hz
+kenney_rpg_audio/extracted/Audio/bookClose.ogg                                    0.23s pk    0.1 L  -16.4 c   3676Hz
+kenney_rpg_audio/extracted/Audio/bookFlip1.ogg                                    0.77s pk    0.7 L  -18.3 c   6077Hz
+kenney_rpg_audio/extracted/Audio/bookFlip2.ogg                                    0.43s pk   -9.8 L  -31.3 c   6337Hz
+kenney_rpg_audio/extracted/Audio/bookFlip3.ogg                                    0.23s pk   -6.2 L  -26.4 c   6853Hz
+kenney_rpg_audio/extracted/Audio/bookOpen.ogg                                     0.15s pk  -13.9 L  -32.9 c   4682Hz
+kenney_rpg_audio/extracted/Audio/bookPlace1.ogg                                   0.28s pk    0.3 L  -14.2 c   3637Hz
+kenney_rpg_audio/extracted/Audio/bookPlace2.ogg                                   0.35s pk    0.4 L  -13.0 c   3068Hz
+kenney_rpg_audio/extracted/Audio/bookPlace3.ogg                                   0.26s pk    0.5 L  -13.6 c   3942Hz
+kenney_rpg_audio/extracted/Audio/chop.ogg                                         0.24s pk   -0.2 L  -14.0 c   2977Hz
+kenney_rpg_audio/extracted/Audio/cloth1.ogg                                       0.66s pk   -4.0 L  -23.3 c   2320Hz
+kenney_rpg_audio/extracted/Audio/cloth2.ogg                                       0.42s pk  -10.3 L  -26.3 c   2419Hz
+kenney_rpg_audio/extracted/Audio/cloth3.ogg                                       0.48s pk  -11.7 L  -28.3 c   2074Hz
+kenney_rpg_audio/extracted/Audio/cloth4.ogg                                       0.38s pk  -16.4 L  -32.8 c   3946Hz
+kenney_rpg_audio/extracted/Audio/clothBelt.ogg                                    0.72s pk   -4.5 L  -21.4 c   7973Hz
+kenney_rpg_audio/extracted/Audio/clothBelt2.ogg                                   0.75s pk   -7.1 L  -23.6 c   7794Hz
+kenney_rpg_audio/extracted/Audio/creak1.ogg                                       0.66s pk   -9.1 L  -18.3 c   3341Hz
+kenney_rpg_audio/extracted/Audio/creak2.ogg                                       0.83s pk   -8.6 L  -18.4 c   2926Hz
+kenney_rpg_audio/extracted/Audio/creak3.ogg                                       0.34s pk   -7.8 L  -16.6 c   2134Hz
+kenney_rpg_audio/extracted/Audio/doorClose_1.ogg                                  0.68s pk    0.4 L   -8.9 c   4400Hz
+kenney_rpg_audio/extracted/Audio/doorClose_2.ogg                                  0.61s pk   -2.7 L  -13.0 c   4668Hz
+kenney_rpg_audio/extracted/Audio/doorClose_3.ogg                                  0.71s pk    1.0 L   -6.1 c   4643Hz
+kenney_rpg_audio/extracted/Audio/doorClose_4.ogg                                  0.60s pk   -0.7 L  -13.3 c   2631Hz
+kenney_rpg_audio/extracted/Audio/doorOpen_1.ogg                                   0.92s pk    0.1 L  -11.4 c   3909Hz
+kenney_rpg_audio/extracted/Audio/doorOpen_2.ogg                                   1.41s pk    0.2 L  -12.3 c   3611Hz
+kenney_rpg_audio/extracted/Audio/drawKnife1.ogg                                   0.40s pk  -25.9 L  -37.5 c   7648Hz
+kenney_rpg_audio/extracted/Audio/drawKnife2.ogg                                   0.45s pk  -24.2 L  -34.1 c   6441Hz
+kenney_rpg_audio/extracted/Audio/drawKnife3.ogg                                   0.48s pk  -12.3 L  -31.5 c   3390Hz
+kenney_rpg_audio/extracted/Audio/dropLeather.ogg                                  0.42s pk   -7.8 L  -20.3 c   3763Hz
+kenney_rpg_audio/extracted/Audio/footstep00.ogg                                   0.25s pk   -0.6 L  -17.8 c   2261Hz
+kenney_rpg_audio/extracted/Audio/footstep01.ogg                                   0.28s pk   -0.0 L  -16.5 c   2283Hz
+kenney_rpg_audio/extracted/Audio/footstep02.ogg                                   0.24s pk   -1.9 L  -20.2 c   2142Hz
+kenney_rpg_audio/extracted/Audio/footstep03.ogg                                   0.27s pk    0.1 L  -16.9 c   2179Hz
+kenney_rpg_audio/extracted/Audio/footstep04.ogg                                   0.32s pk   -5.3 L  -21.7 c   1204Hz
+kenney_rpg_audio/extracted/Audio/footstep05.ogg                                   0.28s pk   -6.2 L  -24.1 c   1638Hz
+kenney_rpg_audio/extracted/Audio/footstep06.ogg                                   0.24s pk   -3.4 L  -19.9 c   1317Hz
+kenney_rpg_audio/extracted/Audio/footstep07.ogg                                   0.26s pk   -0.6 L  -19.1 c   2235Hz
+kenney_rpg_audio/extracted/Audio/footstep08.ogg                                   0.26s pk    0.2 L  -14.0 c   2214Hz
+kenney_rpg_audio/extracted/Audio/footstep09.ogg                                   0.22s pk   -7.1 L  -22.4 c   1321Hz
+kenney_rpg_audio/extracted/Audio/handleCoins.ogg                                  0.85s pk   -0.0 L  -17.1 c   8501Hz
+kenney_rpg_audio/extracted/Audio/handleCoins2.ogg                                 0.34s pk  -12.0 L  -27.8 c   7277Hz
+kenney_rpg_audio/extracted/Audio/handleSmallLeather.ogg                           0.34s pk  -14.6 L  -33.1 c   3885Hz
+kenney_rpg_audio/extracted/Audio/handleSmallLeather2.ogg                          0.31s pk  -17.6 L  -34.3 c   6209Hz
+kenney_rpg_audio/extracted/Audio/knifeSlice.ogg                                   0.60s pk   -2.7 L  -12.0 c   6605Hz
+kenney_rpg_audio/extracted/Audio/knifeSlice2.ogg                                  0.57s pk    0.5 L  -10.0 c   7122Hz
+kenney_rpg_audio/extracted/Audio/metalClick.ogg                                   0.45s pk   -8.3 L  -28.4 c   6363Hz
+kenney_rpg_audio/extracted/Audio/metalLatch.ogg                                   0.26s pk    1.0 L  -14.2 c   8235Hz
+kenney_rpg_audio/extracted/Audio/metalPot1.ogg                                    1.46s pk    0.6 L   -9.0 c   3864Hz
+kenney_rpg_audio/extracted/Audio/metalPot2.ogg                                    0.94s pk    0.7 L   -3.6 c   3622Hz
+kenney_rpg_audio/extracted/Audio/metalPot3.ogg                                    0.91s pk    1.7 L   -4.7 c   4264Hz

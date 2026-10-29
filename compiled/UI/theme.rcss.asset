@@ -1,0 +1,449 @@
+/*
+ * Barrowlight UI theme: shared by every document. Link order in each document:
+ *     engine:/data/ui/rml.rcss, app:/data/UI/theme.rcss, app:/data/UI/<Screen>.rcss, app:/data/UI/phone.rcss
+ * Each <Screen>.rcss ends with its own phone rules (body.phone); phone.rcss holds the shared ones.
+ *
+ * Units: every length is in rem. GameUI sets the body font-size to 10dp x the UI scale (fit of
+ * the screen to 1920 x 1080, larger on phones), so 1rem = 10 design pixels at any resolution.
+ * Colours: gold #c9a45c / bright #ffc94c, ink #0b0910, parchment text #ece4d4, danger #ff4a2a.
+ * Rarity: common #b8b8b8, uncommon #4ccb6a, rare #4c8dff, epic #b05cff, evolution #ffc94c, boon #6fdcb4.
+ * RCSS reminders: rgba alpha is 0-255 (hex #rrggbbaa works too), no border style keyword,
+ * opacity is inherited (children follow a fading parent unless they set their own), and an
+ * animated property returns to its RCSS value when the animation ends.
+ */
+
+@font-face { font-family: "GT Display"; src: "app:/data/UI/Fonts/Inter-Black.ttf"; }
+@font-face { font-family: "GT Heavy"; src: "app:/data/UI/Fonts/Inter-ExtraBold.ttf"; }
+@font-face { font-family: "GT Semi"; src: "app:/data/UI/Fonts/Inter-SemiBold.ttf"; }
+@font-face { font-family: "GT Text"; src: "app:/data/UI/Fonts/Inter-Medium.ttf"; }
+
+/* ---------- page ---------- */
+
+html, body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "GT Text";
+	font-size: 10dp;
+	color: #ece4d4;
+	background-color: #00000000;
+}
+
+/* Full-screen layer inside the safe area (GameUI writes the padding from Screen.safeArea). */
+.safe {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* Fills its parent: full-screen layers, and a screen's #intro that spans the safe area so rows can anchor to its bottom. */
+.fill {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* Darkens the world behind a menu. */
+.dim {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #06040ab4;
+}
+
+.dim.heavy {
+	decorator: radial-gradient(circle farthest-corner, #120c1ae0 0%, #050308f8 100%);
+}
+
+/* A flash over its parent: transparent at rest (an animation of its opacity returns here when it ends). */
+.flash-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+}
+
+/* A screen's title block across the screen; the screen's sheet sets its top. */
+.screen-header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.row { display: flex; flex-direction: row; align-items: center; }
+
+/* ---------- type ---------- */
+
+.heading {
+	font-family: "GT Display";
+	font-size: 4.2rem;
+	letter-spacing: 0.3rem;
+	color: #ffd98a;
+	text-align: center;
+	font-effect: outline(2dp #1a0d05), glow(0dp 10dp 0dp 0dp #ff6a2a50);
+}
+
+.subheading {
+	font-family: "GT Semi";
+	font-size: 1.6rem;
+	letter-spacing: 0.4rem;
+	color: #a99f8f;
+	text-align: center;
+}
+
+.label {
+	font-family: "GT Heavy";
+	font-size: 1.3rem;
+	letter-spacing: 0.15rem;
+	color: #c9a45c;
+}
+
+.number {
+	font-family: "GT Display";
+	color: #ffffff;
+	font-effect: outline(2dp #08060c);
+}
+
+.muted { color: #a99f8f; }
+
+/* ---------- frames ---------- */
+
+/* A dark lacquered panel with a thin gold rim and a soft drop shadow. */
+.panel {
+	position: relative;
+	padding: 2.4rem 2.8rem;
+	decorator: vertical-gradient(#1e1828f2 #0c0a11f6);
+	border: 2dp #6b5530;
+	border-radius: 1rem;
+	box-shadow: #000000c0 0 1.2rem 4rem 0, #c9a45c30 0 0 0 1dp inset;
+}
+
+/* Gold filigree in the four corners of a panel: <div class="corner tl"/> etc. */
+.corner {
+	position: absolute;
+	width: 4.8rem;
+	height: 4.8rem;
+	decorator: image("app:/data/UI/Art/corner.png");
+	pointer-events: none;
+}
+.corner.tl { left: -0.6rem; top: -0.6rem; }
+.corner.tr { right: -0.6rem; top: -0.6rem; transform: scale(-1, 1); }
+.corner.bl { left: -0.6rem; bottom: -0.6rem; transform: scale(1, -1); }
+.corner.br { right: -0.6rem; bottom: -0.6rem; transform: scale(-1, -1); }
+
+.divider {
+	height: 2.4rem;
+	margin: 0.6rem 0;
+	decorator: image("app:/data/UI/Art/divider.png");
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+	display: block;
+	position: relative;
+	padding: 1.2rem 2.6rem 1.3rem 2.6rem;
+	font-family: "GT Heavy";
+	font-size: 1.8rem;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	color: #ece4d4;
+	decorator: vertical-gradient(#2c2436 #17121e);
+	border: 2dp #5a4a32;
+	border-radius: 0.6rem;
+	box-shadow: #00000090 0 0.4rem 1rem 0;
+	transition: transform 0.12s cubic-out;
+}
+
+.btn:hover, body.show-focus .btn.nav-focus {
+	color: #ffffff;
+	border-color: #c9a45c;
+	decorator: vertical-gradient(#3b3046 #1f1828);
+	transform: scale(1.04);
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn.primary {
+	color: #1c1006;
+	font-effect: none;
+	decorator: vertical-gradient(#ffd27a #c08a2e);
+	border-color: #ffe7a8;
+}
+
+.btn.primary:hover, body.show-focus .btn.primary.nav-focus {
+	color: #120a02;
+	decorator: vertical-gradient(#ffe39c #d39a38);
+	border-color: #fff4d0;
+}
+
+.btn.danger { border-color: #7a2a22; }
+.btn.danger:hover, body.show-focus .btn.danger.nav-focus { border-color: #ff6a50; color: #ffd0c8; }
+
+.btn.disabled, .btn.disabled:hover {
+	color: #6e6676;
+	border-color: #3a3240;
+	decorator: vertical-gradient(#1c1822 #121016);
+	transform: none;
+}
+
+.btn.small {
+	padding: 0.7rem 1.4rem 0.8rem 1.4rem;
+	font-size: 1.4rem;
+}
+
+/* Count badge inside a button: "Reroll (2)". */
+.btn .count {
+	font-family: "GT Display";
+	color: #ffc94c;
+	margin-left: 0.6rem;
+}
+
+/* A round close button in a panel's top right corner; the panel's sheet sets right and top. */
+.close-button {
+	position: absolute;
+	width: 4.4rem;
+	height: 4.4rem;
+	border-radius: 2.2rem;
+	border: 2dp #5a4a32;
+	background-color: #1c1622;
+	z-index: 2;
+}
+
+.close-button img { display: block; width: 2.4rem; height: 2.4rem; margin: 1rem; image-color: #ece4d4; }
+.close-button:hover, body.show-focus .close-button.nav-focus { border-color: #c9a45c; }
+
+/* Focus ring for keyboard / gamepad (".nav" elements get "nav-focus"): only while the body has class show-focus. */
+body.show-focus .nav-focus {
+	box-shadow: #ffc94c 0 0 0 2dp, #ffc94c70 0 0 1.6rem 0.2rem;
+}
+
+/* ---------- input hints (keycaps and pad glyphs) ---------- */
+
+.hint {
+	display: inline-block;
+	margin-right: 0.6rem;
+	vertical-align: middle;
+}
+
+.keycap {
+	display: inline-block;
+	min-width: 1.4rem;
+	padding: 0.1rem 0.5rem 0.2rem 0.5rem;
+	font-family: "GT Heavy";
+	font-size: 1.1rem;
+	color: #1a1420;
+	text-align: center;
+	background-color: #d8cdb8;
+	border-radius: 0.4rem;
+	border-bottom: 2dp #8a7d66;
+}
+
+.padglyph {
+	display: inline-block;
+	width: 2.2rem;
+	height: 2.2rem;
+	vertical-align: middle;
+}
+
+/* Which hint shows follows the last input device; touch screens never show keyboard keys. */
+.pad-only { display: none; }
+body.input-pad .pad-only { display: inline-block; }
+body.input-pad .kbd-only { display: none; }
+body.input-touch .kbd-only { display: none; }
+body.input-touch .pad-only { display: none; }
+body.input-touch .no-touch { display: none; }
+body.touch .kbd-only { display: none; }
+body.touch .no-touch { display: none; }
+
+/* ---------- progress bars ---------- */
+
+/* rml.rcss gives every bar a grey border and a blue fill; bars here style their own fill (a radial
+ * bar draws only its fill-image, so its fill element must stay transparent). */
+progress {
+	border-width: 0;
+	border-radius: 0;
+}
+
+progress fill {
+	background-color: #00000000;
+}
+
+/* Repeated data-for elements carry one empty marker child: a data-for template needs inner RML. */
+.fill-marker {
+	display: none;
+}
+
+/* ---------- ownership tags: hero unique / shared / passive (UIText.GetOwnership) ---------- */
+
+.own {
+	display: inline-block;
+	padding: 0.2rem 0.9rem 0.25rem 0.35rem;
+	font-family: "GT Heavy";
+	font-size: 1.25rem;
+	letter-spacing: 0.12rem;
+	white-space: nowrap;
+	border: 1dp #6e7a8e;
+	border-radius: 1.2rem;
+}
+
+.own-emblem {
+	width: 1.9rem;
+	height: 1.9rem;
+	margin-right: 0.5rem;
+	vertical-align: middle;
+}
+
+.own-none { display: none; }
+.own-knight { color: #e6ecf6; border-color: #b8c6dc; background-color: #b8c6dc2a; }
+.own-barbarian { color: #ff9478; border-color: #ff6a4a; background-color: #ff6a4a2a; }
+.own-mage { color: #c2b2ff; border-color: #9a84ff; background-color: #9a84ff2a; }
+.own-rogue { color: #74ecd0; border-color: #3fd6b4; background-color: #3fd6b42a; }
+.own-shared { color: #c3cbd8; border-color: #6e7a8e; background-color: #6e7a8e2a; }
+.own-shared .own-emblem { image-color: #c3cbd8; }
+.own-passive { color: #94e4ac; border-color: #4f9a68; background-color: #4f9a682a; }
+.own-passive .own-emblem { image-color: #94e4ac; }
+.own-blessing { color: #ffd98a; border-color: #a07a30; background-color: #a07a302a; }
+.own-boon { color: #9ef0d2; border-color: #4fb894; background-color: #4fb8942a; }
+.own-boon .own-emblem { image-color: #9ef0d2; }
+
+/* ---------- glyphs and pips ---------- */
+
+.glyph {
+	display: inline-block;
+	width: 2.6rem;
+	height: 2.6rem;
+	vertical-align: middle;
+}
+
+/* Rank pips: small diamonds, lit up to the rank. */
+.pips {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.pip {
+	width: 0.7rem;
+	height: 0.7rem;
+	margin: 0 0.18rem;
+	background-color: #2a2430;
+	border: 1dp #6b5530;
+	transform: rotate(45deg);
+}
+
+.pip.on {
+	background-color: #ffc94c;
+	border-color: #fff0c0;
+}
+
+/* ---------- rarity frames ----------
+ * A card or reel carries a frame class (UIText.FRAME_CLASSES); its .rarity-border (the element itself or a child)
+ * takes the rarity's border colour and its .rarity-text the rarity's text colour. */
+
+.r-common.rarity-border, .r-common .rarity-border { border-color: #b8b8b8; }
+.r-uncommon.rarity-border, .r-uncommon .rarity-border { border-color: #4ccb6a; }
+.r-rare.rarity-border, .r-rare .rarity-border { border-color: #4c8dff; }
+.r-epic.rarity-border, .r-epic .rarity-border { border-color: #b05cff; }
+.r-evolution.rarity-border, .r-evolution .rarity-border { border-color: #ffc94c; }
+.r-boon.rarity-border, .r-boon .rarity-border { border-color: #6fdcb4; }
+
+.r-common .rarity-text { color: #b8b8b8; }
+.r-uncommon .rarity-text { color: #4ccb6a; }
+.r-rare .rarity-text { color: #4c8dff; }
+.r-epic .rarity-text { color: #b05cff; }
+.r-evolution .rarity-text { color: #ffc94c; }
+.r-boon .rarity-text { color: #6fdcb4; }
+
+/* ---------- sliders, toggles, segmented options ---------- */
+
+input.range {
+	height: 1.2rem;
+	margin: 0.8rem 0;
+	background-color: #00000000;
+}
+
+input.range slidertrack {
+	background-color: #120e18;
+	border: 1dp #4a3e2c;
+	border-radius: 0.6rem;
+}
+
+input.range sliderprogress, input.range:hover sliderprogress, input.range:active sliderprogress {
+	decorator: horizontal-gradient(#8a6a2a #ffc94c);
+	background-color: #00000000;
+	border-radius: 0.6rem;
+}
+
+input.range sliderbar, input.range sliderbar:disabled, input.range:hover sliderbar, input.range sliderbar:active {
+	width: 2.2rem;
+	height: 2.2rem;
+	margin-top: -0.5rem;
+	border-radius: 1.1rem;
+	background-color: #ffe7a8;
+	border: 2dp #6b5530;
+}
+
+.segmented {
+	display: flex;
+	flex-direction: row;
+}
+
+.segmented .seg {
+	padding: 0.7rem 1.4rem;
+	margin-right: 0.4rem;
+	font-family: "GT Heavy";
+	font-size: 1.3rem;
+	color: #a99f8f;
+	border: 1dp #4a3e2c;
+	border-radius: 0.4rem;
+	background-color: #120e18;
+}
+
+.segmented .seg:hover { color: #ffffff; border-color: #c9a45c; }
+.segmented .seg.on { color: #1c1006; background-color: #ffc94c; border-color: #fff0c0; }
+
+/* ---------- scrollbars ---------- */
+
+scrollbarvertical { width: 1rem; }
+scrollbarvertical slidertrack { background-color: #0c0a10; border: 0; border-radius: 0.5rem; }
+scrollbarvertical sliderbar { margin-left: 0.2rem; width: 0.6rem; min-height: 3rem; background-color: #6b5530; border-radius: 0.3rem; }
+scrollbarvertical sliderbar:hover, scrollbarvertical sliderbar:active { background-color: #c9a45c; }
+
+/* ---------- shared motion ---------- */
+
+@keyframes screen-in {
+	0% { opacity: 0; transform: translateY(2rem); }
+	100% { opacity: 1; transform: translateY(0rem); }
+}
+
+/* Pulses a glow element in and out (box-shadow itself does not animate in RmlUi; opacity does). */
+@keyframes pulse-opacity {
+	0% { opacity: 0.15; }
+	100% { opacity: 1; }
+}
+
+@keyframes shake {
+	0% { transform: translateX(0rem); }
+	20% { transform: translateX(-1rem); }
+	40% { transform: translateX(1rem); }
+	60% { transform: translateX(-0.6rem); }
+	80% { transform: translateX(0.6rem); }
+	100% { transform: translateX(0rem); }
+}
+
+/* Refused action (no charges, not enough gold): UIScreen.Deny adds "deny" and replays the shake. */
+.deny { animation: 0.3s linear shake; }

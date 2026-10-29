@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Barrowlight Chest</title>
+    <link type="text/rcss" href="engine:/data/ui/rml.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/theme.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/Chest.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/phone.rcss"/>
+</head>
+<!--
+    Chest opening: up to five reels spin icons for 1.5 s (up to 3 items 2.0 s, more 3.0 s) and land one by
+    one with a rarity flash; any button lands them all. ChestScreen.cs drives everything; a landed reel's frame
+    class (r-common...) colours its .rarity-border.
+-->
+<body class="chest">
+    <div class="dim heavy"/>
+    <div class="safe">
+        <div id="chest-header" class="screen-header">
+            <img id="chest-icon" src="app:/data/UI/Icons/chest.png"/>
+            <div id="chest-title" class="heading">TREASURE</div>
+            <div id="chest-sub" class="subheading">THE TIDE GIVES BACK WHAT IT TOOK</div>
+        </div>
+
+        <div id="reels">
+            <div class="reel">
+                <div class="reel-window rarity-border"><div class="reel-glow"/><img class="reel-icon" src="app:/data/UI/Icons/whetstone.png"/><div class="reel-flash flash-layer"/></div>
+                <div class="reel-name">Whetstone</div>
+                <div class="reel-tag">RANK 2 &gt; 3</div>
+                <div class="reel-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+            </div>
+            <div class="reel">
+                <div class="reel-window rarity-border"><div class="reel-glow"/><img class="reel-icon" src="app:/data/UI/Icons/verdict.png"/><div class="reel-flash flash-layer"/></div>
+                <div class="reel-name">Verdict</div>
+                <div class="reel-tag">RANK 4 &gt; 5</div>
+                <div class="reel-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+            </div>
+            <div class="reel">
+                <div class="reel-window rarity-border"><div class="reel-glow"/><img class="reel-icon" src="app:/data/UI/Icons/dawnbreaker.png"/><div class="reel-flash flash-layer"/></div>
+                <div class="reel-name">Dawnbreaker</div>
+                <div class="reel-tag">EVOLVED</div>
+                <div class="reel-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+            </div>
+            <div class="reel">
+                <div class="reel-window rarity-border"><div class="reel-glow"/><img class="reel-icon" src="app:/data/UI/Icons/iron_heart.png"/><div class="reel-flash flash-layer"/></div>
+                <div class="reel-name">Iron Heart</div>
+                <div class="reel-tag">RANK 3 &gt; 4</div>
+                <div class="reel-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+            </div>
+            <div class="reel">
+                <div class="reel-window rarity-border"><div class="reel-glow"/><img class="reel-icon" src="app:/data/UI/Icons/aegis_orbit.png"/><div class="reel-flash flash-layer"/></div>
+                <div class="reel-name">Aegis Orbit</div>
+                <div class="reel-tag">RANK 6 &gt; 7</div>
+                <div class="reel-own"><div class="own own-none"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">SHARED</span></div></div>
+            </div>
+        </div>
+
+        <div id="chest-gold">
+            <img class="glyph" src="app:/data/UI/Icons/gold.png"/>
+            <span id="chest-gold-text" class="number">+0</span>
+        </div>
+
+        <div id="chest-footer">
+            <div id="chest-continue" class="btn primary nav">
+                <span class="hint"><span class="keycap kbd-only">ENTER</span><img class="padglyph pad-only" src="app:/data/UI/Glyphs/buttonA.png"/></span>CONTINUE
+            </div>
+            <div id="chest-hint">Press any button to open them all</div>
+        </div>
+    </div>
+</body>
+</html>

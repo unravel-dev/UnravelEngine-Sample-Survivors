@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Barrowlight Details</title>
+    <link type="text/rcss" href="engine:/data/ui/rml.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/theme.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/Details.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/phone.rcss"/>
+</head>
+<!--
+    Item details over the paused game (tap / click a HUD slot or the active's info badge). DetailsScreen.cs
+    fills it; a tap on the dim area, the close button, Continue, Back or Escape closes it and play resumes.
+-->
+<body class="details">
+    <div id="details-dim" class="dim"/>
+    <div class="safe">
+        <div id="details-panel" class="panel">
+            <div class="corner tl"/><div class="corner tr"/><div class="corner bl"/><div class="corner br"/>
+            <div id="details-close" class="close-button nav"><img src="app:/data/UI/Glyphs/cross.png"/></div>
+            <div id="details-head">
+                <img id="details-icon" src="app:/data/UI/Icons/oathblade_arc.png"/>
+                <div id="details-title">
+                    <div id="details-name">Oathblade Arc</div>
+                    <div id="details-tags">
+                        <div id="details-own" class="own own-knight"><img class="own-emblem" src="app:/data/UI/Icons/knight.png"/><span class="own-text">KNIGHT UNIQUE</span></div>
+                        <span id="details-kind">COMMON WEAPON</span>
+                    </div>
+                    <div id="details-rank">
+                        <span id="details-rank-text">RANK 3 / 8</span>
+                        <div id="details-pips" class="pips"/>
+                    </div>
+                </div>
+            </div>
+            <div id="details-body">
+                <div id="details-desc">A wide sword slice in front.</div>
+                <div id="sec-now" class="details-section">
+                    <div id="sec-now-label" class="label">RANK 3</div>
+                    <div id="details-now"/>
+                </div>
+                <div id="sec-next" class="details-section">
+                    <div id="sec-next-label" class="label">NEXT: RANK 4</div>
+                    <div id="details-next"/>
+                </div>
+                <div id="sec-evo" class="details-section">
+                    <div id="sec-evo-label" class="label">EVOLUTION</div>
+                    <div id="details-evo">
+                        <img id="details-evo-icon" src="app:/data/UI/Icons/dawnbreaker.png"/>
+                        <div id="details-evo-text">Becomes Dawnbreaker at rank 8 with Iron Heart.</div>
+                    </div>
+                </div>
+            </div>
+            <div id="details-footer">
+                <span id="details-hint" class="muted">Play is paused.</span>
+                <div id="details-ok" class="btn primary nav">CONTINUE</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

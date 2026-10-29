@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>Barrowlight Settings</title>
+    <link type="text/rcss" href="engine:/data/ui/rml.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/theme.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/Settings.rcss"/>
+    <link type="text/rcss" href="app:/data/UI/phone.rcss"/>
+</head>
+<!--
+    Settings. Model "settings" is SettingsModel (SettingsScreen.cs). Sliders bind two-way with data-value
+    (their step is SettingsScreen.SLIDER_STEP); each row is a focus stop: left / right on the gamepad or
+    keyboard change the row's value, Submit cycles a choice row's options.
+-->
+<body data-model="settings" class="settings">
+    <div class="dim heavy"/>
+    <div class="safe">
+        <div id="intro" class="panel">
+            <div class="corner tl"/><div class="corner tr"/><div class="corner bl"/><div class="corner br"/>
+            <div class="heading">SETTINGS</div>
+            <div class="divider"/>
+
+            <div id="set-rows">
+            <div class="group-label label">SOUND</div>
+            <div class="set-row nav" setting="master">
+                <span class="set-name">Master volume</span>
+                <input type="range" min="0" max="1" step="0.05" data-value="master"/>
+                <span class="set-value">{{ master | percent }}</span>
+            </div>
+            <div class="set-row nav" setting="music">
+                <span class="set-name">Music</span>
+                <input type="range" min="0" max="1" step="0.05" data-value="music"/>
+                <span class="set-value">{{ music | percent }}</span>
+            </div>
+            <div class="set-row nav" setting="effects">
+                <span class="set-name">Sound effects</span>
+                <input type="range" min="0" max="1" step="0.05" data-value="effects"/>
+                <span class="set-value">{{ effects | percent }}</span>
+            </div>
+
+            <div class="group-label label">FEEL</div>
+            <div class="set-row nav" setting="shake">
+                <span class="set-name">Screen shake</span>
+                <input type="range" min="0" max="1" step="0.05" data-value="shake"/>
+                <span class="set-value">{{ shake | percent }}</span>
+            </div>
+            <div class="set-row nav" setting="numbers">
+                <span class="set-name">Damage numbers</span>
+                <div class="segmented">
+                    <div class="seg" data-class-on="numbers == 0" data-event-click="SetNumbers(0)">OFF</div>
+                    <div class="seg" data-class-on="numbers == 1" data-event-click="SetNumbers(1)">BIG HITS</div>
+                    <div class="seg" data-class-on="numbers == 2" data-event-click="SetNumbers(2)">ALL</div>
+                </div>
+            </div>
+            <div class="set-row nav" setting="opacity">
+                <span class="set-name">Hero effects opacity</span>
+                <div class="segmented">
+                    <div class="seg" data-class-on="opacity == 0" data-event-click="SetOpacity(0)">100%</div>
+                    <div class="seg" data-class-on="opacity == 1" data-event-click="SetOpacity(1)">60%</div>
+                    <div class="seg" data-class-on="opacity == 2" data-event-click="SetOpacity(2)">30%</div>
+                </div>
+            </div>
+            <div class="set-row nav" setting="elitebars">
+                <span class="set-name">Elite health bars</span>
+                <div class="segmented">
+                    <div class="seg" data-class-on="eliteBars" data-event-click="SetEliteBars(1)">ON</div>
+                    <div class="seg" data-class-on="!eliteBars" data-event-click="SetEliteBars(0)">OFF</div>
+                </div>
+            </div>
+            <div class="set-row nav" setting="joystick">
+                <span class="set-name">Touch joystick side</span>
+                <div class="segmented">
+                    <div class="seg" data-class-on="!joystickRight" data-event-click="SetJoystick(0)">LEFT</div>
+                    <div class="seg" data-class-on="joystickRight" data-event-click="SetJoystick(1)">RIGHT</div>
+                </div>
+            </div>
+            <div class="set-row nav" setting="uiscale">
+                <span class="set-name">Interface size</span>
+                <div class="segmented">
+                    <div class="seg" data-class-on="uiScale == 0" data-event-click="SetUiScale(0)">80%</div>
+                    <div class="seg" data-class-on="uiScale == 1" data-event-click="SetUiScale(1)">100%</div>
+                    <div class="seg" data-class-on="uiScale == 2" data-event-click="SetUiScale(2)">120%</div>
+                    <div class="seg" data-class-on="uiScale == 3" data-event-click="SetUiScale(3)">140%</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="divider"/>
+            <div id="set-footer">
+                <span id="set-hint" class="muted">
+                    <span class="kbd-only"><span class="keycap">LEFT</span> <span class="keycap">RIGHT</span> change</span>
+                    <span class="pad-only"><img class="padglyph" src="app:/data/UI/Glyphs/left.png"/><img class="padglyph" src="app:/data/UI/Glyphs/right.png"/> change</span>
+                </span>
+                <div id="set-back" class="btn primary nav" data-event-click="Back()">DONE</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

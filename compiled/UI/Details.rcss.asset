@@ -1,0 +1,203 @@
+/* Item details panel over the paused game. Lengths in rem. */
+
+#details-panel {
+	position: absolute;
+	top: 12rem;
+	left: 50%;
+	width: 78rem;
+	margin-left: -39rem;
+	padding: 2.4rem 2.8rem 2rem 2.8rem;
+	animation: 0.25s back-out details-in;
+}
+
+@keyframes details-in {
+	0% { opacity: 0; transform: scale(0.92); }
+	100% { opacity: 1; transform: scale(1); }
+}
+
+/* A .close-button (theme.rcss). */
+#details-close {
+	right: 1.4rem;
+	top: 1.4rem;
+}
+
+#details-head {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 5rem;
+}
+
+#details-icon {
+	width: 11rem;
+	height: 11rem;
+	margin-right: 2rem;
+	flex: 0 0 auto;
+}
+
+#details-title { flex: 1 1 auto; }
+
+#details-name {
+	font-family: "GT Display";
+	font-size: 3.4rem;
+	color: #ffffff;
+	font-effect: outline(2dp #08060c);
+}
+
+#details-tags {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 0.6rem;
+}
+
+#details-kind {
+	margin-left: 1rem;
+	font-family: "GT Heavy";
+	font-size: 1.4rem;
+	letter-spacing: 0.2rem;
+	color: #a99f8f;
+}
+
+#details-kind.evolution { color: #ffc94c; }
+
+#details-rank {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 0.8rem;
+}
+
+#details-rank-text {
+	font-family: "GT Display";
+	font-size: 1.6rem;
+	color: #c9a45c;
+	margin-right: 1.2rem;
+}
+
+#details-rank.evolved #details-rank-text { color: #ffc94c; }
+#details-pips .pip { width: 0.9rem; height: 0.9rem; margin: 0 0.3rem; }
+
+#details-body {
+	margin-top: 1.6rem;
+	max-height: 50rem;
+	overflow-y: auto;
+	padding-right: 1rem;
+}
+
+#details-desc {
+	font-family: "GT Semi";
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	color: #ece4d4;
+}
+
+.details-section {
+	margin-top: 1.6rem;
+	padding-top: 1rem;
+	border-top: 1dp #6b553060;
+}
+
+.details-section .label { display: block; margin-bottom: 0.6rem; }
+
+.stat-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.stat-cell {
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	height: 2.8rem;
+	align-items: center;
+	padding-right: 2rem;
+}
+
+.stat-key { flex: 1 1 auto; font-size: 1.6rem; color: #c8bfaf; }
+.stat-val { font-family: "GT Heavy"; font-size: 1.7rem; color: #ffffff; }
+
+.stat-note, .stat-line {
+	margin-top: 0.6rem;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	color: #ffd98a;
+}
+
+.stat-line { color: #ece4d4; }
+
+#details-next {
+	font-family: "GT Semi";
+	font-size: 1.6rem;
+	line-height: 2.5rem;
+	color: #d8cfbf;
+}
+
+#details-next .old { color: #a99f8f; }
+#details-next .arrow { color: #ffc94c; font-family: "GT Display"; }
+#details-next .new { color: #7fe39a; font-family: "GT Heavy"; }
+
+#details-evo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#details-evo-icon {
+	width: 6.4rem;
+	height: 6.4rem;
+	margin-right: 1.4rem;
+	flex: 0 0 auto;
+}
+
+#details-evo-text {
+	flex: 1 1 auto;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	color: #ffd98a;
+}
+
+#details-footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 1.8rem;
+}
+
+#details-hint { flex: 1 1 auto; font-size: 1.5rem; }
+#details-ok { min-width: 22rem; }
+
+body.short #details-panel { top: 3rem; }
+body.short #details-body { max-height: 44rem; }
+
+/* ---------- phone: the panel fills the screen, its body scrolls ---------- */
+
+body.phone #details-panel {
+	top: 1rem;
+	bottom: 1rem;
+	left: 6%;
+	right: 6%;
+	width: auto;
+	margin-left: 0;
+	padding: 1.4rem 2rem;
+	display: flex;
+	flex-direction: column;
+}
+body.phone #details-head { flex: 0 0 auto; }
+body.phone #details-icon { width: 8rem; height: 8rem; margin-right: 1.6rem; }
+body.phone #details-name { font-size: 2.8rem; }
+body.phone #details-kind { font-size: 1.6rem; }
+body.phone #details-rank-text { font-size: 1.8rem; }
+body.phone #details-body { flex: 1 1 auto; max-height: none; margin-top: 1rem; }
+body.phone #details-desc { font-size: 1.9rem; line-height: 2.7rem; }
+body.phone .stat-cell { height: 3rem; }
+body.phone .stat-key { font-size: 1.8rem; }
+body.phone .stat-val { font-size: 1.9rem; }
+body.phone .stat-note, body.phone.details .stat-line, body.phone #details-next, body.phone #details-evo-text { font-size: 1.8rem; line-height: 2.6rem; }
+body.phone #details-evo-icon { width: 5.6rem; height: 5.6rem; }
+body.phone #details-footer { flex: 0 0 auto; margin-top: 1rem; }
+body.phone #details-hint { font-size: 1.7rem; }
+body.phone #details-close { width: 6rem; height: 6rem; border-radius: 3rem; }
+body.phone #details-close img { width: 3rem; height: 3rem; margin: 1.3rem; }

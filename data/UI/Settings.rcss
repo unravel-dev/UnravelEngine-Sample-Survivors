@@ -1,0 +1,89 @@
+/* Settings. Lengths in rem. */
+
+#intro {
+	position: absolute;
+	top: 9rem;
+	left: 50%;
+	width: 76rem;
+	margin-left: -38rem;
+	padding: 2.4rem 4rem 2.6rem 4rem;
+	animation: 0.35s cubic-out screen-in;
+}
+
+#set-rows {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.group-label {
+	width: 100%;
+	display: block;
+	margin: 1.2rem 0 0.4rem 0;
+}
+
+.set-row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 5.2rem;
+	padding: 0 1.4rem;
+	border-radius: 0.6rem;
+}
+
+.set-row:hover, body.show-focus .set-row.nav-focus { background-color: #ffffff0c; }
+
+.set-name {
+	width: 26rem;
+	font-family: "GT Semi";
+	font-size: 1.7rem;
+	color: #ece4d4;
+}
+
+.set-row input.range { flex: 1 1 auto; }
+
+.set-value {
+	width: 8rem;
+	text-align: right;
+	font-family: "GT Display";
+	font-size: 1.8rem;
+	color: #ffd98a;
+}
+
+.set-row .segmented { flex: 1 1 auto; }
+
+#set-footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#set-hint { flex: 1 1 auto; font-size: 1.4rem; }
+#set-hint .keycap { margin-right: 0.3rem; }
+#set-back { min-width: 18rem; }
+
+body.short #intro { top: 1.5rem; padding-top: 1.4rem; padding-bottom: 1.4rem; }
+body.short .set-row { height: 4.4rem; }
+body.short .heading { font-size: 3.4rem; }
+
+/* ---------- phone: rows in two columns, scrolling between title and Done ---------- */
+
+body.phone.settings #intro {
+	top: 0.6rem;
+	bottom: 0.6rem;
+	left: 3rem;
+	right: 3rem;
+	width: auto;
+	margin-left: 0;
+	padding: 1.2rem 2rem;
+	display: flex;
+	flex-direction: column;
+}
+body.phone.settings #intro .heading { font-size: 3.2rem; }
+body.phone #set-rows { flex: 1 1 auto; overflow-y: auto; align-content: flex-start; }
+body.phone .group-label { display: none; }
+body.phone .set-row { width: 50%; height: 6.6rem; padding: 0 1.2rem; box-sizing: border-box; }
+body.phone .set-name { width: 15rem; font-size: 1.8rem; }
+body.phone .set-value { width: 6.4rem; font-size: 1.9rem; }
+body.phone #set-footer { margin-top: 0.4rem; }

@@ -1,0 +1,4091 @@
+{
+ "combat/hit_1.wav": {
+  "name": "hit",
+  "file": "combat/hit_1.wav",
+  "seconds": 0.153,
+  "category": "impact",
+  "desc": "bone click transient + punch body (60-170 ms) + bone crack",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_000.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav",
+   "sfx_bones_rattle:0.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "combat/hit_2.wav": {
+  "name": "hit",
+  "file": "combat/hit_2.wav",
+  "seconds": 0.145,
+  "category": "impact",
+  "desc": "bone click transient + punch body (60-170 ms) + bone crack",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_001.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav",
+   "sfx_bones_rattle:1.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.7
+ },
+ "combat/hit_3.wav": {
+  "name": "hit",
+  "file": "combat/hit_3.wav",
+  "seconds": 0.147,
+  "category": "impact",
+  "desc": "bone click transient + punch body (60-170 ms) + bone crack",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_002.ogg",
+   "sfx_bone_breaks:Deep Break 8.wav",
+   "sfx_bones_rattle:2.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "combat/hit_4.wav": {
+  "name": "hit",
+  "file": "combat/hit_4.wav",
+  "seconds": 0.154,
+  "category": "impact",
+  "desc": "bone click transient + punch body (60-170 ms) + bone crack",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_003.ogg",
+   "sfx_bone_breaks:Deep Break 4.wav",
+   "sfx_bones_rattle:3.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "combat/hit_5.wav": {
+  "name": "hit",
+  "file": "combat/hit_5.wav",
+  "seconds": 0.151,
+  "category": "impact",
+  "desc": "bone click transient + punch body (60-170 ms) + bone crack",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_004.ogg",
+   "sfx_bone_breaks:Deep Break 3.wav",
+   "sfx_bones_rattle:4.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "combat/hit_6.wav": {
+  "name": "hit",
+  "file": "combat/hit_6.wav",
+  "seconds": 0.146,
+  "category": "impact",
+  "desc": "bone click transient + punch body (60-170 ms) + bone crack",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_000.ogg",
+   "sfx_bone_breaks:Deep Break 2.wav",
+   "sfx_bones_rattle:5.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.7
+ },
+ "combat/hit_crit_1.wav": {
+  "name": "hit_crit",
+  "file": "combat/hit_crit_1.wav",
+  "seconds": 0.18,
+  "category": "impact",
+  "desc": "sharp metal tick + steel ring tail + heavy punch body + bone click",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_000.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "sfx_80_rpg:blade_01.ogg",
+   "sfx_bones_rattle:5.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.9
+ },
+ "combat/hit_crit_2.wav": {
+  "name": "hit_crit",
+  "file": "combat/hit_crit_2.wav",
+  "seconds": 0.175,
+  "category": "impact",
+  "desc": "sharp metal tick + steel ring tail + heavy punch body + bone click",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_001.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_001.ogg",
+   "sfx_80_rpg:blade_02.ogg",
+   "sfx_bones_rattle:6.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "combat/hit_crit_3.wav": {
+  "name": "hit_crit",
+  "file": "combat/hit_crit_3.wav",
+  "seconds": 0.169,
+  "category": "impact",
+  "desc": "sharp metal tick + steel ring tail + heavy punch body + bone click",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_002.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg",
+   "sfx_80_rpg:blade_03.ogg",
+   "sfx_bones_rattle:7.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "combat/hit_crit_4.wav": {
+  "name": "hit_crit",
+  "file": "combat/hit_crit_4.wav",
+  "seconds": 0.175,
+  "category": "impact",
+  "desc": "sharp metal tick + steel ring tail + heavy punch body + bone click",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_004.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_003.ogg",
+   "sfx_80_rpg:blade_02.ogg",
+   "sfx_bones_rattle:8.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "combat/enemy_death_1.wav": {
+  "name": "enemy_death",
+  "file": "combat/enemy_death_1.wav",
+  "seconds": 0.381,
+  "category": "impact",
+  "desc": "bone break crunch + low thump + two bone rattles (scatter)",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_000.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav",
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:3.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.2
+ },
+ "combat/enemy_death_2.wav": {
+  "name": "enemy_death",
+  "file": "combat/enemy_death_2.wav",
+  "seconds": 0.444,
+  "category": "impact",
+  "desc": "bone break crunch + low thump + two bone rattles (scatter)",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_001.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:4.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.0
+ },
+ "combat/enemy_death_3.wav": {
+  "name": "enemy_death",
+  "file": "combat/enemy_death_3.wav",
+  "seconds": 0.424,
+  "category": "impact",
+  "desc": "bone break crunch + low thump + two bone rattles (scatter)",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_002.ogg",
+   "sfx_bone_breaks:Deep Break 8.wav",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:5.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.2
+ },
+ "combat/enemy_death_4.wav": {
+  "name": "enemy_death",
+  "file": "combat/enemy_death_4.wav",
+  "seconds": 0.466,
+  "category": "impact",
+  "desc": "bone break crunch + low thump + two bone rattles (scatter)",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_003.ogg",
+   "sfx_bone_breaks:Deep Break 4.wav",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:6.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.3
+ },
+ "combat/enemy_death_5.wav": {
+  "name": "enemy_death",
+  "file": "combat/enemy_death_5.wav",
+  "seconds": 0.425,
+  "category": "impact",
+  "desc": "bone break crunch + low thump + two bone rattles (scatter)",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_004.ogg",
+   "sfx_bone_breaks:Deep Break 3.wav",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:7.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.0
+ },
+ "combat/enemy_death_6.wav": {
+  "name": "enemy_death",
+  "file": "combat/enemy_death_6.wav",
+  "seconds": 0.426,
+  "category": "impact",
+  "desc": "bone break crunch + low thump + two bone rattles (scatter)",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_000.ogg",
+   "sfx_bone_breaks:Deep Break 2.wav",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:8.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "combat/elite_death_1.wav": {
+  "name": "elite_death",
+  "file": "combat/elite_death_1.wav",
+  "seconds": 1.4,
+  "category": "impact_heavy",
+  "desc": "two bone breaks (pitched down) + creature death groan + noise boom + sub < 80 Hz + coin glint",
+  "sources": [
+   "sfx_80_rpg:creature_die_01.ogg",
+   "sfx_80_rpg:item_coins_02.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav",
+   "sfx_bone_breaks:Deep Break 8.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "combat/elite_death_2.wav": {
+  "name": "elite_death",
+  "file": "combat/elite_death_2.wav",
+  "seconds": 1.4,
+  "category": "impact_heavy",
+  "desc": "two bone breaks (pitched down) + creature death groan + noise boom + sub < 80 Hz + coin glint",
+  "sources": [
+   "sfx_80_rpg:creature_die_01.ogg",
+   "sfx_80_rpg:item_coins_02.ogg",
+   "sfx_bone_breaks:Deep Break 4.wav",
+   "sfx_bone_breaks:Deep Break 6.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.7
+ },
+ "enemies/skeleton_rattle_1.wav": {
+  "name": "skeleton_rattle",
+  "file": "enemies/skeleton_rattle_1.wav",
+  "seconds": 0.152,
+  "category": "enemy",
+  "desc": "3-4 bone rattles",
+  "sources": [
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:5.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.6
+ },
+ "enemies/skeleton_rattle_2.wav": {
+  "name": "skeleton_rattle",
+  "file": "enemies/skeleton_rattle_2.wav",
+  "seconds": 0.245,
+  "category": "enemy",
+  "desc": "3-4 bone rattles",
+  "sources": [
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:8.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.6
+ },
+ "enemies/skeleton_rattle_3.wav": {
+  "name": "skeleton_rattle",
+  "file": "enemies/skeleton_rattle_3.wav",
+  "seconds": 0.23,
+  "category": "enemy",
+  "desc": "3-4 bone rattles",
+  "sources": [
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.0
+ },
+ "enemies/skeleton_rattle_4.wav": {
+  "name": "skeleton_rattle",
+  "file": "enemies/skeleton_rattle_4.wav",
+  "seconds": 0.259,
+  "category": "enemy",
+  "desc": "3-4 bone rattles",
+  "sources": [
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:8.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.5
+ },
+ "hero/hero_hurt_1.wav": {
+  "name": "hero_hurt",
+  "file": "hero/hero_hurt_1.wav",
+  "seconds": 0.362,
+  "category": "voice",
+  "desc": "body punch + armor rattle + grunt (voice pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "sfx_rpg_sound_pack:chainmail1.wav",
+   "sfx_rpg_sound_pack:giant1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.4
+ },
+ "hero/hero_hurt_2.wav": {
+  "name": "hero_hurt",
+  "file": "hero/hero_hurt_2.wav",
+  "seconds": 0.33,
+  "category": "voice",
+  "desc": "body punch + armor rattle + grunt (voice pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_001.ogg",
+   "sfx_rpg_sound_pack:armor-light.wav",
+   "sfx_rpg_sound_pack:giant3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.0
+ },
+ "hero/hero_hurt_3.wav": {
+  "name": "hero_hurt",
+  "file": "hero/hero_hurt_3.wav",
+  "seconds": 0.362,
+  "category": "voice",
+  "desc": "body punch + armor rattle + grunt (voice pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg",
+   "sfx_rpg_sound_pack:chainmail2.wav",
+   "sfx_rpg_sound_pack:giant4.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.3
+ },
+ "hero/hero_hurt_4.wav": {
+  "name": "hero_hurt",
+  "file": "hero/hero_hurt_4.wav",
+  "seconds": 0.387,
+  "category": "voice",
+  "desc": "body punch + armor rattle + grunt (voice pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_003.ogg",
+   "sfx_rpg_sound_pack:armor-light.wav",
+   "sfx_rpg_sound_pack:giant5.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.4
+ },
+ "hero/revive.wav": {
+  "name": "revive",
+  "file": "hero/revive.wav",
+  "seconds": 2.2,
+  "category": "stinger",
+  "desc": "riser + D major choir swell + rising whoosh, then chime arpeggio and sub boom at 0.85 s",
+  "sources": [
+   "sfx_soundpack01:Rise02.aif"
+  ],
+  "channels": 1,
+  "peak_db": -1.16,
+  "loudness": -11.0
+ },
+ "hero/level_up.wav": {
+  "name": "level_up",
+  "file": "hero/level_up.wav",
+  "seconds": 2.0,
+  "category": "stinger",
+  "desc": "rising D major chime arpeggio panned L->R + riser + choir pad + gem sparkle",
+  "sources": [
+   "sfx_gem:gem-gather-stereo.wav",
+   "sfx_soundpack01:Rise03.aif"
+  ],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -11.9
+ },
+ "hero/heartbeat.wav": {
+  "name": "heartbeat",
+  "file": "hero/heartbeat.wav",
+  "seconds": 0.5,
+  "category": "pickup",
+  "desc": "lub-dub: two low sine thumps (70/62 Hz) with soft knocks",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -3.98,
+  "loudness": -15.0
+ },
+ "hero/run_start.wav": {
+  "name": "run_start",
+  "file": "hero/run_start.wav",
+  "seconds": 2.2,
+  "category": "stinger",
+  "desc": "sword drawn + drum + church bell (D3) + sub boom",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_001.ogg",
+   "sfx_rpg_sound_pack:sword-unsheathe.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "barbarian/fury_max.wav": {
+  "name": "fury_max",
+  "file": "barbarian/fury_max.wav",
+  "seconds": 1.0,
+  "category": "voice",
+  "desc": "war drum hit + sub + war roar (voice) with a growl edge",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg",
+   "kenney_impact_sounds:impactSoft_heavy_001.ogg",
+   "sfx_80_rpg:creature_roar_01.ogg",
+   "sfx_rpg_sound_pack:giant2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.54,
+  "loudness": -12.0
+ },
+ "rogue/momentum_max.wav": {
+  "name": "momentum_max",
+  "file": "rogue/momentum_max.wav",
+  "seconds": 0.75,
+  "category": "weapon",
+  "desc": "wind gust: wide band whoosh + faint whistle",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.18,
+  "loudness": -12.0
+ },
+ "ui/active_ready.wav": {
+  "name": "active_ready",
+  "file": "ui/active_ready.wav",
+  "seconds": 0.4,
+  "category": "ui",
+  "desc": "soft two-note chime (A5, D6)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -8.79,
+  "loudness": -17.0
+ },
+ "ui/card_pick.wav": {
+  "name": "card_pick",
+  "file": "ui/card_pick.wav",
+  "seconds": 0.63,
+  "category": "ui",
+  "desc": "bright confirm blip + D6/A6 chime + upward whoosh",
+  "sources": [
+   "kenney_interface_sounds:maximize_009.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -7.66,
+  "loudness": -17.0
+ },
+ "pickups/chest_open.wav": {
+  "name": "chest_open",
+  "file": "pickups/chest_open.wav",
+  "seconds": 1.8,
+  "category": "stinger",
+  "desc": "lock click + latch + lid creak + coins + G major chime run + choir",
+  "sources": [
+   "kenney_rpg_audio:doorOpen_1.ogg",
+   "kenney_rpg_audio:handleCoins.ogg",
+   "kenney_rpg_audio:metalLatch.ogg",
+   "sfx_80_rpg:lock_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.19,
+  "loudness": -11.0
+ },
+ "hero/evolve.wav": {
+  "name": "evolve",
+  "file": "hero/evolve.wav",
+  "seconds": 1.6,
+  "category": "stinger",
+  "desc": "D major brass chord + choir burst + major bell + chime run + sub",
+  "sources": [],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -13.8
+ },
+ "pickups/gem.wav": {
+  "name": "gem",
+  "file": "pickups/gem.wav",
+  "seconds": 0.3,
+  "category": "pickup",
+  "desc": "glass ting at A5 (+ fifth) + gem sparkle; the code climbs a semitone per chained gem",
+  "sources": [
+   "sfx_gem:gem-gather-stereo.wav"
+  ],
+  "channels": 1,
+  "peak_db": -5.82,
+  "loudness": -15.0
+ },
+ "pickups/coin_1.wav": {
+  "name": "coin",
+  "file": "pickups/coin_1.wav",
+  "seconds": 0.234,
+  "category": "pickup",
+  "desc": "coin clink",
+  "sources": [
+   "sfx_80_rpg:item_coins_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -21.2
+ },
+ "pickups/coin_2.wav": {
+  "name": "coin",
+  "file": "pickups/coin_2.wav",
+  "seconds": 0.318,
+  "category": "pickup",
+  "desc": "coin clink",
+  "sources": [
+   "sfx_80_rpg:item_coins_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -18.4
+ },
+ "pickups/coin_3.wav": {
+  "name": "coin",
+  "file": "pickups/coin_3.wav",
+  "seconds": 0.239,
+  "category": "pickup",
+  "desc": "coin clink",
+  "sources": [
+   "sfx_rpg_sound_pack:coin3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.21,
+  "loudness": -15.0
+ },
+ "pickups/heal.wav": {
+  "name": "heal",
+  "file": "pickups/heal.wav",
+  "seconds": 1.2,
+  "category": "pickup",
+  "desc": "warm C major chime run + gulp + soft 'oh' choir",
+  "sources": [
+   "sfx_rpg_sound_pack:bubble2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -5.86,
+  "loudness": -15.0
+ },
+ "pickups/lodestone.wav": {
+  "name": "lodestone",
+  "file": "pickups/lodestone.wav",
+  "seconds": 0.994,
+  "category": "stinger",
+  "desc": "magnetic hum + riser + rising whoosh",
+  "sources": [
+   "kenney_scifi_sounds:forceField_000.ogg",
+   "sfx_soundpack01:Rise03.aif"
+  ],
+  "channels": 1,
+  "peak_db": -4.06,
+  "loudness": -11.0
+ },
+ "pickups/holy_bell.wav": {
+  "name": "holy_bell",
+  "file": "pickups/holy_bell.wav",
+  "seconds": 2.4,
+  "category": "stinger",
+  "desc": "heavy bell (pitched down) + synth church bell D3 + shock whoosh + sub",
+  "sources": [
+   "kenney_impact_sounds:impactBell_heavy_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.8
+ },
+ "pickups/frost_hourglass.wav": {
+  "name": "frost_hourglass",
+  "file": "pickups/frost_hourglass.wav",
+  "seconds": 2.382,
+  "category": "stinger",
+  "desc": "inhaling whoosh, then glass hit + ice crackle + glass chimes + soft sub",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_medium_001.ogg",
+   "kenney_interface_sounds:glass_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.98,
+  "loudness": -11.0
+ },
+ "pickups/lantern_break.wav": {
+  "name": "lantern_break",
+  "file": "pickups/lantern_break.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "glass smash + glass ring + fire puff + crackles",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_001.ogg",
+   "kenney_interface_sounds:glass_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "director/ring_rattle.wav": {
+  "name": "ring_rattle",
+  "file": "director/ring_rattle.wav",
+  "seconds": 2.2,
+  "category": "stinger",
+  "desc": "20 bone rattles circling L->R->L + low 'oo' drone",
+  "sources": [
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:7.ogg",
+   "sfx_bones_rattle:8.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "director/last_tide.wav": {
+  "name": "last_tide",
+  "file": "director/last_tide.wav",
+  "seconds": 3.2,
+  "category": "stinger",
+  "desc": "D minor choir swell + low drone + bell toll (D2) + sub + rumble",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "director/bell_toll.wav": {
+  "name": "bell_toll",
+  "file": "director/bell_toll.wav",
+  "seconds": 3.5,
+  "category": "stinger",
+  "desc": "deep church bell (D2, synth) + heavy bell pitched down an octave",
+  "sources": [
+   "kenney_impact_sounds:impactBell_heavy_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.67,
+  "loudness": -11.0
+ },
+ "director/rush_rumble.wav": {
+  "name": "rush_rumble",
+  "file": "director/rush_rumble.wav",
+  "seconds": 2.325,
+  "category": "stinger",
+  "desc": "rising low rumble + four drum hits + a crowd of bone rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_000.ogg",
+   "kenney_impact_sounds:impactSoft_heavy_001.ogg",
+   "kenney_impact_sounds:impactSoft_heavy_002.ogg",
+   "kenney_impact_sounds:impactSoft_heavy_003.ogg",
+   "kenney_scifi_sounds:spaceEngineLow_000.ogg",
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:7.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "director/elite_horn.wav": {
+  "name": "elite_horn",
+  "file": "director/elite_horn.wav",
+  "seconds": 2.0,
+  "category": "stinger",
+  "desc": "war horn (D2/A2/D3 brass) + low roar + drum",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_000.ogg",
+   "sfx_80_rpg:creature_roar_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "enemies/cinder_fuse.wav": {
+  "name": "cinder_fuse",
+  "file": "enemies/cinder_fuse.wav",
+  "seconds": 0.85,
+  "category": "enemy",
+  "desc": "fuse sizzle growing over 0.8 s + crackles + rising whistle",
+  "sources": [
+   "kenney_scifi_sounds:thrusterFire_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.3,
+  "loudness": -13.0
+ },
+ "enemies/cinder_blast_1.wav": {
+  "name": "cinder_blast",
+  "file": "enemies/cinder_blast_1.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "explosion crunch + noise boom + sub + fire crackles",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.8
+ },
+ "enemies/cinder_blast_2.wav": {
+  "name": "cinder_blast",
+  "file": "enemies/cinder_blast_2.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "explosion crunch + noise boom + sub + fire crackles",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.4
+ },
+ "enemies/cinder_blast_3.wav": {
+  "name": "cinder_blast",
+  "file": "enemies/cinder_blast_3.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "explosion crunch + noise boom + sub + fire crackles",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.7
+ },
+ "enemies/grave_burst_1.wav": {
+  "name": "grave_burst",
+  "file": "enemies/grave_burst_1.wav",
+  "seconds": 0.488,
+  "category": "enemy",
+  "desc": "earth burst: stones + ground thud + dark whoosh + rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_002.ogg",
+   "sfx_80_rpg:stones_03.ogg",
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.0
+ },
+ "enemies/grave_burst_2.wav": {
+  "name": "grave_burst",
+  "file": "enemies/grave_burst_2.wav",
+  "seconds": 0.479,
+  "category": "enemy",
+  "desc": "earth burst: stones + ground thud + dark whoosh + rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_003.ogg",
+   "sfx_80_rpg:stones_01.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.6
+ },
+ "enemies/hex_orb_cast_1.wav": {
+  "name": "hex_orb_cast",
+  "file": "enemies/hex_orb_cast_1.wav",
+  "seconds": 0.475,
+  "category": "enemy",
+  "desc": "dark spell (pitched down) + falling whoosh",
+  "sources": [
+   "sfx_80_rpg:spell_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -3.69,
+  "loudness": -13.0
+ },
+ "enemies/hex_orb_cast_2.wav": {
+  "name": "hex_orb_cast",
+  "file": "enemies/hex_orb_cast_2.wav",
+  "seconds": 0.464,
+  "category": "enemy",
+  "desc": "dark spell (pitched down) + falling whoosh",
+  "sources": [
+   "sfx_80_rpg:spell_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -3.32,
+  "loudness": -13.0
+ },
+ "enemies/bolt_draw_1.wav": {
+  "name": "bolt_draw",
+  "file": "enemies/bolt_draw_1.wav",
+  "seconds": 0.279,
+  "category": "enemy",
+  "desc": "bow string creak + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth2.ogg",
+   "kenney_rpg_audio:creak3.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.24,
+  "loudness": -13.0
+ },
+ "enemies/bolt_draw_2.wav": {
+  "name": "bolt_draw",
+  "file": "enemies/bolt_draw_2.wav",
+  "seconds": 0.279,
+  "category": "enemy",
+  "desc": "bow string creak + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth2.ogg",
+   "kenney_rpg_audio:creak3.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -3.95,
+  "loudness": -13.0
+ },
+ "enemies/bolt_fire_1.wav": {
+  "name": "bolt_fire",
+  "file": "enemies/bolt_fire_1.wav",
+  "seconds": 0.3,
+  "category": "enemy",
+  "desc": "bow string twang (plucked string) + arrow swish",
+  "sources": [
+   "sfx_swishes:swish-3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.7,
+  "loudness": -13.0
+ },
+ "enemies/bolt_fire_2.wav": {
+  "name": "bolt_fire",
+  "file": "enemies/bolt_fire_2.wav",
+  "seconds": 0.3,
+  "category": "enemy",
+  "desc": "bow string twang (plucked string) + arrow swish",
+  "sources": [
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ },
+ "enemies/bolt_fire_3.wav": {
+  "name": "bolt_fire",
+  "file": "enemies/bolt_fire_3.wav",
+  "seconds": 0.3,
+  "category": "enemy",
+  "desc": "bow string twang (plucked string) + arrow swish",
+  "sources": [
+   "sfx_swishes:swish-9.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.59,
+  "loudness": -13.0
+ },
+ "enemies/hex_cast.wav": {
+  "name": "hex_cast",
+  "file": "enemies/hex_cast.wav",
+  "seconds": 2.171,
+  "category": "enemy",
+  "desc": "ghostly voice (pitched down) + diminished 'oo' choir crescendo + rising whoosh into the 2.1 s hit",
+  "sources": [
+   "sfx_rpg_sound_pack:shade9.wav"
+  ],
+  "channels": 1,
+  "peak_db": -3.0,
+  "loudness": -13.0
+ },
+ "enemies/raise_chant.wav": {
+  "name": "raise_chant",
+  "file": "enemies/raise_chant.wav",
+  "seconds": 1.664,
+  "category": "enemy",
+  "desc": "ghostly voice + low A minor 'oh' chant + rattles as the dead rise",
+  "sources": [
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:7.ogg",
+   "sfx_bones_rattle:8.ogg",
+   "sfx_bones_rattle:9.ogg",
+   "sfx_rpg_sound_pack:shade12.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.48,
+  "loudness": -13.0
+ },
+ "enemies/summon_1.wav": {
+  "name": "summon",
+  "file": "enemies/summon_1.wav",
+  "seconds": 0.679,
+  "category": "enemy",
+  "desc": "dirt burst + thud + low magic hum + rising whoosh + rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_000.ogg",
+   "kenney_scifi_sounds:forceField_003.ogg",
+   "sfx_80_rpg:stones_02.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:6.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ },
+ "enemies/summon_2.wav": {
+  "name": "summon",
+  "file": "enemies/summon_2.wav",
+  "seconds": 0.676,
+  "category": "enemy",
+  "desc": "dirt burst + thud + low magic hum + rising whoosh + rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_001.ogg",
+   "kenney_scifi_sounds:forceField_003.ogg",
+   "sfx_80_rpg:stones_04.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ },
+ "enemies/ward.wav": {
+  "name": "ward",
+  "file": "enemies/ward.wav",
+  "seconds": 0.8,
+  "category": "enemy",
+  "desc": "force field hum + dissonant glass dyad (G#5 + A5)",
+  "sources": [
+   "kenney_scifi_sounds:forceField_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -5.74,
+  "loudness": -13.0
+ },
+ "boss/boss_rise.wav": {
+  "name": "boss_rise",
+  "file": "boss/boss_rise.wav",
+  "seconds": 2.7,
+  "category": "stinger",
+  "desc": "deep ground rumble crescendo + three bone cracks + stones + distant moan (ghost voice, low-passed) + sub",
+  "sources": [
+   "sfx_80_rpg:stones_03.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav",
+   "sfx_bone_breaks:Deep Break 6.wav",
+   "sfx_bone_breaks:Deep Break 8.wav",
+   "sfx_rpg_sound_pack:shade12.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.7
+ },
+ "boss/king_rise.wav": {
+  "name": "king_rise",
+  "file": "boss/king_rise.wav",
+  "seconds": 3.3,
+  "category": "stinger",
+  "desc": "rumble crescendo + stone cracking (pitched down) + low 'oo' choir swell + bone grinding (slow rattles) + sub",
+  "sources": [
+   "kenney_impact_sounds:impactMining_000.ogg",
+   "kenney_impact_sounds:impactMining_001.ogg",
+   "kenney_impact_sounds:impactMining_003.ogg",
+   "sfx_80_rpg:stones_03.ogg",
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:7.ogg",
+   "sfx_bones_rattle:8.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "boss/warden_charge_sting_1.wav": {
+  "name": "warden_charge_sting",
+  "file": "boss/warden_charge_sting_1.wav",
+  "seconds": 0.784,
+  "category": "stinger",
+  "desc": "shield scraping on stone (steel slowed + grind noise) + low war growl",
+  "sources": [
+   "sfx_80_rpg:creature_monster_03.ogg",
+   "sfx_rpg_sound_pack:sword-unsheathe2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "boss/warden_charge_sting_2.wav": {
+  "name": "warden_charge_sting",
+  "file": "boss/warden_charge_sting_2.wav",
+  "seconds": 0.775,
+  "category": "stinger",
+  "desc": "shield scraping on stone (steel slowed + grind noise) + low war growl",
+  "sources": [
+   "sfx_80_rpg:creature_monster_04.ogg",
+   "sfx_rpg_sound_pack:sword-unsheathe4.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "boss/warden_charge_go.wav": {
+  "name": "warden_charge_go",
+  "file": "boss/warden_charge_go.wav",
+  "seconds": 0.484,
+  "category": "stinger",
+  "desc": "burst of heavy footfalls (slowed) + ground thud + whoosh",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_001.ogg",
+   "kenney_rpg_audio:footstep00.ogg",
+   "kenney_rpg_audio:footstep03.ogg",
+   "kenney_rpg_audio:footstep07.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.0
+ },
+ "boss/warden_charge_hit_1.wav": {
+  "name": "warden_charge_hit",
+  "file": "boss/warden_charge_hit_1.wav",
+  "seconds": 0.525,
+  "category": "impact_heavy",
+  "desc": "metal shield clang + body thud + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_heavy_000.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "boss/warden_charge_hit_2.wav": {
+  "name": "warden_charge_hit",
+  "file": "boss/warden_charge_hit_2.wav",
+  "seconds": 0.518,
+  "category": "impact_heavy",
+  "desc": "metal shield clang + body thud + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_heavy_002.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.8
+ },
+ "boss/warden_charge_stop.wav": {
+  "name": "warden_charge_stop",
+  "file": "boss/warden_charge_stop.wav",
+  "seconds": 0.622,
+  "category": "impact_heavy",
+  "desc": "boom + sub + gravel",
+  "sources": [
+   "sfx_80_rpg:stones_02.ogg",
+   "sfx_80_rpg:stones_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ },
+ "boss/warden_cleave_sting_1.wav": {
+  "name": "warden_cleave_sting",
+  "file": "boss/warden_cleave_sting_1.wav",
+  "seconds": 0.6,
+  "category": "stinger",
+  "desc": "blade scrape + whoosh rising into the swing",
+  "sources": [
+   "sfx_rpg_sound_pack:sword-unsheathe4.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "boss/warden_cleave_sting_2.wav": {
+  "name": "warden_cleave_sting",
+  "file": "boss/warden_cleave_sting_2.wav",
+  "seconds": 0.6,
+  "category": "stinger",
+  "desc": "blade scrape + whoosh rising into the swing",
+  "sources": [
+   "sfx_rpg_sound_pack:sword-unsheathe5.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.79,
+  "loudness": -11.0
+ },
+ "boss/warden_cleave_hit_1.wav": {
+  "name": "warden_cleave_hit",
+  "file": "boss/warden_cleave_hit_1.wav",
+  "seconds": 0.427,
+  "category": "impact_heavy",
+  "desc": "thud + earth crunch + metal ring + sub",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_medium_003.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "sfx_80_rpg:stones_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.9
+ },
+ "boss/warden_cleave_hit_2.wav": {
+  "name": "warden_cleave_hit",
+  "file": "boss/warden_cleave_hit_2.wav",
+  "seconds": 0.417,
+  "category": "impact_heavy",
+  "desc": "thud + earth crunch + metal ring + sub",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_medium_000.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_004.ogg",
+   "sfx_80_rpg:stones_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.0
+ },
+ "boss/warden_guard_up.wav": {
+  "name": "warden_guard_up",
+  "file": "boss/warden_guard_up.wav",
+  "seconds": 0.389,
+  "category": "stinger",
+  "desc": "metal clank + bone creak + chain rattle",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_medium_002.ogg",
+   "kenney_rpg_audio:creak1.ogg",
+   "sfx_rpg_sound_pack:chainmail2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.8
+ },
+ "boss/guard_tink_1.wav": {
+  "name": "guard_tink",
+  "file": "boss/guard_tink_1.wav",
+  "seconds": 0.103,
+  "category": "impact",
+  "desc": "bright metal tink (light metal hit pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.6
+ },
+ "boss/guard_tink_2.wav": {
+  "name": "guard_tink",
+  "file": "boss/guard_tink_2.wav",
+  "seconds": 0.088,
+  "category": "impact",
+  "desc": "bright metal tink (light metal hit pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.7
+ },
+ "boss/guard_tink_3.wav": {
+  "name": "guard_tink",
+  "file": "boss/guard_tink_3.wav",
+  "seconds": 0.119,
+  "category": "impact",
+  "desc": "bright metal tink (light metal hit pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.6
+ },
+ "boss/guard_tink_4.wav": {
+  "name": "guard_tink",
+  "file": "boss/guard_tink_4.wav",
+  "seconds": 0.075,
+  "category": "impact",
+  "desc": "bright metal tink (light metal hit pitched up)",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.3
+ },
+ "boss/boss_dazed.wav": {
+  "name": "boss_dazed",
+  "file": "boss/boss_dazed.wav",
+  "seconds": 1.0,
+  "category": "enemy",
+  "desc": "ringing tinnitus tone (3.15 kHz) + three falling chirps + small chime",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -5.58,
+  "loudness": -13.0
+ },
+ "boss/archmage_spiral_sting.wav": {
+  "name": "archmage_spiral_sting",
+  "file": "boss/archmage_spiral_sting.wav",
+  "seconds": 0.688,
+  "category": "stinger",
+  "desc": "violet hum swelling (D3 + G#3 saws, filter opening) + whispered ghost syllables",
+  "sources": [
+   "sfx_rpg_sound_pack:shade3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.8
+ },
+ "boss/archmage_orb_1.wav": {
+  "name": "archmage_orb",
+  "file": "boss/archmage_orb_1.wav",
+  "seconds": 0.25,
+  "category": "enemy",
+  "desc": "soft magic pop (falling sine) + small air puff + faint glass tone",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.83,
+  "loudness": -13.0
+ },
+ "boss/archmage_orb_2.wav": {
+  "name": "archmage_orb",
+  "file": "boss/archmage_orb_2.wav",
+  "seconds": 0.25,
+  "category": "enemy",
+  "desc": "soft magic pop (falling sine) + small air puff + faint glass tone",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ },
+ "boss/archmage_orb_3.wav": {
+  "name": "archmage_orb",
+  "file": "boss/archmage_orb_3.wav",
+  "seconds": 0.25,
+  "category": "enemy",
+  "desc": "soft magic pop (falling sine) + small air puff + faint glass tone",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.81,
+  "loudness": -13.0
+ },
+ "boss/archmage_field_sting.wav": {
+  "name": "archmage_field_sting",
+  "file": "boss/archmage_field_sting.wav",
+  "seconds": 0.8,
+  "category": "stinger",
+  "desc": "earth whispers (flickering breath) + grave hiss rising + low rumble",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.62,
+  "loudness": -11.0
+ },
+ "boss/archmage_summon_sting.wav": {
+  "name": "archmage_summon_sting",
+  "file": "boss/archmage_summon_sting.wav",
+  "seconds": 2.1,
+  "category": "stinger",
+  "desc": "dark low chant (A minor 'oh' voices pulsing in syllables) + bass voices + ghost voice",
+  "sources": [
+   "sfx_rpg_sound_pack:shade12.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.46,
+  "loudness": -11.0
+ },
+ "boss/archmage_blink_1.wav": {
+  "name": "archmage_blink",
+  "file": "boss/archmage_blink_1.wav",
+  "seconds": 0.6,
+  "category": "enemy",
+  "desc": "falling whoosh + crystalline chime",
+  "sources": [
+   "kenney_interface_sounds:glass_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.91,
+  "loudness": -13.0
+ },
+ "boss/archmage_blink_2.wav": {
+  "name": "archmage_blink",
+  "file": "boss/archmage_blink_2.wav",
+  "seconds": 0.6,
+  "category": "enemy",
+  "desc": "falling whoosh + crystalline chime",
+  "sources": [
+   "kenney_interface_sounds:glass_005.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.99,
+  "loudness": -13.0
+ },
+ "boss/king_cleave_sting_1.wav": {
+  "name": "king_cleave_sting",
+  "file": "boss/king_cleave_sting_1.wav",
+  "seconds": 0.773,
+  "category": "stinger",
+  "desc": "huge axe scraped across stone: steel slowed far down + chains + stone grind",
+  "sources": [
+   "sfx_80_rpg:chain_03.ogg",
+   "sfx_rpg_sound_pack:sword-unsheathe3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.17,
+  "loudness": -11.0
+ },
+ "boss/king_cleave_sting_2.wav": {
+  "name": "king_cleave_sting",
+  "file": "boss/king_cleave_sting_2.wav",
+  "seconds": 0.776,
+  "category": "stinger",
+  "desc": "huge axe scraped across stone: steel slowed far down + chains + stone grind",
+  "sources": [
+   "sfx_80_rpg:chain_01.ogg",
+   "sfx_rpg_sound_pack:sword-unsheathe.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.58,
+  "loudness": -11.0
+ },
+ "boss/king_cleave_hit_1.wav": {
+  "name": "king_cleave_hit",
+  "file": "boss/king_cleave_hit_1.wav",
+  "seconds": 0.823,
+  "category": "impact_heavy",
+  "desc": "giant whoosh, then impact thud + sub < 80 Hz + grit",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg",
+   "sfx_80_rpg:stones_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "boss/king_cleave_hit_2.wav": {
+  "name": "king_cleave_hit",
+  "file": "boss/king_cleave_hit_2.wav",
+  "seconds": 0.825,
+  "category": "impact_heavy",
+  "desc": "giant whoosh, then impact thud + sub < 80 Hz + grit",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "sfx_80_rpg:stones_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "boss/king_slam_sting.wav": {
+  "name": "king_slam_sting",
+  "file": "boss/king_slam_sting.wav",
+  "seconds": 0.915,
+  "category": "stinger",
+  "desc": "deep giant inhale (rising band noise) + low growl + rattling ribs",
+  "sources": [
+   "sfx_80_rpg:creature_monster_03.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:7.ogg",
+   "sfx_bones_rattle:8.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.05,
+  "loudness": -11.0
+ },
+ "boss/king_slam_hit.wav": {
+  "name": "king_slam_hit",
+  "file": "boss/king_slam_hit.wav",
+  "seconds": 1.4,
+  "category": "impact_heavy",
+  "desc": "heavy punch + stone crack + air boom + sub < 60 Hz + debris tail",
+  "sources": [
+   "kenney_impact_sounds:impactMining_000.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "sfx_80_rpg:stones_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "boss/bone_spike_1.wav": {
+  "name": "bone_spike",
+  "file": "boss/bone_spike_1.wav",
+  "seconds": 0.153,
+  "category": "impact",
+  "desc": "bone snap + crack + crackle + stone tick",
+  "sources": [
+   "sfx_80_rpg:stones_04.ogg",
+   "sfx_bone_breaks:Deep Break 2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.0
+ },
+ "boss/bone_spike_2.wav": {
+  "name": "bone_spike",
+  "file": "boss/bone_spike_2.wav",
+  "seconds": 0.148,
+  "category": "impact",
+  "desc": "bone snap + crack + crackle + stone tick",
+  "sources": [
+   "sfx_80_rpg:stones_04.ogg",
+   "sfx_bone_breaks:Deep Break 4.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "boss/bone_spike_3.wav": {
+  "name": "bone_spike",
+  "file": "boss/bone_spike_3.wav",
+  "seconds": 0.143,
+  "category": "impact",
+  "desc": "bone snap + crack + crackle + stone tick",
+  "sources": [
+   "sfx_80_rpg:stones_04.ogg",
+   "sfx_bone_breaks:Deep Break 9.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.0
+ },
+ "boss/king_rain_sting.wav": {
+  "name": "king_rain_sting",
+  "file": "boss/king_rain_sting.wav",
+  "seconds": 0.894,
+  "category": "stinger",
+  "desc": "many bones clattering + falling whistle",
+  "sources": [
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:8.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.59,
+  "loudness": -11.0
+ },
+ "boss/bone_rain_impact_1.wav": {
+  "name": "bone_rain_impact",
+  "file": "boss/bone_rain_impact_1.wav",
+  "seconds": 0.291,
+  "category": "impact",
+  "desc": "bone shatter + soft thud + scattering rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_000.ogg",
+   "sfx_bone_breaks:Deep Break 3.wav",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.8
+ },
+ "boss/bone_rain_impact_2.wav": {
+  "name": "bone_rain_impact",
+  "file": "boss/bone_rain_impact_2.wav",
+  "seconds": 0.287,
+  "category": "impact",
+  "desc": "bone shatter + soft thud + scattering rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_001.ogg",
+   "sfx_bone_breaks:Deep Break 5.wav",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:5.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.9
+ },
+ "boss/bone_rain_impact_3.wav": {
+  "name": "bone_rain_impact",
+  "file": "boss/bone_rain_impact_3.wav",
+  "seconds": 0.272,
+  "category": "impact",
+  "desc": "bone shatter + soft thud + scattering rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_002.ogg",
+   "sfx_bone_breaks:Deep Break 7.wav",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:6.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.3
+ },
+ "boss/bone_rain_impact_4.wav": {
+  "name": "bone_rain_impact",
+  "file": "boss/bone_rain_impact_4.wav",
+  "seconds": 0.276,
+  "category": "impact",
+  "desc": "bone shatter + soft thud + scattering rattles",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_003.ogg",
+   "sfx_bone_breaks:Deep Break 10.wav",
+   "sfx_bones_rattle:7.ogg",
+   "sfx_bones_rattle:8.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.0
+ },
+ "boss/king_raise_sting.wav": {
+  "name": "king_raise_sting",
+  "file": "boss/king_raise_sting.wav",
+  "seconds": 1.6,
+  "category": "stinger",
+  "desc": "low 'oo' choir + earth groan (growl far down) + shifting stones",
+  "sources": [
+   "sfx_80_rpg:creature_monster_04.ogg",
+   "sfx_80_rpg:stones_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.55,
+  "loudness": -11.0
+ },
+ "boss/king_spin_sting.wav": {
+  "name": "king_spin_sting",
+  "file": "boss/king_spin_sting.wav",
+  "seconds": 0.679,
+  "category": "stinger",
+  "desc": "whoosh rising in pitch while its spin speeds up (4 to 14 passes per second)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.23,
+  "loudness": -11.0
+ },
+ "boss/king_spin_whoosh_1.wav": {
+  "name": "king_spin_whoosh",
+  "file": "boss/king_spin_whoosh_1.wav",
+  "seconds": 0.439,
+  "category": "weapon",
+  "desc": "heavy axe whoosh (swish an octave down + low air)",
+  "sources": [
+   "sfx_swishes:swish-3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -4.08,
+  "loudness": -12.0
+ },
+ "boss/king_spin_whoosh_2.wav": {
+  "name": "king_spin_whoosh",
+  "file": "boss/king_spin_whoosh_2.wav",
+  "seconds": 0.438,
+  "category": "weapon",
+  "desc": "heavy axe whoosh (swish an octave down + low air)",
+  "sources": [
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.39,
+  "loudness": -12.0
+ },
+ "boss/king_spin_whoosh_3.wav": {
+  "name": "king_spin_whoosh",
+  "file": "boss/king_spin_whoosh_3.wav",
+  "seconds": 0.432,
+  "category": "weapon",
+  "desc": "heavy axe whoosh (swish an octave down + low air)",
+  "sources": [
+   "sfx_swishes:swish-9.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "boss/king_nova_sting.wav": {
+  "name": "king_nova_sting",
+  "file": "boss/king_nova_sting.wav",
+  "seconds": 0.982,
+  "category": "stinger",
+  "desc": "D harmonic-minor choir swell + rising high shimmer",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "boss/soul_nova_ring_1.wav": {
+  "name": "soul_nova_ring",
+  "file": "boss/soul_nova_ring_1.wav",
+  "seconds": 1.2,
+  "category": "stinger",
+  "desc": "deep whoom pulse (sub + dark air) + ghostly wail (gliding down) + ghost voice",
+  "sources": [
+   "sfx_rpg_sound_pack:shade1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "boss/soul_nova_ring_2.wav": {
+  "name": "soul_nova_ring",
+  "file": "boss/soul_nova_ring_2.wav",
+  "seconds": 1.2,
+  "category": "stinger",
+  "desc": "deep whoom pulse (sub + dark air) + ghostly wail (gliding down) + ghost voice",
+  "sources": [
+   "sfx_rpg_sound_pack:shade10.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "boss/king_phase_break.wav": {
+  "name": "king_phase_break",
+  "file": "boss/king_phase_break.wav",
+  "seconds": 0.746,
+  "category": "stinger",
+  "desc": "bone crack + glassy shatter + heavy kneel thud + sub",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_000.ogg",
+   "kenney_impact_sounds:impactSoft_heavy_002.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "boss/king_roar.wav": {
+  "name": "king_roar",
+  "file": "boss/king_roar.wav",
+  "seconds": 1.9,
+  "category": "stinger",
+  "desc": "two creature roars pitched far down, distorted, + sub, long reverb",
+  "sources": [
+   "sfx_80_rpg:creature_roar_01.ogg",
+   "sfx_80_rpg:creature_roar_02.ogg",
+   "sfx_80_rpg:creature_roar_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "boss/phase_shockwave.wav": {
+  "name": "phase_shockwave",
+  "file": "boss/phase_shockwave.wav",
+  "seconds": 0.83,
+  "category": "impact_heavy",
+  "desc": "air boom + sub + outward falling whoosh",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "boss/king_enrage.wav": {
+  "name": "king_enrage",
+  "file": "boss/king_enrage.wav",
+  "seconds": 2.2,
+  "category": "stinger",
+  "desc": "distorted roar + bell toll (D2) + dissonant choir stab (D/G#) + sub",
+  "sources": [
+   "sfx_80_rpg:creature_roar_01.ogg",
+   "sfx_80_rpg:creature_roar_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.3
+ },
+ "boss/boss_death.wav": {
+  "name": "boss_death",
+  "file": "boss/boss_death.wav",
+  "seconds": 1.679,
+  "category": "stinger",
+  "desc": "fading groan + bone break + shield clang and staff clatter + 14 bones clattering",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_medium_003.ogg",
+   "kenney_impact_sounds:impactWood_medium_002.ogg",
+   "sfx_80_rpg:creature_die_01.ogg",
+   "sfx_80_rpg:metal_01.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav",
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:2.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:5.ogg",
+   "sfx_bones_rattle:8.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.2
+ },
+ "boss/king_death.wav": {
+  "name": "king_death",
+  "file": "boss/king_death.wav",
+  "seconds": 3.6,
+  "category": "stinger",
+  "desc": "long roar fading into a D major choir chord + major bell + sub + bones raining",
+  "sources": [
+   "sfx_80_rpg:creature_roar_03.ogg",
+   "sfx_bones_rattle:0.ogg",
+   "sfx_bones_rattle:1.ogg",
+   "sfx_bones_rattle:3.ogg",
+   "sfx_bones_rattle:4.ogg",
+   "sfx_bones_rattle:6.ogg",
+   "sfx_bones_rattle:7.ogg",
+   "sfx_bones_rattle:8.ogg",
+   "sfx_bones_rattle:9.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.82,
+  "loudness": -11.0
+ },
+ "boss/death_wave.wav": {
+  "name": "death_wave",
+  "file": "boss/death_wave.wav",
+  "seconds": 1.9,
+  "category": "stinger",
+  "desc": "spectral wind + rising whoosh + airy 'oo' voices",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "boss/gold_shower.wav": {
+  "name": "gold_shower",
+  "file": "boss/gold_shower.wav",
+  "seconds": 1.4,
+  "category": "pickup",
+  "desc": "coin cascade (coin pour + two handfuls) + light chime run",
+  "sources": [
+   "kenney_rpg_audio:handleCoins.ogg",
+   "sfx_80_rpg:item_coins_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.8
+ },
+ "boss/boss_chest_drop.wav": {
+  "name": "boss_chest_drop",
+  "file": "boss/boss_chest_drop.wav",
+  "seconds": 0.819,
+  "category": "stinger",
+  "desc": "heavy chest thud + latch rattle + sub + sparkle chime",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_003.ogg",
+   "kenney_impact_sounds:impactWood_heavy_004.ogg",
+   "kenney_rpg_audio:metalLatch.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.9
+ },
+ "ui/ui_hover_1.wav": {
+  "name": "ui_hover",
+  "file": "ui/ui_hover_1.wav",
+  "seconds": 0.045,
+  "category": "ui_tick",
+  "desc": "soft wooden tick",
+  "sources": [
+   "kenney_impact_sounds:impactWood_light_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.65,
+  "loudness": -20.0
+ },
+ "ui/ui_hover_2.wav": {
+  "name": "ui_hover",
+  "file": "ui/ui_hover_2.wav",
+  "seconds": 0.045,
+  "category": "ui_tick",
+  "desc": "soft wooden tick",
+  "sources": [
+   "kenney_impact_sounds:impactWood_light_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.87,
+  "loudness": -20.0
+ },
+ "ui/ui_click_1.wav": {
+  "name": "ui_click",
+  "file": "ui/ui_click_1.wav",
+  "seconds": 0.069,
+  "category": "ui",
+  "desc": "click + low thump",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_001.ogg",
+   "kenney_interface_sounds:click_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.91,
+  "loudness": -17.0
+ },
+ "ui/ui_click_2.wav": {
+  "name": "ui_click",
+  "file": "ui/ui_click_2.wav",
+  "seconds": 0.067,
+  "category": "ui",
+  "desc": "click + low thump",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_003.ogg",
+   "kenney_interface_sounds:click_005.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.9,
+  "loudness": -17.0
+ },
+ "ui/ui_confirm.wav": {
+  "name": "ui_confirm",
+  "file": "ui/ui_confirm.wav",
+  "seconds": 0.26,
+  "category": "ui",
+  "desc": "click + bright E6/B6 chime",
+  "sources": [
+   "kenney_interface_sounds:click_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -8.67,
+  "loudness": -17.0
+ },
+ "ui/ui_back.wav": {
+  "name": "ui_back",
+  "file": "ui/ui_back.wav",
+  "seconds": 0.091,
+  "category": "ui",
+  "desc": "reversed soft thump into a tiny click",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_medium_002.ogg",
+   "kenney_interface_sounds:click_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -17.5
+ },
+ "ui/ui_error.wav": {
+  "name": "ui_error",
+  "file": "ui/ui_error.wav",
+  "seconds": 0.177,
+  "category": "ui",
+  "desc": "dull double wooden knock",
+  "sources": [
+   "kenney_impact_sounds:impactWood_medium_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -17.2
+ },
+ "ui/ui_select.wav": {
+  "name": "ui_select",
+  "file": "ui/ui_select.wav",
+  "seconds": 0.164,
+  "category": "ui",
+  "desc": "short metal ring + blade shimmer",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_003.ogg",
+   "sfx_80_rpg:blade_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -7.92,
+  "loudness": -17.0
+ },
+ "ui/ui_toggle.wav": {
+  "name": "ui_toggle",
+  "file": "ui/ui_toggle.wav",
+  "seconds": 0.08,
+  "category": "ui",
+  "desc": "latch click",
+  "sources": [
+   "kenney_rpg_audio:metalLatch.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.42,
+  "loudness": -17.0
+ },
+ "ui/ui_tick.wav": {
+  "name": "ui_tick",
+  "file": "ui/ui_tick.wav",
+  "seconds": 0.023,
+  "category": "ui_tick",
+  "desc": "tiny tick",
+  "sources": [
+   "kenney_interface_sounds:tick_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -7.18,
+  "loudness": -20.0
+ },
+ "ui/card_flip_1.wav": {
+  "name": "card_flip",
+  "file": "ui/card_flip_1.wav",
+  "seconds": 0.127,
+  "category": "ui",
+  "desc": "paper flip + air swish",
+  "sources": [
+   "kenney_rpg_audio:bookFlip3.ogg",
+   "sfx_swishes:swish-10.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -18.5
+ },
+ "ui/card_flip_2.wav": {
+  "name": "card_flip",
+  "file": "ui/card_flip_2.wav",
+  "seconds": 0.127,
+  "category": "ui",
+  "desc": "paper flip + air swish",
+  "sources": [
+   "kenney_rpg_audio:bookFlip3.ogg",
+   "sfx_swishes:swish-12.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -19.7
+ },
+ "ui/card_flip_3.wav": {
+  "name": "card_flip",
+  "file": "ui/card_flip_3.wav",
+  "seconds": 0.128,
+  "category": "ui",
+  "desc": "paper flip + air swish",
+  "sources": [
+   "kenney_rpg_audio:bookFlip3.ogg",
+   "sfx_swishes:swish-13.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -18.2
+ },
+ "ui/card_select.wav": {
+  "name": "card_select",
+  "file": "ui/card_select.wav",
+  "seconds": 0.288,
+  "category": "ui",
+  "desc": "upward whoosh + tick",
+  "sources": [
+   "kenney_interface_sounds:select_007.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -5.61,
+  "loudness": -17.0
+ },
+ "ui/card_reroll.wav": {
+  "name": "card_reroll",
+  "file": "ui/card_reroll.wav",
+  "seconds": 0.394,
+  "category": "ui",
+  "desc": "card riffle + four quick paper flicks",
+  "sources": [
+   "kenney_rpg_audio:bookFlip1.ogg",
+   "sfx_swishes:swish-13.wav"
+  ],
+  "channels": 1,
+  "peak_db": -7.19,
+  "loudness": -17.0
+ },
+ "ui/card_banish.wav": {
+  "name": "card_banish",
+  "file": "ui/card_banish.wav",
+  "seconds": 0.428,
+  "category": "ui",
+  "desc": "torn paper scratch + low burn whoomp + crackle",
+  "sources": [
+   "kenney_interface_sounds:scratch_005.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -6.56,
+  "loudness": -17.0
+ },
+ "ui/card_skip.wav": {
+  "name": "card_skip",
+  "file": "ui/card_skip.wav",
+  "seconds": 0.242,
+  "category": "ui",
+  "desc": "coin drop",
+  "sources": [
+   "sfx_rpg_sound_pack:coin3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -4.07,
+  "loudness": -17.0
+ },
+ "ui/reel_tick_1.wav": {
+  "name": "reel_tick",
+  "file": "ui/reel_tick_1.wav",
+  "seconds": 0.03,
+  "category": "ui_tick",
+  "desc": "dry wooden click",
+  "sources": [
+   "kenney_impact_sounds:impactWood_light_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -6.63,
+  "loudness": -20.0
+ },
+ "ui/reel_tick_2.wav": {
+  "name": "reel_tick",
+  "file": "ui/reel_tick_2.wav",
+  "seconds": 0.03,
+  "category": "ui_tick",
+  "desc": "dry wooden click",
+  "sources": [
+   "kenney_impact_sounds:impactWood_light_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -6.63,
+  "loudness": -20.0
+ },
+ "ui/reel_tick_3.wav": {
+  "name": "reel_tick",
+  "file": "ui/reel_tick_3.wav",
+  "seconds": 0.03,
+  "category": "ui_tick",
+  "desc": "dry wooden click",
+  "sources": [
+   "kenney_impact_sounds:impactWood_light_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -6.54,
+  "loudness": -20.0
+ },
+ "ui/reel_land_1.wav": {
+  "name": "reel_land",
+  "file": "ui/reel_land_1.wav",
+  "seconds": 0.31,
+  "category": "ui",
+  "desc": "wooden thunk + small chime",
+  "sources": [
+   "kenney_impact_sounds:impactWood_heavy_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -5.34,
+  "loudness": -17.0
+ },
+ "ui/reel_land_2.wav": {
+  "name": "reel_land",
+  "file": "ui/reel_land_2.wav",
+  "seconds": 0.31,
+  "category": "ui",
+  "desc": "wooden thunk + small chime",
+  "sources": [
+   "kenney_impact_sounds:impactWood_heavy_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.15,
+  "loudness": -17.0
+ },
+ "ui/reel_land_evolution.wav": {
+  "name": "reel_land_evolution",
+  "file": "ui/reel_land_evolution.wav",
+  "seconds": 1.2,
+  "category": "stinger",
+  "desc": "wooden thunk + rising D major choir chord + chime",
+  "sources": [
+   "kenney_impact_sounds:impactWood_heavy_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.45,
+  "loudness": -11.0
+ },
+ "ui/chest_gold.wav": {
+  "name": "chest_gold",
+  "file": "ui/chest_gold.wav",
+  "seconds": 0.469,
+  "category": "pickup",
+  "desc": "coin cascade",
+  "sources": [
+   "kenney_rpg_audio:handleCoins.ogg",
+   "sfx_80_rpg:item_coins_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -18.2
+ },
+ "ui/buy_1.wav": {
+  "name": "buy",
+  "file": "ui/buy_1.wav",
+  "seconds": 0.5,
+  "category": "ui",
+  "desc": "anvil strike (heavy metal hit + ring) + coins",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_heavy_001.ogg",
+   "sfx_80_rpg:item_coins_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -3.47,
+  "loudness": -17.0
+ },
+ "ui/buy_2.wav": {
+  "name": "buy",
+  "file": "ui/buy_2.wav",
+  "seconds": 0.5,
+  "category": "ui",
+  "desc": "anvil strike (heavy metal hit + ring) + coins",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_heavy_003.ogg",
+   "sfx_80_rpg:item_coins_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.46,
+  "loudness": -17.0
+ },
+ "ui/refund.wav": {
+  "name": "refund",
+  "file": "ui/refund.wav",
+  "seconds": 0.625,
+  "category": "ui",
+  "desc": "coin pour",
+  "sources": [
+   "kenney_rpg_audio:handleCoins.ogg",
+   "sfx_80_rpg:item_coins_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -19.3
+ },
+ "ui/banner.wav": {
+  "name": "banner",
+  "file": "ui/banner.wav",
+  "seconds": 1.3,
+  "category": "ui",
+  "desc": "distant horn call (D3/A3, wet hall)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -8.05,
+  "loudness": -17.0
+ },
+ "ui/banner_warning.wav": {
+  "name": "banner_warning",
+  "file": "ui/banner_warning.wav",
+  "seconds": 1.6,
+  "category": "stinger",
+  "desc": "low dissonant brass swell + church bell D3 at 0.6 s",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "ui/danger_warning.wav": {
+  "name": "danger_warning",
+  "file": "ui/danger_warning.wav",
+  "seconds": 1.6,
+  "category": "stinger",
+  "desc": "rumble rising over 1.2 s + low drone + rising dark whoosh + tritone stab",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.7
+ },
+ "ui/boss_bar_appear.wav": {
+  "name": "boss_bar_appear",
+  "file": "ui/boss_bar_appear.wav",
+  "seconds": 0.9,
+  "category": "stinger",
+  "desc": "deep drum hit + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg",
+   "kenney_impact_sounds:impactSoft_heavy_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "ui/boss_bar_shatter.wav": {
+  "name": "boss_bar_shatter",
+  "file": "ui/boss_bar_shatter.wav",
+  "seconds": 0.641,
+  "category": "stinger",
+  "desc": "glass smash + bone break + sub + shard crackles",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_000.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.9
+ },
+ "ui/results_victory.wav": {
+  "name": "results_victory",
+  "file": "ui/results_victory.wav",
+  "seconds": 2.6,
+  "category": "stinger",
+  "desc": "D major choir (two voicings summed) + brass sting + major bell + sub",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.3
+ },
+ "ui/results_defeat.wav": {
+  "name": "results_defeat",
+  "file": "ui/results_defeat.wav",
+  "seconds": 2.6,
+  "category": "stinger",
+  "desc": "low D minor strings (two voicings summed) + church bell D3 + sub",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "ui/results_tally.wav": {
+  "name": "results_tally",
+  "file": "ui/results_tally.wav",
+  "seconds": 0.45,
+  "category": "ui",
+  "desc": "coins + ding (D6)",
+  "sources": [
+   "sfx_80_rpg:item_coins_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -5.08,
+  "loudness": -17.0
+ },
+ "knight/oathblade_swing_1.wav": {
+  "name": "oathblade_swing",
+  "file": "knight/oathblade_swing_1.wav",
+  "seconds": 0.149,
+  "category": "weapon",
+  "desc": "air swish + steel 'shing' ring tail (2-4 kHz)",
+  "sources": [
+   "sfx_80_rpg:blade_01.ogg",
+   "sfx_swishes:swish-3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.78,
+  "loudness": -12.0
+ },
+ "knight/oathblade_swing_2.wav": {
+  "name": "oathblade_swing",
+  "file": "knight/oathblade_swing_2.wav",
+  "seconds": 0.208,
+  "category": "weapon",
+  "desc": "air swish + steel 'shing' ring tail (2-4 kHz)",
+  "sources": [
+   "sfx_80_rpg:blade_02.ogg",
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.52,
+  "loudness": -12.0
+ },
+ "knight/oathblade_swing_3.wav": {
+  "name": "oathblade_swing",
+  "file": "knight/oathblade_swing_3.wav",
+  "seconds": 0.205,
+  "category": "weapon",
+  "desc": "air swish + steel 'shing' ring tail (2-4 kHz)",
+  "sources": [
+   "sfx_80_rpg:blade_03.ogg",
+   "sfx_swishes:swish-9.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.3
+ },
+ "knight/oathblade_hit_1.wav": {
+  "name": "oathblade_hit",
+  "file": "knight/oathblade_hit_1.wav",
+  "seconds": 0.218,
+  "category": "impact",
+  "desc": "low thump (160->110 Hz) + punch + bone crunch transient",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_000.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "knight/oathblade_hit_2.wav": {
+  "name": "oathblade_hit",
+  "file": "knight/oathblade_hit_2.wav",
+  "seconds": 0.216,
+  "category": "impact",
+  "desc": "low thump (160->110 Hz) + punch + bone crunch transient",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_001.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "knight/oathblade_hit_3.wav": {
+  "name": "oathblade_hit",
+  "file": "knight/oathblade_hit_3.wav",
+  "seconds": 0.203,
+  "category": "impact",
+  "desc": "low thump (160->110 Hz) + punch + bone crunch transient",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_002.ogg",
+   "sfx_bone_breaks:Deep Break 8.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.7
+ },
+ "knight/dawn_crescent_1.wav": {
+  "name": "dawn_crescent",
+  "file": "knight/dawn_crescent_1.wav",
+  "seconds": 0.738,
+  "category": "weapon",
+  "desc": "rising holy whoosh + bell shimmer + faint choir",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -3.11,
+  "loudness": -12.0
+ },
+ "knight/dawn_crescent_2.wav": {
+  "name": "dawn_crescent",
+  "file": "knight/dawn_crescent_2.wav",
+  "seconds": 0.738,
+  "category": "weapon",
+  "desc": "rising holy whoosh + bell shimmer + faint choir",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.54,
+  "loudness": -12.0
+ },
+ "knight/aegis_summon_1.wav": {
+  "name": "aegis_summon",
+  "file": "knight/aegis_summon_1.wav",
+  "seconds": 0.595,
+  "category": "weapon",
+  "desc": "glass/bell tone (880 + 1320 Hz partials) swelling in",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_light_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -5.95,
+  "loudness": -12.0
+ },
+ "knight/aegis_summon_2.wav": {
+  "name": "aegis_summon",
+  "file": "knight/aegis_summon_2.wav",
+  "seconds": 0.596,
+  "category": "weapon",
+  "desc": "glass/bell tone (784 + 1176 Hz partials) swelling in",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_light_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -5.74,
+  "loudness": -12.0
+ },
+ "knight/aegis_bonk_1.wav": {
+  "name": "aegis_bonk",
+  "file": "knight/aegis_bonk_1.wav",
+  "seconds": 0.174,
+  "category": "impact",
+  "desc": "metal-wood 'bonk' (shield plate + wood) with a short ring",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_medium_000.ogg",
+   "kenney_impact_sounds:impactWood_medium_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -16.5
+ },
+ "knight/aegis_bonk_2.wav": {
+  "name": "aegis_bonk",
+  "file": "knight/aegis_bonk_2.wav",
+  "seconds": 0.16,
+  "category": "impact",
+  "desc": "metal-wood 'bonk' (shield plate + wood) with a short ring",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_medium_001.ogg",
+   "kenney_impact_sounds:impactWood_medium_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -16.4
+ },
+ "knight/aegis_bonk_3.wav": {
+  "name": "aegis_bonk",
+  "file": "knight/aegis_bonk_3.wav",
+  "seconds": 0.19,
+  "category": "impact",
+  "desc": "metal-wood 'bonk' (shield plate + wood) with a short ring",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_medium_003.ogg",
+   "kenney_impact_sounds:impactWood_medium_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -16.9
+ },
+ "knight/aegis_bonk_4.wav": {
+  "name": "aegis_bonk",
+  "file": "knight/aegis_bonk_4.wav",
+  "seconds": 0.172,
+  "category": "impact",
+  "desc": "metal-wood 'bonk' (shield plate + wood) with a short ring",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_medium_004.ogg",
+   "kenney_impact_sounds:impactWood_medium_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.7
+ },
+ "knight/aegis_block_1.wav": {
+  "name": "aegis_block",
+  "file": "knight/aegis_block_1.wav",
+  "seconds": 0.168,
+  "category": "impact",
+  "desc": "crisp metallic ping + spark crackle",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.9
+ },
+ "knight/aegis_block_2.wav": {
+  "name": "aegis_block",
+  "file": "knight/aegis_block_2.wav",
+  "seconds": 0.176,
+  "category": "impact",
+  "desc": "crisp metallic ping + spark crackle",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "knight/aegis_block_3.wav": {
+  "name": "aegis_block",
+  "file": "knight/aegis_block_3.wav",
+  "seconds": 0.174,
+  "category": "impact",
+  "desc": "crisp metallic ping + spark crackle",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.8
+ },
+ "knight/verdict_summon_1.wav": {
+  "name": "verdict_summon",
+  "file": "knight/verdict_summon_1.wav",
+  "seconds": 0.395,
+  "category": "weapon",
+  "desc": "short choir swell + rising whoosh into the slam",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.7,
+  "loudness": -12.0
+ },
+ "knight/verdict_summon_2.wav": {
+  "name": "verdict_summon",
+  "file": "knight/verdict_summon_2.wav",
+  "seconds": 0.395,
+  "category": "weapon",
+  "desc": "short choir swell + rising whoosh into the slam",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.41,
+  "loudness": -12.0
+ },
+ "knight/verdict_slam_1.wav": {
+  "name": "verdict_slam",
+  "file": "knight/verdict_slam_1.wav",
+  "seconds": 1.2,
+  "category": "impact_heavy",
+  "desc": "deep bell (C2) + stone crack transient + punch + sub < 80 Hz thump, bell tail",
+  "sources": [
+   "kenney_impact_sounds:impactMining_000.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "sfx_80_rpg:stones_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.2
+ },
+ "knight/verdict_slam_2.wav": {
+  "name": "verdict_slam",
+  "file": "knight/verdict_slam_2.wav",
+  "seconds": 1.2,
+  "category": "impact_heavy",
+  "desc": "deep bell (C2) + stone crack transient + punch + sub < 80 Hz thump, bell tail",
+  "sources": [
+   "kenney_impact_sounds:impactMining_001.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg",
+   "sfx_80_rpg:stones_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.4
+ },
+ "knight/verdict_slam_3.wav": {
+  "name": "verdict_slam",
+  "file": "knight/verdict_slam_3.wav",
+  "seconds": 1.2,
+  "category": "impact_heavy",
+  "desc": "deep bell (C2) + stone crack transient + punch + sub < 80 Hz thump, bell tail",
+  "sources": [
+   "kenney_impact_sounds:impactMining_002.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_004.ogg",
+   "sfx_80_rpg:stones_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.6
+ },
+ "knight/verdict_shockwave_1.wav": {
+  "name": "verdict_shockwave",
+  "file": "knight/verdict_shockwave_1.wav",
+  "seconds": 0.9,
+  "category": "impact_heavy",
+  "desc": "airy holy boom + outward whoosh + chime + sub",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.1
+ },
+ "knight/verdict_shockwave_2.wav": {
+  "name": "verdict_shockwave",
+  "file": "knight/verdict_shockwave_2.wav",
+  "seconds": 0.9,
+  "category": "impact_heavy",
+  "desc": "airy holy boom + outward whoosh + chime + sub",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.0
+ },
+ "knight/shield_rush_1.wav": {
+  "name": "shield_rush",
+  "file": "knight/shield_rush_1.wav",
+  "seconds": 0.35,
+  "category": "weapon",
+  "desc": "heavy whoosh + armor rattle",
+  "sources": [
+   "sfx_rpg_sound_pack:chainmail1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "knight/shield_rush_2.wav": {
+  "name": "shield_rush",
+  "file": "knight/shield_rush_2.wav",
+  "seconds": 0.35,
+  "category": "weapon",
+  "desc": "heavy whoosh + armor rattle",
+  "sources": [
+   "sfx_rpg_sound_pack:chainmail2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.4
+ },
+ "knight/shield_rush_boom_1.wav": {
+  "name": "shield_rush_boom",
+  "file": "knight/shield_rush_boom_1.wav",
+  "seconds": 0.52,
+  "category": "impact_heavy",
+  "desc": "shield plate impact + low punch + sub thump",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_heavy_001.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "knight/shield_rush_boom_2.wav": {
+  "name": "shield_rush_boom",
+  "file": "knight/shield_rush_boom_2.wav",
+  "seconds": 0.521,
+  "category": "impact_heavy",
+  "desc": "shield plate impact + low punch + sub thump",
+  "sources": [
+   "kenney_impact_sounds:impactPlate_heavy_003.ogg",
+   "kenney_impact_sounds:impactPunch_heavy_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.9
+ },
+ "knight/bulwark_clang_1.wav": {
+  "name": "bulwark_clang",
+  "file": "knight/bulwark_clang_1.wav",
+  "seconds": 0.321,
+  "category": "impact",
+  "desc": "metal clang (1-4 kHz) + low thump (100 Hz, 150 ms) + bell ring",
+  "sources": [
+   "kenney_impact_sounds:impactBell_heavy_002.ogg",
+   "kenney_impact_sounds:impactMetal_medium_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.3
+ },
+ "knight/bulwark_clang_2.wav": {
+  "name": "bulwark_clang",
+  "file": "knight/bulwark_clang_2.wav",
+  "seconds": 0.321,
+  "category": "impact",
+  "desc": "metal clang (1-4 kHz) + low thump (100 Hz, 150 ms) + bell ring",
+  "sources": [
+   "kenney_impact_sounds:impactBell_heavy_002.ogg",
+   "kenney_impact_sounds:impactMetal_medium_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.5
+ },
+ "knight/bulwark_clang_3.wav": {
+  "name": "bulwark_clang",
+  "file": "knight/bulwark_clang_3.wav",
+  "seconds": 0.321,
+  "category": "impact",
+  "desc": "metal clang (1-4 kHz) + low thump (100 Hz, 150 ms) + bell ring",
+  "sources": [
+   "kenney_impact_sounds:impactBell_heavy_002.ogg",
+   "kenney_impact_sounds:impactMetal_medium_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "barbarian/ravager_chop_1.wav": {
+  "name": "ravager_chop",
+  "file": "barbarian/ravager_chop_1.wav",
+  "seconds": 0.343,
+  "category": "weapon",
+  "desc": "heavy swish (slowed) + low air whoosh + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth1.ogg",
+   "sfx_swishes:swish-3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.89,
+  "loudness": -12.0
+ },
+ "barbarian/ravager_chop_2.wav": {
+  "name": "ravager_chop",
+  "file": "barbarian/ravager_chop_2.wav",
+  "seconds": 0.348,
+  "category": "weapon",
+  "desc": "heavy swish (slowed) + low air whoosh + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth1.ogg",
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.87,
+  "loudness": -12.0
+ },
+ "barbarian/ravager_chop_3.wav": {
+  "name": "ravager_chop",
+  "file": "barbarian/ravager_chop_3.wav",
+  "seconds": 0.341,
+  "category": "weapon",
+  "desc": "heavy swish (slowed) + low air whoosh + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth1.ogg",
+   "sfx_swishes:swish-8.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.0
+ },
+ "barbarian/ravager_hit_1.wav": {
+  "name": "ravager_hit",
+  "file": "barbarian/ravager_hit_1.wav",
+  "seconds": 0.249,
+  "category": "impact_heavy",
+  "desc": "wet axe chop + heavy punch + bone crack + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_001.ogg",
+   "kenney_rpg_audio:chop.ogg",
+   "sfx_bone_breaks:Deep Break 1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.4
+ },
+ "barbarian/ravager_hit_2.wav": {
+  "name": "ravager_hit",
+  "file": "barbarian/ravager_hit_2.wav",
+  "seconds": 0.251,
+  "category": "impact_heavy",
+  "desc": "wet axe chop + heavy punch + bone crack + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_003.ogg",
+   "kenney_rpg_audio:chop.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.3
+ },
+ "barbarian/ravager_hit_3.wav": {
+  "name": "ravager_hit",
+  "file": "barbarian/ravager_hit_3.wav",
+  "seconds": 0.27,
+  "category": "impact_heavy",
+  "desc": "wet axe chop + heavy punch + bone crack + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_004.ogg",
+   "kenney_rpg_audio:chop.ogg",
+   "sfx_bone_breaks:Deep Break 8.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "barbarian/ravager_hit_4.wav": {
+  "name": "ravager_hit",
+  "file": "barbarian/ravager_hit_4.wav",
+  "seconds": 0.232,
+  "category": "impact_heavy",
+  "desc": "wet axe chop + heavy punch + bone crack + sub",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_heavy_000.ogg",
+   "kenney_rpg_audio:chop.ogg",
+   "sfx_bone_breaks:Deep Break 4.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.6
+ },
+ "barbarian/skullsplitter_crack_1.wav": {
+  "name": "skullsplitter_crack",
+  "file": "barbarian/skullsplitter_crack_1.wav",
+  "seconds": 0.629,
+  "category": "impact_heavy",
+  "desc": "rock tearing crack + stones + magma hiss + crackle + sub",
+  "sources": [
+   "kenney_impact_sounds:impactMining_000.ogg",
+   "sfx_80_rpg:stones_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "barbarian/skullsplitter_crack_2.wav": {
+  "name": "skullsplitter_crack",
+  "file": "barbarian/skullsplitter_crack_2.wav",
+  "seconds": 0.628,
+  "category": "impact_heavy",
+  "desc": "rock tearing crack + stones + magma hiss + crackle + sub",
+  "sources": [
+   "kenney_impact_sounds:impactMining_003.ogg",
+   "sfx_80_rpg:stones_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.8
+ },
+ "barbarian/whirlwind_loop.wav": {
+  "name": "whirlwind_loop",
+  "file": "barbarian/whirlwind_loop.wav",
+  "seconds": 3.5,
+  "category": "loop",
+  "desc": "spinning blade whoosh: band noise swept per pass at 4.5 Hz + low whum + faint steel ring; seam crossfaded",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.43,
+  "loudness": -15.0
+ },
+ "barbarian/whirlwind_stop_1.wav": {
+  "name": "whirlwind_stop",
+  "file": "barbarian/whirlwind_stop_1.wav",
+  "seconds": 0.426,
+  "category": "weapon",
+  "desc": "axe ring + boot scuff + grunt",
+  "sources": [
+   "kenney_rpg_audio:footstep00.ogg",
+   "sfx_80_rpg:metal_02.ogg",
+   "sfx_rpg_sound_pack:giant3.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.96,
+  "loudness": -12.0
+ },
+ "barbarian/whirlwind_stop_2.wav": {
+  "name": "whirlwind_stop",
+  "file": "barbarian/whirlwind_stop_2.wav",
+  "seconds": 0.371,
+  "category": "weapon",
+  "desc": "axe ring + boot scuff + grunt",
+  "sources": [
+   "kenney_rpg_audio:footstep03.ogg",
+   "sfx_80_rpg:metal_03.ogg",
+   "sfx_rpg_sound_pack:giant5.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.58,
+  "loudness": -12.0
+ },
+ "barbarian/fault_stomp_1.wav": {
+  "name": "fault_stomp",
+  "file": "barbarian/fault_stomp_1.wav",
+  "seconds": 0.41,
+  "category": "impact_heavy",
+  "desc": "low ground thump (130->80 Hz) + boot impact + dust",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -9.7
+ },
+ "barbarian/fault_stomp_2.wav": {
+  "name": "fault_stomp",
+  "file": "barbarian/fault_stomp_2.wav",
+  "seconds": 0.41,
+  "category": "impact_heavy",
+  "desc": "low ground thump (130->80 Hz) + boot impact + dust",
+  "sources": [
+   "kenney_impact_sounds:impactSoft_heavy_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.7
+ },
+ "barbarian/fault_crack_1.wav": {
+  "name": "fault_crack",
+  "file": "barbarian/fault_crack_1.wav",
+  "seconds": 0.573,
+  "category": "impact",
+  "desc": "rolling crackle climbing in pitch (travels) + stones + rumble",
+  "sources": [
+   "sfx_80_rpg:stones_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "barbarian/fault_crack_2.wav": {
+  "name": "fault_crack",
+  "file": "barbarian/fault_crack_2.wav",
+  "seconds": 0.573,
+  "category": "impact",
+  "desc": "rolling crackle climbing in pitch (travels) + stones + rumble",
+  "sources": [
+   "sfx_80_rpg:stones_03.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.8
+ },
+ "barbarian/leap_takeoff_1.wav": {
+  "name": "leap_takeoff",
+  "file": "barbarian/leap_takeoff_1.wav",
+  "seconds": 0.398,
+  "category": "voice",
+  "desc": "grunt + rising whoosh",
+  "sources": [
+   "sfx_rpg_sound_pack:giant1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.64,
+  "loudness": -12.0
+ },
+ "barbarian/leap_takeoff_2.wav": {
+  "name": "leap_takeoff",
+  "file": "barbarian/leap_takeoff_2.wav",
+  "seconds": 0.39,
+  "category": "voice",
+  "desc": "grunt + rising whoosh",
+  "sources": [
+   "sfx_rpg_sound_pack:giant5.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.27,
+  "loudness": -12.0
+ },
+ "barbarian/leap_land_1.wav": {
+  "name": "leap_land",
+  "file": "barbarian/leap_land_1.wav",
+  "seconds": 1.027,
+  "category": "impact_heavy",
+  "desc": "low boom + sub < 60 Hz + rock crack + crumbling stones tail",
+  "sources": [
+   "kenney_impact_sounds:impactMining_004.ogg",
+   "kenney_scifi_sounds:lowFrequency_explosion_001.ogg",
+   "sfx_80_rpg:stones_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "barbarian/leap_land_2.wav": {
+  "name": "leap_land",
+  "file": "barbarian/leap_land_2.wav",
+  "seconds": 1.03,
+  "category": "impact_heavy",
+  "desc": "low boom + sub < 60 Hz + rock crack + crumbling stones tail",
+  "sources": [
+   "kenney_impact_sounds:impactMining_002.ogg",
+   "kenney_scifi_sounds:lowFrequency_explosion_000.ogg",
+   "sfx_80_rpg:stones_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.5
+ },
+ "mage/ember_whoosh_1.wav": {
+  "name": "ember_whoosh",
+  "file": "mage/ember_whoosh_1.wav",
+  "seconds": 0.296,
+  "category": "weapon",
+  "desc": "fire 'fwoomp' (closing noise burst + flickering roar) + fire spell texture",
+  "sources": [
+   "sfx_80_rpg:spell_fire_06.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.3
+ },
+ "mage/ember_whoosh_2.wav": {
+  "name": "ember_whoosh",
+  "file": "mage/ember_whoosh_2.wav",
+  "seconds": 0.297,
+  "category": "weapon",
+  "desc": "fire 'fwoomp' (closing noise burst + flickering roar) + fire spell texture",
+  "sources": [
+   "sfx_80_rpg:spell_fire_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "mage/ember_whoosh_3.wav": {
+  "name": "ember_whoosh",
+  "file": "mage/ember_whoosh_3.wav",
+  "seconds": 0.3,
+  "category": "weapon",
+  "desc": "fire 'fwoomp' (closing noise burst + flickering roar) + fire spell texture",
+  "sources": [
+   "sfx_80_rpg:spell_fire_07.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.8
+ },
+ "mage/ember_boom_1.wav": {
+  "name": "ember_boom",
+  "file": "mage/ember_boom_1.wav",
+  "seconds": 0.458,
+  "category": "impact",
+  "desc": "crack transient + 150 ms body boom + explosion crunch + crackle tail + sub",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.7
+ },
+ "mage/ember_boom_2.wav": {
+  "name": "ember_boom",
+  "file": "mage/ember_boom_2.wav",
+  "seconds": 0.474,
+  "category": "impact",
+  "desc": "crack transient + 150 ms body boom + explosion crunch + crackle tail + sub",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.0
+ },
+ "mage/ember_boom_3.wav": {
+  "name": "ember_boom",
+  "file": "mage/ember_boom_3.wav",
+  "seconds": 0.514,
+  "category": "impact",
+  "desc": "crack transient + 150 ms body boom + explosion crunch + crackle tail + sub",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.1
+ },
+ "mage/ember_boom_4.wav": {
+  "name": "ember_boom",
+  "file": "mage/ember_boom_4.wav",
+  "seconds": 0.471,
+  "category": "impact",
+  "desc": "crack transient + 150 ms body boom + explosion crunch + crackle tail + sub",
+  "sources": [
+   "kenney_scifi_sounds:explosionCrunch_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.5
+ },
+ "mage/starfall_whistle_1.wav": {
+  "name": "starfall_whistle",
+  "file": "mage/starfall_whistle_1.wav",
+  "seconds": 0.588,
+  "category": "weapon",
+  "desc": "whistle rising over 0.6 s (sine + band noise)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -6.35,
+  "loudness": -12.0
+ },
+ "mage/starfall_whistle_2.wav": {
+  "name": "starfall_whistle",
+  "file": "mage/starfall_whistle_2.wav",
+  "seconds": 0.59,
+  "category": "weapon",
+  "desc": "whistle rising over 0.6 s (sine + band noise)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -7.4,
+  "loudness": -12.0
+ },
+ "mage/starfall_impact_1.wav": {
+  "name": "starfall_impact",
+  "file": "mage/starfall_impact_1.wav",
+  "seconds": 0.829,
+  "category": "impact_heavy",
+  "desc": "air boom + sub + rock crack + debris + crackles",
+  "sources": [
+   "kenney_impact_sounds:impactMining_001.ogg",
+   "sfx_80_rpg:stones_01.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.4
+ },
+ "mage/starfall_impact_2.wav": {
+  "name": "starfall_impact",
+  "file": "mage/starfall_impact_2.wav",
+  "seconds": 0.822,
+  "category": "impact_heavy",
+  "desc": "air boom + sub + rock crack + debris + crackles",
+  "sources": [
+   "kenney_impact_sounds:impactMining_003.ogg",
+   "sfx_80_rpg:stones_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "mage/starfall_impact_3.wav": {
+  "name": "starfall_impact",
+  "file": "mage/starfall_impact_3.wav",
+  "seconds": 0.822,
+  "category": "impact_heavy",
+  "desc": "air boom + sub + rock crack + debris + crackles",
+  "sources": [
+   "kenney_impact_sounds:impactMining_004.ogg",
+   "sfx_80_rpg:stones_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "mage/cataclysm_whistle.wav": {
+  "name": "cataclysm_whistle",
+  "file": "mage/cataclysm_whistle.wav",
+  "seconds": 0.75,
+  "category": "weapon",
+  "desc": "deep whistle rising over 0.9 s + rumble",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -5.88,
+  "loudness": -13.8
+ },
+ "mage/cataclysm_impact.wav": {
+  "name": "cataclysm_impact",
+  "file": "mage/cataclysm_impact.wav",
+  "seconds": 2.0,
+  "category": "impact_heavy",
+  "desc": "massive: crack + closing air blast + deep boom + low explosion + fire roar + debris rain + sub < 60 Hz",
+  "sources": [
+   "kenney_scifi_sounds:lowFrequency_explosion_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.7
+ },
+ "mage/rime_nova_1.wav": {
+  "name": "rime_nova",
+  "file": "mage/rime_nova_1.wav",
+  "seconds": 0.52,
+  "category": "impact",
+  "desc": "glassy crackle sweep (ice crystallizing) + airy whoosh + high glass shimmer",
+  "sources": [
+   "kenney_interface_sounds:glass_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.0
+ },
+ "mage/rime_nova_2.wav": {
+  "name": "rime_nova",
+  "file": "mage/rime_nova_2.wav",
+  "seconds": 0.52,
+  "category": "impact",
+  "desc": "glassy crackle sweep (ice crystallizing) + airy whoosh + high glass shimmer",
+  "sources": [
+   "kenney_interface_sounds:glass_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "mage/rime_nova_3.wav": {
+  "name": "rime_nova",
+  "file": "mage/rime_nova_3.wav",
+  "seconds": 0.52,
+  "category": "impact",
+  "desc": "glassy crackle sweep (ice crystallizing) + airy whoosh + high glass shimmer",
+  "sources": [
+   "kenney_interface_sounds:glass_005.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "mage/frost_shatter_1.wav": {
+  "name": "frost_shatter",
+  "file": "mage/frost_shatter_1.wav",
+  "seconds": 0.219,
+  "category": "impact",
+  "desc": "ice shatter (glass hit + tinkle) + fine crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_000.ogg",
+   "kenney_impact_sounds:impactGlass_light_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.5
+ },
+ "mage/frost_shatter_2.wav": {
+  "name": "frost_shatter",
+  "file": "mage/frost_shatter_2.wav",
+  "seconds": 0.221,
+  "category": "impact",
+  "desc": "ice shatter (glass hit + tinkle) + fine crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_002.ogg",
+   "kenney_impact_sounds:impactGlass_light_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.7
+ },
+ "mage/frost_shatter_3.wav": {
+  "name": "frost_shatter",
+  "file": "mage/frost_shatter_3.wav",
+  "seconds": 0.207,
+  "category": "impact",
+  "desc": "ice shatter (glass hit + tinkle) + fine crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_003.ogg",
+   "kenney_impact_sounds:impactGlass_light_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -15.2
+ },
+ "mage/frost_shatter_4.wav": {
+  "name": "frost_shatter",
+  "file": "mage/frost_shatter_4.wav",
+  "seconds": 0.215,
+  "category": "impact",
+  "desc": "ice shatter (glass hit + tinkle) + fine crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_001.ogg",
+   "kenney_impact_sounds:impactGlass_light_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.0
+ },
+ "mage/arcane_echo_1.wav": {
+  "name": "arcane_echo",
+  "file": "mage/arcane_echo_1.wav",
+  "seconds": 0.335,
+  "category": "weapon",
+  "desc": "reversed chime swelling into a click",
+  "sources": [
+   "kenney_interface_sounds:click_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -3.04,
+  "loudness": -12.0
+ },
+ "mage/arcane_echo_2.wav": {
+  "name": "arcane_echo",
+  "file": "mage/arcane_echo_2.wav",
+  "seconds": 0.335,
+  "category": "weapon",
+  "desc": "reversed chime swelling into a click",
+  "sources": [
+   "kenney_interface_sounds:click_003.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.35,
+  "loudness": -12.0
+ },
+ "mage/blink_1.wav": {
+  "name": "blink",
+  "file": "mage/blink_1.wav",
+  "seconds": 0.239,
+  "category": "weapon",
+  "desc": "implosion: reverse-shaped whoosh into a pop",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "mage/blink_2.wav": {
+  "name": "blink",
+  "file": "mage/blink_2.wav",
+  "seconds": 0.239,
+  "category": "weapon",
+  "desc": "implosion: reverse-shaped whoosh into a pop",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "mage/blink_rift_1.wav": {
+  "name": "blink_rift",
+  "file": "mage/blink_rift_1.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "violet boom + sub + glassy overtone dyad + spell texture",
+  "sources": [
+   "sfx_80_rpg:spell_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.8
+ },
+ "mage/blink_rift_2.wav": {
+  "name": "blink_rift",
+  "file": "mage/blink_rift_2.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "violet boom + sub + glassy overtone dyad + spell texture",
+  "sources": [
+   "sfx_80_rpg:spell_02.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.1
+ },
+ "rogue/crossbow_twang_1.wav": {
+  "name": "crossbow_twang",
+  "file": "rogue/crossbow_twang_1.wav",
+  "seconds": 0.2,
+  "category": "weapon",
+  "desc": "tight string twang (plucked, A2) + bolt hiss + trigger click",
+  "sources": [
+   "kenney_rpg_audio:metalLatch.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.39,
+  "loudness": -12.0
+ },
+ "rogue/crossbow_twang_2.wav": {
+  "name": "crossbow_twang",
+  "file": "rogue/crossbow_twang_2.wav",
+  "seconds": 0.2,
+  "category": "weapon",
+  "desc": "tight string twang (plucked, A2) + bolt hiss + trigger click",
+  "sources": [
+   "kenney_rpg_audio:metalLatch.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -3.66,
+  "loudness": -12.0
+ },
+ "rogue/crossbow_twang_3.wav": {
+  "name": "crossbow_twang",
+  "file": "rogue/crossbow_twang_3.wav",
+  "seconds": 0.2,
+  "category": "weapon",
+  "desc": "tight string twang (plucked, A2) + bolt hiss + trigger click",
+  "sources": [
+   "kenney_rpg_audio:metalLatch.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.21,
+  "loudness": -12.0
+ },
+ "rogue/crossbow_twang_4.wav": {
+  "name": "crossbow_twang",
+  "file": "rogue/crossbow_twang_4.wav",
+  "seconds": 0.2,
+  "category": "weapon",
+  "desc": "tight string twang (plucked, A2) + bolt hiss + trigger click",
+  "sources": [
+   "kenney_rpg_audio:metalLatch.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -4.35,
+  "loudness": -12.0
+ },
+ "rogue/widow_ricochet_1.wav": {
+  "name": "widow_ricochet",
+  "file": "rogue/widow_ricochet_1.wav",
+  "seconds": 0.26,
+  "category": "weapon",
+  "desc": "high metal ping + falling ricochet whizz",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.09,
+  "loudness": -12.0
+ },
+ "rogue/widow_ricochet_2.wav": {
+  "name": "widow_ricochet",
+  "file": "rogue/widow_ricochet_2.wav",
+  "seconds": 0.26,
+  "category": "weapon",
+  "desc": "high metal ping + falling ricochet whizz",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.86,
+  "loudness": -12.0
+ },
+ "rogue/widow_ricochet_3.wav": {
+  "name": "widow_ricochet",
+  "file": "rogue/widow_ricochet_3.wav",
+  "seconds": 0.26,
+  "category": "weapon",
+  "desc": "high metal ping + falling ricochet whizz",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.72,
+  "loudness": -12.0
+ },
+ "rogue/knife_fan_1.wav": {
+  "name": "knife_fan",
+  "file": "rogue/knife_fan_1.wav",
+  "seconds": 0.267,
+  "category": "weapon",
+  "desc": "four quick blade swishes 35 ms apart + knife slice",
+  "sources": [
+   "kenney_rpg_audio:knifeSlice2.ogg",
+   "sfx_swishes:swish-11.wav",
+   "sfx_swishes:swish-12.wav",
+   "sfx_swishes:swish-13.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.9
+ },
+ "rogue/knife_fan_2.wav": {
+  "name": "knife_fan",
+  "file": "rogue/knife_fan_2.wav",
+  "seconds": 0.266,
+  "category": "weapon",
+  "desc": "four quick blade swishes 35 ms apart + knife slice",
+  "sources": [
+   "kenney_rpg_audio:knifeSlice2.ogg",
+   "sfx_swishes:swish-10.wav",
+   "sfx_swishes:swish-12.wav",
+   "sfx_swishes:swish-2.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.6
+ },
+ "rogue/knife_fan_3.wav": {
+  "name": "knife_fan",
+  "file": "rogue/knife_fan_3.wav",
+  "seconds": 0.266,
+  "category": "weapon",
+  "desc": "four quick blade swishes 35 ms apart + knife slice",
+  "sources": [
+   "kenney_rpg_audio:knifeSlice2.ogg",
+   "sfx_swishes:swish-11.wav",
+   "sfx_swishes:swish-13.wav",
+   "sfx_swishes:swish-5.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.0
+ },
+ "rogue/mark_apply_1.wav": {
+  "name": "mark_apply",
+  "file": "rogue/mark_apply_1.wav",
+  "seconds": 0.572,
+  "category": "weapon",
+  "desc": "whisper (shaped breath + ghost voice) + heartbeat thump",
+  "sources": [
+   "sfx_rpg_sound_pack:shade1.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.32,
+  "loudness": -12.0
+ },
+ "rogue/mark_apply_2.wav": {
+  "name": "mark_apply",
+  "file": "rogue/mark_apply_2.wav",
+  "seconds": 0.573,
+  "category": "weapon",
+  "desc": "whisper (shaped breath + ghost voice) + heartbeat thump",
+  "sources": [
+   "sfx_rpg_sound_pack:shade14.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "rogue/mark_stab_1.wav": {
+  "name": "mark_stab",
+  "file": "rogue/mark_stab_1.wav",
+  "seconds": 0.24,
+  "category": "impact",
+  "desc": "clean blade stab + small punch + smoky whoosh",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_000.ogg",
+   "kenney_rpg_audio:knifeSlice.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.3
+ },
+ "rogue/mark_stab_2.wav": {
+  "name": "mark_stab",
+  "file": "rogue/mark_stab_2.wav",
+  "seconds": 0.242,
+  "category": "impact",
+  "desc": "clean blade stab + small punch + smoky whoosh",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_001.ogg",
+   "kenney_rpg_audio:knifeSlice2.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.7
+ },
+ "rogue/mark_stab_3.wav": {
+  "name": "mark_stab",
+  "file": "rogue/mark_stab_3.wav",
+  "seconds": 0.235,
+  "category": "impact",
+  "desc": "clean blade stab + small punch + smoky whoosh",
+  "sources": [
+   "kenney_impact_sounds:impactPunch_medium_002.ogg",
+   "kenney_rpg_audio:knifeSlice.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.4
+ },
+ "rogue/mark_daggers_1.wav": {
+  "name": "mark_daggers",
+  "file": "rogue/mark_daggers_1.wav",
+  "seconds": 0.477,
+  "category": "weapon",
+  "desc": "falling hiss + blade swish",
+  "sources": [
+   "sfx_swishes:swish-12.wav"
+  ],
+  "channels": 1,
+  "peak_db": -3.43,
+  "loudness": -12.0
+ },
+ "rogue/mark_daggers_2.wav": {
+  "name": "mark_daggers",
+  "file": "rogue/mark_daggers_2.wav",
+  "seconds": 0.477,
+  "category": "weapon",
+  "desc": "falling hiss + blade swish",
+  "sources": [
+   "sfx_swishes:swish-12.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.14,
+  "loudness": -12.0
+ },
+ "rogue/execute_1.wav": {
+  "name": "execute",
+  "file": "rogue/execute_1.wav",
+  "seconds": 0.6,
+  "category": "impact_heavy",
+  "desc": "heavy slash + bell toll cut short + bone break + sub",
+  "sources": [
+   "kenney_rpg_audio:knifeSlice2.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav",
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.2
+ },
+ "rogue/execute_2.wav": {
+  "name": "execute",
+  "file": "rogue/execute_2.wav",
+  "seconds": 0.6,
+  "category": "impact_heavy",
+  "desc": "heavy slash + bell toll cut short + bone break + sub",
+  "sources": [
+   "kenney_rpg_audio:knifeSlice2.ogg",
+   "sfx_bone_breaks:Deep Break 6.wav",
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -10.4
+ },
+ "rogue/smoke_poof_1.wav": {
+  "name": "smoke_poof",
+  "file": "rogue/smoke_poof_1.wav",
+  "seconds": 0.4,
+  "category": "weapon",
+  "desc": "soft low 'poof' + hiss + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth1.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.01,
+  "loudness": -12.0
+ },
+ "rogue/smoke_poof_2.wav": {
+  "name": "smoke_poof",
+  "file": "rogue/smoke_poof_2.wav",
+  "seconds": 0.4,
+  "category": "weapon",
+  "desc": "soft low 'poof' + hiss + cloth",
+  "sources": [
+   "kenney_rpg_audio:cloth3.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.14,
+  "loudness": -12.0
+ },
+ "rogue/roll_whoosh_1.wav": {
+  "name": "roll_whoosh",
+  "file": "rogue/roll_whoosh_1.wav",
+  "seconds": 0.35,
+  "category": "weapon",
+  "desc": "cloth rustle + whoosh",
+  "sources": [
+   "kenney_rpg_audio:cloth1.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.1
+ },
+ "rogue/roll_whoosh_2.wav": {
+  "name": "roll_whoosh",
+  "file": "rogue/roll_whoosh_2.wav",
+  "seconds": 0.35,
+  "category": "weapon",
+  "desc": "cloth rustle + whoosh",
+  "sources": [
+   "kenney_rpg_audio:cloth3.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.3
+ },
+ "shared/spirit_dart_1.wav": {
+  "name": "spirit_dart",
+  "file": "shared/spirit_dart_1.wav",
+  "seconds": 0.25,
+  "category": "weapon",
+  "desc": "soft harp-like pluck (D5, pentatonic set) + air",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.8
+ },
+ "shared/spirit_dart_2.wav": {
+  "name": "spirit_dart",
+  "file": "shared/spirit_dart_2.wav",
+  "seconds": 0.25,
+  "category": "weapon",
+  "desc": "soft harp-like pluck (E5, pentatonic set) + air",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.9
+ },
+ "shared/spirit_dart_3.wav": {
+  "name": "spirit_dart",
+  "file": "shared/spirit_dart_3.wav",
+  "seconds": 0.25,
+  "category": "weapon",
+  "desc": "soft harp-like pluck (A5, pentatonic set) + air",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.05,
+  "loudness": -12.0
+ },
+ "shared/spirit_dart_4.wav": {
+  "name": "spirit_dart",
+  "file": "shared/spirit_dart_4.wav",
+  "seconds": 0.25,
+  "category": "weapon",
+  "desc": "soft harp-like pluck (B5, pentatonic set) + air",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.12,
+  "loudness": -12.0
+ },
+ "shared/disc_throw_1.wav": {
+  "name": "disc_throw",
+  "file": "shared/disc_throw_1.wav",
+  "seconds": 0.296,
+  "category": "weapon",
+  "desc": "whirring throw: band noise chopped at 18-22 Hz + whoosh",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.49,
+  "loudness": -12.0
+ },
+ "shared/disc_throw_2.wav": {
+  "name": "disc_throw",
+  "file": "shared/disc_throw_2.wav",
+  "seconds": 0.297,
+  "category": "weapon",
+  "desc": "whirring throw: band noise chopped at 18-22 Hz + whoosh",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.81,
+  "loudness": -12.0
+ },
+ "shared/disc_ping_1.wav": {
+  "name": "disc_ping",
+  "file": "shared/disc_ping_1.wav",
+  "seconds": 0.25,
+  "category": "impact",
+  "desc": "tuned metallic ping (E6/D6 chime) + metal tick; the script climbs a semitone per bounce",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.6,
+  "loudness": -11.0
+ },
+ "shared/disc_ping_2.wav": {
+  "name": "disc_ping",
+  "file": "shared/disc_ping_2.wav",
+  "seconds": 0.25,
+  "category": "impact",
+  "desc": "tuned metallic ping (E6/D6 chime) + metal tick; the script climbs a semitone per bounce",
+  "sources": [
+   "kenney_impact_sounds:impactMetal_light_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -2.52,
+  "loudness": -11.0
+ },
+ "shared/bramble_rustle_1.wav": {
+  "name": "bramble_rustle",
+  "file": "shared/bramble_rustle_1.wav",
+  "seconds": 0.418,
+  "category": "weapon",
+  "desc": "dry grass rustle + twig crackles + wood creak",
+  "sources": [
+   "kenney_impact_sounds:footstep_grass_000.ogg",
+   "sfx_80_rpg:wood_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.7
+ },
+ "shared/bramble_rustle_2.wav": {
+  "name": "bramble_rustle",
+  "file": "shared/bramble_rustle_2.wav",
+  "seconds": 0.417,
+  "category": "weapon",
+  "desc": "dry grass rustle + twig crackles + wood creak",
+  "sources": [
+   "kenney_impact_sounds:footstep_grass_002.ogg",
+   "sfx_80_rpg:wood_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.6
+ },
+ "shared/bramble_rustle_3.wav": {
+  "name": "bramble_rustle",
+  "file": "shared/bramble_rustle_3.wav",
+  "seconds": 0.381,
+  "category": "weapon",
+  "desc": "dry grass rustle + twig crackles + wood creak",
+  "sources": [
+   "kenney_impact_sounds:footstep_grass_004.ogg",
+   "sfx_80_rpg:wood_04.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -16.5
+ },
+ "shared/javelin_throw_1.wav": {
+  "name": "javelin_throw",
+  "file": "shared/javelin_throw_1.wav",
+  "seconds": 0.47,
+  "category": "weapon",
+  "desc": "heavy swish (slowed) + falling whoosh",
+  "sources": [
+   "sfx_swishes:swish-7.wav"
+  ],
+  "channels": 1,
+  "peak_db": -2.1,
+  "loudness": -12.0
+ },
+ "shared/javelin_throw_2.wav": {
+  "name": "javelin_throw",
+  "file": "shared/javelin_throw_2.wav",
+  "seconds": 0.457,
+  "category": "weapon",
+  "desc": "heavy swish (slowed) + falling whoosh",
+  "sources": [
+   "sfx_swishes:swish-9.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.4
+ },
+ "shared/godspear_boom_1.wav": {
+  "name": "godspear_boom",
+  "file": "shared/godspear_boom_1.wav",
+  "seconds": 1.0,
+  "category": "impact_heavy",
+  "desc": "holy explosion: air boom + sub + choir burst + major bell",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -9.6
+ },
+ "shared/godspear_boom_2.wav": {
+  "name": "godspear_boom",
+  "file": "shared/godspear_boom_2.wav",
+  "seconds": 1.0,
+  "category": "impact_heavy",
+  "desc": "holy explosion: air boom + sub + choir burst + major bell",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -11.2
+ },
+ "shared/flask_throw_1.wav": {
+  "name": "flask_throw",
+  "file": "shared/flask_throw_1.wav",
+  "seconds": 0.173,
+  "category": "weapon",
+  "desc": "swish + glass clink + bottle slosh",
+  "sources": [
+   "kenney_interface_sounds:glass_005.ogg",
+   "sfx_rpg_sound_pack:bottle.wav",
+   "sfx_swishes:swish-5.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.3
+ },
+ "shared/flask_throw_2.wav": {
+  "name": "flask_throw",
+  "file": "shared/flask_throw_2.wav",
+  "seconds": 0.171,
+  "category": "weapon",
+  "desc": "swish + glass clink + bottle slosh",
+  "sources": [
+   "kenney_interface_sounds:glass_006.ogg",
+   "sfx_rpg_sound_pack:bottle.wav",
+   "sfx_swishes:swish-6.wav"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ },
+ "shared/flask_shatter_1.wav": {
+  "name": "flask_shatter",
+  "file": "shared/flask_shatter_1.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "glass shatter + 'whoomp' ignition + fire crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_004.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.6
+ },
+ "shared/flask_shatter_2.wav": {
+  "name": "flask_shatter",
+  "file": "shared/flask_shatter_2.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "glass shatter + 'whoomp' ignition + fire crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_001.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.2
+ },
+ "shared/flask_shatter_3.wav": {
+  "name": "flask_shatter",
+  "file": "shared/flask_shatter_3.wav",
+  "seconds": 0.6,
+  "category": "impact",
+  "desc": "glass shatter + 'whoomp' ignition + fire crackle",
+  "sources": [
+   "kenney_impact_sounds:impactGlass_heavy_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.7
+ },
+ "shared/totem_place_1.wav": {
+  "name": "totem_place",
+  "file": "shared/totem_place_1.wav",
+  "seconds": 0.45,
+  "category": "weapon",
+  "desc": "wooden thunk + static buzz hum starting",
+  "sources": [
+   "kenney_impact_sounds:impactWood_heavy_000.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -12.7
+ },
+ "shared/totem_place_2.wav": {
+  "name": "totem_place",
+  "file": "shared/totem_place_2.wav",
+  "seconds": 0.45,
+  "category": "weapon",
+  "desc": "wooden thunk + static buzz hum starting",
+  "sources": [
+   "kenney_impact_sounds:impactWood_heavy_002.ogg"
+  ],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.4
+ },
+ "shared/totem_zap_1.wav": {
+  "name": "totem_zap",
+  "file": "shared/totem_zap_1.wav",
+  "seconds": 0.221,
+  "category": "weapon",
+  "desc": "electric snap + falling buzz + sizzle crackle",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.8
+ },
+ "shared/totem_zap_2.wav": {
+  "name": "totem_zap",
+  "file": "shared/totem_zap_2.wav",
+  "seconds": 0.227,
+  "category": "weapon",
+  "desc": "electric snap + falling buzz + sizzle crackle",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.1
+ },
+ "shared/totem_zap_3.wav": {
+  "name": "totem_zap",
+  "file": "shared/totem_zap_3.wav",
+  "seconds": 0.226,
+  "category": "weapon",
+  "desc": "electric snap + falling buzz + sizzle crackle",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -14.7
+ },
+ "shared/totem_zap_4.wav": {
+  "name": "totem_zap",
+  "file": "shared/totem_zap_4.wav",
+  "seconds": 0.221,
+  "category": "weapon",
+  "desc": "electric snap + falling buzz + sizzle crackle",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -1.0,
+  "loudness": -13.9
+ },
+ "shared/wisp_whistle_1.wav": {
+  "name": "wisp_whistle",
+  "file": "shared/wisp_whistle_1.wav",
+  "seconds": 0.393,
+  "category": "weapon",
+  "desc": "falling whistle (sine + band noise)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -5.23,
+  "loudness": -12.0
+ },
+ "shared/wisp_whistle_2.wav": {
+  "name": "wisp_whistle",
+  "file": "shared/wisp_whistle_2.wav",
+  "seconds": 0.396,
+  "category": "weapon",
+  "desc": "falling whistle (sine + band noise)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -6.14,
+  "loudness": -12.0
+ },
+ "shared/wisp_whistle_3.wav": {
+  "name": "wisp_whistle",
+  "file": "shared/wisp_whistle_3.wav",
+  "seconds": 0.394,
+  "category": "weapon",
+  "desc": "falling whistle (sine + band noise)",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -6.24,
+  "loudness": -12.0
+ },
+ "shared/wisp_splash_1.wav": {
+  "name": "wisp_splash",
+  "file": "shared/wisp_splash_1.wav",
+  "seconds": 0.4,
+  "category": "impact",
+  "desc": "airy glass chime + soft bright burst",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -3.72,
+  "loudness": -11.0
+ },
+ "shared/wisp_splash_2.wav": {
+  "name": "wisp_splash",
+  "file": "shared/wisp_splash_2.wav",
+  "seconds": 0.4,
+  "category": "impact",
+  "desc": "airy glass chime + soft bright burst",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -2.51,
+  "loudness": -11.0
+ },
+ "shared/wisp_splash_3.wav": {
+  "name": "wisp_splash",
+  "file": "shared/wisp_splash_3.wav",
+  "seconds": 0.4,
+  "category": "impact",
+  "desc": "airy glass chime + soft bright burst",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -4.11,
+  "loudness": -11.0
+ },
+ "ambience/moor_wind.wav": {
+  "name": "moor_wind",
+  "file": "ambience/moor_wind.wav",
+  "seconds": 5.0,
+  "category": "ambience",
+  "desc": "moor wind bed: gusting low-passed noise + faint howl; 5 s seamless loop",
+  "sources": [],
+  "channels": 1,
+  "peak_db": -14.57,
+  "loudness": -26.0
+ },
+ "music/battle_loop.flac": {
+  "name": "music_battle",
+  "file": "music/battle_loop.flac",
+  "seconds": 54.0,
+  "category": "music",
+  "desc": "first 54.0 s of the 108 s loop, lossless FLAC (bit-exact through the engine's dr_flac); its last 14 s equal the track's end, so the wrap is the composer's own seam",
+  "sources": [
+   "music_battle:determined_pursuit_loop.wav"
+  ],
+  "channels": 2,
+  "peak_db": -2.9,
+  "loudness": -16.4
+ },
+ "music/boss_loop.ogg": {
+  "name": "music_boss",
+  "file": "music/boss_loop.ogg",
+  "seconds": 108.0,
+  "category": "music",
+  "desc": "original Ogg Vorbis copied unchanged (seam step 0.026 is within the music's own sample steps)",
+  "sources": [
+   "music_boss:heavy_boss_battle_1_bpm200_0.ogg"
+  ],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -14.6
+ },
+ "music/menu_loop.flac": {
+  "name": "music_menu",
+  "file": "music/menu_loop.flac",
+  "seconds": 52.439,
+  "category": "music",
+  "desc": "decoded; trailing digital silence cut, the 3.5 s fade-out tail overlapped onto the fade-in head (seamless), peak -1 dBFS, 16-bit dithered, lossless FLAC",
+  "sources": [
+   "music_menu:qubodup-yd-DarkShrineLoop-OpenGameArt.ogg"
+  ],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -16.2
+ },
+ "music/victory_stinger.wav": {
+  "name": "victory_stinger",
+  "file": "music/victory_stinger.wav",
+  "seconds": 1.8,
+  "category": "stinger",
+  "desc": "Kenney orchestral hit jingle (HIT15) + D major choir (wide) + major bell + sub",
+  "sources": [
+   "kenney_music_jingles:jingles_HIT15.ogg"
+  ],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -12.7
+ },
+ "music/defeat_stinger.wav": {
+  "name": "defeat_stinger",
+  "file": "music/defeat_stinger.wav",
+  "seconds": 2.0,
+  "category": "stinger",
+  "desc": "Kenney descending pizzicato jingle (PIZZI07, F-E-D#-D) + low D minor strings falling to Bb + bell toll D2 + sub",
+  "sources": [
+   "kenney_music_jingles:jingles_PIZZI07.ogg"
+  ],
+  "channels": 2,
+  "peak_db": -1.0,
+  "loudness": -13.1
+ }
+}

@@ -1,0 +1,414 @@
+/* HUD. Lengths in rem (1rem = 10 design px); see theme.rcss. */
+
+body.hud { pointer-events: none; }
+
+/* ---------- XP bar across the top edge, level at its left ---------- */
+
+#xp-row {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 3.6rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#level-badge {
+	position: relative;
+	width: 7.6rem;
+	height: 3.6rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	decorator: vertical-gradient(#2a2034f0 #120e18f0);
+	border-right: 2dp #c9a45c;
+	border-bottom: 2dp #c9a45c;
+	border-bottom-right-radius: 1rem;
+}
+
+#level-label {
+	font-family: "GT Heavy";
+	font-size: 1.2rem;
+	color: #c9a45c;
+	margin-right: 0.5rem;
+	padding-top: 0.4rem;
+}
+
+#level {
+	font-size: 2.4rem;
+	color: #ffffff;
+}
+
+#xp-frame {
+	position: relative;
+	flex: 1 1 auto;
+	height: 1.4rem;
+	margin: 0 1.2rem 0.6rem 0.8rem;
+	border: 1dp #0a0810;
+	border-radius: 0.7rem;
+	background-color: #0c0a12d0;
+	box-shadow: #3fa9ff50 0 0 0.6rem 0;
+}
+
+#xp {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.7rem;
+	background-color: #00000000;
+}
+
+#xp fill {
+	border-radius: 0.7rem;
+	decorator: horizontal-gradient(#1d5fae #57c3ff);
+	border-right: 2dp #e8f8ff;
+	box-shadow: #57c3ffa0 0 0 0.8rem 0;
+}
+
+/* A .flash-layer (theme.rcss); HudScreen replays it before each level-up. */
+#xp-flash {
+	border-radius: 0.7rem;
+	background-color: #ffffff;
+	animation: 0.45s cubic-out xp-flash;
+}
+
+@keyframes xp-flash {
+	0% { opacity: 0.95; }
+	100% { opacity: 0; }
+}
+
+/* ---------- timer and kills, top center ---------- */
+
+#top-center {
+	position: absolute;
+	top: 3.4rem;
+	left: 50%;
+	width: 30rem;
+	margin-left: -15rem;
+	text-align: center;
+}
+
+#timer {
+	font-size: 5rem;
+	letter-spacing: 0.2rem;
+	font-effect: outline(3dp #08060c), glow(0dp 10dp 0dp 0dp #00000090);
+}
+
+#kills-wrap {
+	justify-content: center;
+	margin-top: -0.4rem;
+	animation: 0.12s cubic-out kill-pop;
+}
+
+#kills-wrap .glyph { width: 2.4rem; height: 2.4rem; margin-right: 0.5rem; }
+
+#kills {
+	font-size: 2.2rem;
+	color: #ece4d4;
+}
+
+@keyframes kill-pop {
+	0% { transform: scale(1.1); }
+	100% { transform: scale(1); }
+}
+
+/* ---------- gold and pause, top right ---------- */
+
+#top-right {
+	position: absolute;
+	top: 4.2rem;
+	right: 2rem;
+}
+
+#gold-wrap {
+	padding: 0.4rem 1.4rem 0.4rem 0.8rem;
+	decorator: horizontal-gradient(#00000000 #0c0a12c0);
+	border-radius: 2rem;
+	animation: 0.15s cubic-out kill-pop;
+}
+
+#gold-wrap .glyph { width: 3rem; height: 3rem; margin-right: 0.6rem; }
+
+#gold {
+	font-size: 2.6rem;
+	color: #ffd98a;
+}
+
+#pause-btn {
+	pointer-events: auto;
+	width: 4.4rem;
+	height: 4.4rem;
+	margin-left: 1.2rem;
+	border-radius: 0.8rem;
+	border: 2dp #5a4a32;
+	decorator: vertical-gradient(#2c2436d0 #17121ed0);
+}
+
+#pause-btn:hover { border-color: #c9a45c; }
+#pause-btn img { display: block; width: 2.8rem; height: 2.8rem; margin: 0.6rem; image-color: #ece4d4; }
+
+/* ---------- weapon and passive slots ----------
+ * Desktop: one column on the left (weapons, then passives); short screens: two columns side by side; touch
+ * screens and phones: weapons over passives at the bottom center, clear of the touch joystick. A filled slot
+ * takes taps and clicks (details panel); an empty one lets them through to the game. */
+
+#slots {
+	position: absolute;
+	left: 1.6rem;
+	top: 5rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.slot-group {
+	display: flex;
+	flex-direction: column;
+}
+
+#passive-slots { margin-top: 1rem; }
+
+.slot {
+	pointer-events: auto;
+	margin-bottom: 0.5rem;
+	transition: transform 0.1s cubic-out;
+}
+
+.slot:hover { transform: scale(1.06); }
+.slot.empty { pointer-events: none; }
+
+.slot-frame {
+	position: relative;
+	width: 6rem;
+	height: 6rem;
+	border-radius: 1.1rem;
+}
+
+.slot.passive .slot-frame { width: 5.2rem; height: 5.2rem; }
+
+.slot-icon {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.slot.empty .slot-frame {
+	background-color: #0c0a1270;
+	border: 1dp #ece4d428;
+}
+
+.slot.evolved .slot-frame {
+	box-shadow: #ffc94c 0 0 0 2dp, #ffc94c70 0 0 1rem 0;
+}
+
+.ready-ring {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 1.1rem;
+	box-shadow: #ffc94c 0 0 0 2dp, #ffc94cc0 0 0 1.4rem 0.3rem;
+	visibility: hidden;
+}
+
+.slot.ready .ready-ring {
+	visibility: visible;
+	animation: 0.55s sine-in-out infinite alternate pulse-opacity;
+}
+
+.evo-tag {
+	position: absolute;
+	right: -0.5rem;
+	bottom: -0.5rem;
+	width: 2.2rem;
+	height: 2.2rem;
+	font-family: "GT Display";
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	text-align: center;
+	color: #1c1006;
+	background-color: #ffc94c;
+	border-radius: 1.1rem;
+	border: 1dp #fff0c0;
+}
+
+/* Rank pips under the icon: bright gold when owned, dark when not yet. */
+.slot .pips {
+	margin-top: 0.35rem;
+	width: 6rem;
+	height: 0.9rem;
+	align-items: center;
+}
+
+.slot.passive .pips { width: 5.2rem; }
+
+.slot .pip {
+	width: 0.55rem;
+	height: 0.55rem;
+	margin: 0 0.08rem;
+	border-width: 1dp;
+	background-color: #241e2a;
+	border-color: #6b5530;
+}
+
+.slot.passive .pip { width: 0.65rem; height: 0.65rem; margin: 0 0.15rem; }
+.slot .pip.on { background-color: #ffd65a; border-color: #fff4c8; }
+
+body.short #slots { flex-direction: row; }
+body.short #passive-slots { margin-top: 0; margin-left: 1rem; }
+
+/* Touch screens: weapons over passives at the bottom center, between the stick (left 30%) and the active
+ * button. */
+body.touch #slots { flex-direction: column; top: auto; bottom: 1.2rem; left: 0; right: 0; align-items: center; }
+body.touch .slot-group { flex-direction: row; justify-content: center; }
+body.touch #passive-slots { margin-top: 0.4rem; margin-left: 0; }
+body.touch .slot { margin: 0 0.3rem; }
+
+/* ---------- active ability, bottom center (bottom right on touch) ---------- */
+
+#active {
+	pointer-events: auto;
+	position: absolute;
+	bottom: 3rem;
+	left: 50%;
+	width: 9rem;
+	margin-left: -4.5rem;
+	text-align: center;
+}
+
+#active-frame {
+	position: relative;
+	width: 7.2rem;
+	height: 7.2rem;
+	margin: 0 auto;
+	border-radius: 1.4rem;
+	box-shadow: #000000a0 0 0.4rem 1.2rem 0;
+}
+
+#active-icon {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#active-sweep {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #00000000;
+	fill-image: app:/data/UI/Art/sweep.png;
+}
+
+#active-ring {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 7.2rem;
+	height: 7.2rem;
+	margin-left: -3.6rem;
+	border-radius: 1.4rem;
+	opacity: 0;
+	box-shadow: #5fd3e8 0 0 0 3dp, #5fd3e8c0 0 0 2.4rem 0.8rem;
+	animation: 0.5s cubic-out ready-flash;
+}
+
+@keyframes ready-flash {
+	0% { opacity: 1; transform: scale(1); }
+	100% { opacity: 0; transform: scale(1.35); }
+}
+
+#active.ready #active-frame {
+	box-shadow: #5fd3e8 0 0 0 2dp, #000000a0 0 0.4rem 1.2rem 0;
+}
+
+#active-key {
+	margin-top: 0.6rem;
+}
+
+/* The "?" badge on the active opens its details (and the signature passive's). */
+#active-info {
+	pointer-events: auto;
+	position: absolute;
+	left: -0.6rem;
+	top: -0.8rem;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	border: 2dp #5fd3e8;
+	background-color: #0c1a20e8;
+	text-align: center;
+	font-family: "GT Display";
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #bff4ff;
+}
+
+#active-info:hover { background-color: #18343e; }
+
+/* Touch: the active icon is the touch button: big, bottom right inside the safe area (bottom left when the
+ * joystick is on the right), fires on press. */
+body.touch #active {
+	left: auto;
+	right: 3rem;
+	bottom: 3rem;
+	margin-left: 0;
+	width: 14rem;
+}
+
+body.touch.stick-right #active {
+	right: auto;
+	left: 3rem;
+}
+
+body.touch #active-frame, body.touch #active-ring {
+	width: 14rem;
+	height: 14rem;
+	border-radius: 2.4rem;
+}
+
+body.touch #active-ring { margin-left: -7rem; }
+body.touch #active-key { display: none; }
+
+body.touch #active-info {
+	left: -1.6rem;
+	top: -1.6rem;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 2.5rem;
+	font-size: 2.6rem;
+	line-height: 4.8rem;
+}
+
+body.touch.stick-right #active-info { left: auto; right: -1.6rem; }
+
+/* While a card picker or chest is up, HUD buttons do not take clicks. */
+body.modal #active, body.modal #pause-btn, body.modal .slot, body.modal #active-info { pointer-events: none; }
+body.modal #pause-btn { display: none; }
+
+/* ---------- phone: slots in two rows at the bottom center, active button bottom right ---------- */
+
+body.phone #level-label { font-size: 1.6rem; }
+body.phone #level { font-size: 2.6rem; }
+body.phone #top-center { top: 3.4rem; width: 24rem; margin-left: -12rem; }
+body.phone #timer { font-size: 4.2rem; }
+body.phone #kills { font-size: 2.2rem; }
+body.phone #top-right { top: 4.2rem; right: 1.6rem; }
+body.phone #gold { font-size: 2.6rem; }
+body.phone #pause-btn { width: 6.4rem; height: 6.4rem; margin-left: 1.4rem; border-radius: 1.2rem; }
+body.phone #pause-btn img { width: 3.6rem; height: 3.6rem; margin: 1.4rem; }
+
+body.phone #slots { top: auto; bottom: 1rem; left: 0; right: 0; flex-direction: column; align-items: center; }
+body.phone .slot-group { flex-direction: row; }
+body.phone #passive-slots { margin-top: 0.4rem; margin-left: 0; }
+body.phone .slot { margin: 0 0.3rem; }
+body.phone .slot-frame { width: 7.2rem; height: 7.2rem; }
+body.phone .slot.passive .slot-frame { width: 6.2rem; height: 6.2rem; }
+body.phone .slot .pips { width: 7.2rem; height: 1.2rem; }
+body.phone .slot.passive .pips { width: 6.2rem; }
+body.phone .slot .pip { width: 0.7rem; height: 0.7rem; margin: 0 0.1rem; }
+body.phone .slot.passive .pip { width: 0.8rem; height: 0.8rem; margin: 0 0.17rem; }

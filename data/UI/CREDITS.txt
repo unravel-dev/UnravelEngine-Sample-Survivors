@@ -1,0 +1,21 @@
+Barrowlight UI - third-party assets and licenses
+
+Fonts (data/UI/Fonts)
+- Inter (Inter-Black, Inter-ExtraBold, Inter-SemiBold, Inter-Medium; static cuts) - The Inter Project Authors,
+  https://github.com/rsms/inter - SIL Open Font License 1.1, see Inter-OFL.txt next to the fonts.
+  Copied from the engine's engine_data/data/fonts/Inter/static.
+
+Item icon glyphs (inside data/UI/Icons/*.png)
+- "496 pixel art icons for medieval/fantasy RPG" by Henrique Lazarini (7Soul1) -
+  https://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg - CC0 1.0.
+  Each item icon is one of these 34 px glyphs scaled 3x onto a badge drawn by tools/ui/build_ui_art.py.
+
+UI glyphs (data/UI/Glyphs/*.png)
+- Kenney Game Icons - Kenney (www.kenney.nl) - https://kenney.nl/assets/game-icons - CC0 1.0.
+
+Hero portraits (data/UI/Icons/knight|barbarian|mage|rogue[_portrait].png)
+- Matted from a render of the KayKit Adventurers characters - Kay Lousberg - https://kaylousberg.com - CC0 1.0.
+
+Generated for this sample (tools/ui/build_ui_art.py, no third-party content)
+- Item badges, HUD glyphs (gold, skull, timer, xp, lock, dread), logo.png (set in Inter Black), corner.png,
+  divider.png, vignette.png, chevron.png, marker.png, sweep.png.

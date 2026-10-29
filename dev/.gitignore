@@ -1,0 +1,10 @@
+__pycache__/
+*.log
+editor.lock
+shots/
+check/bin/
+check/obj/
+audio_work/cache/
+audio_work/preview/
+tools/out/
+capture_*.png
