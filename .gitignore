@@ -28,21 +28,10 @@
 # Left behind by an interrupted save
 *.temp
 
+# Development tools and their output
+/dev/
+
 # Operating systems
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# Development tool output and local backups (dev/README.md)
-dev/shots/
-dev/save_backup/
-dev/check/bin/
-dev/check/obj/
-dev/audio_work/cache/
-dev/audio_work/preview/
-dev/tools/out/
-dev/audio_work/tools/*.exe
-dev/capture_*.png
-dev/editor.lock
-__pycache__/
-*.log
