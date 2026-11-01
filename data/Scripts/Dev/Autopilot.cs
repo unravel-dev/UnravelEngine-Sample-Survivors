@@ -8,8 +8,10 @@ namespace Survivors
     /// The test player of unattended runs (<see cref="Run.devAutopilot"/>, <see cref="Run.devAutoPick"/>). It walks by
     /// scoring 16 directions: the crowd it would walk into (probes 1, 2.5 and 4.5 m ahead), the arena edge, the pull of
     /// pickups (food when hurt, chests, gems when the way is clear) and, for healthy brawlers, the nearest enemy; it
-    /// keeps a little of its last heading and uses the class active when hemmed in or low. It picks level-up cards by a
-    /// fixed preference. A test player, not a good one: compare classes with it, do not tune feel by it. Main thread.
+    /// keeps a little of its last heading and uses the class active when hemmed in or low. While a boss fights it dances:
+    /// it circles the boss at a distance, steps in on a brawler's reach when the boss recovers, steps out of circles about
+    /// to land and stays inside its ward. It picks level-up cards by a fixed preference, a passive every third level like
+    /// a player spreading picks. A test player, not a good one: compare classes with it, do not tune feel by it. Main thread.
     /// </summary>
     public sealed class Autopilot
     {
@@ -47,6 +49,19 @@ namespace Survivors
         private const float PICKUP_PULL = 1.0f;
         /// <summary>Gems are worth a detour only with fewer enemies than this within the scan radius.</summary>
         private const int PICKUP_MAX_CROWD = 8;
+        /// <summary>The boss dance: the range held while it attacks, how hard the range and the orbit pull, a reach past its body.</summary>
+        private const float DANCE_RANGE = 8.5f;
+        /// <summary>Melee heroes dance within reach of their weapons.</summary>
+        private const float BRAWLER_DANCE_RANGE = 3.2f;
+        private const float DANCE_RADIAL_PULL = 1.4f;
+        private const float DANCE_ORBIT_PULL = 2.4f;
+        private const float DANCE_REACH = 2.2f;
+        private const float WARD_DANGER = 20.0f;
+        private const float PENDING_CIRCLE_DANGER = 12.0f;
+        /// <summary>Every this many levels a passive outbids rank-ups.</summary>
+        private const int PASSIVE_EVERY_LEVELS = 3;
+        private const float PASSIVE_TURN_BONUS = 40.0f;
+        private const float ORBIT_FLIP_SECONDS = 5.0f;
         // Card preferences: higher wins; a random fraction breaks ties between equal kinds.
         private const float HEAL_CARD_HEALTH = 0.45f;
         private const float HEAL_CARD_SCORE = 100.0f;
@@ -65,6 +80,8 @@ namespace Survivors
         private readonly Run run;
         private readonly int[] nearby = new int[SCAN_CAPACITY];
         private Vector3 heading = Vector3.forward;
+        private float orbitSign = 1.0f;
+        private float orbitTimer = ORBIT_FLIP_SECONDS;
 
         public Autopilot(Run run)
         {
@@ -157,6 +174,15 @@ namespace Survivors
                 Vector3 offset = run.enemies.GetPosition(nearby[i]) - probe;
                 danger += 1.0f / (offset.x * offset.x + offset.z * offset.z + DANGER_SOFTENING);
             }
+            if (run.director.IsOutsideWard(probe))
+            {
+                danger += WARD_DANGER;
+            }
+            BossHazards pending = run.director.bosses.pending;
+            if (pending != null && pending.IsInPendingCircle(probe))
+            {
+                danger += PENDING_CIRCLE_DANGER;
+            }
             var flat = new Vector3(probe.x, 0.0f, probe.z);
             float outside = flat.magnitude - ARENA_RADIUS;
             return outside > 0.0f ? danger + outside * EDGE_DANGER_PER_METRE : danger;
@@ -169,6 +195,11 @@ namespace Survivors
             if (health < FOOD_HEALTH && pickups.FindNearestOfKind(position, FOOD_RANGE, PickupKind.Food, out Vector3 food))
             {
                 return Toward(position, food) * FOOD_PULL;
+            }
+            Boss boss = run.director.bosses.featured;
+            if (boss != null)
+            {
+                return GetBossDance(position, boss, health);
             }
             if (pickups.FindNearestOfKind(position, CHEST_RANGE, PickupKind.Chest, out Vector3 chest))
             {
@@ -183,6 +214,22 @@ namespace Survivors
                 return Toward(position, pickup) * PICKUP_PULL;
             }
             return Vector3.zero;
+        }
+
+        /// <summary>Circles the boss at a safe range; a healthy brawler steps into reach while it recovers.</summary>
+        private Vector3 GetBossDance(Vector3 position, Boss boss, float health)
+        {
+            orbitTimer -= Time.deltaTime;
+            if (orbitTimer <= 0.0f)
+            {
+                orbitTimer = ORBIT_FLIP_SECONDS;
+                orbitSign = -orbitSign;
+            }
+            Vector3 toBoss = Toward(position, boss.groundPosition);
+            bool isMelee = run.heroClass == HeroClass.Knight || run.heroClass == HeroClass.Barbarian;
+            float wanted = !isMelee ? DANCE_RANGE : boss.bodyRadius + (boss.isOpen ? DANCE_REACH : BRAWLER_DANCE_RANGE);
+            float radial = Math.Clamp(Ground.Distance(position, boss.groundPosition) - wanted, -1.0f, 1.0f);
+            return toBoss * (radial * DANCE_RADIAL_PULL) + Ground.Perpendicular(toBoss) * (orbitSign * DANCE_ORBIT_PULL);
         }
 
         private float ScoreCard(UpgradeOffer offer)
@@ -215,6 +262,12 @@ namespace Survivors
         }
 
         private float ScorePassiveCard(UpgradeOffer offer)
+        {
+            float turnBonus = run.level % PASSIVE_EVERY_LEVELS == 0 ? PASSIVE_TURN_BONUS : 0.0f;
+            return turnBonus + ScorePassive(offer);
+        }
+
+        private float ScorePassive(UpgradeOffer offer)
         {
             if (!offer.isNew)
             {

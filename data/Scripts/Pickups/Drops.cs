@@ -183,19 +183,24 @@ namespace Survivors
             run.sounds.PlayAt("elite_death", position);
         }
 
-        /// <summary>A Grave Lantern broke: one pick from its loot table.</summary>
-        public void OnLanternBroken(Vector3 position)
+        /// <summary>A new Grave Lantern's loot, one pick from its table, hanging in it for all to see; its row in the pickup world.</summary>
+        public int SpawnLanternLoot(Vector3 position)
+        {
+            Loot loot = PickLoot(LANTERN_LOOT, run.rng.NextDouble());
+            if (!PickupWorld.IsGem(loot.kind))
+            {
+                return run.pickups.SpawnHeld(loot.kind, position, loot.value);
+            }
+            float cache = loot.value * run.director.experienceScale * run.stats[StatId.Growth];
+            return run.pickups.SpawnHeld(PickupWorld.GetGemKind(cache), position, MathF.Round(cache));
+        }
+
+        /// <summary>A Grave Lantern broke: it shatters and drops what it held.</summary>
+        public void OnLanternBroken(Vector3 position, int lootRow)
         {
             run.effects.Emit(lanternShatter, position + Vector3.up * LANTERN_BURST_HEIGHT, 1);
             run.sounds.PlayAt("lantern_break", position);
-            Loot loot = PickLoot(LANTERN_LOOT, run.rng.NextDouble());
-            if (PickupWorld.IsGem(loot.kind))
-            {
-                float cache = loot.value * run.director.experienceScale * run.stats[StatId.Growth];
-                run.pickups.Spawn(PickupWorld.GetGemKind(cache), position, MathF.Round(cache));
-                return;
-            }
-            run.pickups.Spawn(loot.kind, position, loot.value);
+            run.pickups.Release(lootRow);
         }
 
         public void OnPickup(PickupKind kind, float value, Vector3 position)

@@ -13,22 +13,25 @@ namespace Survivors
         Active,
     }
 
-    /// <summary>A HUD tap asking for the details of one owned item.</summary>
+    /// <summary>A tap asking for the details of one owned item (HUD) or of a hero's starting kit (hero select).</summary>
     internal sealed class DetailsRequest
     {
         public DetailsKind kind;
-        /// <summary>Weapon or passive slot index (ignored for the active).</summary>
+        /// <summary>Weapon or passive slot index (ignored for the active and a hero's kit).</summary>
         public int slot;
+        /// <summary>The hero whose kit to show: the kind picks its starting weapon, signature or active. Null: the
+        /// run's own items.</summary>
+        public HeroClass? hero;
     }
 
     /// <summary>
     /// Item details over the paused game, opened by tapping / clicking a HUD slot or the active ability's info badge:
     /// icon, name, ownership tag (class unique / shared / passive), rarity and kind, rank pips or the evolved state,
     /// the description, every number of the current rank, what the next rank changes, and the evolution recipe with
-    /// its status. Closes on the close or Continue button, a tap outside the panel, Back / Escape / Pause; play
-    /// resumes through Run.Resume. The panel is filled element by element (no data model): its sections are RML
-    /// built from the weapon's own columns (a grid of any size, coloured old / new values), which a data model's
-    /// flat values do not express. Main thread.
+    /// its status. Hero select opens it over itself for a hero's starting kit, with no run behind it. Closes on the
+    /// close or Continue button, a tap outside the panel, Back / Escape / Pause; play resumes through Run.Resume. The
+    /// panel is filled element by element (no data model): its sections are RML built from the weapon's own columns
+    /// (a grid of any size, coloured old / new values), which a data model's flat values do not express. Main thread.
     /// </summary>
     internal sealed class DetailsScreen : UIScreen
     {
@@ -36,6 +39,9 @@ namespace Survivors
         private const string SEPARATOR = " | ";
         private const string TAG_SEPARATOR = " - ";
         private const float PERCENT = 100.0f;
+        private const string PAUSED_HINT = "Play is paused.";
+        /// <summary>On the panel while it only holds a short text: phones then fit it to the text.</summary>
+        private const string FIT_CLASS = "fit";
 
         private readonly StringBuilder rml = new StringBuilder(512);
         private DetailsRequest request;
@@ -58,6 +64,9 @@ namespace Survivors
         private UIElement evoIcon;
         private UIElement evoText;
         private UIElement body;
+        private UIElement panel;
+        private UIElement hint;
+        private UIElement okButton;
 
         public DetailsScreen(GameUI ui) : base(ui, "Details", "app:/data/UI/Details.rhtml")
         {
@@ -86,9 +95,12 @@ namespace Survivors
             evoIcon = loaded.Q("#details-evo-icon");
             evoText = loaded.Q("#details-evo-text");
             body = loaded.Q("#details-body");
+            panel = loaded.Q("#details-panel");
+            hint = loaded.Q("#details-hint");
+            okButton = loaded.Q("#details-ok");
             WireClose(loaded.Q("#details-dim"));
             WireClose(loaded.Q("#details-close"));
-            WireClose(loaded.Q("#details-ok"));
+            WireClose(okButton);
         }
 
         /// <summary>Takes the item before GameUI shows the panel; the open sound plays unless it is already up.</summary>
@@ -97,27 +109,27 @@ namespace Survivors
             request = detailsRequest;
             if (!isShown)
             {
-                ui.PlaySound("ui_open");
+                ui.PlaySound("ui_select");
             }
         }
 
         protected override void Refresh()
         {
-            if (request == null || run.loadout == null)
+            bool isHeroKit = request?.hero != null;
+            if (request == null || (!isHeroKit && run.loadout == null))
             {
                 return;
             }
-            switch (request.kind)
+            hint?.SetText(isHeroKit ? "" : PAUSED_HINT);
+            okButton?.SetText(isHeroKit ? "CLOSE" : "CONTINUE");
+            panel?.SetClass(FIT_CLASS, isHeroKit && request.kind != DetailsKind.Weapon);
+            if (isHeroKit)
             {
-                case DetailsKind.Weapon:
-                    FillWeapon(request.slot);
-                    break;
-                case DetailsKind.Passive:
-                    FillPassive(request.slot);
-                    break;
-                default:
-                    FillActive();
-                    break;
+                FillHeroKit(request.hero.Value);
+            }
+            else
+            {
+                FillOwnedItem();
             }
             if (body != null)
             {
@@ -136,6 +148,22 @@ namespace Survivors
         {
             base.CollectNav();
             nav.EnsureFocus(nav.count - 1);
+        }
+
+        private void FillOwnedItem()
+        {
+            switch (request.kind)
+            {
+                case DetailsKind.Weapon:
+                    FillWeapon(request.slot);
+                    break;
+                case DetailsKind.Passive:
+                    FillPassive(request.slot);
+                    break;
+                default:
+                    FillActive();
+                    break;
+            }
         }
 
         private void WireClose(UIElement element)
@@ -167,7 +195,11 @@ namespace Survivors
             {
                 return;
             }
-            SlotView view = loadout.weapons[slot];
+            FillWeapon(loadout.weapons[slot]);
+        }
+
+        private void FillWeapon(SlotView view)
+        {
             WeaponDef def = WeaponCatalog.FindWeapon(view.id) ?? WeaponCatalog.FindWeaponByEvolution(view.id);
             SetHeader(UIText.IconOr(view.icon, view.id), view.name, UIText.GetOwnership(view.id));
             if (def == null)
@@ -221,7 +253,8 @@ namespace Survivors
             }
             evoLabel?.SetText("EVOLUTION");
             evoIcon?.SetAttribute("src", UIText.Icon(evolution.id));
-            SetText(evoText, $"Becomes {evolution.name} at rank {maxRank} with {passiveName}. {DescribeEvolutionStatus(view, evolution, passiveName)}");
+            string status = request.hero != null ? "" : " " + DescribeEvolutionStatus(view, evolution, passiveName);
+            SetText(evoText, $"Becomes {evolution.name} at rank {maxRank} with {passiveName}.{status}");
         }
 
         /// <summary>What the weapon still needs to evolve: the max rank, the paired passive, or nothing.</summary>
@@ -355,6 +388,39 @@ namespace Survivors
                 evoIcon?.SetAttribute("src", UIText.IconOr(loadout.signatureIcon, UIText.ToId(info.passiveName)));
                 SetText(evoText, info.passiveText);
             }
+        }
+
+        // ---------------------------------------------------------------------------------------------------
+        // A hero's starting kit (hero select)
+        // ---------------------------------------------------------------------------------------------------
+
+        private void FillHeroKit(HeroClass heroClass)
+        {
+            HeroInfo info = HeroCatalog.Get(heroClass);
+            switch (request.kind)
+            {
+                case DetailsKind.Weapon:
+                    WeaponDef start = WeaponCatalog.FindWeapon(HeroCatalog.GetClass(heroClass).startWeaponId);
+                    FillWeapon(new SlotView { id = start.id, name = start.name, icon = info.startWeaponIcon, rank = 1, maxRank = WeaponDef.MAX_RANK });
+                    break;
+                case DetailsKind.Passive:
+                    FillHeroAbility(heroClass, info.passiveName, "SIGNATURE PASSIVE", info.passiveText);
+                    break;
+                default:
+                    FillHeroAbility(heroClass, info.activeName, "ACTIVE ABILITY", info.activeText);
+                    break;
+            }
+        }
+
+        private void FillHeroAbility(HeroClass heroClass, string name, string kind, string text)
+        {
+            SetHeader(UIText.Icon(UIText.ToId(name)), name, UIText.ForHero(heroClass, "UNIQUE"));
+            SetKind(kind, false);
+            SetRank(0, 0, false);
+            SetText(description, text);
+            ShowSection(nowSection, false);
+            ShowSection(nextSection, false);
+            ShowSection(evoSection, false);
         }
 
         private static string DescribeCooldown(float fraction)

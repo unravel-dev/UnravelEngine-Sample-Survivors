@@ -16,6 +16,8 @@ namespace Survivors
         private const string LINE = "\n";
         /// <summary>Columns a short summary (HUD, pause sheet) shows.</summary>
         private const int SUMMARY_COLUMNS = 4;
+        /// <summary>A new weapon's card has room for its description and this many numbers; the details screen shows them all.</summary>
+        private const int NEW_CARD_COLUMNS = 2;
         private const float EPSILON = 1e-4f;
         /// <summary>Passive bonuses show whole percents; boons are small and show one decimal more.</summary>
         private const int PASSIVE_DECIMALS = 0;
@@ -92,10 +94,10 @@ namespace Survivors
         }
 
         /// <summary>The first columns of a level: "Damage 14, Cooldown 1.10 s, Radius 2.8 m, Swings 1".</summary>
-        public static string DescribeLevel(WeaponDef def, WeaponLevel level)
+        public static string DescribeLevel(WeaponDef def, WeaponLevel level, int columns = SUMMARY_COLUMNS)
         {
             var text = new StringBuilder();
-            int shown = Math.Min(SUMMARY_COLUMNS, def.columns.Length);
+            int shown = Math.Min(columns, def.columns.Length);
             for (int i = 0; i < shown; i++)
             {
                 WeaponColumn column = def.columns[i];
@@ -107,7 +109,7 @@ namespace Survivors
         /// <summary>A NEW weapon card: what it does, then its rank 1 numbers.</summary>
         public static string DescribeNewWeapon(WeaponDef def)
         {
-            return def.description + LINE + DescribeLevel(def, def.GetLevel(1)) + ".";
+            return def.description + LINE + DescribeLevel(def, def.GetLevel(1), NEW_CARD_COLUMNS) + ".";
         }
 
         /// <summary>A rank-up card: every column that changes, old -> new, then the rank's note.</summary>

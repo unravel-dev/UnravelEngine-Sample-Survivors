@@ -30,8 +30,6 @@ namespace Survivors
         /// <summary>The fall never takes less than this, however short the telegraph.</summary>
         private const float MIN_FALL_SECONDS = 0.02f;
         private const float SPARE_SPREAD = 1.6f;
-        private const float HIT_STOP_SECONDS = 0.04f;
-        private const float HIT_STOP_GAP = 1.0f;
         private const float SLAM_TRAUMA = 0.15f;
         private const float CRACK_SECONDS = 2.0f;
         private const float SHOCKWAVE_KNOCKBACK = 1.0f;
@@ -96,7 +94,6 @@ namespace Survivors
         private readonly FxComposite finalBurst;
         private readonly FxComposite bladeLight;
         private readonly FxComposite waveBurst;
-        private Throttle hitStopThrottle = new Throttle(HIT_STOP_GAP);
 
         public Verdict(WeaponContext context, WeaponDef definition, int slotIndex) : base(context, definition, slotIndex)
         {
@@ -254,7 +251,6 @@ namespace Survivors
             PlayImpact(e.position, e.radius, embedded);
             PlayAt("verdict_slam", e.position);
             ctx.feel.Shake(SLAM_TRAUMA);
-            TryHitStop(ref hitStopThrottle, HIT_STOP_SECONDS);
             WeaponEvent release = e;
             release.kind = RELEASE;
             Schedule(embedded, release);

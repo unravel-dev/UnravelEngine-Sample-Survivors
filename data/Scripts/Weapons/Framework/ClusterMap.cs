@@ -12,6 +12,8 @@ namespace Survivors
     {
         public const int MAX_CELLS = 8;
         public const float CELL_SIZE = 2.0f;
+        /// <summary>A boss counts as this many enemies, so spells aimed at crowds do not spend themselves on its stragglers.</summary>
+        private const int BOSS_WEIGHT = 30;
         private const float MAX_RANGE = 20.0f;
         private const int GRID = (int)(MAX_RANGE * 2.0f / CELL_SIZE);
         private const int QUERY_CAPACITY = 2048;
@@ -60,9 +62,10 @@ namespace Survivors
                     continue;
                 }
                 int cell = z * GRID + x;
-                counts[cell]++;
-                sumX[cell] += position.x;
-                sumZ[cell] += position.z;
+                int weight = enemies.IsBoss(rows[i]) ? BOSS_WEIGHT : 1;
+                counts[cell] += weight;
+                sumX[cell] += position.x * weight;
+                sumZ[cell] += position.z * weight;
             }
             SelectTop();
             return cellCount;

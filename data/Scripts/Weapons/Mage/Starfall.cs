@@ -36,8 +36,6 @@ namespace Survivors
         private const float IMPACT_HEIGHT = 0.6f;
         private const float IMPACT_TRAUMA = 0.20f;
         private const float GREAT_TRAUMA = 0.6f;
-        private const float HIT_STOP_SECONDS = 0.03f;
-        private const float HIT_STOP_GAP = 1.0f;
 
         private static readonly Color STAR = new Color(0.72f, 0.82f, 1.0f, 1.0f);
         private static readonly Color SHADOW = new Color(0.1f, 0.06f, 0.14f, 1.0f);
@@ -57,7 +55,6 @@ namespace Survivors
         private readonly ZoneLook greatCrater;
         private readonly ZoneLook echoCrater;
         private readonly ZoneLook greatEchoCrater;
-        private Throttle hitStopThrottle = new Throttle(HIT_STOP_GAP);
 
         public Starfall(WeaponContext context, WeaponDef definition, int slotIndex) : base(context, definition, slotIndex)
         {
@@ -168,7 +165,6 @@ namespace Survivors
             EmitShape(scorch, e.position + LIFT, SCORCH, e.radius * 2.0f, SCORCH_SECONDS);
             PlayAt(isGreat ? "cataclysm_impact" : "starfall_impact", e.position);
             ctx.feel.Shake(isGreat ? GREAT_TRAUMA : IMPACT_TRAUMA);
-            TryHitStop(ref hitStopThrottle, HIT_STOP_SECONDS);
             LeaveCrater(e, isGreat);
         }
 

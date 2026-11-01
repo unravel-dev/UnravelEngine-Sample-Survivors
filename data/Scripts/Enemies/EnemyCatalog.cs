@@ -83,9 +83,16 @@ namespace Survivors
             lanternType = world.Register(MakeProxy("GraveLantern", "Grave Lantern", 0.5f));
             lanternPrefab = Assets.GetAsset<Prefab>(LANTERN_PREFAB);
             pyreType = world.Register(MakeProxy("BonePyre", "Bone Pyre", 0.6f));
-            bossTypes[(int)BossKind.Gravewarden] = world.Register(MakeProxy("Gravewarden", "Gravewarden", 1.1f));
-            bossTypes[(int)BossKind.HollowArchmage] = world.Register(MakeProxy("HollowArchmage", "Hollow Archmage", 1.0f));
-            bossTypes[(int)BossKind.HollowKing] = world.Register(MakeProxy("HollowKing", "The Hollow King", 2.0f));
+            bossTypes[(int)BossKind.Gravewarden] = world.Register(MakeBoss("Gravewarden", "Gravewarden", 1.1f));
+            bossTypes[(int)BossKind.HollowArchmage] = world.Register(MakeBoss("HollowArchmage", "Hollow Archmage", 1.0f));
+            bossTypes[(int)BossKind.HollowKing] = world.Register(MakeBoss("HollowKing", "The Hollow King", 2.0f));
+        }
+
+        private static EnemyType MakeBoss(string name, string displayName, float radius)
+        {
+            EnemyType type = MakeProxy(name, displayName, radius);
+            type.isBoss = true;
+            return type;
         }
 
         /// <summary>A row type with no body of its own: 1 HP unless its owner sets the health at spawn, never pushed.</summary>
@@ -230,7 +237,7 @@ namespace Survivors
             type.abilities = new[]
             {
                 new EnemyAbility { effect = EnemyEffect.Projectile, clip = EnemyClip.Shoot, minRange = 6.0f, range = 13.0f,
-                                   hitTime = 0.8f, duration = 3.0f, cooldown = 3.0f, damage = 10.0f, speed = 14.0f, count = 1,
+                                   hitTime = 0.8f, duration = 3.0f, cooldown = 3.0f, damage = 10.0f, speed = 12.0f, count = 1,
                                    visual = "EnemyBolt", castSound = "bolt_draw" },
             };
             return type;

@@ -155,6 +155,16 @@ namespace Survivors
         /// <summary>The damage a raw hit does after armor.</summary>
         public float GetDamageTaken(float raw) => MathF.Max(MIN_DAMAGE_TAKEN, raw * armorPassThrough);
 
+        /// <summary>What a raw hit is multiplied by so that armor counts only half (boss hits).</summary>
+        public float halfArmorFactor
+        {
+            get
+            {
+                float armor = Get(StatId.Armor);
+                return (ARMOR_HALVES_AT + armor) / (ARMOR_HALVES_AT + armor * 0.5f);
+            }
+        }
+
         /// <summary>Armor as the reduction it gives (0.5 = half damage), for the stat sheet.</summary>
         public float armorReduction => 1.0f - armorPassThrough;
 

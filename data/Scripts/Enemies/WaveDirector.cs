@@ -44,8 +44,11 @@ namespace Survivors
         private const float CAP_BASE = 300.0f;
         private const float CAP_PER_MINUTE = 200.0f;
         private const float CAP_MAX = 3000.0f;
-        private const int BOSS_FIGHT_FLOOR = 150;
-        private const int BOSS_FIGHT_CAP = 1200;
+        private const int BOSS_FIGHT_FLOOR = 50;
+        private const int BOSS_FIGHT_CAP = 400;
+        /// <summary>Behind a mini-boss's ward the horde thins to a trickle: the boss is the fight.</summary>
+        private const int MINI_BOSS_FLOOR = 25;
+        private const int MINI_BOSS_CAP = 120;
         private const int FLOOR_TOP_UP_PER_PULSE = 20;
         /// <summary>Floor top-ups are Shamblers this often (always in the first minute), Runners otherwise.</summary>
         private const double FILLER_SHAMBLER_SHARE = 0.8;
@@ -76,22 +79,27 @@ namespace Survivors
         /// <summary>Splitter elites: five Grave Runners burst from the body.</summary>
         private const int SPLITTER_RUNNERS = 5;
         private const float SPLITTER_RADIUS = 1.2f;
-        private const float MINI_BOSS_BUDGET = 0.5f;
-        private const float MINI_BOSS_BUDGET_SECONDS = 90.0f;
+        private const float MINI_BOSS_BUDGET = 0.25f;
         private const float MINI_BOSS_DISTANCE = 14.0f;
-        private const float BOSS_BUDGET = 0.4f;
+        private const float BOSS_BUDGET = 0.3f;
         private const float LAST_TIDE_BUDGET = 1.5f;
         private const float LAST_TIDE_SECONDS = 45.0f;
         private const float SPAWNS_STOP_SECOND = 13.0f * 60.0f + 45.0f;
         private const float BOSS_WARNING_SECOND = 13.0f * 60.0f + 50.0f;
         private const float BOSS_SECOND = 14.0f * 60.0f;
         private const float BOSS_DISTANCE = 12.0f;
+        private const float DEV_LANTERN_DISTANCE = 8.0f;
         private const float BOSS_CLEAR_RADIUS = 8.0f;
         private const int OPENING_RING_COUNT = 20;
         private const float OPENING_RING_MIN = 14.0f;
         private const float OPENING_RING_SPREAD = 4.0f;
         private const float RING_MARCH_SPEED = 1.6f;
         private const float RING_MARCH_SECONDS = 8.0f;
+        /// <summary>The dead of a trap ring: how many times their kind's health, and how many tiers darker and larger.</summary>
+        private const float RING_TOUGHNESS_EARLY = 4.0f;
+        private const float RING_TOUGHNESS = 8.0f;
+        private const float RING_TOUGHNESS_ARMORED = 3.0f;
+        private const int RING_TINT_TIERS = 2;
         private const float RUSH_SPEED = 6.5f;
         private const float RUSH_LENGTH = 60.0f;
         private const float RUSH_WIDTH = 20.0f;
@@ -131,6 +139,9 @@ namespace Survivors
 
         private readonly Run run;
         private readonly GraveLanterns lanterns;
+
+        /// <summary>The "dead close in" trap.</summary>
+        public readonly DeadRing deadRing;
         private readonly List<TimedEvent> events = new List<TimedEvent>();
         private readonly List<PendingRush> rushes = new List<PendingRush>();
         /// <summary>Splitter elites alive: their death spawns Runners.</summary>
@@ -142,7 +153,6 @@ namespace Survivors
         private float budget;
         private float pulseTimer;
         private float recycleTimer;
-        private float miniBossUntil = -1.0f;
         private float lastTideUntil = -1.0f;
         private bool isBossFight;
         private bool spawnsStopped;
@@ -207,11 +217,15 @@ namespace Survivors
             public int count;
             public float radius;
 
-            public EnemyGroup(Archetype archetype, int count, float radius)
+            /// <summary>Times its kind's health (a trap ring's dead).</summary>
+            public float toughness;
+
+            public EnemyGroup(Archetype archetype, int count, float radius, float toughness = 1.0f)
             {
                 this.archetype = archetype;
                 this.count = count;
                 this.radius = radius;
+                this.toughness = toughness;
             }
         }
 
@@ -294,6 +308,7 @@ namespace Survivors
             this.run = run;
             bosses = new BossManager(run);
             lanterns = new GraveLanterns(run, this);
+            deadRing = new DeadRing(run);
             affixLooks = new EliteAffixLooks(run);
             eliteBeam = run.effects.Find(BossFx.ELITE_BEAM);
             BuildTimeline();
@@ -307,7 +322,6 @@ namespace Survivors
             budget = 0.0f;
             pulseTimer = 0.0f;
             recycleTimer = 0.0f;
-            miniBossUntil = -1.0f;
             lastTideUntil = -1.0f;
             isBossFight = false;
             spawnsStopped = false;
@@ -317,12 +331,32 @@ namespace Survivors
             PlaceOpeningRing();
         }
 
+        /// <summary>Dev (tests of later minutes): the timeline's events before this run time never fire.</summary>
+        public void DevSkipTimeline(float seconds)
+        {
+            while (nextEvent < events.Count && events[nextEvent].minute * SECONDS_PER_MINUTE < seconds)
+            {
+                nextEvent++;
+            }
+        }
+
+        /// <summary>Whether a ground point lies outside a ward that holds the hero (the test autopilot avoids it).</summary>
+        public bool IsOutsideWard(Vector3 point)
+        {
+            BarrowWard bossWard = bosses.ward;
+            return deadRing.ward.IsOutside(point) || (bossWard != null && bossWard.IsOutside(point));
+        }
+
+        /// <summary>Dev: lights lanterns near the hero now.</summary>
+        public void DevLanterns(int count) => lanterns.DevPlaceNear(count, DEV_LANTERN_DISTANCE);
+
         /// <summary>Removes everything the director placed (lanterns, bosses, pending rushes).</summary>
         public void Clear()
         {
             rushes.Clear();
             splitters.Clear();
             lanterns.Clear();
+            deadRing.Clear();
             bosses.Clear();
             run.abilityExecutor?.Clear();
         }
@@ -346,6 +380,7 @@ namespace Survivors
                 Recycle();
             }
             lanterns.Tick(dt);
+            deadRing.Tick(dt);
             affixLooks.Tick(dt);
         }
 
@@ -420,9 +455,23 @@ namespace Survivors
             }
         }
 
-        private int GetAliveFloor(float t) => isBossFight ? BOSS_FIGHT_FLOOR : (int)MathF.Min(FLOOR_MAX, FLOOR_BASE + FLOOR_PER_MINUTE * t);
+        private int GetAliveFloor(float t)
+        {
+            if (isBossFight)
+            {
+                return BOSS_FIGHT_FLOOR;
+            }
+            return bosses.isMiniBossAlive ? MINI_BOSS_FLOOR : (int)MathF.Min(FLOOR_MAX, FLOOR_BASE + FLOOR_PER_MINUTE * t);
+        }
 
-        private int GetAliveCap(float t) => isBossFight ? BOSS_FIGHT_CAP : (int)MathF.Min(CAP_MAX, CAP_BASE + CAP_PER_MINUTE * t);
+        private int GetAliveCap(float t)
+        {
+            if (isBossFight)
+            {
+                return BOSS_FIGHT_CAP;
+            }
+            return bosses.isMiniBossAlive ? MINI_BOSS_CAP : (int)MathF.Min(CAP_MAX, CAP_BASE + CAP_PER_MINUTE * t);
+        }
 
         private float GetBudgetFactor()
         {
@@ -434,7 +483,7 @@ namespace Survivors
             {
                 return LAST_TIDE_BUDGET;
             }
-            if (bosses.isMiniBossAlive && seconds < miniBossUntil)
+            if (bosses.isMiniBossAlive)
             {
                 return MINI_BOSS_BUDGET;
             }
@@ -455,13 +504,13 @@ namespace Survivors
         }
 
         /// <summary>
-        /// The mix share of an archetype, zero when its cap is reached (and for ranged casters in the boss fight); the
+        /// The mix share of an archetype, zero when its cap is reached (and for ranged casters while a boss fights); the
         /// pick spreads that share over the others in proportion.
         /// </summary>
         private float GetMixWeight(int minute, Archetype archetype)
         {
             float weight = MIX[minute, (int)archetype];
-            if (isBossFight && (archetype == Archetype.Archer || archetype == Archetype.HexCaster))
+            if ((isBossFight || bosses.isMiniBossAlive) && (archetype == Archetype.Archer || archetype == Archetype.HexCaster))
             {
                 return 0.0f;
             }
@@ -539,27 +588,27 @@ namespace Survivors
         private void BuildTimeline()
         {
             events.Clear();
-            events.Add(TimedEvent.Ring(2.5f, new EnemyGroup(Archetype.Shambler, 40, 15.0f)));
+            events.Add(TimedEvent.Ring(2.5f, new EnemyGroup(Archetype.Shambler, 40, 15.0f, RING_TOUGHNESS_EARLY)));
             events.Add(TimedEvent.Rush(1.5f, 1, 24));
             events.Add(TimedEvent.Elites(3.0f, 1));
             events.Add(TimedEvent.Elites(4.5f, 1));
             events.Add(TimedEvent.Rush(4.5f, 2, 30));
             events.Add(TimedEvent.MiniBoss(5.0f, BossKind.Gravewarden));
             events.Add(TimedEvent.Elites(6.0f, 1));
-            events.Add(TimedEvent.Ring(6.5f, new EnemyGroup(Archetype.Shambler, 60, 15.0f), new EnemyGroup(Archetype.Shieldbearer, 8, 12.0f)));
+            events.Add(TimedEvent.Ring(6.5f, new EnemyGroup(Archetype.Shambler, 60, 15.0f, RING_TOUGHNESS), new EnemyGroup(Archetype.Shieldbearer, 8, 12.0f, RING_TOUGHNESS_ARMORED)));
             events.Add(TimedEvent.Elites(7.0f, 1));
             events.Add(TimedEvent.Rush(7.5f, 3, 40));
             events.Add(TimedEvent.Elites(8.0f, 2));
-            events.Add(TimedEvent.Ring(8.5f, new EnemyGroup(Archetype.CinderSkull, 40, 16.0f)));
+            events.Add(TimedEvent.Ring(8.5f, new EnemyGroup(Archetype.CinderSkull, 40, 16.0f, RING_TOUGHNESS)));
             events.Add(TimedEvent.Elites(9.0f, 1));
-            events.Add(TimedEvent.Ring(9.0f, new EnemyGroup(Archetype.Shieldbearer, 50, 16.0f)));
+            events.Add(TimedEvent.Ring(9.0f, new EnemyGroup(Archetype.Shieldbearer, 50, 16.0f, RING_TOUGHNESS_ARMORED)));
             events.Add(TimedEvent.ArcherLine(9.5f, new EnemyGroup(Archetype.Archer, 24, 13.0f)));
             events.Add(TimedEvent.MiniBoss(10.0f, BossKind.HollowArchmage));
             events.Add(TimedEvent.Elites(10.5f, 1));
             events.Add(TimedEvent.Elites(11.0f, 1));
             events.Add(TimedEvent.Rush(11.0f, 4, 40));
             events.Add(TimedEvent.Elites(11.75f, 1));
-            events.Add(TimedEvent.Ring(12.0f, new EnemyGroup(Archetype.Shambler, 120, 15.0f), new EnemyGroup(Archetype.CinderSkull, 30, 18.0f)));
+            events.Add(TimedEvent.Ring(12.0f, new EnemyGroup(Archetype.Shambler, 120, 15.0f, RING_TOUGHNESS), new EnemyGroup(Archetype.CinderSkull, 30, 18.0f, RING_TOUGHNESS)));
             events.Add(TimedEvent.Elites(12.5f, 2));
             events.Add(TimedEvent.Moment(13.0f, EventKind.LastTide));
             events.Add(TimedEvent.Rush(13.0f, 6, 30));
@@ -584,13 +633,7 @@ namespace Survivors
             switch (timed.kind)
             {
                 case EventKind.Ring:
-                    SpawnRing(timed.group);
-                    if (timed.secondGroup.count > 0)
-                    {
-                        SpawnRing(timed.secondGroup);
-                    }
-                    run.sounds.Play("ring_rattle");
-                    run.ui.ShowBanner("The dead close in", BANNER_SECONDS, true);
+                    StartDeadRing(timed);
                     break;
                 case EventKind.Rush:
                     QueueRush(timed.lines, timed.perLine);
@@ -606,7 +649,6 @@ namespace Survivors
                     }
                     break;
                 case EventKind.MiniBoss:
-                    miniBossUntil = seconds + MINI_BOSS_BUDGET_SECONDS;
                     bosses.Spawn(timed.boss, PointInFront(MINI_BOSS_DISTANCE));
                     break;
                 case EventKind.LastTide:
@@ -663,22 +705,52 @@ namespace Survivors
         }
 
         /// <summary>A group evenly on a circle around the hero; they walk to its center for a while before chasing.</summary>
-        private void SpawnRing(in EnemyGroup group)
+        /// <summary>"The dead close in": the trap of tough dead and soul fire around the hero (see <see cref="DeadRing"/>); none while a boss fights.</summary>
+        private void StartDeadRing(in TimedEvent timed)
         {
-            SpawnRingAround(run.hero.position, group.archetype, group.count, group.radius);
+            if (bosses.featured != null || deadRing.isActive)
+            {
+                return;
+            }
+            Vector3 center = run.hero.position;
+            deadRing.Begin(center, MathF.Max(timed.group.radius, timed.secondGroup.radius));
+            SpawnRingGroup(center, timed.group);
+            SpawnRingGroup(center, timed.secondGroup);
+            run.sounds.Play("ring_rattle");
+            run.ui.ShowBanner("The dead close in", BANNER_SECONDS, true);
         }
 
-        /// <summary>Enemies evenly on a circle around a point (map events too); they walk to it for a while before chasing.</summary>
+        private void SpawnRingGroup(Vector3 center, in EnemyGroup group)
+        {
+            var tint = (Tint)Math.Min((int)currentTint + RING_TINT_TIERS, (int)Tint.Count - 1);
+            int type = EnemyCatalog.Get(group.archetype, tint);
+            SpawnOptions options = GetScaledOptions(true);
+            options.healthScale *= group.toughness;
+            for (int i = 0; i < group.count; i++)
+            {
+                deadRing.Add(SpawnMarcher(type, center, Ground.FromYaw(i * FULL_TURN_DEGREES / group.count) * group.radius, options));
+            }
+        }
+
+        /// <summary>Enemies evenly on a circle around a point (map events); they walk to it for a while before chasing.</summary>
         public void SpawnRingAround(Vector3 center, Archetype archetype, int count, float radius)
         {
             int type = EnemyCatalog.Get(archetype, currentTint);
             SpawnOptions options = GetScaledOptions(true);
             for (int i = 0; i < count; i++)
             {
-                Vector3 position = ClampToArena(center + Ground.FromYaw(i * FULL_TURN_DEGREES / count) * radius);
-                Enemy enemy = run.enemies.Spawn(type, position, in options);
+                SpawnMarcher(type, center, Ground.FromYaw(i * FULL_TURN_DEGREES / count) * radius, options);
+            }
+        }
+
+        private Enemy SpawnMarcher(int type, Vector3 center, Vector3 offset, in SpawnOptions options)
+        {
+            Enemy enemy = run.enemies.Spawn(type, ClampToArena(center + offset), in options);
+            if (enemy.isValid)
+            {
                 run.enemies.March(enemy.row, center, true, RING_MARCH_SPEED, RING_MARCH_SECONDS);
             }
+            return enemy;
         }
 
         private void SpawnCircle(Archetype archetype, int count, Vector3 center, float radius, bool rewarded)

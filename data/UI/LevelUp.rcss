@@ -8,7 +8,7 @@
 #title {
 	font-size: 5.6rem;
 	letter-spacing: 0.6rem;
-	animation: 0.45s back-out title-in;
+	animation: 0.45s cubic-out title-in;
 }
 
 @keyframes title-in {
@@ -154,6 +154,8 @@ body.can-banish .card.no-banish .card-banish { visibility: hidden; }
 
 .card-desc {
 	min-height: 6rem;
+	max-height: 14.4rem;
+	overflow: hidden;
 	font-family: "GT Semi";
 	font-size: 1.6rem;
 	line-height: 2.4rem;

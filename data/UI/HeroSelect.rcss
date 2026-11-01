@@ -146,10 +146,30 @@
 .hero-abilities { margin-top: 1rem; }
 
 .ability {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
-	margin-top: 0.9rem;
+	padding-top: 0.9rem;
+}
+
+.ability:hover .ability-name { color: #ffffff; }
+
+/* The "?" badge on the icon says the row opens its details, like the one on the HUD's active. */
+.ability-more {
+	position: absolute;
+	left: -0.6rem;
+	top: 0.3rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 1rem;
+	border: 1dp #5fd3e8;
+	background-color: #0c1a20e8;
+	text-align: center;
+	font-family: "GT Display";
+	font-size: 1.3rem;
+	line-height: 1.9rem;
+	color: #bff4ff;
 }
 
 .ability-icon {
@@ -293,8 +313,9 @@ body.phone .stat-label { width: 7.4rem; font-size: 1.5rem; }
 body.phone.heroes .stat-value { display: none; }
 body.phone .segs .seg { height: 1rem; }
 body.phone .hero-abilities { margin-top: 0.4rem; }
-body.phone .ability { margin-top: 0.6rem; align-items: center; }
-body.phone .ability-icon { width: 3.2rem; height: 3.2rem; margin-right: 0.7rem; }
+body.phone .ability { padding: 0.3rem 0; align-items: center; }
+body.phone .ability-icon { width: 4.2rem; height: 4.2rem; margin-right: 0.7rem; }
+body.phone .ability-more { top: -0.1rem; width: 2.2rem; height: 2.2rem; border-radius: 1.1rem; font-size: 1.6rem; line-height: 2.1rem; }
 body.phone .ability-kind { display: none; }
 body.phone .ability-name { font-size: 1.6rem; }
 body.phone .ability-text { display: none; }
@@ -308,6 +329,6 @@ body.phone #hs-bottom .btn { margin: 0 1rem; }
 body.phone #hs-start { min-width: 26rem; }
 body.phone .dread-step { width: 6.8rem; }
 body.phone #dread { margin: 0 1rem; }
-body.phone #dread-value { width: 17rem; }
+body.phone #dread-value { width: 30rem; }
 body.phone #dread-label { font-size: 2rem; }
-body.phone #dread-text { display: none; }
+body.phone #dread-text { font-size: 1.6rem; line-height: 2rem; }

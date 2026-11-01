@@ -5,9 +5,10 @@ using Unravel.Core;
 namespace Survivors
 {
     /// <summary>
-    /// Grave Lanterns: breakable props that pay loot. The first is lit 30 s into the run, then one every 45 s at 14-20 m
-    /// from the hero while fewer than three stand. Each is a prop entity over a 1 HP proxy row of the enemy world, so
-    /// every weapon breaks it like an enemy; a broken one pays its loot (<see cref="Drops.OnLanternBroken"/>). Main thread.
+    /// Grave Lanterns: breakable props that show and pay their loot. The first is lit 30 s into the run, then one every
+    /// 45 s at 14-20 m from the hero while fewer than three stand. Each is a prop entity over a 1 HP proxy row of the
+    /// enemy world, so every weapon breaks it like an enemy; its loot hangs above it from the start, with the beacon and
+    /// marker of its kind (<see cref="PickupBeacons"/>), and drops when it breaks. Main thread.
     /// </summary>
     public sealed class GraveLanterns
     {
@@ -27,6 +28,8 @@ namespace Survivors
         {
             public Entity entity;
             public Enemy enemy;
+            /// <summary>The loot's row in the pickup world.</summary>
+            public int lootRow;
         }
 
         public GraveLanterns(Run run, WaveDirector director)
@@ -77,10 +80,19 @@ namespace Survivors
             {
                 if (lanterns[i].enemy.Equals(death.enemy))
                 {
-                    run.drops.OnLanternBroken(death.position);
+                    run.drops.OnLanternBroken(death.position, lanterns[i].lootRow);
                     Remove(i);
                     return;
                 }
+            }
+        }
+
+        /// <summary>Dev: some lanterns in a ring around the hero, close enough to review on screen.</summary>
+        public void DevPlaceNear(int count, float distance)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Place(run.hero.position + Ground.FromYaw(i * FULL_TURN_DEGREES / count) * distance);
             }
         }
 
@@ -88,11 +100,16 @@ namespace Survivors
         {
             float angle = (float)run.rng.NextDouble() * FULL_TURN_DEGREES;
             float distance = DISTANCE_MIN + (float)run.rng.NextDouble() * (DISTANCE_MAX - DISTANCE_MIN);
-            Vector3 position = director.ClampToArena(run.hero.position + Ground.FromYaw(angle) * distance);
+            Place(run.hero.position + Ground.FromYaw(angle) * distance);
+        }
+
+        private void Place(Vector3 at)
+        {
+            Vector3 position = director.ClampToArena(at);
             Entity entity = Scene.Instantiate(EnemyCatalog.lanternPrefab, position);
             var options = new SpawnOptions { healthScale = 1.0f, damageScale = 1.0f, isRewarded = true };
             Enemy enemy = run.enemies.Spawn(EnemyCatalog.lanternType, position, in options);
-            lanterns.Add(new Lantern { entity = entity, enemy = enemy });
+            lanterns.Add(new Lantern { entity = entity, enemy = enemy, lootRow = run.drops.SpawnLanternLoot(position) });
         }
 
         private void Remove(int index)
@@ -101,6 +118,7 @@ namespace Survivors
             {
                 Scene.DestroyEntity(lanterns[index].entity);
             }
+            run.pickups.RemoveHeld(lanterns[index].lootRow);
             lanterns.RemoveAt(index);
         }
     }

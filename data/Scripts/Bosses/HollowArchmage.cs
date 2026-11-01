@@ -5,13 +5,18 @@ namespace Survivors
 {
     /// <summary>
     /// The Hollow Archmage, the 10:00 mini-boss: a giant skeleton mage that keeps 7 m from the hero. It casts a Bone
-    /// Spiral (three rotating arms of slow orbs), a Grave Field (five filling circles on and around the hero) and Summon
+    /// Spiral (three rotating arms of slow orbs), a Grave Field (four filling circles on and around the hero, with gaps to
+    /// run through) and Summon
     /// Guard (eight Shieldbearers in a ring, channelled while it takes +50% damage). A hero who closes within 3 m makes
-    /// it blink 8 m away, leaving a ghost behind. Never the same spell twice in a row.
+    /// it blink 8 m away, leaving a ghost behind and a mine that bursts where it stood. Its Soul Lance tracks the hero, locks
+    /// for a heartbeat and fires a beam down the lane: step out of the lane. At half health the Voice splits: two ghosts
+    /// take stands around the fight and cast every spiral and lance with it, and its Grave Fields fall twice. Never the
+    /// same spell twice in a row.
     /// </summary>
     public sealed class HollowArchmage : Boss
     {
-        private const float HEALTH = 13000.0f;
+        private const float HEALTH = 18000.0f;
+        private const float CONTACT_DAMAGE = 30.0f;
         private const int GOLD = 60;
         private const float WALK_SPEED = 2.2f;
         private const float TURN_RATE = 240.0f;
@@ -32,19 +37,21 @@ namespace Survivors
         private const float SPIRAL_INTERVAL = 0.2f;
         private const float SPIRAL_RECOVERY = 0.6f;
         private const float ORB_SPEED = 6.0f;
-        private const float ORB_DAMAGE = 12.0f;
+        private const float ORB_DAMAGE = 16.0f;
         private const float ORB_RANGE = 20.0f;
         private const float ORB_RADIUS = 0.3f;
         private const float ORB_SCALE = 1.3f;
         private const float SIGIL_SIZE = 6.0f;
 
-        private const int FIELD_CIRCLES = 5;
+        private const int FIELD_CIRCLES = 4;
         /// <summary>The ring of circles around the hero starts at a random turn of up to this many degrees.</summary>
         private const float FIELD_MAX_TURN = 90.0f;
-        private const float FIELD_RADIUS = 2.5f;
-        private const float FIELD_SPREAD = 3.5f;
+        private const float FIELD_RADIUS = 2.3f;
+        private const float FIELD_SPREAD = 3.6f;
         private const float FIELD_FILL = 1.2f;
-        private const float FIELD_DAMAGE = 35.0f;
+        private const float FIELD_DAMAGE = 65.0f;
+        /// <summary>The split Voice's second field falls this long after the first, on where the hero went.</summary>
+        private const float SECOND_FIELD_DELAY = 0.9f;
         private const float FIELD_RECOVERY = 0.8f;
 
         private const float SUMMON_CHANNEL = 2.0f;
@@ -57,6 +64,27 @@ namespace Survivors
         private const float SUMMON_RECOVERY = 0.5f;
         private const float MOTES_INTERVAL = 0.5f;
         private const int MOTES_PER_PULSE = 4;
+
+        private const float LANCE_TRACK = 0.8f;
+        private const float LANCE_LOCK = 0.45f;
+        private const float LANCE_RECOVERY = 0.6f;
+        private const float LANCE_LENGTH = 22.0f;
+        private const float LANCE_HALF_WIDTH = 1.1f;
+        private const float LANCE_DAMAGE = 80.0f;
+        private const float LANCE_AIM_INTERVAL = 0.08f;
+        private const float BEAM_SECONDS = 0.35f;
+        private const float BEAM_WIDTH = 2.4f;
+
+        private const float SPLIT_SHARE = 0.5f;
+        private const int GHOSTS = 2;
+        private const float GHOST_RING = 10.0f;
+        private const float GHOST_INTERVAL = 0.45f;
+        private const float GHOST_LOOK_SECONDS = 0.9f;
+        private const float SPLIT_BANNER_SECONDS = 2.5f;
+
+        private const float MINE_RADIUS = 2.6f;
+        private const float MINE_FUSE = 0.7f;
+        private const float MINE_DAMAGE = 55.0f;
 
         private const float BLINK_TRIGGER = 3.0f;
         private const float BLINK_DISTANCE = 8.0f;
@@ -75,14 +103,20 @@ namespace Survivors
             BoneSpiral,
             GraveField,
             SummonGuard,
+            SoulLance,
             Count,
         }
 
         /// <summary>How often each spell is picked, by <see cref="Spell"/>.</summary>
-        private static readonly float[] WEIGHTS = { 3.0f, 3.0f, 2.0f };
+        private static readonly float[] WEIGHTS = { 3.0f, 3.0f, 2.0f, 3.0f };
+        private static readonly float[] PHASE_MARKS = { SPLIT_SHARE };
 
         private readonly Vector3[] summonPoints = new Vector3[SUMMON_COUNT];
+        private readonly Vector3[] ghosts = new Vector3[GHOSTS];
+        private readonly Vector3[] lanceAims = new Vector3[GHOSTS + 1];
         private readonly int orbVisual;
+        private readonly int aimLine;
+        private readonly int beam;
         private Spell spell = Spell.None;
         private Spell lastSpell = Spell.None;
         private float spellTime;
@@ -96,21 +130,33 @@ namespace Survivors
         private float spiralBase;
         private float volleyTimer;
         private float motesTimer;
+        private bool isSplit;
+        /// <summary>The ghosts fire every other volley, so the streams leave room to walk.</summary>
+        private bool ghostVolley;
+        private float ghostTimer;
+        private float aimTimer;
+        private float secondFieldAt = -1.0f;
 
         public HollowArchmage(Run run, BossFx fx, BossHazards hazards, Vector3[] obstacles)
             : base(run, fx, hazards, BossKind.HollowArchmage, obstacles)
         {
             int look = run.projectiles.FindVisual("ArchmageOrb");
             orbVisual = look >= 0 ? look : run.projectiles.FindVisual("HexOrb");
+            aimLine = run.effects.Find("AimLine");
+            beam = run.effects.Find("BossBeam");
         }
 
         public override string title => "Voice of the Barrow";
+
+        public override float[] phaseMarks => PHASE_MARKS;
 
         public override int goldReward => GOLD;
 
         public override string defeatId => SaveData.BOSS_ARCHMAGE;
 
         protected override float maxHealth => HEALTH;
+
+        protected override float contactDamage => CONTACT_DAMAGE;
 
         protected override string prefabKey => "app:/data/Prefabs/Bosses/Boss_HollowArchmage.pfb";
 
@@ -128,6 +174,12 @@ namespace Survivors
         {
             summonCooldown -= dt;
             blinkCooldown -= dt;
+            TickGhosts(dt);
+            TickSecondField();
+            if (!isSplit && healthFraction <= SPLIT_SHARE)
+            {
+                Split();
+            }
             if (!hasHero)
             {
                 spell = Spell.None;
@@ -223,6 +275,11 @@ namespace Survivors
                     animator.PlayToImpact("Cast", 0.5f, 0.12f);
                     PlaceGraveField();
                     break;
+                case Spell.SoulLance:
+                    aimTimer = 0.0f;
+                    animator.PlayToImpact("Cast", LANCE_TRACK + LANCE_LOCK, 0.12f);
+                    run.sounds.PlayAt("archmage_field_sting", position);
+                    break;
                 case Spell.SummonGuard:
                     summonCooldown = SUMMON_COOLDOWN;
                     motesTimer = 0.0f;
@@ -240,7 +297,7 @@ namespace Survivors
         private void EndSpell()
         {
             spell = Spell.None;
-            gap = GAP_SECONDS;
+            gap = ScaleGap(GAP_SECONDS);
             animator.Walk(0.0f);
         }
 
@@ -259,7 +316,129 @@ namespace Survivors
                 case Spell.SummonGuard:
                     TickSummon(dt);
                     break;
+                case Spell.SoulLance:
+                    TickLance(dt);
+                    break;
             }
+        }
+
+        // -------------------------------------------------------------------------------------------------------------
+        // The Voice splits: at half health two ghosts take stands around the fight and cast with it.
+        // -------------------------------------------------------------------------------------------------------------
+
+        private void Split()
+        {
+            isSplit = true;
+            ghostTimer = 0.0f;
+            for (int i = 0; i < GHOSTS; i++)
+            {
+                float turn = BossGeometry.ToYawRadians(toHero) * Mathf.Rad2Deg + 120.0f * (i + 1);
+                ghosts[i] = ClampToArena(heroPosition + Ground.FromYaw(turn) * GHOST_RING, radius);
+                fx.Burst(fx.blinkFlash, ghosts[i] + new Vector3(0.0f, CHEST_HEIGHT * scale, 0.0f), 1, VIOLET_GLOW, scale * 1.2f, 0.35f);
+            }
+            run.ui.ShowBanner("The Voice splits", SPLIT_BANNER_SECONDS, true);
+            run.sounds.PlayAt("archmage_blink", position);
+            run.feedback.Shake(0.4f, 0.4f);
+        }
+
+        /// <summary>The ghosts stand where they appeared, re-drawn as long as the boss fights.</summary>
+        private void TickGhosts(float dt)
+        {
+            if (!isSplit)
+            {
+                return;
+            }
+            ghostTimer -= dt;
+            if (ghostTimer > 0.0f)
+            {
+                return;
+            }
+            ghostTimer = GHOST_INTERVAL;
+            for (int i = 0; i < GHOSTS; i++)
+            {
+                fx.Burst(fx.archmageGhost, ghosts[i] + new Vector3(0.0f, CHEST_HEIGHT * scale, 0.0f), 1, VIOLET_GLOW, scale * 1.8f, GHOST_LOOK_SECONDS);
+            }
+        }
+
+        // -------------------------------------------------------------------------------------------------------------
+        // Soul Lance: aim lines track the hero, the lanes lock and fill for a heartbeat, then beams fire down them.
+        // -------------------------------------------------------------------------------------------------------------
+
+        private void TickLance(float dt)
+        {
+            TurnTowards(toHero, TURN_RATE, dt);
+            if (spellTime < LANCE_TRACK)
+            {
+                DrawLanceAims(dt);
+                return;
+            }
+            if (!stung)
+            {
+                stung = true;
+                LockLances();
+            }
+            if (spellTime < LANCE_TRACK + LANCE_LOCK)
+            {
+                return;
+            }
+            if (!released)
+            {
+                released = true;
+                FireLances();
+            }
+            glowBoost = RECOVERY_GLOW;
+            if (spellTime >= LANCE_TRACK + LANCE_LOCK + LANCE_RECOVERY)
+            {
+                EndSpell();
+            }
+        }
+
+        private int lanceCount => isSplit ? GHOSTS + 1 : 1;
+
+        private Vector3 GetLanceOrigin(int index) => index == 0 ? position : ghosts[index - 1];
+
+        private void DrawLanceAims(float dt)
+        {
+            aimTimer -= dt;
+            if (aimTimer > 0.0f)
+            {
+                return;
+            }
+            aimTimer = LANCE_AIM_INTERVAL;
+            for (int i = 0; i < lanceCount; i++)
+            {
+                Vector3 origin = GetLanceOrigin(i);
+                Vector3 heading = BossGeometry.FlatDirection(origin, heroPosition, forward);
+                run.effects.EmitMoving(aimLine, origin + new Vector3(0.0f, Tuning.TELEGRAPH_HEIGHT, 0.0f), heading * BossFx.ORIENT_SPEED, 1, LANCE_LENGTH, LANCE_AIM_INTERVAL * 3.0f);
+            }
+        }
+
+        private void LockLances()
+        {
+            for (int i = 0; i < lanceCount; i++)
+            {
+                Vector3 origin = GetLanceOrigin(i);
+                lanceAims[i] = BossGeometry.FlatDirection(origin, heroPosition, forward);
+                fx.Lane(origin, lanceAims[i], LANCE_LENGTH, LANCE_LOCK);
+            }
+            run.sounds.PlayAt("archmage_spiral_sting", position);
+        }
+
+        private void FireLances()
+        {
+            for (int i = 0; i < lanceCount; i++)
+            {
+                Vector3 origin = GetLanceOrigin(i);
+                // The line of the texture runs from the quad's center to its edge.
+                run.effects.EmitMoving(beam, origin + new Vector3(0.0f, CHEST_HEIGHT, 0.0f), lanceAims[i] * BossFx.ORIENT_SPEED, 1, VIOLET_GLOW, LANCE_LENGTH * 2.0f, BEAM_SECONDS);
+                fx.Burst(fx.blinkFlash, origin + new Vector3(0.0f, CHEST_HEIGHT * scale, 0.0f), 1, VIOLET_GLOW, scale * BEAM_WIDTH, BEAM_SECONDS);
+                if (hasHero && BossGeometry.InLane(heroPosition, origin, lanceAims[i], LANCE_LENGTH, LANCE_HALF_WIDTH, heroGrace))
+                {
+                    HitHero(LANCE_DAMAGE, origin);
+                }
+            }
+            run.sounds.PlayAt("archmage_orb", position);
+            run.feedback.Shake(0.45f, 0.3f);
         }
 
         // -------------------------------------------------------------------------------------------------------------
@@ -286,7 +465,13 @@ namespace Survivors
                 while (volleyTimer <= 0.0f)
                 {
                     volleyTimer += SPIRAL_INTERVAL;
-                    FireVolley(spiralBase + spinTime * SPIRAL_TURN_DEGREES);
+                    float degrees = spiralBase + spinTime * SPIRAL_TURN_DEGREES;
+                    FireVolley(position, degrees);
+                    ghostVolley = !ghostVolley;
+                    for (int i = 0; isSplit && ghostVolley && i < GHOSTS; i++)
+                    {
+                        FireVolley(ghosts[i], degrees);
+                    }
                 }
                 return;
             }
@@ -297,7 +482,7 @@ namespace Survivors
             }
         }
 
-        private void FireVolley(float baseDegrees)
+        private void FireVolley(Vector3 origin, float baseDegrees)
         {
             if (orbVisual < 0)
             {
@@ -313,10 +498,10 @@ namespace Survivors
                     sourceName = displayName,
                     visual = orbVisual,
                     motion = ProjectileMotion.Linear,
-                    position = position + direction * radius + new Vector3(0.0f, height, 0.0f),
+                    position = origin + direction * radius + new Vector3(0.0f, height, 0.0f),
                     velocity = direction * ORB_SPEED,
                     lifetime = ORB_RANGE / ORB_SPEED,
-                    damage = ORB_DAMAGE,
+                    damage = ScaleShot(ORB_DAMAGE),
                     radius = ORB_RADIUS,
                     pierce = 0,
                     scale = ORB_SCALE,
@@ -332,6 +517,7 @@ namespace Survivors
 
         private void PlaceGraveField()
         {
+            secondFieldAt = isSplit && secondFieldAt < 0.0f ? time + SECOND_FIELD_DELAY : secondFieldAt;
             Vector3 center = heroPosition;
             float turn = (float)run.rng.NextDouble() * FIELD_MAX_TURN;
             AddFieldCircle(center);
@@ -342,12 +528,23 @@ namespace Survivors
             }
         }
 
+        /// <summary>The split Voice's Grave Field falls a second time, on where the hero went.</summary>
+        private void TickSecondField()
+        {
+            if (secondFieldAt < 0.0f || time < secondFieldAt)
+            {
+                return;
+            }
+            PlaceGraveField();
+            secondFieldAt = -1.0f;
+        }
+
         /// <summary>A filling circle that bursts in the Hex Casters' red-orange.</summary>
         private void AddFieldCircle(Vector3 center)
         {
             Vector3 point = ClampToArena(center, FIELD_RADIUS);
             fx.Circle(point, FIELD_RADIUS, FIELD_FILL);
-            hazards.AddCircle(point, FIELD_RADIUS, FIELD_FILL, FIELD_DAMAGE, displayName, fx.graveBurst, EnemyAbilityExecutor.GRAVE_BURST_COLOR, "grave_burst", false);
+            hazards.AddCircle(point, FIELD_RADIUS, FIELD_FILL, FIELD_DAMAGE * damageScale, displayName, fx.graveBurst, EnemyAbilityExecutor.GRAVE_BURST_COLOR, "grave_burst", false);
         }
 
         private void TickGraveField(float dt)
@@ -428,6 +625,8 @@ namespace Survivors
             }
             Vector3 from = position;
             fx.Burst(fx.archmageGhost, from + new Vector3(0.0f, CHEST_HEIGHT * scale, 0.0f), 1, VIOLET_GLOW, scale * 1.8f, GHOST_SECONDS);
+            fx.Circle(from, MINE_RADIUS, MINE_FUSE);
+            hazards.AddCircle(from, MINE_RADIUS, MINE_FUSE, MINE_DAMAGE * damageScale, displayName, fx.graveBurst, VIOLET_GLOW, "grave_burst", false);
             fx.Burst(fx.blinkFlash, GetChest(), 1, VIOLET_GLOW, scale * 1.2f, 0.35f);
             Move(best - position);
             yaw = BossGeometry.ToYawRadians(BossGeometry.FlatDirection(position, hero, forward));

@@ -8,7 +8,8 @@ namespace Survivors
     /// spells use the shared SpellGlow material tinted per look by a MaterialInstance. A look whose mesh is missing
     /// still registers (it just draws nothing), so gameplay never depends on art being present. Particle heads come with
     /// the look, or from the class head tables (KnightLooks, MageLooks, RogueLooks, SharedLooks) by look name.
-    /// Enemy looks the enemies use: "EnemyBolt" (archer bolt), "HexOrb" (caster and boss orbs).
+    /// Enemy looks the enemies use: "EnemyBolt" (archer bolt), "HexOrb" (caster and boss orbs); both draw a white-hot core,
+    /// a red flame, a wide halo and a danger ring on the ground under the shot.
     /// </summary>
     public static class ProjectileCatalog
     {
@@ -75,6 +76,8 @@ namespace Survivors
         internal static ProjectileHead Core(float size, Color color) => new ProjectileHead("HeadCore", size, color, false);
         internal static ProjectileHead Flame(float size, Color color) => new ProjectileHead("HeadFlame", size, color);
         internal static ProjectileHead Halo(float size, Color color) => new ProjectileHead("HeadHalo", size, color);
+        /// <summary>The danger ring every enemy shot draws on the ground under itself.</summary>
+        private static ProjectileHead ShotMark(float size) => new ProjectileHead("EnemyShotMark", size, Tuning.DANGER_COLOR, false, true);
         internal static ProjectileHead Corona(float size, Color color) => new ProjectileHead("HeadCorona", size, color);
         internal static ProjectileHead Star(float size, Color color) => new ProjectileHead("HeadStar", size, color);
 
@@ -93,6 +96,19 @@ namespace Survivors
                 name = "VerdictSword", mesh = PROPS + "sword_2handed.gltf", fallbackMesh = PRIMITIVES + "cube", glow = PALE_GOLD, intensity = 3.0f, scale = 3.0f,
                 rotation = LAID_FLAT, height = 0.0f,
             },
+            new Look
+            {
+                name = "DawnLance", mesh = PROPS + "sword_2handed.gltf", fallbackMesh = PRIMITIVES + "cube", glow = PALE_GOLD, intensity = 1.8f, scale = 1.9f,
+                rotation = LAID_FLAT, height = 1.4f, trail = "KnightSteelSparks", trailInterval = 0.02f,
+                heads = new[] { Core(0.7f, PALE_GOLD), Halo(2.6f, GOLD) },
+            },
+            new Look
+            {
+                name = "PhalanxShield", mesh = PROPS + "shield_square.gltf", fallbackMesh = PRIMITIVES + "cube", glow = HAMMER_GOLD, intensity = 0.55f, scale = 1.9f,
+                height = 0.0f,
+            },
+            new Look { name = "Boulder", mesh = GENERATED + "boulder.gltf", fallbackMesh = PRIMITIVES + "dodecahedron", scale = 0.85f, spin = 170.0f, height = 0.0f },
+            new Look { name = "BoulderShard", mesh = GENERATED + "boulder.gltf", fallbackMesh = PRIMITIVES + "dodecahedron", scale = 0.3f, spin = 500.0f, height = 0.8f },
             // The Dawn Hammer is a head (a cylinder laid across the haft) and a haft (a wand pivoted at its grip) spinning together.
             new Look
             {
@@ -195,11 +211,16 @@ namespace Survivors
             new Look { name = "Wisp", mesh = PRIMITIVES + "icosphere1", glow = WISP, intensity = 6.0f, scale = 0.32f, height = 1.8f },
             new Look { name = "ChoirWisp", mesh = PRIMITIVES + "icosphere1", glow = CHOIR, intensity = 7.0f, scale = 0.36f, height = 1.8f },
             // Enemy.
-            new Look { name = "EnemyBolt", mesh = PROPS + "arrow.gltf", height = 1.2f, trail = "EnemyBoltTrail", trailInterval = 0.04f },
+            // Enemy: one hot look whatever flies, so a shot reads as danger over the horde and over the hero's own spells.
+            new Look
+            {
+                name = "EnemyBolt", mesh = PROPS + "arrow.gltf", scale = 1.7f, height = 1.2f, trail = "EnemyBoltTrail", trailInterval = 0.03f,
+                heads = new[] { Core(0.7f), Flame(1.1f, HEX_RED), Halo(1.8f, HEX_RED), ShotMark(2.0f) },
+            },
             new Look
             {
                 name = "HexOrb", mesh = PRIMITIVES + "icosphere2", glow = ENEMY_ORB, intensity = 5.0f, scale = 0.55f, height = 1.2f, trail = "HexOrbTrail",
-                trailInterval = 0.04f, hideMesh = true, heads = new[] { Core(0.3f), Flame(0.75f, HEX_RED), Halo(1.1f, HEX_RED) },
+                trailInterval = 0.04f, hideMesh = true, heads = new[] { Core(0.8f), Flame(1.4f, HEX_RED), Halo(2.4f, HEX_RED), ShotMark(3.6f) },
             },
         };
 

@@ -21,7 +21,7 @@
 	align-items: flex-start;
 }
 
-#build { width: 62rem; margin-right: 2rem; }
+#build { width: 76rem; margin-right: 2rem; }
 #stats { width: 40rem; margin-right: 2rem; }
 
 .section { display: block; margin: 0.4rem 0 1rem 0; }
@@ -58,9 +58,10 @@
 	color: #ffffff;
 }
 
-.row-top .own { margin: 0 1rem; }
-
 .row-rank {
+	flex: 0 0 auto;
+	margin-left: 1rem;
+	white-space: nowrap;
 	font-family: "GT Display";
 	font-size: 1.4rem;
 	letter-spacing: 0.1rem;
@@ -71,9 +72,12 @@
 .weapon-row.evolved .row-name { color: #ffd98a; }
 
 .row-line {
+	margin-top: 0.2rem;
 	font-size: 1.35rem;
 	color: #a99f8f;
 }
+
+.row-line .own { margin-right: 0.8rem; }
 
 #passive-grid {
 	display: flex;
@@ -82,8 +86,9 @@
 }
 
 .passive-row {
-	width: 28rem;
+	width: 35rem;
 	margin-right: 1.4rem;
+	align-items: flex-start;
 }
 
 .empty-note { font-size: 1.4rem; color: #6e6676; }
@@ -132,8 +137,8 @@ body.short #pause-header { top: 2rem; }
 body.short #pause-body { top: 11rem; }
 body.short .stat-line { height: 2.1rem; }
 body.short .weapon-row { margin-bottom: 0.4rem; }
-body.compact #build { width: 52rem; }
-body.compact .passive-row { width: 23rem; }
+body.compact #build { width: 66rem; }
+body.compact .passive-row { width: 30rem; }
 body.compact #stats { width: 34rem; }
 body.compact #pause-actions { width: 22rem; }
 
@@ -150,7 +155,6 @@ body.phone #pause-actions { width: 21%; }
 body.phone #pause-actions .btn { margin-bottom: 1rem; padding-left: 1rem; padding-right: 1rem; }
 body.phone .row-icon { width: 5rem; height: 5rem; margin-right: 1rem; }
 body.phone .row-icon.small { width: 4.4rem; height: 4.4rem; }
-body.phone .row-top { flex-wrap: wrap; }
 body.phone .row-name { font-size: 2rem; }
 body.phone .row-rank { font-size: 1.7rem; }
 body.phone .row-line { font-size: 1.7rem; }

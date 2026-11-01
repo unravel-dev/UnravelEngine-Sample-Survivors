@@ -336,8 +336,8 @@ namespace Survivors
                 evolution = new EvolutionSpec
                 {
                     id = "widowmaker", name = "Widowmaker", passiveId = PassiveIds.KEEN_EYE,
-                    description = "28 damage, 0.50 s, 5 bolts, pierce all, +15% crit chance. Crits ricochet to 1 more enemy within 5 m.",
-                    overrides = new[] { Set(F.Damage, 28), Set(F.Cooldown, 0.50f), Set(F.Count, 5), Set(F.Pierce, -1), Set(F.CritChance, 0.15f), Set(F.SubRange, 5) },
+                    description = "24 damage, 0.50 s, 5 bolts, pierce all, +15% crit chance. Crits ricochet to 1 more enemy within 5 m.",
+                    overrides = new[] { Set(F.Damage, 24), Set(F.Cooldown, 0.50f), Set(F.Count, 5), Set(F.Pierce, -1), Set(F.CritChance, 0.15f), Set(F.SubRange, 5) },
                 },
             }),
             Define(new WeaponSpec

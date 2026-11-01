@@ -330,24 +330,6 @@ namespace Survivors
         /// <summary>Asks for an upper-body attack clip (one of the controller's Upper states).</summary>
         protected void RequestAttack(string state) => ctx.feel.RequestAttack(state, attackPriority);
 
-        /// <summary>A hit stop when a strike hit at least <paramref name="minHits"/> enemies: a blow into a crowd lands heavy.</summary>
-        protected void TryHitStop(int hits, int minHits, float seconds)
-        {
-            if (hits >= minHits)
-            {
-                ctx.feel.HitStop(seconds);
-            }
-        }
-
-        /// <summary>A hit stop at most once per gap of <paramref name="throttle"/>; the gap restarts only when a stop happened.</summary>
-        protected void TryHitStop(ref Throttle throttle, float seconds)
-        {
-            if (throttle.IsReady(clock) && ctx.feel.HitStop(seconds))
-            {
-                throttle.Mark(clock);
-            }
-        }
-
         /// <summary>A hit of this weapon after the class kit's say (a Rogue weapon spends Smoke Roll's guaranteed critical hits).</summary>
         protected HitEffect WithAutoCrit(HitEffect effect)
         {

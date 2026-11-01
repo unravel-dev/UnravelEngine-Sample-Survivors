@@ -61,6 +61,7 @@ namespace Survivors
         private const float MOVING_SPEED = 0.2f;
         private const float REVIVE_HEALTH = 0.5f;
         private const float REVIVE_INVULNERABLE = 3.0f;
+        private const float DEV_LIFE_INVULNERABLE = 1.0f;
         private const float HIT_PUSH_RADIUS = 1.6f;
         private const float HIT_PUSH_SPEED = 6.0f;
 
@@ -108,6 +109,14 @@ namespace Survivors
         private float fullBodyTime;
         private float dashTime;
         private float wardTime;
+        private Vector3 pull;
+
+        /// <summary>Dev (boss tests): lives spent silently, so a fight runs to its end and counts <see cref="devDeaths"/>.</summary>
+        public int devSpareLives;
+        public int devDeaths;
+
+        /// <summary>Multiplies every heal (Death's Mark cuts it while a boss has marked the hero).</summary>
+        public float healingScale = 1.0f;
 
         /// <summary>Raised when a hit lands (after armor), with the damage taken and where it came from.</summary>
         public event Action<float, Vector3> damaged;
@@ -183,6 +192,8 @@ namespace Survivors
             wardCharges = 0;
             wardTime = 0.0f;
             dodgeChance = 0.0f;
+            healingScale = 1.0f;
+            pull = Vector3.zero;
             invulnerableTime = 0.0f;
             dashTime = 0.0f;
             isDashInvulnerable = false;
@@ -234,7 +245,7 @@ namespace Survivors
             {
                 return 0.0f;
             }
-            float healed = MathF.Min(amount, maxHealth - health);
+            float healed = MathF.Min(amount * healingScale, maxHealth - health);
             if (healed <= 0.0f)
             {
                 return 0.0f;
@@ -276,6 +287,9 @@ namespace Survivors
             dashTime = seconds;
             isDashInvulnerable = invulnerable;
         }
+
+        /// <summary>Drags the hero along a ground velocity this frame, on top of walking (a boss's chains).</summary>
+        public void AddPull(Vector3 groundVelocity) => pull += groundVelocity;
 
         /// <summary>Puts the hero somewhere at once (blink, revive).</summary>
         public void Teleport(Vector3 target)
@@ -374,6 +388,14 @@ namespace Survivors
         /// <summary>Spends a revival, if one is left, to come back at half health with a long invulnerability.</summary>
         private bool TryRevive()
         {
+            if (devSpareLives > 0)
+            {
+                devSpareLives--;
+                devDeaths++;
+                health = maxHealth * REVIVE_HEALTH;
+                invulnerableTime = DEV_LIFE_INVULNERABLE;
+                return true;
+            }
             if (stats.GetCount(StatId.Revival) <= 0)
             {
                 return false;
@@ -425,7 +447,9 @@ namespace Survivors
             else
             {
                 velocity = walkLockTime > 0.0f ? Vector3.zero : desired * (stats[StatId.MoveSpeed] * GetBodyBlockFactor());
+                velocity += pull;
             }
+            pull = Vector3.zero;
             if (controller != null)
             {
                 controller.Move(velocity * dt);

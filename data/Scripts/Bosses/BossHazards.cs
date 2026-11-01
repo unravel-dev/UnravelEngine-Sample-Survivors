@@ -149,6 +149,19 @@ namespace Survivors
             });
         }
 
+        /// <summary>Whether a ground point lies under a circle about to land (the test autopilot steps out).</summary>
+        public bool IsInPendingCircle(Vector3 point)
+        {
+            for (int i = 0; i < circles.Count; i++)
+            {
+                if (BossGeometry.InCircle(point, circles[i].center, circles[i].radius, heroGrace))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void Tick(float dt)
         {
             time += dt;

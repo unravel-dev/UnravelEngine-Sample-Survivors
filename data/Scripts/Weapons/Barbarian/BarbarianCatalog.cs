@@ -4,7 +4,12 @@ namespace Survivors
 {
     public static partial class WeaponCatalog
     {
-        /// <summary>The rest of the Barbarian's class weapons: War Cry and Butcher's Chains.</summary>
+        /// <summary>
+        /// The rest of the Barbarian's class weapons: War Cry, Butcher's Chains, Mountain Breaker and Rampage. Mountain Breaker:
+        /// Damage in Radius, SubCount shards of SubDamage flying SubRange, SubInterval seconds of flight, Avalanche's lava
+        /// MajorDamage per half second for SubDuration. Rampage: Damage in Radius per stomp, SubRange metres per stomp, Interval
+        /// seconds per stamp when still, MoveSpeed while it lasts.
+        /// </summary>
         private static WeaponDef[] BarbarianWeapons() => new[]
         {
             Define(new WeaponSpec
@@ -65,6 +70,62 @@ namespace Survivors
                         Set(F.Cooldown, 5.0f), Set(F.Count, 6), Set(F.Radius, 10.0f), Set(F.MajorDamage, 80), Set(F.MajorRadius, 3.0f),
                         Set(F.MajorDelay, 1.0f),
                     },
+                },
+            }),
+            Define(new WeaponSpec
+            {
+                id = "mountain_breaker", name = "Mountain Breaker", rarity = Rarity.Rare, owner = HeroClass.Barbarian,
+                tags = WeaponTags.Projectile | WeaponTags.Area,
+                create = (context, def, slot) => new MountainBreaker(context, def, slot),
+                description = "Hurl a boulder at the densest crowd: a crushing landing and flying shards.",
+                columns = new[] { DAMAGE, COOLDOWN, Column(F.Radius, "Radius"), Column(F.SubCount, "Shards"), Column(F.SubDamage, "Shard"), STUN },
+                rows = new float[,]
+                {
+                    { 60, 5.5f, 3.0f, 5, 20, 0.6f },
+                    { 76, 5.5f, 3.0f, 5, 26, 0.6f },
+                    { 76, 5.5f, 3.4f, 6, 26, 0.7f },
+                    { 96, 5.0f, 3.4f, 6, 34, 0.7f },
+                    { 96, 5.0f, 3.8f, 8, 34, 0.8f },
+                    { 120, 4.5f, 3.8f, 8, 44, 0.8f },
+                    { 120, 4.5f, 4.2f, 10, 44, 0.9f },
+                    { 150, 4.0f, 4.5f, 12, 56, 1.0f },
+                },
+                constants = new[]
+                {
+                    Set(F.Range, 14), Set(F.Count, 1), Set(F.Stagger, 0.25f), Set(F.SubSpeed, 16), Set(F.SubRange, 7), Set(F.SubInterval, 0.85f),
+                    Set(F.Knockback, 3.0f), Set(F.Fury, 0.5f),
+                },
+                evolution = new EvolutionSpec
+                {
+                    id = "avalanche", name = "Avalanche", passiveId = PassiveIds.WIDE_SIGIL,
+                    description = "3 boulders, and each landing leaves a crater of lava that burns on for 3 s.",
+                    overrides = new[] { Set(F.Count, 3), Set(F.Damage, 120), Set(F.SubDamage, 44), Set(F.MajorDamage, 12), Set(F.SubDuration, 3.0f) },
+                },
+            }),
+            Define(new WeaponSpec
+            {
+                id = "rampage", name = "Rampage", rarity = Rarity.Uncommon, owner = HeroClass.Barbarian,
+                tags = WeaponTags.Melee | WeaponTags.Area,
+                create = (context, def, slot) => new Rampage(context, def, slot),
+                description = "For a few seconds you run faster, and every few strides your foot shatters the ground.",
+                columns = new[] { DAMAGE, COOLDOWN, DURATION, Column(F.Radius, "Radius"), Column(F.SubRange, "Stride") },
+                rows = new float[,]
+                {
+                    { 22, 9.0f, 3.5f, 2.6f, 2.6f },
+                    { 28, 9.0f, 3.5f, 2.6f, 2.6f },
+                    { 28, 9.0f, 4.0f, 3.0f, 2.6f },
+                    { 36, 8.5f, 4.0f, 3.0f, 2.4f },
+                    { 36, 8.5f, 4.5f, 3.4f, 2.4f },
+                    { 46, 8.0f, 4.5f, 3.4f, 2.2f },
+                    { 46, 8.0f, 5.0f, 3.8f, 2.2f },
+                    { 60, 7.0f, 5.5f, 4.0f, 2.0f },
+                },
+                constants = new[] { Set(F.MoveSpeed, 0.25f), Set(F.Interval, 0.6f), Set(F.Knockback, 1.6f), Set(F.Stun, 0.25f), Set(F.Fury, 0.25f) },
+                evolution = new EvolutionSpec
+                {
+                    id = "juggernaut", name = "Juggernaut", passiveId = PassiveIds.WINDSTRIDE_BOOTS,
+                    description = "The rampage never ends: +30% move speed and wider, crimson stomps, always.",
+                    overrides = new[] { Set(F.Damage, 55), Set(F.Radius, 4.4f), Set(F.MoveSpeed, 0.3f), Set(F.Stun, 0.4f) },
                 },
             }),
         };

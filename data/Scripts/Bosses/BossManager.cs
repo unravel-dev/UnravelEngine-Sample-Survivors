@@ -16,9 +16,10 @@ namespace Survivors
     /// <summary>
     /// Spawns and steps the mini-bosses and the Hollow King: entities with full animation driving a proxy row of the
     /// enemy world, so every weapon hits them like any enemy (see <see cref="Boss"/>). Owns what outlives one boss:
-    /// the pending hazards, the boss bar and off-screen marker, the camera zoom of a boss that has one, the drops and
-    /// save flags of a kill, the +1 reroll per mini-boss (at most +2 per run) and the King's victory sequence. Main
-    /// thread; the director calls <see cref="Tick"/> once per frame while the run plays, before the enemy world steps.
+    /// the pending hazards, the ward around the fight, Death's Mark, the boss bar and off-screen marker, the camera zoom of
+    /// a boss that has one, the drops and save flags of a kill, the +1 reroll per mini-boss (at most +2 per run) and the
+    /// King's victory sequence. Main thread; the director calls <see cref="Tick"/> once per frame while the run plays,
+    /// before the enemy world steps.
     /// </summary>
     public sealed class BossManager
     {
@@ -28,16 +29,21 @@ namespace Survivors
         private const float DEATH_BURST_HEIGHT = 2.0f;
         private const float DEATH_BURST_SIZE = 6.0f;
         private const float DEATH_BURST_SECONDS = 1.0f;
-        private const float DEATH_HIT_STOP = 0.1f;
         private const float DEATH_SHAKE = 0.5f;
         private const float DEATH_SHAKE_SECONDS = 0.5f;
         /// <summary>A mini-boss's chest also holds a Lodestone of this value.</summary>
         private const float LODESTONE_VALUE = 1.0f;
+        /// <summary>A beaten mini-boss leaves roasts for the wounds of the fight.</summary>
+        private const int DEATH_ROASTS = 2;
+        /// <summary>A mini-boss falls in slow motion for this long (real seconds).</summary>
+        private const float DEATH_SLOW_SCALE = 0.25f;
+        private const float DEATH_SLOW_SECONDS = 0.8f;
 
         private readonly Run run;
         private readonly List<Boss> bosses = new List<Boss>(4);
         private BossFx fx;
         private BossHazards hazards;
+        private float slowMotionLeft;
         private KingVictory victory;
         private Vector3[] obstacles;
         private int rerollsGranted;
@@ -46,7 +52,17 @@ namespace Survivors
         public BossManager(Run run)
         {
             this.run = run;
+            mark = new DeathMark(run);
         }
+
+        /// <summary>The ward around the fight; null before the first boss rises (see <see cref="EnsureShared"/>).</summary>
+        public BarrowWard ward { get; private set; }
+
+        /// <summary>What lands after the boss moved on; null before the first boss rises.</summary>
+        public BossHazards pending => hazards;
+
+        /// <summary>What boss hits do to the hero (see <see cref="DeathMark"/>).</summary>
+        public DeathMark mark { get; }
 
         /// <summary>Whether a mini-boss is alive (the director halves its budget meanwhile).</summary>
         public bool isMiniBossAlive
@@ -64,6 +80,25 @@ namespace Survivors
             }
         }
 
+        /// <summary>The newest living boss (the test autopilot dances around it), or null.</summary>
+        public Boss featured
+        {
+            get
+            {
+                for (int i = bosses.Count - 1; i >= 0; i--)
+                {
+                    if (bosses[i].isAlive)
+                    {
+                        return bosses[i];
+                    }
+                }
+                return null;
+            }
+        }
+
+        /// <summary>The featured boss with its health, for test reports; "-" with none.</summary>
+        public string featuredReport => featured != null ? $"{featured.kind}:{featured.healthFraction:0.00}" : "-";
+
         /// <summary>Whether the King's victory sequence is playing.</summary>
         public bool isVictoryPlaying => victory != null && victory.isPlaying;
 
@@ -79,6 +114,12 @@ namespace Survivors
             Boss boss = Create(kind);
             bosses.Add(boss);
             boss.Spawn(position);
+            if (!ward.isUp)
+            {
+                run.mapEvents.Clear();
+                run.director.deadRing.Clear();
+                ward.Raise((run.hero.position + boss.groundPosition) * 0.5f, boss.arenaRadius, boss.arenaColor, true);
+            }
             if (boss.cameraZoom != Boss.NO_ZOOM)
             {
                 run.cameraRig.zoom = boss.cameraZoom;
@@ -92,6 +133,9 @@ namespace Survivors
                 return;
             }
             hazards.Tick(dt);
+            ward.Tick(dt);
+            mark.Tick(dt);
+            TickSlowMotion();
             for (int i = bosses.Count - 1; i >= 0; i--)
             {
                 Boss boss = bosses[i];
@@ -114,7 +158,10 @@ namespace Survivors
             }
             bosses.Clear();
             hazards?.Clear();
+            ward?.Lower();
             victory?.Cancel();
+            mark.ResetRun();
+            slowMotionLeft = 0.0f;
             rerollsGranted = 0;
             if (fx != null)
             {
@@ -144,6 +191,11 @@ namespace Survivors
                 Vector3 at = boss.groundPosition;
                 boss.OnProxyDied();
                 run.save?.RecordBossDefeated(boss.defeatId);
+                if (featured == null)
+                {
+                    ward.Lower();
+                    mark.Clear();
+                }
                 if (boss.isMiniBoss)
                 {
                     OnMiniBossKilled(boss, at);
@@ -173,6 +225,7 @@ namespace Survivors
             }
             fx = new BossFx(run.effectsRoot);
             hazards = new BossHazards(run, fx);
+            ward = new BarrowWard(run);
             victory = new KingVictory(run, fx);
             obstacles = CollectObstacles();
         }
@@ -190,9 +243,23 @@ namespace Survivors
             return circles;
         }
 
+        /// <summary>A beaten mini-boss's slow motion ends after real seconds.</summary>
+        private void TickSlowMotion()
+        {
+            if (slowMotionLeft <= 0.0f)
+            {
+                return;
+            }
+            slowMotionLeft -= Time.unscaledDeltaTime;
+            if (slowMotionLeft <= 0.0f && run.phase == RunPhase.Playing)
+            {
+                run.clock.EndSlowMotion();
+            }
+        }
+
         /// <summary>
-        /// Mini-boss drops: a chest of 3 items (5 with luck), the boss's gold, a Lodestone and +1 reroll (at most +2
-        /// per run), with a burst, a hit stop and a banner.
+        /// Mini-boss drops: a chest of 3 items (5 with luck), the boss's gold, a Lodestone, roasts and +1 reroll (at most
+        /// +2 per run), with a burst, a moment of slow motion and a banner.
         /// </summary>
         private void OnMiniBossKilled(Boss boss, Vector3 at)
         {
@@ -200,6 +267,10 @@ namespace Survivors
             pickups.Spawn(PickupKind.Chest, at, run.drops.RollChestItems(Drops.ChestSource.MiniBoss));
             pickups.Spawn(PickupKind.Gold, at, boss.goldReward);
             pickups.Spawn(PickupKind.Magnet, at, LODESTONE_VALUE);
+            for (int i = 0; i < DEATH_ROASTS; i++)
+            {
+                pickups.Spawn(PickupKind.Food, at, 1.0f);
+            }
             bool isRerollGranted = rerollsGranted < MAX_REROLLS_FROM_BOSSES;
             if (isRerollGranted)
             {
@@ -212,7 +283,8 @@ namespace Survivors
             fx.Burst(fx.eliteBeam, at, 1);
             run.sounds.PlayAt("boss_death", at);
             run.sounds.PlayAt("boss_chest_drop", at);
-            run.feedback.HitStop(DEATH_HIT_STOP, bypassGap: true);
+            run.clock.SetSlowMotion(DEATH_SLOW_SCALE);
+            slowMotionLeft = DEATH_SLOW_SECONDS;
             run.feedback.Shake(DEATH_SHAKE, DEATH_SHAKE_SECONDS);
             run.ui.FlashScreen(false);
             string banner = isRerollGranted ? $"{boss.displayName} falls  +1 Reroll" : $"{boss.displayName} falls";
@@ -240,7 +312,8 @@ namespace Survivors
             if (featured != null && !isVictoryPlaying)
             {
                 isBarShown = true;
-                run.ui.SetBossBar(featured.displayName, featured.title, featured.healthFraction, featured.phaseMarks);
+                string stackTitle = mark.stackTitle;
+                run.ui.SetBossBar(featured.displayName, stackTitle.Length > 0 ? stackTitle : featured.title, featured.healthFraction, featured.phaseMarks);
                 return;
             }
             if (isBarShown)

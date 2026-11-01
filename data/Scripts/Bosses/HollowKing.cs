@@ -7,25 +7,31 @@ namespace Survivors
     /// The Hollow King, the 14:00 boss: a 7.5 m skeleton king with a great axe and a green core. Its health grows with
     /// the hero's level. Three phases (100-65-30-0% health) add attacks, shorten wind-ups (telegraph scale 1.0 / 0.9 /
     /// 0.8) and gaps (1.6 / 1.2 / 0.9 s) and speed its walk (2.6 / 3.0 / 3.4 m/s). Between phases it kneels
-    /// invulnerable for 2.5 s, roars, and a shockwave pushes the hero 4 m and kills every add within 10 m. At 16:30 it
-    /// enrages: every attack, wind-ups x0.6, damage x2, violet decals, an extra Bone Rain every 5 s. Attacks are picked
-    /// by weight, never the same one twice in a row; every big wind-up has its own audio sting 0.2 s in; recoveries
-    /// make the core glow brighter. Walking into its body hurts (20 per 0.5 s).
+    /// invulnerable for 2.5 s, roars, and a shockwave pushes the hero 4 m and kills every add within 10 m. In phase 2 its
+    /// Cleave Sweep comes back as a reverse swing (phase 3: twice) and Soul Chains drag the hero in while a ring around
+    /// the King fills: run against them or take the blast. In phase 3 the ward closes in: the last stand is fought close.
+    /// 180 s into the fight it enrages: every attack, wind-ups x0.6, violet decals, an extra Bone Rain every 5 s. Attacks
+    /// are picked by weight, never the same one twice in a row; every big wind-up has its own audio sting 0.2 s in;
+    /// recoveries make the core glow brighter.
     /// </summary>
     public sealed class HollowKing : Boss
     {
         /// <summary>Health: this much per hero level, clamped between MIN_HEALTH and MAX_HEALTH.</summary>
-        private const float HEALTH_PER_LEVEL = 1700.0f;
-        private const float MIN_HEALTH = 40000.0f;
-        private const float MAX_HEALTH = 75000.0f;
+        private const float HEALTH_PER_LEVEL = 2200.0f;
+        private const float MIN_HEALTH = 55000.0f;
+        private const float MAX_HEALTH = 100000.0f;
         /// <summary>The gold shower of his fall.</summary>
         private const int GOLD = 200;
         /// <summary>The camera pulls out 15% for his size and reach.</summary>
         private const float CAMERA_ZOOM = 1.15f;
         private const float RISE_BANNER_SECONDS = 3.0f;
         private const float RISE_SHAKE = 0.45f;
-        /// <summary>Run time (s) of the hard enrage: 16:30.</summary>
-        private const float ENRAGE_SECOND = 16.0f * 60.0f + 30.0f;
+        /// <summary>Seconds of fighting before the hard enrage.</summary>
+        private const float ENRAGE_SECONDS = 180.0f;
+        private const float ARENA_RADIUS = 24.0f;
+        /// <summary>Phase 3: the ward closes in to this radius over this long.</summary>
+        private const float LAST_STAND_RADIUS = 14.0f;
+        private const float LAST_STAND_SECONDS = 25.0f;
         private const float PHASE_TWO_SHARE = 0.65f;
         private const float PHASE_THREE_SHARE = 0.3f;
         private static readonly float[] PHASE_MARKS = { PHASE_TWO_SHARE, PHASE_THREE_SHARE };
@@ -33,19 +39,20 @@ namespace Survivors
         private static readonly float[] GAPS = { 1.6f, 1.2f, 0.9f };
         private static readonly float[] TELEGRAPH_SCALES = { 1.0f, 0.9f, 0.8f };
         private const float ENRAGE_TELEGRAPH_SCALE = 0.6f;
-        private const float ENRAGE_DAMAGE = 2.0f;
         private const float TURN_RATE = 110.0f;
         private const float AIM_TURN_RATE = 540.0f;
         private const float STOP_DISTANCE = 4.0f;
         private const float FIRST_ATTACK_DELAY = 1.0f;
 
-        private const float CONTACT_DAMAGE = 20.0f;
-        private const float CONTACT_INTERVAL = 0.5f;
+        private const float CONTACT_DAMAGE = 30.0f;
 
         private const float CLEAVE_WINDUP = 1.0f;
         private const float CLEAVE_RADIUS = 6.5f;
         private const float CLEAVE_HALF_ANGLE = 100.0f;
-        private const float CLEAVE_DAMAGE = 45.0f;
+        private const float CLEAVE_DAMAGE = 75.0f;
+        /// <summary>A reverse swing's wind-up as a share of the first swing's, after this share of its recovery.</summary>
+        private const float COMBO_WINDUP_SHARE = 0.65f;
+        private const float COMBO_RECOVERY_SHARE = 0.4f;
         private const float CLEAVE_KNOCKBACK = 4.0f;
         private const float CLEAVE_RECOVERY = 1.2f;
 
@@ -54,7 +61,7 @@ namespace Survivors
         private const float SLAM_HALF_WIDTH = 1.5f;
         /// <summary>Spikes erupt at 0.04 s per metre: 25 m/s.</summary>
         private const float SLAM_ERUPTION_SPEED = 25.0f;
-        private const float SLAM_DAMAGE = 55.0f;
+        private const float SLAM_DAMAGE = 90.0f;
         private const float SLAM_RECOVERY = 1.4f;
         private const float SLAM_STUCK_DAMAGE_TAKEN = 1.5f;
         private const float SLAM_IMPACT_OFFSET = 3.0f;
@@ -68,7 +75,7 @@ namespace Survivors
         private const float RAIN_HERO_INTERVAL = 0.3f;
         private const float RAIN_RADIUS = 1.8f;
         private const float RAIN_SPREAD = 9.0f;
-        private const float RAIN_DAMAGE = 30.0f;
+        private const float RAIN_DAMAGE = 50.0f;
         private const float RAIN_CAST = 0.65f;
         private const float RAIN_RECOVERY = 0.6f;
         private const float EXTRA_RAIN_INTERVAL = 5.0f;
@@ -91,7 +98,7 @@ namespace Survivors
         private const float SPIRAL_WINDUP = 0.8f;
         private const float SPIRAL_SECONDS = 4.0f;
         private const float SPIRAL_RADIUS = 3.5f;
-        private const float SPIRAL_DAMAGE = 20.0f;
+        private const float SPIRAL_DAMAGE = 30.0f;
         private const float SPIRAL_INTERVAL = 0.5f;
         private const float SPIRAL_SPEED = 3.2f;
         private const float SPIRAL_SPEED_LATE = 3.8f;
@@ -109,16 +116,27 @@ namespace Survivors
         private const float NOVA_MAX_RADIUS = 20.0f;
         private const float NOVA_GAP_HALF_ANGLE = 30.0f;
         private const float NOVA_GAP_TURN = 30.0f;
-        private const float NOVA_DAMAGE = 35.0f;
+        private const float NOVA_DAMAGE = 55.0f;
         private const float NOVA_RECOVERY = 1.0f;
         private static readonly float[] NOVA_WARNING_RADII = { 4.0f, 5.5f, 7.0f };
+
+        private const float CHAINS_WINDUP = 2.4f;
+        private const float CHAINS_RADIUS = 7.0f;
+        private const float CHAINS_PULL = 2.6f;
+        private const float CHAINS_DAMAGE = 85.0f;
+        private const float CHAINS_RECOVERY = 1.0f;
+        private const float CHAINS_DAMAGE_TAKEN = 1.3f;
+        private const float CHAIN_LINK_INTERVAL = 0.06f;
+        private const float CHAIN_LINK_SPACING = 1.1f;
+        private const float CHAIN_LINK_SIZE = 0.5f;
+        private const int CHAIN_LINKS_MAX = 24;
 
         private const float TRANSITION_SECONDS = 2.5f;
         private const float TRANSITION_ROAR_AT = 0.9f;
         private const float TRANSITION_WAVE_AT = 1.5f;
         private const float SHOCKWAVE_REACH = 14.0f;
         private const float SHOCKWAVE_PUSH = 4.0f;
-        private const float SHOCKWAVE_DAMAGE = 15.0f;
+        private const float SHOCKWAVE_DAMAGE = 30.0f;
         private const float SHOCKWAVE_ADD_RADIUS = 10.0f;
         private const float SHOCKWAVE_SIZE = 28.0f;
         private const float TRANSITION_GAP = 0.8f;
@@ -136,7 +154,6 @@ namespace Survivors
         private static readonly Color VOID_TINT = new Color(0.36f, 0.27f, 0.47f, 1.0f);
         private static readonly Color CORE_GREEN = new Color(0.3f, 1.0f, 0.45f, 1.0f);
         private static readonly Color RAISE_GREEN = new Color(0.45f, 1.0f, 0.3f, 1.0f);
-        private static readonly Color ENRAGE_VIOLET = new Color(0.62f, 0.25f, 1.0f, 1.0f);
 
         private enum Attack
         {
@@ -147,6 +164,7 @@ namespace Survivors
             RaiseLegion,
             DeathSpiral,
             SoulNova,
+            SoulChains,
             Count,
         }
 
@@ -180,6 +198,7 @@ namespace Survivors
             new AttackRule(2.0f, 2, 20.0f, 40.0f),
             new AttackRule(2.0f, 2, 0.0f, 12.0f),
             new AttackRule(2.0f, 3, 12.0f, 18.0f),
+            new AttackRule(2.5f, 2, 14.0f, 20.0f),
         };
 
         private readonly float[] cooldowns = new float[(int)Attack.Count];
@@ -188,9 +207,11 @@ namespace Survivors
         private readonly Vector3[] novaGaps = new Vector3[NOVA_RINGS];
         private readonly int[] scratch = new int[SCRATCH];
         private readonly float healthTarget;
+        private readonly int chainLink;
 
         private int phase = 1;
-        private bool isEnraged;
+        private int combosLeft;
+        private float chainTimer;
         private Attack attack = Attack.None;
         private Attack lastAttack = Attack.None;
         private float attackTime;
@@ -206,7 +227,6 @@ namespace Survivors
         private float spinHitTimer;
         private float whooshTimer;
         private float motesTimer;
-        private float contactTimer;
         private float extraRainTimer;
         private int extraRainPending;
         private float extraRainNext;
@@ -221,6 +241,7 @@ namespace Survivors
             : base(run, fx, hazards, BossKind.HollowKing, obstacles)
         {
             healthTarget = Math.Clamp(HEALTH_PER_LEVEL * run.level, MIN_HEALTH, MAX_HEALTH);
+            chainLink = run.effects.Find("BossChainLink");
         }
 
         public override string title => "Lord of the Barrows";
@@ -235,8 +256,14 @@ namespace Survivors
 
         public override float cameraZoom => CAMERA_ZOOM;
 
-        /// <summary>clamp(1700 x level, 40000, 75000), with the level he was summoned at.</summary>
+        public override float arenaRadius => ARENA_RADIUS;
+
+        /// <summary>clamp(2200 x level, 55000, 100000), with the level he was summoned at.</summary>
         protected override float maxHealth => healthTarget;
+
+        protected override float contactDamage => CONTACT_DAMAGE;
+
+        protected override float enrageSeconds => ENRAGE_SECONDS;
 
         protected override string prefabKey => "app:/data/Prefabs/Bosses/Boss_HollowKing.pfb";
 
@@ -261,8 +288,6 @@ namespace Survivors
 
         private float telegraphScale => isEnraged ? ENRAGE_TELEGRAPH_SCALE : TELEGRAPH_SCALES[phase - 1];
 
-        private float damageScale => isEnraged ? ENRAGE_DAMAGE : 1.0f;
-
         private bool isLate => phase >= 3 || isEnraged;
 
         protected override void TickFight(float dt)
@@ -271,7 +296,6 @@ namespace Survivors
             {
                 cooldowns[i] -= dt;
             }
-            CheckEnrage();
             CheckPhase();
             TickBehaviour(dt);
             // After the behaviour: the core reads this frame's recovery glow.
@@ -308,11 +332,10 @@ namespace Survivors
             {
                 TickAttack(dt);
             }
-            if (attack != Attack.DeathSpiral)
-            {
-                TickContact(dt);
-            }
         }
+
+        /// <summary>Its spin hits on its own beat.</summary>
+        protected override bool IsTouchingHero() => attack != Attack.DeathSpiral && base.IsTouchingHero();
 
         // -------------------------------------------------------------------------------------------------------------
         // Phases, enrage, the core
@@ -335,19 +358,7 @@ namespace Survivors
             }
         }
 
-        private void CheckEnrage()
-        {
-            if (isEnraged || run.runTime < ENRAGE_SECOND)
-            {
-                return;
-            }
-            isEnraged = true;
-            fx.dangerColor = ENRAGE_VIOLET;
-            extraRainTimer = EXTRA_RAIN_INTERVAL;
-            run.ui.ShowBanner("The Hollow King is enraged", 3.0f, true);
-            run.sounds.PlayAt("king_enrage", position);
-            run.feedback.Shake(0.5f, 0.6f);
-        }
+        protected override void OnEnraged() => extraRainTimer = EXTRA_RAIN_INTERVAL;
 
         /// <summary>The green core in the rib cage: a glow that pulses with the King's state, brighter in recoveries.</summary>
         private void TickCore(float dt)
@@ -359,7 +370,7 @@ namespace Survivors
                 if (crackTimer <= 0.0f)
                 {
                     crackTimer = CRACK_PULSE_INTERVAL;
-                    fx.Burst(fx.crackPulse, new Vector3(position.x, Tuning.TELEGRAPH_HEIGHT, position.z), 1, isEnraged ? ENRAGE_VIOLET : CORE_GREEN, CRACK_PULSE_SIZE, CRACK_PULSE_INTERVAL);
+                    fx.Burst(fx.crackPulse, new Vector3(position.x, Tuning.TELEGRAPH_HEIGHT, position.z), 1, isEnraged ? fx.dangerColor : CORE_GREEN, CRACK_PULSE_SIZE, CRACK_PULSE_INTERVAL);
                 }
             }
             coreTimer -= dt;
@@ -414,6 +425,11 @@ namespace Survivors
             isTransitioning = false;
             phase = Math.Min(phase + 1, 3);
             gap = TRANSITION_GAP;
+            if (phase == 3)
+            {
+                run.director.bosses.ward.CloseTo(LAST_STAND_RADIUS, LAST_STAND_SECONDS);
+                run.ui.ShowBanner("The barrow closes in", 3.0f, true);
+            }
             animator.Walk(0.0f);
         }
 
@@ -437,21 +453,8 @@ namespace Survivors
         }
 
         // -------------------------------------------------------------------------------------------------------------
-        // Contact and the enrage's extra Bone Rain
+        // The enrage's extra Bone Rain
         // -------------------------------------------------------------------------------------------------------------
-
-        private void TickContact(float dt)
-        {
-            contactTimer -= dt;
-            if (contactTimer > 0.0f || !hasHero)
-            {
-                return;
-            }
-            if (BossGeometry.InCircle(heroPosition, position, radius, heroGrace) && HitHero(CONTACT_DAMAGE * damageScale, position))
-            {
-                contactTimer = CONTACT_INTERVAL;
-            }
-        }
 
         private void TickExtraRain(float dt)
         {
@@ -526,9 +529,8 @@ namespace Survivors
             switch (next)
             {
                 case Attack.CleaveSweep:
-                    windup = CLEAVE_WINDUP * telegraphScale;
-                    animator.PlayToImpact("HeavySlice", windup, 0.12f);
-                    fx.Arc(position, aim, CLEAVE_RADIUS, windup);
+                    combosLeft = isEnraged ? 2 : phase - 1;
+                    StartSwing(CLEAVE_WINDUP * telegraphScale);
                     break;
                 case Attack.GraveSlam:
                     windup = SLAM_WINDUP * telegraphScale;
@@ -557,6 +559,13 @@ namespace Survivors
                     animator.Play("Spin", 0.15f, SPIRAL_SPIN_UP_PLAYBACK);
                     fx.Circle(position, SPIRAL_RADIUS, windup);
                     break;
+                case Attack.SoulChains:
+                    windup = CHAINS_WINDUP * telegraphScale;
+                    chainTimer = 0.0f;
+                    animator.PlayToImpact("CastRaise", windup, 0.15f);
+                    fx.Circle(position, CHAINS_RADIUS, windup);
+                    run.sounds.PlayAt("king_raise_sting", position);
+                    break;
                 case Attack.SoulNova:
                     windup = NOVA_WINDUP * telegraphScale;
                     animator.PlayToImpact("CastRaise", windup, 0.15f);
@@ -573,8 +582,20 @@ namespace Survivors
         private void EndAttack(float extraGap)
         {
             attack = Attack.None;
-            gap = GAPS[phase - 1] + extraGap;
+            gap = ScaleGap(GAPS[phase - 1]) + extraGap;
             animator.Walk(0.0f);
+        }
+
+        /// <summary>One sweep of the Cleave: the arc fills over the wind-up.</summary>
+        private void StartSwing(float seconds)
+        {
+            windup = seconds;
+            attackTime = 0.0f;
+            stung = false;
+            struck = false;
+            aim = toHero;
+            animator.PlayToImpact("HeavySlice", windup, 0.12f);
+            fx.Arc(position, aim, CLEAVE_RADIUS, windup);
         }
 
         /// <summary>Drops the attack in progress (phase change, hero gone); hazards already on the ground still land.</summary>
@@ -611,6 +632,9 @@ namespace Survivors
                 case Attack.SoulNova:
                     TickNova(dt);
                     break;
+                case Attack.SoulChains:
+                    TickChains(dt);
+                    break;
             }
         }
 
@@ -636,15 +660,78 @@ namespace Survivors
                 run.sounds.PlayAt("king_cleave_hit", position);
                 run.feedback.Shake(0.45f, 0.35f);
                 if (BossGeometry.InSector(heroPosition, position, aim, CLEAVE_RADIUS, CLEAVE_HALF_ANGLE, heroGrace)
-                    && HitHero(CLEAVE_DAMAGE * damageScale, position))
+                    && HitHero(CLEAVE_DAMAGE, position))
                 {
                     KnockHeroFrom(position, CLEAVE_KNOCKBACK);
                 }
             }
             glowBoost = RECOVERY_GLOW;
+            if (combosLeft > 0 && attackTime >= windup + CLEAVE_RECOVERY * COMBO_RECOVERY_SHARE)
+            {
+                combosLeft--;
+                StartSwing(CLEAVE_WINDUP * telegraphScale * COMBO_WINDUP_SHARE);
+                return;
+            }
             if (attackTime >= windup + CLEAVE_RECOVERY)
             {
                 EndAttack(0.0f);
+            }
+        }
+
+        // -------------------------------------------------------------------------------------------------------------
+        // Soul Chains: green chains drag the hero toward the King while a ring around him fills; whoever is inside when
+        // it ends takes the blast. He stands open for a moment after it.
+        // -------------------------------------------------------------------------------------------------------------
+
+        private void TickChains(float dt)
+        {
+            Stand(dt);
+            TurnTowards(toHero, TURN_RATE, dt);
+            if (attackTime < windup)
+            {
+                if (hasHero)
+                {
+                    run.hero.AddPull(-toHero * (CHAINS_PULL * speedFactor));
+                    DrawChain(dt);
+                }
+                return;
+            }
+            if (!struck)
+            {
+                struck = true;
+                animator.SetPlayback(1.0f);
+                fx.Burst(fx.phaseShockwave, new Vector3(position.x, Tuning.TELEGRAPH_HEIGHT, position.z), 1, RAISE_GREEN, CHAINS_RADIUS * 2.0f, 0.45f);
+                fx.Burst(fx.slamDust, position, 1, Color.white, CHAINS_RADIUS * 1.6f, 0.8f);
+                run.sounds.PlayAt("phase_shockwave", position);
+                run.feedback.Shake(0.55f, 0.45f);
+                if (BossGeometry.InCircle(heroPosition, position, CHAINS_RADIUS, heroGrace))
+                {
+                    HitHero(CHAINS_DAMAGE, position);
+                }
+            }
+            vulnerability = CHAINS_DAMAGE_TAKEN;
+            glowBoost = RECOVERY_GLOW;
+            if (attackTime >= windup + CHAINS_RECOVERY)
+            {
+                EndAttack(0.0f);
+            }
+        }
+
+        /// <summary>Glowing links from the King's chest to the hero, re-drawn on an interval.</summary>
+        private void DrawChain(float dt)
+        {
+            chainTimer -= dt;
+            if (chainTimer > 0.0f)
+            {
+                return;
+            }
+            chainTimer = CHAIN_LINK_INTERVAL;
+            Vector3 from = GetChest();
+            Vector3 to = heroPosition + new Vector3(0.0f, CHEST_HEIGHT, 0.0f);
+            int links = Math.Clamp((int)((to - from).magnitude / CHAIN_LINK_SPACING), 1, CHAIN_LINKS_MAX);
+            for (int i = 0; i <= links; i++)
+            {
+                run.effects.EmitSized(chainLink, Vector3.Lerp(from, to, (float)i / links), 1, RAISE_GREEN, CHAIN_LINK_SIZE);
             }
         }
 
@@ -841,7 +928,7 @@ namespace Survivors
             }
             spinHitTimer -= dt;
             if (spinHitTimer <= 0.0f && BossGeometry.InCircle(heroPosition, position, SPIRAL_RADIUS, heroGrace)
-                && HitHero(SPIRAL_DAMAGE * damageScale, position))
+                && HitHero(SPIRAL_DAMAGE, position))
             {
                 spinHitTimer = SPIRAL_INTERVAL;
             }

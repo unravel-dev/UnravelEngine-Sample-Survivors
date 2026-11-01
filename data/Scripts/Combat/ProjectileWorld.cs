@@ -40,14 +40,17 @@ namespace Survivors
         public Color tint = Color.white;
         /// <summary>Takes the projectile's own tint when it has one (an Arcane Echo cast); white-hot cores do not.</summary>
         public bool takesSpawnTint = true;
+        /// <summary>Drawn on the ground under the projectile: where it really flies, seen from the tilted camera.</summary>
+        public bool onGround;
         internal int id = Effects.UNRESOLVED;
 
-        public ProjectileHead(string effect, float size, Color tint, bool takesSpawnTint = true)
+        public ProjectileHead(string effect, float size, Color tint, bool takesSpawnTint = true, bool onGround = false)
         {
             this.effect = effect;
             this.size = size;
             this.tint = tint;
             this.takesSpawnTint = takesSpawnTint;
+            this.onGround = onGround;
         }
     }
 
@@ -624,7 +627,8 @@ namespace Survivors
                 }
                 float headScale = p.headScale > 0.0f ? p.headScale : 1.0f;
                 Color tint = head.takesSpawnTint && p.headTint.a > 0.0f ? p.headTint : head.tint;
-                effects.EmitSized(head.id, p.position, 1, tint, head.size * p.scale * headScale);
+                Vector3 at = head.onGround ? new Vector3(p.position.x, Tuning.TELEGRAPH_HEIGHT, p.position.z) : p.position;
+                effects.EmitSized(head.id, at, 1, tint, head.size * p.scale * headScale);
             }
         }
 

@@ -150,7 +150,6 @@ namespace Survivors
             {
                 return;
             }
-            ui.PlaySound("ui_click");
             ui.OpenDetails(new DetailsRequest { kind = kind, slot = index });
         }
 

@@ -25,6 +25,14 @@ namespace Survivors
         private const float DISTANCE_STEP = 0.618034f;
         private const float FULL_CIRCLE_DEGREES = 360.0f;
         private const float THOUSAND = 1000.0f;
+        private const int DEV_FRAME_CAPACITY = 8192;
+        /// <summary>The run's level targets: about one level per this many seconds (level 34 at 14:00).</summary>
+        private const float SECONDS_PER_LEVEL = 25.0f;
+        private const float DEV_FRAME_PERCENTILE = 0.99f;
+
+        private float[] devFrameTimes;
+        private int devFrameCount;
+        private int devStopFrames;
 
         /// <summary>Spawns one of every archetype per tint in rows in front of the hero, held in place, for review.</summary>
         public int DevSpawnLineup(float holdSeconds = LINEUP_HOLD_SECONDS)
@@ -56,9 +64,65 @@ namespace Survivors
             string health = hero != null ? $"{hero.currentHealth:0}/{hero.maxHealth:0}" : "-";
             MapEvent active = mapEvents?.active;
             string mapEvent = active != null ? $"{active.kind}:{active.state}:{active.progress:0.00}:{active.timeLeft:0}" : "-";
+            string boss = director.bosses.featuredReport;
             return $"phase={phase} t={runTime:0.0} level={level} kills={record.kills} alive={enemies.count} projectiles={projectiles.count} " +
                    $"pickups={pickups.count} hp={health} gold={gold} taken={record.damageTaken:0} healed={record.totalHealed:0} [{DescribeHealing()}] " +
-                   $"event={mapEvent} weapons={DescribeWeapons()}";
+                   $"event={mapEvent} boss={boss} ring={director.deadRing.report} hurtBy={director.lastDamageSource?.Replace(' ', '_')} deaths={hero?.devDeaths ?? 0} weapons={DescribeWeapons()}";
+        }
+
+        /// <summary>
+        /// Frame times since the last call, for stutter checks: frames, mean, 99th percentile and longest frame in ms,
+        /// and how many frames a hit stop held the world.
+        /// </summary>
+        public string DevFrameTimes()
+        {
+            string result = "frames=0";
+            if (devFrameCount > 0)
+            {
+                Array.Sort(devFrameTimes, 0, devFrameCount);
+                float total = 0.0f;
+                for (int i = 0; i < devFrameCount; i++)
+                {
+                    total += devFrameTimes[i];
+                }
+                int percentile = (int)(devFrameCount * DEV_FRAME_PERCENTILE);
+                result = $"frames={devFrameCount} mean={total / devFrameCount * THOUSAND:0.00} p99={devFrameTimes[percentile] * THOUSAND:0.00} " +
+                         $"max={devFrameTimes[devFrameCount - 1] * THOUSAND:0.00} hitStopFrames={devStopFrames}";
+            }
+            devFrameCount = 0;
+            devStopFrames = 0;
+            devFrameTimes ??= new float[DEV_FRAME_CAPACITY];
+            return result;
+        }
+
+        /// <summary>One level as if earned: the autopilot picks its card at once.</summary>
+        private void DevGrantLevel()
+        {
+            AddExperience(Progression.GetExperienceToNext(level));
+        }
+
+        /// <summary>Notes one frame once <see cref="DevFrameTimes"/> has been called.</summary>
+        private void RecordDevFrame(float unscaledDt)
+        {
+            if (devFrameTimes == null || devFrameCount >= devFrameTimes.Length)
+            {
+                return;
+            }
+            devFrameTimes[devFrameCount++] = unscaledDt;
+            devStopFrames += clock.isStopping ? 1 : 0;
+        }
+
+        /// <summary>
+        /// Dev (boss tests from a late start): the hero as a typical run has it at this time: the class's weapons and passives
+        /// with ranks and levels spent by the autopilot's preferences, as many as the minutes of the run earned.
+        /// </summary>
+        public void DevGear()
+        {
+            int levels = (int)(runTime / SECONDS_PER_LEVEL);
+            for (int i = 0; i < levels; i++)
+            {
+                DevGrantLevel();
+            }
         }
 
         /// <summary>Turns the unattended-test switches on or off, at a game speed.</summary>
@@ -186,6 +250,35 @@ namespace Survivors
             }
         }
 
+        /// <summary>Dev: enemies of one archetype that act freely but hurt nobody, on a ring around the hero (shot reviews).</summary>
+        public int DevShooters(int archetype, int count, float radius)
+        {
+            if (hero == null)
+            {
+                return 0;
+            }
+            int spawned = 0;
+            for (int i = 0; i < count; i++)
+            {
+                Vector3 position = hero.position + Ground.FromYaw(i * FULL_CIRCLE_DEGREES / count) * radius;
+                var options = new SpawnOptions { healthScale = CROWD_HEALTH_SCALE, damageScale = 0.0f };
+                spawned += enemies.Spawn(EnemyCatalog.Get((Archetype)archetype, Tint.Bone), position, in options).isValid ? 1 : 0;
+            }
+            return spawned;
+        }
+
+        /// <summary>Dev: drops a pickup by kind name at a distance and angle from the hero (beacon reviews).</summary>
+        public void DevDrop(string kind, float distance, float yawDegrees)
+        {
+            if (hero != null && Enum.TryParse(kind, out PickupKind parsed))
+            {
+                pickups.Spawn(parsed, hero.position + Ground.FromYaw(yawDegrees) * distance, 1.0f, false);
+            }
+        }
+
+        /// <summary>Dev: lights Grave Lanterns near the hero now (loot reviews).</summary>
+        public void DevLanterns(int count) => director.DevLanterns(count);
+
         /// <summary>Dev: drops a chest of <paramref name="items"/> items at a distance in front of the hero (beacon reviews).</summary>
         public void DevDropChest(int items, float distance)
         {
@@ -251,6 +344,19 @@ namespace Survivors
 
         /// <summary>Dev: opens the Armory's inspect panel on an upgrade after banking extra gold, then buys ranks
         /// from the panel (both saved).</summary>
+        public void DevHeroAbility(int hero, int row) => ui.heroSelect.DevClickAbility(hero, row);
+
+        /// <summary>Dev: clicks a hero select card; a click on the selected one starts the run.</summary>
+        public void DevHeroCard(int hero) => ui.heroSelect.DevClickCard(hero);
+
+        /// <summary>Dev: closes the item details, as their close button does.</summary>
+        public void DevCloseDetails() => ui.CloseDetails();
+
+        /// <summary>Dev: presses the hero select's Dread buttons (a negative count presses minus).</summary>
+        public void DevHeroDread(int delta) => ui.heroSelect.ChangeDread(delta);
+
+        public string DevPhase() => phase.ToString();
+
         public void DevArmory(int index, int addGold, int buys)
         {
             if (save != null)
@@ -290,6 +396,16 @@ namespace Survivors
             cameraRig.pitch = pitch;
             cameraRig.baseDistance = distance;
             cameraRig.focusOffset = focusOffset;
+        }
+
+        /// <summary>Dev (boss tests): spare lives, so a fight runs to its end and costs a count of deaths instead of ending at the first.</summary>
+        public void DevSpareLives(int count)
+        {
+            if (hero != null)
+            {
+                hero.devSpareLives = count;
+                hero.devDeaths = 0;
+            }
         }
 
         /// <summary>Makes the hero untouchable, for long captures.</summary>

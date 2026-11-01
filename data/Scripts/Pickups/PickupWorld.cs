@@ -49,11 +49,22 @@ namespace Survivors
         public float glowPulse;
     }
 
+    /// <summary>A chest or power-up in the world, for its beacon and marker.</summary>
+    public struct PickupBeacon
+    {
+        public Vector3 position;
+        public PickupKind kind;
+        /// <summary>A chest's item count.</summary>
+        public float value;
+        /// <summary>Still hanging in a Grave Lantern.</summary>
+        public bool isHeld;
+    }
+
     /// <summary>
     /// Every pickup on the ground as rows: gems, gold, food, magnets, bombs and chests. Pickups within the hero's
-    /// magnet radius fly to the hero, accelerating; collecting calls <see cref="onCollect"/>. Far gems merge per cell
-    /// every few seconds; gems beyond the cap go into one huge gem worth their sum. Drawn instanced per kind with the
-    /// looks it owns. Main thread.
+    /// magnet radius fly to the hero, accelerating; collecting calls <see cref="onCollect"/>. A Grave Lantern holds its
+    /// loot as a row that hangs in place until the lantern breaks. Far gems merge per cell every few seconds; gems beyond
+    /// the cap go into one huge gem worth their sum. Drawn instanced per kind with the looks it owns. Main thread.
     /// </summary>
     public sealed class PickupWorld
     {
@@ -78,6 +89,8 @@ namespace Survivors
         private const float BOB_PHASE_PER_ROW = 0.37f;
         /// <summary>The bob phase turned into a spin offset (about degrees per radian), so neighbours do not spin in step.</summary>
         private const float SPIN_PHASE_DEGREES = 57.0f;
+        /// <summary>A pickup held by a Grave Lantern hangs this much higher than it would hover on the ground.</summary>
+        private const float HELD_LIFT = 1.9f;
         /// <summary>The huge gem grows by this share per tenfold of its value, up to the maximum.</summary>
         private const float HUGE_GEM_GROWTH_PER_DECADE = 0.25f;
         private const float HUGE_GEM_MAX_GROWTH = 0.8f;
@@ -98,6 +111,8 @@ namespace Survivors
         private readonly float[] attractSpeed;
         private readonly bool[] attracted;
         private readonly bool[] alive;
+        /// <summary>Hangs in a Grave Lantern until it breaks: not collected, not attracted, not merged.</summary>
+        private readonly bool[] held;
         private readonly PickupVisual[] visuals = new PickupVisual[(int)PickupKind.Count];
         private readonly int[] kindCounts = new int[(int)PickupKind.Count];
         private readonly int[] kindStarts = new int[(int)PickupKind.Count];
@@ -133,6 +148,7 @@ namespace Survivors
             attractSpeed = new float[this.capacity];
             attracted = new bool[this.capacity];
             alive = new bool[this.capacity];
+            held = new bool[this.capacity];
             drawTransforms = new Matrix4x4[this.capacity];
             drawPrevious = new Matrix4x4[this.capacity];
         }
@@ -189,7 +205,7 @@ namespace Survivors
             int total = 0;
             for (int row = 0; row < rowCount; row++)
             {
-                if (alive[row] && kinds[row] == kind)
+                if (alive[row] && !held[row] && kinds[row] == kind)
                 {
                     total++;
                 }
@@ -228,6 +244,7 @@ namespace Survivors
             ages[row] = 0.0f;
             attractSpeed[row] = ATTRACT_START_SPEED;
             attracted[row] = false;
+            held[row] = false;
             alive[row] = true;
             liveCount++;
             if (IsGem(kind))
@@ -237,6 +254,39 @@ namespace Survivors
             return row;
         }
 
+        /// <summary>A new pickup that hangs in place until <see cref="Release"/>; -1 when the world is full.</summary>
+        public int SpawnHeld(PickupKind kind, Vector3 position, float value)
+        {
+            int row = Spawn(kind, position, value, false);
+            if (row >= 0)
+            {
+                held[row] = true;
+            }
+            return row;
+        }
+
+        /// <summary>A held pickup drops to the ground with a pop, ready to collect.</summary>
+        public void Release(int row)
+        {
+            if (row < 0 || !alive[row] || !held[row])
+            {
+                return;
+            }
+            held[row] = false;
+            ages[row] = 0.0f;
+            Vector2 direction = Random.insideUnitCircle;
+            popVelocity[row] = new Vector3(direction.x, 0.0f, direction.y) * SPAWN_POP_SPEED;
+        }
+
+        /// <summary>A held pickup goes without ever dropping (its lantern was cleared away).</summary>
+        public void RemoveHeld(int row)
+        {
+            if (row >= 0 && alive[row] && held[row])
+            {
+                Remove(row);
+            }
+        }
+
         /// <summary>Sends the gems and gold within a radius of a point to the hero (wisps carrying gems).</summary>
         public int AttractWithin(Vector3 center, float radius)
         {
@@ -244,7 +294,7 @@ namespace Survivors
             int attractedCount = 0;
             for (int row = 0; row < rowCount; row++)
             {
-                if (!alive[row] || attracted[row] || !IsAttractable(kinds[row]))
+                if (!alive[row] || attracted[row] || held[row] || !IsAttractable(kinds[row]))
                 {
                     continue;
                 }
@@ -262,39 +312,22 @@ namespace Survivors
         {
             for (int row = 0; row < rowCount; row++)
             {
-                if (alive[row] && IsAttractable(kinds[row]))
+                if (alive[row] && !held[row] && IsAttractable(kinds[row]))
                 {
                     attracted[row] = true;
                 }
             }
         }
 
-        /// <summary>Positions of the pickups of a kind (chest markers); returns how many were written.</summary>
-        public int CollectPositions(PickupKind kind, Span<Vector3> buffer)
+        /// <summary>Every chest and power-up, on the ground or in a lantern (beacons, markers); returns how many were written.</summary>
+        public int CollectBeaconed(Span<PickupBeacon> output)
         {
             int written = 0;
-            for (int row = 0; row < rowCount && written < buffer.Length; row++)
+            for (int row = 0; row < rowCount && written < output.Length; row++)
             {
-                if (alive[row] && kinds[row] == kind)
+                if (alive[row] && PickupCatalog.HasBeacon(kinds[row]))
                 {
-                    buffer[written++] = positions[row];
-                }
-            }
-            return written;
-        }
-
-        /// <summary>Every chest on the ground with its item count (chest beacons); returns how many were written.</summary>
-        public int CollectChests(Span<Vector3> positionsOut, Span<float> itemsOut)
-        {
-            int written = 0;
-            int capacity = Math.Min(positionsOut.Length, itemsOut.Length);
-            for (int row = 0; row < rowCount && written < capacity; row++)
-            {
-                if (alive[row] && kinds[row] == PickupKind.Chest)
-                {
-                    positionsOut[written] = positions[row];
-                    itemsOut[written] = values[row];
-                    written++;
+                    output[written++] = new PickupBeacon { position = positions[row], kind = kinds[row], value = values[row], isHeld = held[row] };
                 }
             }
             return written;
@@ -353,8 +386,9 @@ namespace Survivors
                     continue;
                 }
                 int slot = kindStarts[kind] + kindCounts[kind]++;
-                drawTransforms[slot] = MakeTransform(visual, positions[row], time, row, values[row], kinds[row]);
-                drawPrevious[slot] = MakeTransform(visual, previous[row], time - Time.deltaTime, row, values[row], kinds[row]);
+                float lift = held[row] ? HELD_LIFT : 0.0f;
+                drawTransforms[slot] = MakeTransform(visual, positions[row], time, row, values[row], kinds[row], lift);
+                drawPrevious[slot] = MakeTransform(visual, previous[row], time - Time.deltaTime, row, values[row], kinds[row], lift);
             }
             for (int kind = 0; kind < visuals.Length; kind++)
             {
@@ -393,6 +427,10 @@ namespace Survivors
         private void StepRow(int row, float dt, float magnetSquared)
         {
             previous[row] = positions[row];
+            if (held[row])
+            {
+                return;
+            }
             ages[row] += dt;
             if (ages[row] < SPAWN_POP_TIME)
             {
@@ -455,7 +493,7 @@ namespace Survivors
             for (int row = 0; row < rowCount; row++)
             {
                 bool isCandidate = kind.HasValue ? kinds[row] == kind.Value : !attracted[row];
-                if (!alive[row] || !isCandidate)
+                if (!alive[row] || held[row] || !isCandidate)
                 {
                     continue;
                 }
@@ -504,7 +542,7 @@ namespace Survivors
             float limit = MERGE_DISTANCE * MERGE_DISTANCE;
             for (int row = 0; row < rowCount; row++)
             {
-                if (!alive[row] || attracted[row] || row == hugeGem || !IsGem(kinds[row]))
+                if (!alive[row] || attracted[row] || held[row] || row == hugeGem || !IsGem(kinds[row]))
                 {
                     continue;
                 }
@@ -547,10 +585,10 @@ namespace Survivors
             return true;
         }
 
-        private static Matrix4x4 MakeTransform(PickupVisual visual, Vector3 position, float time, int row, float value, PickupKind kind)
+        private static Matrix4x4 MakeTransform(PickupVisual visual, Vector3 position, float time, int row, float value, PickupKind kind, float lift)
         {
             float phase = row * BOB_PHASE_PER_ROW;
-            position.y = visual.height + MathF.Sin(time * BOB_SPEED + phase) * visual.bob;
+            position.y = visual.height + lift + MathF.Sin(time * BOB_SPEED + phase) * visual.bob;
             float scale = visual.scale;
             if (kind == PickupKind.GemHuge)
             {

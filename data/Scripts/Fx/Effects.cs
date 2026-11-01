@@ -94,7 +94,7 @@ namespace Survivors
         private static readonly HashSet<string> HERO_GROUPS = new HashSet<string>
         {
             "Hero", "Knight", "Barbarian", "Mage", "Rogue", "Weapons", "Trails", "MageFx", "KnightFx", "BarbarianFx", "RogueFx", "SharedFx",
-            "MageFx2", "KnightFx2", "BarbarianFx2", "RogueFx2",
+            "MageFx2", "KnightFx2", "BarbarianFx2", "RogueFx2", "MageFx3", "KnightFx3", "BarbarianFx3", "RogueFx3",
         };
 
         private readonly Dictionary<string, int> ids = new Dictionary<string, int>();

@@ -4,19 +4,18 @@ using Unravel.Core;
 namespace Survivors
 {
     /// <summary>
-    /// The HUD's pointers to what matters on the field, refreshed every frame of play: badges over chests on screen and
-    /// arrows toward chests, the gem cluster and elites off screen, and health bars over elites. The active map event
-    /// marks itself, so its robber gets no elite arrow here. Main thread.
+    /// The HUD's pointers to what matters on the field, refreshed every frame of play: badges over chests and power-ups on
+    /// screen and arrows toward them, the gem cluster and elites off screen, and health bars over elites. The active map
+    /// event marks itself, so its robber gets no elite arrow here. Main thread.
     /// </summary>
     public sealed class RunMarkers
     {
-        /// <summary>Elites with a health bar per frame, and chest and elite markers together; the UI draws at most 8.</summary>
+        /// <summary>Elites with a health bar per frame, and beacon and elite markers together; the UI draws at most 8.</summary>
         private const int MAX_MARKERS = 8;
         /// <summary>Elite health bars float this far (m) above the head.</summary>
         private const float ELITE_BAR_LIFT = 0.35f;
 
         private readonly Run run;
-        private readonly Vector3[] chests = new Vector3[MAX_MARKERS];
         private readonly int[] elites = new int[MAX_MARKERS];
 
         public RunMarkers(Run run)
@@ -28,16 +27,16 @@ namespace Survivors
         public void Show()
         {
             GameUI ui = run.ui;
-            int chestCount = run.pickups.CollectPositions(PickupKind.Chest, chests);
-            for (int i = 0; i < chestCount; i++)
+            ReadOnlySpan<PickupBeacon> beacons = run.pickupBeacons.current;
+            foreach (ref readonly PickupBeacon beacon in beacons)
             {
-                ui.ShowMarker(chests[i], MarkerKind.Chest);
+                ui.ShowMarker(beacon.position, PickupCatalog.GetMarker(beacon.kind));
             }
             if (run.pickups.TryGetHugeGem(out Vector3 cluster))
             {
                 ui.ShowMarker(cluster, MarkerKind.Treasure);
             }
-            ShowElites(Math.Max(0, MAX_MARKERS - chestCount));
+            ShowElites(Math.Max(0, MAX_MARKERS - beacons.Length));
         }
 
         /// <summary>A health bar over every elite found, and an arrow toward the first <paramref name="markerBudget"/>.</summary>

@@ -8,8 +8,8 @@
 </head>
 <!--
     Hero select. Model "heroes" is HeroSelectModel (HeroSelectScreen.cs): four cards from HeroCatalog with
-    stat bars, signature passive, active and starting weapon; locked heroes show the unlock hint; the Dread
-    selector appears after the first victory.
+    stat bars, signature passive, active and starting weapon (a tap on one opens its details); locked heroes
+    show the unlock hint; the Dread selector appears after the first victory.
 -->
 <body data-model="heroes" class="heroes">
     <div class="dim"/>
@@ -49,23 +49,26 @@
                         </div>
                     </div>
                     <div class="hero-abilities" data-if="!h.locked">
-                        <div class="ability">
+                        <div class="ability" data-event-click="ShowWeapon(i)">
                             <img class="ability-icon" data-attr-src="h.weaponIcon"/>
+                            <div class="ability-more">?</div>
                             <div class="ability-body">
                                 <div class="ability-kind">STARTING WEAPON</div>
                                 <div class="ability-name">{{ h.weaponName }}</div>
                             </div>
                         </div>
-                        <div class="ability">
+                        <div class="ability" data-event-click="ShowPassive(i)">
                             <img class="ability-icon" data-attr-src="h.passiveIcon"/>
+                            <div class="ability-more">?</div>
                             <div class="ability-body">
                                 <div class="ability-kind">SIGNATURE</div>
                                 <div class="ability-name">{{ h.passiveName }}</div>
                                 <div class="ability-text">{{ h.passiveText }}</div>
                             </div>
                         </div>
-                        <div class="ability">
+                        <div class="ability" data-event-click="ShowActive(i)">
                             <img class="ability-icon" data-attr-src="h.activeIcon"/>
+                            <div class="ability-more">?</div>
                             <div class="ability-body">
                                 <div class="ability-kind">ACTIVE</div>
                                 <div class="ability-name">{{ h.activeName }}</div>

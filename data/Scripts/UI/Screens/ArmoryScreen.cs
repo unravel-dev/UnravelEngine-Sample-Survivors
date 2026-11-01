@@ -116,7 +116,7 @@ namespace Survivors
             lastInspected = index;
             model.confirmRefund = false;
             model.message = "";
-            ui.PlaySound("ui_open");
+            ui.PlaySound("ui_select");
             root?.Q(INSPECT_FLASH_ID)?.SetClass(FLASH_CLASS, false);
             Fill();
             root?.Q(INSPECT_PANEL_ID)?.RestartAnimation();

@@ -156,9 +156,10 @@ body.compact #arm-footer { width: 120rem; margin-left: -60rem; }
 	animation: 0.25s back-out inspect-in;
 }
 
+/* A pop without a fade: a fading panel shows the grid through it, its icon behind its own background. */
 @keyframes inspect-in {
-	0% { opacity: 0; transform: scale(0.92); }
-	100% { opacity: 1; transform: scale(1); }
+	0% { transform: scale(0.92); }
+	100% { transform: scale(1); }
 }
 
 /* A .close-button (theme.rcss). */

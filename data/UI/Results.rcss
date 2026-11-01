@@ -15,7 +15,7 @@
 /* A .screen-header (theme.rcss). */
 #res-banner {
 	top: 5rem;
-	animation: 0.7s back-out banner-drop;
+	animation: 0.7s cubic-out banner-drop;
 }
 
 @keyframes banner-drop {
@@ -168,7 +168,7 @@
 	visibility: hidden;
 }
 
-#res-news.has { visibility: visible; animation: 0.6s back-out banner-drop; }
+#res-news.has { visibility: visible; animation: 0.6s cubic-out banner-drop; }
 
 #res-actions {
 	position: absolute;

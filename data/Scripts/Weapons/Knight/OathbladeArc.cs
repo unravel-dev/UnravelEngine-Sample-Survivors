@@ -20,8 +20,6 @@ namespace Survivors
     {
         private const int SWING = 0;
         private const float SLASH_HEIGHT = 1.0f;
-        private const int HIT_STOP_TARGETS = 6;
-        private const float HIT_STOP_SECONDS = 0.03f;
         private const float CRESCENT_HEIGHT = 1.0f;
         private const float CRESCENT_FORWARD = 0.6f;
         private const float CRESCENT_KNOCKBACK = 1.0f;
@@ -214,7 +212,6 @@ namespace Survivors
             {
                 PlayAt("oathblade_hit", origin);
             }
-            TryHitStop(hits, HIT_STOP_TARGETS, HIT_STOP_SECONDS);
             if (isEvolved)
             {
                 pendingHeal = MathF.Min(HEAL_BANK_LIMIT, pendingHeal + hits * level[WeaponField.Heal]);

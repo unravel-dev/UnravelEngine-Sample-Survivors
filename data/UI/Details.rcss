@@ -10,9 +10,10 @@
 	animation: 0.25s back-out details-in;
 }
 
+/* A pop without a fade, as the armory's panel. */
 @keyframes details-in {
-	0% { opacity: 0; transform: scale(0.92); }
-	100% { opacity: 1; transform: scale(1); }
+	0% { transform: scale(0.92); }
+	100% { transform: scale(1); }
 }
 
 /* A .close-button (theme.rcss). */
@@ -185,6 +186,7 @@ body.phone #details-panel {
 	display: flex;
 	flex-direction: column;
 }
+body.phone #details-panel.fit { bottom: auto; }
 body.phone #details-head { flex: 0 0 auto; }
 body.phone #details-icon { width: 8rem; height: 8rem; margin-right: 1.6rem; }
 body.phone #details-name { font-size: 2.8rem; }

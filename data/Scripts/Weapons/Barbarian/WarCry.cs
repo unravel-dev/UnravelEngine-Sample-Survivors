@@ -33,8 +33,6 @@ namespace Survivors
         private const float STAGGER_HEIGHT = 0.35f;
         private const float ROAR_TRAUMA = 0.12f;
         private const float BELLOW_TRAUMA = 0.28f;
-        private const int HIT_STOP_TARGETS = 10;
-        private const float HIT_STOP_SECONDS = 0.05f;
         private const int SCRATCH_CAPACITY = 1024;
         /// <summary>At most this many enemies show their fright per roar (late-game crowds).</summary>
         private const int MAX_REACTIONS = 40;
@@ -244,7 +242,6 @@ namespace Survivors
             }
             PlayAt(isEvolved ? "phase_shockwave" : "fault_stomp", center);
             ctx.feel.Shake(isEvolved ? BELLOW_TRAUMA : ROAR_TRAUMA);
-            TryHitStop(hits, HIT_STOP_TARGETS, HIT_STOP_SECONDS);
         }
 
         /// <summary>Fears, exposes and staggers every enemy the roar hit; the first few show fright lines and a scuff.</summary>

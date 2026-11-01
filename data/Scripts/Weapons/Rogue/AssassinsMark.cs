@@ -34,7 +34,6 @@ namespace Survivors
         private const float DAGGER_LIFETIME = 1.4f;
         private const float DAGGER_HEIGHT = 1.0f;
         private const float DAGGER_OUT = 0.3f;
-        private const float EXECUTE_HIT_STOP = 0.08f;
         private const float BODY_HEIGHT = 1.0f;
         private const float STAMP_SIZE = 2.4f;
         /// <summary>Each mark's reticle (and Death Sentence's rune) is one particle refreshed this often, living a little
@@ -375,7 +374,6 @@ namespace Survivors
             }
             Vector3 position = enemies.GetPosition(row);
             enemies.Kill(enemy, slot);
-            ctx.feel.HitStop(EXECUTE_HIT_STOP);
             EmitExecution(position);
             PlayAt("execute", position);
         }

@@ -151,28 +151,30 @@ body.hud { pointer-events: none; }
 #pause-btn img { display: block; width: 2.8rem; height: 2.8rem; margin: 0.6rem; image-color: #ece4d4; }
 
 /* ---------- weapon and passive slots ----------
- * Desktop: one column on the left (weapons, then passives); short screens: two columns side by side; touch
- * screens and phones: weapons over passives at the bottom center, clear of the touch joystick. A filled slot
- * takes taps and clicks (details panel); an empty one lets them through to the game. */
+ * Weapons over passives at the bottom center, between the touch joystick (left 30%) and the active button. A
+ * filled slot takes taps and clicks (details panel); an empty one lets them through to the game. */
 
 #slots {
 	position: absolute;
-	left: 1.6rem;
-	top: 5rem;
+	left: 0;
+	right: 0;
+	bottom: 1.2rem;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
 .slot-group {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: center;
 }
 
-#passive-slots { margin-top: 1rem; }
+#passive-slots { margin-top: 0.4rem; }
 
 .slot {
 	pointer-events: auto;
-	margin-bottom: 0.5rem;
+	margin: 0 0.3rem;
 	transition: transform 0.1s cubic-out;
 }
 
@@ -257,25 +259,14 @@ body.hud { pointer-events: none; }
 .slot.passive .pip { width: 0.65rem; height: 0.65rem; margin: 0 0.15rem; }
 .slot .pip.on { background-color: #ffd65a; border-color: #fff4c8; }
 
-body.short #slots { flex-direction: row; }
-body.short #passive-slots { margin-top: 0; margin-left: 1rem; }
-
-/* Touch screens: weapons over passives at the bottom center, between the stick (left 30%) and the active
- * button. */
-body.touch #slots { flex-direction: column; top: auto; bottom: 1.2rem; left: 0; right: 0; align-items: center; }
-body.touch .slot-group { flex-direction: row; justify-content: center; }
-body.touch #passive-slots { margin-top: 0.4rem; margin-left: 0; }
-body.touch .slot { margin: 0 0.3rem; }
-
-/* ---------- active ability, bottom center (bottom right on touch) ---------- */
+/* ---------- active ability, bottom right ---------- */
 
 #active {
 	pointer-events: auto;
 	position: absolute;
 	bottom: 3rem;
-	left: 50%;
+	right: 3rem;
 	width: 9rem;
-	margin-left: -4.5rem;
 	text-align: center;
 }
 
@@ -350,15 +341,9 @@ body.touch .slot { margin: 0 0.3rem; }
 
 #active-info:hover { background-color: #18343e; }
 
-/* Touch: the active icon is the touch button: big, bottom right inside the safe area (bottom left when the
- * joystick is on the right), fires on press. */
-body.touch #active {
-	left: auto;
-	right: 3rem;
-	bottom: 3rem;
-	margin-left: 0;
-	width: 14rem;
-}
+/* Touch: the active icon is the touch button: big (bottom left when the joystick is on the right), fires on
+ * press. */
+body.touch #active { width: 14rem; }
 
 body.touch.stick-right #active {
 	right: auto;
@@ -390,7 +375,7 @@ body.touch.stick-right #active-info { left: auto; right: -1.6rem; }
 body.modal #active, body.modal #pause-btn, body.modal .slot, body.modal #active-info { pointer-events: none; }
 body.modal #pause-btn { display: none; }
 
-/* ---------- phone: slots in two rows at the bottom center, active button bottom right ---------- */
+/* ---------- phone: bigger counters and slots ---------- */
 
 body.phone #level-label { font-size: 1.6rem; }
 body.phone #level { font-size: 2.6rem; }
@@ -402,10 +387,6 @@ body.phone #gold { font-size: 2.6rem; }
 body.phone #pause-btn { width: 6.4rem; height: 6.4rem; margin-left: 1.4rem; border-radius: 1.2rem; }
 body.phone #pause-btn img { width: 3.6rem; height: 3.6rem; margin: 1.4rem; }
 
-body.phone #slots { top: auto; bottom: 1rem; left: 0; right: 0; flex-direction: column; align-items: center; }
-body.phone .slot-group { flex-direction: row; }
-body.phone #passive-slots { margin-top: 0.4rem; margin-left: 0; }
-body.phone .slot { margin: 0 0.3rem; }
 body.phone .slot-frame { width: 7.2rem; height: 7.2rem; }
 body.phone .slot.passive .slot-frame { width: 6.2rem; height: 6.2rem; }
 body.phone .slot .pips { width: 7.2rem; height: 1.2rem; }

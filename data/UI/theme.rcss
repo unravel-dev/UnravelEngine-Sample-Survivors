@@ -8,8 +8,9 @@
  * Colours: gold #c9a45c / bright #ffc94c, ink #0b0910, parchment text #ece4d4, danger #ff4a2a.
  * Rarity: common #b8b8b8, uncommon #4ccb6a, rare #4c8dff, epic #b05cff, evolution #ffc94c, boon #6fdcb4.
  * RCSS reminders: rgba alpha is 0-255 (hex #rrggbbaa works too), no border style keyword,
- * opacity is inherited (children follow a fading parent unless they set their own), and an
- * animated property returns to its RCSS value when the animation ends.
+ * opacity is inherited (children follow a fading parent unless they set their own), an
+ * animated property returns to its RCSS value when the animation ends, and keyframes with opacity
+ * never use back-out: it overshoots past 1, where the colours overflow their bytes (gold turns green).
  */
 
 @font-face { font-family: "GT Display"; src: "app:/data/UI/Fonts/Inter-Black.ttf"; }

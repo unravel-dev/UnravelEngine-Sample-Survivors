@@ -148,6 +148,8 @@ namespace Survivors
         public bool detonatesOnDeath;
         /// <summary>A row with no body of its own: its owner (a boss, a lantern, a pyre) drives its position and reads its health.</summary>
         public bool isProxy;
+        /// <summary>A boss's row: weapons that aim at the nearest enemy or the densest crowd favour it.</summary>
+        public bool isBoss;
         /// <summary>Statuses the type shrugs off.</summary>
         public StatusImmunity immunities = StatusImmunity.None;
         public Mesh mesh;

@@ -70,8 +70,6 @@ namespace Survivors
         private const float RETRACT_RATE = ENEMY_KNOCKBACK_DAMPING;
         /// <summary>The chain is caught when its hook is this close to the hand (m).</summary>
         private const float RETRACT_END = 0.35f;
-        private const int HIT_STOP_TARGETS = 6;
-        private const float HIT_STOP_SECONDS = 0.04f;
         private const float YANK_TRAUMA = 0.1f;
         private const float VORTEX_TICK = 0.05f;
         /// <summary>The vortex's rim speed per metre of its reach per second of drag (with Pull's falloff, the rim arrives in time).</summary>
@@ -81,7 +79,6 @@ namespace Survivors
         private const float MIN_SPEED = 1.0f;
         private const float SLAM_KNOCKBACK = 4.0f;
         private const float SLAM_TRAUMA = 0.32f;
-        private const float SLAM_HIT_STOP = 0.07f;
         private const int MAX_BLEEDERS = 128;
         private const float DRIP_INTERVAL_MIN = 0.22f;
         private const float DRIP_INTERVAL_MAX = 0.4f;
@@ -358,7 +355,6 @@ namespace Survivors
             {
                 PlayAt("ravager_hit", end);
             }
-            TryHitStop(hits, HIT_STOP_TARGETS, HIT_STOP_SECONDS);
         }
 
         /// <summary>
@@ -495,7 +491,6 @@ namespace Survivors
                 PlayAt("ravager_hit", center);
             }
             ctx.feel.Shake(SLAM_TRAUMA);
-            ctx.feel.HitStop(SLAM_HIT_STOP);
         }
 
         // -------------------------------------------------------------------------------------------------------

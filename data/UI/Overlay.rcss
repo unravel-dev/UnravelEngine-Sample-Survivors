@@ -144,6 +144,10 @@ body.overlay { pointer-events: none; }
 .marker.robber .marker-arrow { image-color: #ffc247; }
 .marker.pyres .marker-arrow { image-color: #78ff5c; }
 .marker.moonwell .marker-arrow { image-color: #94d2ff; }
+.marker.food .marker-arrow { image-color: #ff5c6a; }
+.marker.magnet .marker-arrow { image-color: #4cb8ff; }
+.marker.bell .marker-arrow { image-color: #ffd152; }
+.marker.frost .marker-arrow { image-color: #80eaff; }
 
 /* A chest on screen: a glowing gold badge with its icon bobs above it, over the horde, without the arrow. */
 .marker.inview {
@@ -156,6 +160,10 @@ body.overlay { pointer-events: none; }
 .marker.inview .marker-arrow { visibility: hidden; }
 .marker.inview.pyres { border-color: #78ff5c; box-shadow: #58ff4c90 0 0 1.8rem 0.3rem; }
 .marker.inview.moonwell { border-color: #94d2ff; box-shadow: #6cc0ff90 0 0 1.8rem 0.3rem; }
+.marker.inview.food { border-color: #ff5c6a; box-shadow: #ff4c5c90 0 0 1.8rem 0.3rem; }
+.marker.inview.magnet { border-color: #4cb8ff; box-shadow: #3ca8ff90 0 0 1.8rem 0.3rem; }
+.marker.inview.bell { border-color: #ffd152; box-shadow: #ffc94c90 0 0 1.8rem 0.3rem; }
+.marker.inview.frost { border-color: #80eaff; box-shadow: #70e0ff90 0 0 1.8rem 0.3rem; }
 .marker.inview .marker-icon {
 	width: 3.8rem;
 	height: 3.8rem;
@@ -354,7 +362,7 @@ body.touch #bossbar { left: 25%; width: 50%; }
 
 #event.shown {
 	visibility: visible;
-	animation: 0.4s back-out event-in;
+	animation: 0.4s cubic-out event-in;
 }
 
 @keyframes event-in {
@@ -448,7 +456,7 @@ body.touch #bossbar { left: 25%; width: 50%; }
 	display: inline-block;
 	padding: 0.8rem 6rem;
 	decorator: linear-gradient(to right, #0c0a1200, #0c0a12d8, #0c0a1200);
-	animation: 0.4s back-out banner-in;
+	animation: 0.4s cubic-out banner-in;
 }
 
 #banner-text {

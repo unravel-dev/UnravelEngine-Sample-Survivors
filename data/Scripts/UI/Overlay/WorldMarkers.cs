@@ -57,7 +57,7 @@ namespace Survivors
             public VisibilityWriter visibility;
             public MarkerKind kind;
             public int angle;
-            /// <summary>Shows a chest or a map event on screen: its badge bobs above it and the arrow hides.</summary>
+            /// <summary>Shows a chest, a power-up or a map event on screen: its badge bobs above it and the arrow hides.</summary>
             public bool isInView;
         }
 
@@ -424,6 +424,10 @@ namespace Survivors
                 case MarkerKind.Robber: return "robber";
                 case MarkerKind.Pyres: return "pyres";
                 case MarkerKind.Moonwell: return "moonwell";
+                case MarkerKind.Food: return "food";
+                case MarkerKind.Magnet: return "magnet";
+                case MarkerKind.Bell: return "bell";
+                case MarkerKind.Frost: return "frost";
                 default: return "elite";
             }
         }
@@ -439,17 +443,25 @@ namespace Survivors
                 case MarkerKind.Robber: return UIText.Icon("gold");
                 case MarkerKind.Pyres: return UIText.Icon("skull");
                 case MarkerKind.Moonwell: return UIText.Icon("mending");
+                case MarkerKind.Food: return UIText.Icon("drop_food");
+                case MarkerKind.Magnet: return UIText.Icon("drop_magnet");
+                case MarkerKind.Bell: return UIText.Icon("drop_bell");
+                case MarkerKind.Frost: return UIText.Icon("drop_frost");
                 default: return UIText.Icon("skull");
             }
         }
 
-        /// <summary>Metres above the target an on-screen badge floats for kinds that show one (chests, map events);
+        /// <summary>Metres above the target an on-screen badge floats for kinds that show one (chests, power-ups, map events);
         /// 0 for kinds that show only off-screen arrows.</summary>
         private static float GetBadgeHeight(MarkerKind kind)
         {
             switch (kind)
             {
-                case MarkerKind.Chest: return CHEST_ICON_HEIGHT;
+                case MarkerKind.Chest:
+                case MarkerKind.Food:
+                case MarkerKind.Magnet:
+                case MarkerKind.Bell:
+                case MarkerKind.Frost: return CHEST_ICON_HEIGHT;
                 case MarkerKind.Shrine:
                 case MarkerKind.Robber:
                 case MarkerKind.Pyres:

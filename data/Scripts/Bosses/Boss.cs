@@ -22,7 +22,8 @@ namespace Survivors
     /// into the row, reads its health from it and sets the damage the row takes (guarding, channeling, dazed,
     /// invulnerable). The base class runs the life cycle (rise, fight, death, sink), movement on the ground plane
     /// (arena edge, scenery circles, the slows weapons put on the row; its proxy type turns freezes into slows), the
-    /// entrance, the hit flash and the eye glow. Subclasses give their numbers and implement the fight in
+    /// entrance, the hit flash, the eye glow, what every boss shares (touching its body hurts and shoves the hero off, and
+    /// a fight that drags on enrages it). Subclasses give their numbers and implement the fight in
     /// <see cref="TickFight"/>. Main thread.
     /// </summary>
     public abstract class Boss
@@ -33,6 +34,8 @@ namespace Survivors
         public const float NO_ZOOM = 1.0f;
         /// <summary>Seconds into a wind-up its audio sting plays.</summary>
         protected const float STING_DELAY = 0.2f;
+        private static readonly Color ENRAGE_VIOLET = new Color(0.62f, 0.25f, 1.0f, 1.0f);
+
         /// <summary>Glow multiplier while the boss recovers from an attack: "hit me now".</summary>
         protected const float RECOVERY_GLOW = 1.5f;
         protected const float KNOCKBACK_SECONDS = 0.25f;
@@ -54,6 +57,14 @@ namespace Survivors
         private const float MIN_MODEL_SCALE = 0.01f;
         /// <summary>A rise restarted late still plays for at least this long.</summary>
         private const float MIN_RISE_RESTART_SECONDS = 0.1f;
+        private const float CONTACT_INTERVAL = 0.5f;
+        private const float CONTACT_SHOVE = 1.6f;
+        /// <summary>Enraged: this much more damage, gaps between attacks cut to this share, and the danger colour turns violet.</summary>
+        private const float ENRAGE_DAMAGE = 1.5f;
+        private const float ENRAGE_GAP_SHARE = 0.6f;
+        private const float ENRAGE_BANNER_SECONDS = 3.0f;
+        private const float ENRAGE_SHAKE = 0.5f;
+        private const float ENRAGE_SHAKE_SECONDS = 0.6f;
         /// <summary>Hero grace (m) when there is no hero to measure.</summary>
         private const float DEFAULT_HERO_GRACE = 0.2f;
         private const float ARENA_MARGIN = 1.0f;
@@ -67,6 +78,8 @@ namespace Survivors
         private const float DEFAULT_RISE_BANNER_SECONDS = 2.5f;
         private const float DEFAULT_RISE_SHAKE = 0.3f;
         private const float DEFAULT_CORPSE_SECONDS = 2.5f;
+        private const float DEFAULT_ARENA_RADIUS = 17.0f;
+        private const float DEFAULT_ENRAGE_SECONDS = 100.0f;
 
         protected readonly Run run;
         protected readonly BossFx fx;
@@ -97,6 +110,9 @@ namespace Survivors
         /// <summary>Model scale of the entity.</summary>
         protected float scale = 1.0f;
 
+        /// <summary>The fight dragged on: more damage, shorter gaps.</summary>
+        protected bool isEnraged;
+
         /// <summary>Damage taken multiplier of the boss's state this frame (dazed, channeling, guarding); subclasses set it.</summary>
         protected float vulnerability = 1.0f;
         /// <summary>Takes no damage this frame (phase transitions).</summary>
@@ -118,6 +134,7 @@ namespace Survivors
         private float sinkOffset;
         private float riseDustTimer;
         private bool isRiseChecked;
+        private float contactTimer;
 
         protected Boss(Run run, BossFx fx, BossHazards hazards, BossKind kind, Vector3[] obstacles)
         {
@@ -189,8 +206,25 @@ namespace Survivors
         /// <summary>Seconds the body lies after its death clip before it sinks.</summary>
         protected virtual float corpseSeconds => DEFAULT_CORPSE_SECONDS;
 
+        /// <summary>Radius of the ward it raises when it rises (<see cref="BarrowWard"/>).</summary>
+        public virtual float arenaRadius => DEFAULT_ARENA_RADIUS;
+
+        /// <summary>The colour of its ward.</summary>
+        public Color arenaColor => glowColor;
+
+        /// <summary>Damage of one touch of its body.</summary>
+        protected abstract float contactDamage { get; }
+
+        /// <summary>Seconds of fighting before it enrages.</summary>
+        protected virtual float enrageSeconds => DEFAULT_ENRAGE_SECONDS;
+
         /// <summary>One frame of the fight: movement, attack selection, attacks.</summary>
         protected abstract void TickFight(float dt);
+
+        /// <summary>It just enraged, after the shared banner and sound.</summary>
+        protected virtual void OnEnraged()
+        {
+        }
 
         /// <summary>Called when the row lost health since the last frame.</summary>
         protected virtual void OnDamaged(float amount)
@@ -221,6 +255,12 @@ namespace Survivors
                 return life == BossLife.Rising ? 1.0f : 0.0f;
             }
         }
+
+        /// <summary>Whether it recovers from an attack right now: the opening its glow shows.</summary>
+        public bool isOpen => glowBoost >= RECOVERY_GLOW;
+
+        /// <summary>Ground radius of the body (m).</summary>
+        public float bodyRadius => radius;
 
         /// <summary>Whether the boss is rising or fighting.</summary>
         public bool isAlive => life == BossLife.Rising || life == BossLife.Fighting;
@@ -280,6 +320,7 @@ namespace Survivors
             speed = 0.0f;
             flash = 0.0f;
             glowBoost = 1.0f;
+            fx.dangerColor = Tuning.DANGER_COLOR;
             animator.Play("Death", DEATH_FADE);
             UpdateLooks();
             OnKilled();
@@ -355,7 +396,9 @@ namespace Survivors
             vulnerability = 1.0f;
             isInvulnerable = false;
             glowBoost = 1.0f;
+            CheckEnrage();
             TickFight(dt);
+            TickContact(dt);
             ApplyDamageTaken(row);
             ApplyTransform();
             run.enemies.SetPosition(row, position);
@@ -402,6 +445,36 @@ namespace Survivors
 
         /// <summary>Movement multiplier from the slows weapons put on the row.</summary>
         protected float speedFactor => worldSlowFactor;
+
+        /// <summary>A fight that drags on enrages the boss.</summary>
+        private void CheckEnrage()
+        {
+            if (isEnraged || lifeTime < enrageSeconds)
+            {
+                return;
+            }
+            isEnraged = true;
+            fx.dangerColor = ENRAGE_VIOLET;
+            run.ui.ShowBanner($"{displayName} enrages", ENRAGE_BANNER_SECONDS, true);
+            run.sounds.PlayAt("king_enrage", position);
+            run.feedback.Shake(ENRAGE_SHAKE, ENRAGE_SHAKE_SECONDS);
+            OnEnraged();
+        }
+
+        /// <summary>Walking into the body hurts and shoves the hero off it, so its feet are never the safe place.</summary>
+        private void TickContact(float dt)
+        {
+            contactTimer -= dt;
+            if (contactTimer > 0.0f || !hasHero || !IsTouchingHero() || !HitHero(contactDamage, position))
+            {
+                return;
+            }
+            contactTimer = CONTACT_INTERVAL;
+            KnockHeroFrom(position, CONTACT_SHOVE);
+        }
+
+        /// <summary>Whether the hero stands against the body (a spin hits on its own beat instead).</summary>
+        protected virtual bool IsTouchingHero() => BossGeometry.InCircle(heroPosition, position, radius, heroGrace);
 
         /// <summary>Hands this frame's vulnerability to the row (only when it changed).</summary>
         private void ApplyDamageTaken(int row)
@@ -593,7 +666,8 @@ namespace Survivors
             float limit = MathF.Max(run.arenaRadius - margin, 1.0f);
             Vector3 offset = flat - center;
             float length = offset.magnitude;
-            return length > limit ? center + offset * (limit / length) : flat;
+            Vector3 inArena = length > limit ? center + offset * (limit / length) : flat;
+            return run.director.bosses.ward.Clamp(inArena, margin);
         }
 
         /// <summary>Plays a wind-up's audio sting once, <see cref="STING_DELAY"/> seconds in.</summary>
@@ -606,8 +680,17 @@ namespace Survivors
             }
         }
 
+        /// <summary>Damage multiplier of the boss's state, for what it places on the ground (hits of its own include it).</summary>
+        protected float damageScale => isEnraged ? ENRAGE_DAMAGE : 1.0f;
+
+        /// <summary>A gap between attacks after the boss's state.</summary>
+        protected float ScaleGap(float seconds) => isEnraged ? seconds * ENRAGE_GAP_SHARE : seconds;
+
         /// <summary>Hurts the hero as this boss (death screen cause).</summary>
-        protected bool HitHero(float amount, Vector3 from) => DamageHero(run, amount, from, displayName);
+        protected bool HitHero(float amount, Vector3 from) => DamageHero(run, amount * damageScale, from, displayName);
+
+        /// <summary>A shot of this boss: its damage after everything a boss hit counts but the stacks it would add.</summary>
+        protected float ScaleShot(float amount) => run.director.bosses.mark.Scale(amount * damageScale) * run.director.dreadDamageScale;
 
         /// <summary>Pushes the hero away from a point by some metres.</summary>
         protected void KnockHeroFrom(Vector3 from, float metres)
@@ -632,7 +715,7 @@ namespace Survivors
             run.enemies.Spawn(EnemyCatalog.Get(archetype, director.currentTint), ClampToArena(at, SPAWN_ARENA_MARGIN), in options);
         }
 
-        /// <summary>Hurts the hero for a boss attack (scaled by Dread) and names the source for the death screen.</summary>
+        /// <summary>Hurts the hero for a boss attack (after Dread and Death's Mark, adding a stack) and names the source for the death screen.</summary>
         /// <returns>Whether the hit landed (not dodged, blocked or ignored).</returns>
         public static bool DamageHero(Run run, float amount, Vector3 from, string source)
         {
@@ -641,10 +724,12 @@ namespace Survivors
             {
                 return false;
             }
-            if (!target.TakeDamage(amount * run.director.dreadDamageScale, from))
+            DeathMark mark = run.director.bosses.mark;
+            if (!target.TakeDamage(mark.Scale(amount) * run.director.dreadDamageScale, from))
             {
                 return false;
             }
+            mark.AddStack();
             run.director.lastDamageSource = source;
             return true;
         }

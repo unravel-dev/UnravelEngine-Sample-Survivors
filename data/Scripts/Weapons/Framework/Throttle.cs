@@ -1,7 +1,7 @@
 namespace Survivors
 {
     /// <summary>
-    /// Lets something happen at most once per gap (a camera shake, a hit stop, a rustle, a ground mark): ask
+    /// Lets something happen at most once per gap (a camera shake, a rustle, a ground mark): ask
     /// <see cref="TryPass"/> with the clock, or <see cref="IsReady"/> and <see cref="Mark"/> when the thing itself may
     /// still fail. The first ask always passes. Keep it in a non-readonly field: it is a mutable struct.
     /// </summary>

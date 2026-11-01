@@ -78,6 +78,9 @@ namespace Survivors
         }
 
         /// <summary>Once per frame while playing, before the markers.</summary>
+        /// <summary>Dev (tests of later minutes): the first event comes as long after this run time as it would after the start.</summary>
+        public void DevSkipTo(float seconds) => nextAt = seconds + FIRST_SECOND;
+
         public void Tick(float dt)
         {
             if (current == null)

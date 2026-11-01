@@ -20,9 +20,7 @@ namespace Survivors
         private const int CHOP = 0;
         private const int FISSURE = 1;
         private const int FISSURE_END = 2;
-        private const int HIT_STOP_TARGETS = 4;
-        private const float HIT_STOP_SECONDS = 0.05f;
-        private const float CHOP_TRAUMA = 0.08f;
+        private const float CHOP_TRAUMA = 0.05f;
         private const float FISSURE_SEGMENT = 1.0f;
         private const float FISSURE_STEP_SECONDS = 0.02f;
         private const float FISSURE_KNOCKBACK = 0.6f;
@@ -197,7 +195,6 @@ namespace Survivors
                 PlayAt("ravager_hit", origin);
             }
             ctx.feel.Shake(CHOP_TRAUMA);
-            TryHitStop(hits, HIT_STOP_TARGETS, HIT_STOP_SECONDS);
             if (isEvolved)
             {
                 StartFissure(origin, direction, index % fissureMemories.Length, cast);

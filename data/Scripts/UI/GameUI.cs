@@ -15,6 +15,10 @@ namespace Survivors
         Robber,
         Pyres,
         Moonwell,
+        Food,
+        Magnet,
+        Bell,
+        Frost,
     }
 
     /// <summary>
@@ -362,10 +366,24 @@ namespace Survivors
             }
         }
 
-        /// <summary>Closes the details and resumes play (Run.Resume shows the HUD again).</summary>
+        /// <summary>The details of a hero's starting kit: hero select stays up behind them.</summary>
+        internal void OpenHeroDetails(DetailsRequest request)
+        {
+            details.Prepare(request);
+            modal = details;
+            details.Show();
+        }
+
+        /// <summary>Closes the details: hero select takes the input back, or play resumes (Run.Resume shows the HUD
+        /// again).</summary>
         internal void CloseDetails()
         {
             details.Hide();
+            if (run.phase == RunPhase.Menu)
+            {
+                modal = heroSelect;
+                return;
+            }
             if (run.phase == RunPhase.Paused)
             {
                 run.Resume();

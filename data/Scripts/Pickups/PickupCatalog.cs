@@ -5,7 +5,8 @@ namespace Survivors
 {
     /// <summary>
     /// The looks of everything the hero picks up: faceted gems glowing in their tier colour, coins, food, the
-    /// lodestone, the holy bell, the frost hourglass and chests. Gems pulse their glow once per second. The pickup
+    /// lodestone (a horseshoe magnet), the holy bell, the frost shard and chests. Gems and the rare power-ups pulse their
+    /// glow once per second. The power-ups stand out by kind: each has a colour for its beacon, and a marker. The pickup
     /// world owns the material instances made here.
     /// </summary>
     public static class PickupCatalog
@@ -19,6 +20,12 @@ namespace Survivors
         /// <summary>A gem hovers this high plus half its size, so bigger tiers float higher.</summary>
         private const float GEM_HOVER = 0.35f;
         private const float GEM_BOB = 0.08f;
+        /// <summary>The rare power-ups glow hard and hover high, turning over slowly above the horde's feet.</summary>
+        private const float POWER_UP_GLOW = 0.9f;
+        private const float POWER_UP_PULSE = 0.8f;
+        private const float POWER_UP_SPIN = 110.0f;
+        private const float POWER_UP_HEIGHT = 0.7f;
+        private const float POWER_UP_BOB = 0.16f;
 
         /// <summary>Gem tier colours: azure, verdant, amber, violet, crimson.</summary>
         private static readonly Color[] GEM_COLORS =
@@ -30,8 +37,35 @@ namespace Survivors
             new Color(1.0f, 0.23f, 0.306f, 1.0f),
         };
 
+        private static readonly Color FOOD_COLOR = new Color(1.0f, 0.36f, 0.42f, 1.0f);
+        private static readonly Color MAGNET_COLOR = new Color(0.3f, 0.72f, 1.0f, 1.0f);
+        private static readonly Color BELL_COLOR = new Color(1.0f, 0.82f, 0.32f, 1.0f);
+        private static readonly Color FROST_COLOR = new Color(0.5f, 0.92f, 1.0f, 1.0f);
+
         /// <summary>Gem heights (m) by tier; bigger tiers read at a glance.</summary>
         private static readonly float[] GEM_SIZES = { 0.38f, 0.48f, 0.58f, 0.72f, 0.95f };
+
+        /// <summary>Whether a kind gets a beacon and a marker: chests and the rare power-ups.</summary>
+        public static bool HasBeacon(PickupKind kind) => kind >= PickupKind.Food && kind <= PickupKind.Chest;
+
+        /// <summary>The colour of a power-up's beacon.</summary>
+        public static Color GetColor(PickupKind kind) => kind switch
+        {
+            PickupKind.Food => FOOD_COLOR,
+            PickupKind.Magnet => MAGNET_COLOR,
+            PickupKind.Bomb => BELL_COLOR,
+            _ => FROST_COLOR,
+        };
+
+        /// <summary>The marker of a chest or power-up.</summary>
+        public static MarkerKind GetMarker(PickupKind kind) => kind switch
+        {
+            PickupKind.Food => MarkerKind.Food,
+            PickupKind.Magnet => MarkerKind.Magnet,
+            PickupKind.Bomb => MarkerKind.Bell,
+            PickupKind.Freeze => MarkerKind.Frost,
+            _ => MarkerKind.Chest,
+        };
 
         /// <summary>Gives every pickup kind its mesh and look; the world owns the material instances it creates.</summary>
         public static void Register(PickupWorld world)
@@ -66,39 +100,25 @@ namespace Survivors
             world.SetVisual(PickupKind.Food, new PickupVisual
             {
                 mesh = Assets.GetAsset<Mesh>("app:/data/Environment/dungeon/plate_food_A.obj"),
-                scale = 0.9f,
-                spin = 35.0f,
-                height = 0.15f,
-                bob = 0.05f,
+                scale = 1.5f,
+                spin = 50.0f,
+                height = 0.45f,
+                bob = 0.1f,
             });
-            world.SetVisual(PickupKind.Magnet, new PickupVisual
-            {
-                mesh = Assets.GetAsset<Mesh>("engine:/embedded/dodecahedron"),
-                material = gemMaterial,
-                materialInstance = hasGemMaterial ? new MaterialInstance(gemMaterial) { baseColor = new Color(0.12f, 0.14f, 0.2f, 1.0f), emissiveColor = new Color(0.35f, 0.75f, 1.0f, 1.0f), emissiveIntensity = 1.6f } : null,
-                scale = 0.7f,
-                spin = 120.0f,
-                height = 0.8f,
-                bob = 0.15f,
-            });
-            world.SetVisual(PickupKind.Bomb, new PickupVisual
-            {
-                mesh = Assets.GetAsset<Mesh>("app:/data/Environment/Halloween/gltf/lantern_standing.gltf"),
-                scale = 1.3f,
-                spin = 60.0f,
-                height = 0.25f,
-                bob = 0.12f,
-            });
+            world.SetVisual(PickupKind.Magnet, MakePowerUp("app:/data/Meshes/pickup_magnet.gltf", gemMaterial, hasGemMaterial, MAGNET_COLOR, 1.15f));
+            world.SetVisual(PickupKind.Bomb, MakePowerUp("app:/data/Meshes/pickup_bell.gltf", gemMaterial, hasGemMaterial, BELL_COLOR, 1.25f));
             Material ice = Assets.GetAsset<Material>("app:/data/Models/Pickups/ice_cluster_a_[0] Ice.mat");
             world.SetVisual(PickupKind.Freeze, new PickupVisual
             {
                 mesh = Assets.GetAsset<Mesh>("app:/data/Models/Pickups/ice_cluster_a.glb"),
                 material = ice,
-                materialInstance = AssetChecks.IsLoaded(ice) ? new MaterialInstance(ice) { emissiveColor = new Color(0.45f, 0.85f, 1.0f, 1.0f), emissiveIntensity = 1.2f } : null,
-                scale = 1.1f,
+                materialInstance = AssetChecks.IsLoaded(ice) ? new MaterialInstance(ice) { emissiveColor = FROST_COLOR, emissiveIntensity = POWER_UP_GLOW } : null,
+                scale = 1.7f,
                 spin = 70.0f,
-                height = 0.2f,
-                bob = 0.1f,
+                height = 0.4f,
+                bob = 0.12f,
+                glow = POWER_UP_GLOW,
+                glowPulse = POWER_UP_PULSE,
             });
             world.SetVisual(PickupKind.Chest, new PickupVisual
             {
@@ -108,6 +128,23 @@ namespace Survivors
                 height = 0.0f,
                 bob = 0.0f,
             });
+        }
+
+        /// <summary>A power-up drawn as one glowing mesh in its colour.</summary>
+        private static PickupVisual MakePowerUp(string meshKey, Material material, bool hasMaterial, Color color, float scale)
+        {
+            return new PickupVisual
+            {
+                mesh = Assets.GetAsset<Mesh>(meshKey),
+                material = material,
+                materialInstance = hasMaterial ? new MaterialInstance(material) { baseColor = color, emissiveColor = color, emissiveIntensity = POWER_UP_GLOW } : null,
+                scale = scale,
+                spin = POWER_UP_SPIN,
+                height = POWER_UP_HEIGHT,
+                bob = POWER_UP_BOB,
+                glow = POWER_UP_GLOW,
+                glowPulse = POWER_UP_PULSE,
+            };
         }
     }
 }

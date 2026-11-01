@@ -56,8 +56,6 @@ namespace Survivors
         private const float SHAKE_GAP = 0.2f;
         private const float THUNDER_TRAUMA = 0.22f;
         private const float CHAIN_TRAUMA = 0.1f;
-        private const float HIT_STOP_SECONDS = 0.035f;
-        private const float HIT_STOP_GAP = 1.2f;
 
         private const float HAND_HEIGHT = 1.3f;
         private const float HAND_FORWARD = 0.4f;
@@ -160,7 +158,6 @@ namespace Survivors
         private readonly FxComposite chainBurst;
         private readonly FxComposite catchMotes;
         private Throttle shakeThrottle = new Throttle(SHAKE_GAP);
-        private Throttle hitStopThrottle = new Throttle(HIT_STOP_GAP);
 
         public DawnHammer(WeaponContext context, WeaponDef definition, int slotIndex) : base(context, definition, slotIndex)
         {
@@ -507,10 +504,6 @@ namespace Survivors
             if (shakeThrottle.TryPass(clock))
             {
                 ctx.feel.Shake(isChain ? CHAIN_TRAUMA : THUNDER_TRAUMA);
-            }
-            if (!isChain)
-            {
-                TryHitStop(ref hitStopThrottle, HIT_STOP_SECONDS);
             }
         }
 

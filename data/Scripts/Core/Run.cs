@@ -101,7 +101,6 @@ namespace Survivors
         private readonly Queue<int> pendingChests = new Queue<int>();
         private ArenaGround arena = ArenaGround.Empty();
         /// <summary>Light pillars over the chests on the ground (created with the first run).</summary>
-        private ChestBeacons chestBeacons;
         private MenuStage stage;
         private HeroPresence presence;
         private TouchControls touch;
@@ -129,6 +128,7 @@ namespace Survivors
         public PickupWorld pickups { get; private set; }
         /// <summary>What enemies drop and what pickups do.</summary>
         public Drops drops { get; private set; }
+        internal PickupBeacons pickupBeacons { get; private set; }
         public Effects effects { get; private set; }
         public Sounds sounds { get; private set; }
         public MusicPlayer music { get; private set; }
@@ -180,6 +180,8 @@ namespace Survivors
             {
                 StartRun(autoStartClass);
                 runTime = autoStartTime;
+                director.DevSkipTimeline(autoStartTime);
+                mapEvents.DevSkipTo(autoStartTime);
             }
             isReady = true;
         }
@@ -188,7 +190,7 @@ namespace Survivors
         {
             loadout?.Dispose();
             mapEvents?.Clear();
-            chestBeacons?.Reset();
+            pickupBeacons?.Reset();
             enemies?.Dispose();
             pickups?.DisposeLooks();
             ui?.Dispose();
@@ -206,6 +208,7 @@ namespace Survivors
                 return;
             }
             float unscaledDt = Time.unscaledDeltaTime;
+            RecordDevFrame(unscaledDt);
             clock.Update(unscaledDt);
             feedback.Update(unscaledDt);
             music.Tick(this, unscaledDt);
@@ -354,8 +357,8 @@ namespace Survivors
             loadout?.Dispose();
             combatEvents.Clear();
             loadout = new Loadout(this, chosen);
-            chestBeacons ??= new ChestBeacons(this);
-            chestBeacons.Reset();
+            pickupBeacons ??= new PickupBeacons(this);
+            pickupBeacons.Reset();
             mapEvents ??= new MapEvents(this);
             mapEvents.Reset();
             drops.Reset();

@@ -53,6 +53,12 @@ namespace Survivors
 
         public void Select(int index) => screen.Select(index, true);
 
+        public void ShowWeapon(int index) => screen.ShowAbility(index, DetailsKind.Weapon);
+
+        public void ShowPassive(int index) => screen.ShowAbility(index, DetailsKind.Passive);
+
+        public void ShowActive(int index) => screen.ShowAbility(index, DetailsKind.Active);
+
         public void Start() => screen.StartRun();
 
         public void Back() => screen.GoBack();
@@ -66,8 +72,8 @@ namespace Survivors
     /// Hero select: four class cards from <see cref="HeroCatalog"/> with HP / Armor / Speed bars, the signature
     /// passive, the active and the starting weapon; locked classes show the unlock condition (Run.IsUnlocked
     /// decides). Moving the focus or clicking a card selects it (raising GameUI.heroPreviewChanged for a
-    /// turntable), a second click or Submit starts the run with Run.StartRun. Dread 0-5 after the first victory.
-    /// Main thread.
+    /// turntable), a second click or Submit starts the run with Run.StartRun; a click on an ability row selects
+    /// the card and opens that ability's details instead. Dread 0-5 after the first victory. Main thread.
     /// </summary>
     internal sealed class HeroSelectScreen : UIScreen
     {
@@ -85,8 +91,12 @@ namespace Survivors
         private const float DEFAULT_SPEED = 5.0f;
         private const float PERCENT = 100.0f;
         private const string HERO_CARD_CLASS = "hero-card";
+        private const string ABILITY_SELECTOR = ".ability";
+        private const int ABILITY_ROWS = 3;
 
         private readonly HeroSelectModel model;
+        /// <summary>The frame of the last click on an ability row: the click bubbles on to the card's Select.</summary>
+        private long abilityClickFrame = -1;
 
         public HeroSelectScreen(GameUI ui) : base(ui, "HeroSelect", "app:/data/UI/HeroSelect.rhtml")
         {
@@ -151,7 +161,8 @@ namespace Survivors
             {
                 return;
             }
-            if (fromClick && index == model.selected && !model.heroes[index].locked)
+            bool isAbilityClick = Time.frameCount == abilityClickFrame;
+            if (fromClick && !isAbilityClick && index == model.selected && !model.heroes[index].locked)
             {
                 StartRun();
                 return;
@@ -168,6 +179,18 @@ namespace Survivors
             dataModel.Dirty(nameof(HeroSelectModel.canStart));
             dataModel.Dirty(nameof(HeroSelectModel.startText));
         }
+
+        internal void ShowAbility(int index, DetailsKind kind)
+        {
+            abilityClickFrame = Time.frameCount;
+            ui.OpenHeroDetails(new DetailsRequest { kind = kind, hero = (HeroClass)index });
+        }
+
+        /// <summary>Dev: clicks an ability row of an unlocked card (0 weapon, 1 signature, 2 active), as a tap does.</summary>
+        internal void DevClickAbility(int hero, int row) => QueryVisible(ABILITY_SELECTOR)[hero * ABILITY_ROWS + row].Click();
+
+        /// <summary>Dev: clicks a card, as a tap on its portrait does.</summary>
+        internal void DevClickCard(int hero) => QueryVisible("." + HERO_CARD_CLASS)[hero].Click();
 
         internal void StartRun()
         {

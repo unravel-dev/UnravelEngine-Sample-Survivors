@@ -74,7 +74,7 @@ namespace Survivors
             abilityExecutor.Tick(dt);
             loadout.Tick(dt);
             mapEvents.Tick(dt);
-            chestBeacons.Tick(dt);
+            pickupBeacons.Tick(dt);
             return phase == RunPhase.Playing;
         }
 

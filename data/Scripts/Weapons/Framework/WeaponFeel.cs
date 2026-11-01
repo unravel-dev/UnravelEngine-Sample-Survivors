@@ -4,9 +4,10 @@ using Unravel.Core;
 namespace Survivors
 {
     /// <summary>
-    /// Game feel rules the weapons share: hit stops only during play (Feedback keeps the global
-    /// 0.30 s gap); camera trauma; and the hero's upper-body attack clips, at most one per 0.4 s unless a higher
-    /// priority asks (active > evolved > class weapon > shared). Requests made in one frame are settled once, at its end.
+    /// Game feel rules the weapons share: hit stops only during play and only for the player's own actives (a weapon
+    /// that fires by itself every second would hold the world like a stutter; Feedback keeps the global 0.30 s gap);
+    /// camera trauma; and the hero's upper-body attack clips, at most one per 0.4 s unless a higher priority asks
+    /// (active > evolved > class weapon > shared). Requests made in one frame are settled once, at its end.
     /// </summary>
     public sealed class WeaponFeel
     {

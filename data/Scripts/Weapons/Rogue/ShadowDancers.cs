@@ -6,23 +6,24 @@ namespace Survivors
     /// <summary>
     /// Shadow Dancers (Rogue, Rare): while the rogue has at least Stacks Momentum, every SubRange metres she runs leave
     /// a shadow clone where she was, while fewer than Count + Amount are alive (no cooldown: standing still, or below
-    /// the Momentum, makes none; Smoke Roll's dash counts as running). A clone lives Duration seconds (Duration stat);
-    /// every Interval (Cooldown stat) it throws SubCount homing shadow daggers (Speed, Turn) at the enemy nearest to it
-    /// within Range, Damage each (Might, Projectile Speed), and when it fades it bursts for SubDamage in SubRadius
-    /// (Area). Clone damage never rolls its own crits, but spends Smoke Roll's loaded ones like any Rogue weapon.
+    /// the Momentum, makes none; Smoke Roll's dash counts as running), and every Smoke Roll leaves MajorCount clones in a
+    /// ring around its cloud, beyond the cap. A clone lives Duration seconds (Duration stat); every Interval (Cooldown
+    /// stat) it blinks through the enemy nearest to it within Range and past it, cutting everything along the way (Damage,
+    /// Might, in a line Width wide after Area), so a clone in a crowd cuts many at once. When it fades it bursts for
+    /// SubDamage in SubRadius (Area). Clone damage never rolls its own crits, but spends Smoke Roll's loaded ones like any
+    /// Rogue weapon.
     /// Evolution Legion of Shadows (+ Windstride Boots): clones come thicker, last longer and crit at CritChance times
-    /// the rogue's crit chance (so clone crits rupture venom too), and every Smoke Roll leaves MajorCount clones in a
-    /// ring around its cloud (RogueKit.smokeDropped), beyond the cap.
+    /// the rogue's crit chance (so clone crits rupture venom too).
     /// Look: a clone is a violet afterimage of the rogue, about her height: it pops in with a bright pale violet rim, a
     /// small flash and a shadow puff, then stands as a hooded dark violet shade edged by a violet rim, with pale eyes on
     /// the hood, over a dark pool, shimmering (one sprite set refreshed every 0.2 s with a little jitter) while shadow
     /// wisps curl at its feet; it fades in, dissolves toward its burst, and thins out while the rogue is right next to it
-    /// so a crowd of clones never hides her. Each throw flares its rim, swipes a violet
-    /// crescent toward the target and glints at the hand; the daggers fly with a slim violet shadow flame and cut where
-    /// they strike. The fade burst is a violet flash, shadow smoke, a shadow shockwave out to the burst radius and
-    /// steel-violet glints. Legion clones stand taller with a brighter rim and violet shadow flames licking up around
-    /// them, their crits glint steel-white, their bursts add a whirl of crescent blades and a rising violet shaft, and
-    /// the Smoke Roll ring rises out of the smoke on violet pillars over a wide shadow shockwave.
+    /// so a crowd of clones never hides her. Each blink draws a bright violet cut along its path with a shadow puff where
+    /// it left and a flash where it lands, and the sprites it left behind linger a moment as an afterimage. The fade burst
+    /// is a violet flash, shadow smoke, a shadow shockwave out to the burst radius and steel-violet glints. Legion clones
+    /// stand taller with a brighter rim and violet shadow flames licking up around them, their crits glint steel-white,
+    /// their bursts add a whirl of crescent blades and a rising violet shaft, and the Smoke Roll ring rises out of the
+    /// smoke on violet pillars over a wide shadow shockwave.
     /// </summary>
     public sealed class ShadowDancers : Weapon
     {
@@ -32,17 +33,17 @@ namespace Survivors
         private const float MAX_STEP = 2.0f;
         /// <summary>A clone stands this far behind where the rogue is when it is left.</summary>
         private const float CLONE_BEHIND = 0.3f;
-        /// <summary>The first throw comes this long after the clone appears (plus up to the jitter, so clones do not sync).</summary>
-        private const float FIRST_THROW = 0.3f;
-        private const float FIRST_THROW_JITTER = 0.15f;
-        private const float THROW_RETRY = 0.15f;
-        private const float KNIFE_HEIGHT = 1.1f;
-        private const float KNIFE_OUT = 0.3f;
-        private const float KNIFE_SPREAD = 9.0f;
-        private const float KNIFE_RADIUS = 0.3f;
-        private const float KNIFE_FLIGHT_MARGIN = 1.3f;
-        /// <summary>Clone daggers keep a slimmer shadow flame than the mark's (head scale x fxScale).</summary>
-        private const float KNIFE_HEAD_SCALE = 0.7f;
+        /// <summary>The first blink comes this long after the clone appears (plus up to the jitter, so clones do not sync).</summary>
+        private const float FIRST_BLINK = 0.2f;
+        private const float FIRST_BLINK_JITTER = 0.15f;
+        private const float BLINK_RETRY = 0.15f;
+        /// <summary>A blink ends this far past its target.</summary>
+        private const float BLINK_OVERSHOOT = 1.8f;
+        /// <summary>The cut flies above the heads, where the crowd's bodies cannot hide it.</summary>
+        private const float SLASH_HEIGHT = 1.9f;
+        private const float SLASH_SECONDS = 0.22f;
+        private const float BLINK_PUFF_SIZE = 0.9f;
+        private const float LAND_TRAUMA = 0.03f;
         /// <summary>The clone's sprites are refreshed this often and live a little longer, so they cross-fade (a shimmer).</summary>
         private const float REFRESH = 0.2f;
         private const float REFRESH_OVERLAP = 1.3f;
@@ -65,18 +66,7 @@ namespace Survivors
         /// <summary>The pop as a clone is left: a brighter, slightly larger rim that fades as the clone fades in.</summary>
         private const float POP_SCALE = 1.12f;
         private const float POP_SECONDS = 0.3f;
-        /// <summary>Throw flourish: a brighter rim for a moment, a crescent swiped toward the target, a glint at the hand.</summary>
-        private const float FLARE_SECONDS = 0.16f;
-        /// <summary>The flared rim stands this much larger than the clone's own.</summary>
-        private const float FLARE_SCALE = 1.04f;
-        private const float SWIPE_OUT = 0.45f;
-        private const float SWIPE_SPEED = 4.0f;
-        private const float SWIPE_SIZE = 1.0f;
-        private const float SWIPE_SECONDS = 0.14f;
-        private const float HAND_SIDE = 0.25f;
-        private const float GLINT_SIZE = 0.35f;
-        private const float CUT_SIZE = 0.6f;
-        private const float CRIT_GLINT_SIZE = 0.8f;
+        private const float GLINT_SIZE = 0.5f;
         /// <summary>Legion bursts: crescent blades sliding around the clone.</summary>
         private const int BURST_BLADES = 6;
         private const float BLADE_RADIUS = 0.8f;
@@ -92,8 +82,8 @@ namespace Survivors
         private const float PILLAR_SIZE = 2.6f;
         private const float BODY_HEIGHT = 1.0f;
         private const float WHOOSH_VOLUME = 0.35f;
-        private const float THROW_VOLUME = 0.3f;
-        private const float THROW_PITCH = 1.25f;
+        private const float BLINK_VOLUME = 0.3f;
+        private const float BLINK_PITCH = 1.25f;
         private const float BURST_VOLUME = 0.45f;
         private const float BURST_PITCH = 1.3f;
 
@@ -105,30 +95,26 @@ namespace Survivors
             public Vector3 position;
             public float age;
             public float life;
-            public float throwTimer;
+            public float blinkTimer;
             public float refreshTimer;
-            /// <summary>When the last throw flared the rim (game clock), for the flourish.</summary>
-            public float flareUntil;
         }
 
         private readonly Clone[] clones = new Clone[MAX_CLONES];
         private readonly RogueKit rogue;
-        private readonly int daggerVisual;
         private readonly int shade;
         private readonly int rim;
         private readonly int eyes;
         private readonly int pool;
         private readonly int wisp;
         private readonly int legionFlame;
-        private readonly int swipe;
+        private readonly int slash;
         private readonly int glint;
-        private readonly int knifeCut;
+        private readonly int puff;
         private readonly int shock;
         private readonly int blade;
         private readonly int pillar;
         private readonly FxComposite cloneArrive;
-        private readonly FxComposite knifeHit;
-        private readonly FxComposite knifeCrit;
+        private readonly FxComposite landing;
         private readonly FxComposite burst;
         private readonly FxComposite legionArrive;
         private int cloneCount;
@@ -137,22 +123,20 @@ namespace Survivors
 
         public ShadowDancers(WeaponContext context, WeaponDef definition, int slotIndex) : base(context, definition, slotIndex)
         {
-            daggerVisual = context.FindVisual("ShadowDagger");
             shade = effects.Find("RogueDancerShade");
             rim = effects.Find("RogueDancerRim");
             eyes = effects.Find("RogueDancerEyes");
             pool = effects.Find("RogueDancerPool");
             wisp = effects.Find("RogueMomentumWisp");
             legionFlame = effects.Find("RogueLegionFlame");
-            swipe = effects.Find("RogueKnifeArc");
+            slash = effects.Find("RogueDancerSlash");
             glint = effects.Find("RogueGlint");
-            knifeCut = effects.Find("RogueKnifeCut");
+            puff = effects.Find("RogueShadowPuff");
             shock = effects.Find("RogueShadowShock");
             blade = effects.Find("RogueStormBlade");
             pillar = effects.Find("RogueLegionPillar");
             cloneArrive = Composite(new FxLayer("RogueFlash", 1, 0.6f), new FxLayer("RogueShadowPuff", 3, 0.6f, false));
-            knifeHit = Composite(new FxLayer("RogueSparks", 2));
-            knifeCrit = Composite(new FxLayer("RogueFlash", 1, 0.5f), new FxLayer("RogueSparks", 5));
+            landing = Composite(new FxLayer("RogueFlash", 1, 0.9f), new FxLayer("RogueSparks", 5));
             burst = Composite(new FxLayer("RogueFlash", 1, 1.0f), new FxLayer("RogueShadowPuff", 5, 0.8f, false), new FxLayer("RogueStormGlints", 6));
             legionArrive = Composite(new FxLayer("RogueFlash", 1, 1.6f), new FxLayer("RogueShadowPuff", 6, 0.9f, false), new FxLayer("RogueStormGlints", 10));
             lastHeroPosition = heroPosition;
@@ -183,7 +167,7 @@ namespace Survivors
         /// <summary>Momentum the rogue needs before running leaves clones.</summary>
         private int momentumNeeded => level.GetCount(WeaponField.Stacks);
 
-        /// <summary>Legion of Shadows: clones each Smoke Roll leaves around its cloud.</summary>
+        /// <summary>Clones each Smoke Roll leaves around its cloud.</summary>
         private int smokeRollClones => level.GetCount(WeaponField.MajorCount);
 
         protected override void Update(float dt)
@@ -232,7 +216,7 @@ namespace Survivors
             {
                 position = foot,
                 life = DurationOf(level[WeaponField.Duration]),
-                throwTimer = FIRST_THROW + Random.Range(0.0f, FIRST_THROW_JITTER),
+                blinkTimer = FIRST_BLINK + Random.Range(0.0f, FIRST_BLINK_JITTER),
             };
             float scale = isEvolved ? LEGION_SCALE : 1.0f;
             effects.Emit(rim, foot + LIFT, 1, RogueLooks.PALE_VIOLET, CLONE_HEIGHT * scale * POP_SCALE, POP_SECONDS);
@@ -253,7 +237,7 @@ namespace Survivors
 
         private void StepClones(float dt)
         {
-            float interval = MathF.Max(level[WeaponField.Interval] * stats[StatId.Cooldown], THROW_RETRY);
+            float interval = MathF.Max(level[WeaponField.Interval] * stats[StatId.Cooldown], BLINK_RETRY);
             int i = 0;
             while (i < cloneCount)
             {
@@ -265,10 +249,10 @@ namespace Survivors
                     clones[i] = clones[--cloneCount];
                     continue;
                 }
-                clone.throwTimer -= dt;
-                if (clone.throwTimer <= 0.0f)
+                clone.blinkTimer -= dt;
+                if (clone.blinkTimer <= 0.0f)
                 {
-                    clone.throwTimer = MathF.Max(clone.throwTimer, 0.0f) + (Throw(ref clone) ? interval : THROW_RETRY);
+                    clone.blinkTimer = MathF.Max(clone.blinkTimer, 0.0f) + (Blink(ref clone) ? interval : BLINK_RETRY);
                 }
                 clone.refreshTimer -= dt;
                 if (clone.refreshTimer <= 0.0f)
@@ -281,36 +265,26 @@ namespace Survivors
         }
 
         // -------------------------------------------------------------------------------------------------------
-        // Throws, hits and bursts
+        // Blinks and bursts
         // -------------------------------------------------------------------------------------------------------
 
-        private bool Throw(ref Clone clone)
+        /// <summary>The clone blinks through the nearest enemy and past it, cutting everything along the way.</summary>
+        private bool Blink(ref Clone clone)
         {
             float range = level[WeaponField.Range];
             if (!enemies.QueryNearest(clone.position, range, out int target))
             {
                 return false;
             }
-            Vector3 direction = Ground.Direction(clone.position, enemies.GetPosition(target), facing);
-            Vector3 chest = clone.position + Ground.Up(KNIFE_HEIGHT);
-            int knives = Math.Max(1, level.GetCount(WeaponField.SubCount));
-            float speed = SpeedOf(level[WeaponField.Speed]);
-            float flight = range * KNIFE_FLIGHT_MARGIN / speed;
-            for (int k = 0; k < knives; k++)
-            {
-                Vector3 heading = Ground.Rotate(direction, (k - (knives - 1) * 0.5f) * KNIFE_SPREAD);
-                ProjectileSpawn spawn = NewProjectile(daggerVisual, ProjectileMotion.Homing, chest + heading * KNIFE_OUT, heading * speed, flight);
-                spawn.homing = level[WeaponField.Turn] * Ground.DEGREES_TO_RADIANS;
-                spawn.damage = MightOf(level[WeaponField.Damage]);
-                spawn.radius = KNIFE_RADIUS;
-                spawn.pierce = 0;
-                spawn.knockback = KnockbackOf(level[WeaponField.Knockback]);
-                spawn.handler = this;
-                spawn.headScale = KNIFE_HEAD_SCALE * fxScale;
-                Spawn(spawn);
-            }
-            clone.flareUntil = clock + FLARE_SECONDS;
-            ShowThrow(clone, chest, direction);
+            Vector3 from = clone.position;
+            Vector3 direction = Ground.Direction(from, enemies.GetPosition(target), facing);
+            float reach = Ground.Distance(from, enemies.GetPosition(target)) + BLINK_OVERSHOOT;
+            Vector3 to = Ground.Flat(ctx.ClampToArena(from + direction * reach));
+            int hits = strikes.Capsule(from, to, AreaOf(level[WeaponField.Width]) * 0.5f, MightOf(level[WeaponField.Damage]),
+                                       KnockbackOf(level[WeaponField.Knockback]), slot, WithAutoCrit(GetCloneHit()));
+            clone.position = to;
+            clone.refreshTimer = 0.0f;
+            ShowBlink(from, to, direction, hits);
             return true;
         }
 
@@ -319,25 +293,6 @@ namespace Survivors
         {
             float share = isEvolved ? level[WeaponField.CritChance] : 0.0f;
             return new HitEffect { critChanceBonus = -(1.0f - share) * stats[StatId.CritChance] };
-        }
-
-        public override void OnHitEnemy(ProjectileWorld world, int projectile, int enemyRow)
-        {
-            ref ProjectileSpawn knife = ref world.Get(projectile);
-            Vector3 impact = knife.position;
-            if (HitAlongFlight(enemyRow, knife, WithAutoCrit(GetCloneHit())) == DamageResult.Missed)
-            {
-                return;
-            }
-            Color color = isEvolved ? RogueLooks.LEGION_RIM : RogueLooks.SHADOW_VIOLET;
-            RogueLooks.EmitKnifeCut(effects, knifeCut, impact, FlightOf(knife), color, CUT_SIZE * fxScale);
-            if (!strikes.lastWasCritical)
-            {
-                knifeHit.Play(impact, FxSizes.METRE_UNIT, fxScale, color);
-                return;
-            }
-            knifeCrit.Play(impact, FxSizes.METRE_UNIT, fxScale, color);
-            EmitSized(glint, impact, RogueLooks.STEEL_WHITE, CRIT_GLINT_SIZE * fxScale);
         }
 
         /// <summary>The clone fades: a shadow burst around it (Legion: a whirl of blades and a rising shaft).</summary>
@@ -361,13 +316,9 @@ namespace Survivors
         // Smoke Roll (Legion of Shadows)
         // -------------------------------------------------------------------------------------------------------
 
-        /// <summary>Legion: the smoke cloud's ring of clones, appearing in turn (scheduled: this runs inside the activation).</summary>
+        /// <summary>The smoke cloud's ring of clones, appearing in turn (scheduled: this runs inside the activation).</summary>
         private void OnSmokeDropped(Vector3 center, float radius)
         {
-            if (!isEvolved)
-            {
-                return;
-            }
             int count = smokeRollClones;
             float start = Ground.RandomYaw();
             for (int k = 0; k < count; k++)
@@ -408,10 +359,6 @@ namespace Survivors
             rimColor.a = presence;
             effects.Emit(shade, foot, 1, shadeColor, height, seconds);
             effects.Emit(rim, foot, 1, rimColor, height, seconds);
-            if (clock < clone.flareUntil)
-            {
-                effects.Emit(rim, foot, 1, rimColor, height * FLARE_SCALE, FLARE_SECONDS);
-            }
             Vector3 eyeLine = foot + Ground.Up(height * EYE_HEIGHT_SHARE);
             Color eyeColor = RogueLooks.DANCER_EYES;
             eyeColor.a = presence;
@@ -432,14 +379,20 @@ namespace Survivors
             return Math.Clamp(share, HERO_CLEAR_MIN, 1.0f);
         }
 
-        /// <summary>The throw: a violet crescent swiped toward the target from the chest and a glint at the throwing hand.</summary>
-        private void ShowThrow(in Clone clone, Vector3 chest, Vector3 direction)
+        /// <summary>The blink: a bright cut along its path, a shadow puff where it left and a flash where it landed.</summary>
+        private void ShowBlink(Vector3 from, Vector3 to, Vector3 direction, int hits)
         {
             Color color = isEvolved ? RogueLooks.LEGION_RIM : RogueLooks.PALE_VIOLET;
-            effects.EmitMoving(swipe, chest + direction * SWIPE_OUT, direction * SWIPE_SPEED, 1, color, SWIPE_SIZE * fxScale, SWIPE_SECONDS);
-            Vector3 hand = chest + Ground.Perpendicular(direction) * HAND_SIDE;
-            EmitSized(glint, hand, RogueLooks.STEEL_WHITE, GLINT_SIZE * fxScale);
-            PlayAt("knife_throw", clone.position, THROW_VOLUME, THROW_PITCH);
+            // The line of the texture runs from the quad's center to its edge.
+            effects.EmitMoving(slash, from + Ground.Up(SLASH_HEIGHT), direction * FxSizes.HEADING_SPEED, 1, color, Ground.Distance(from, to) * 2.0f, SLASH_SECONDS);
+            effects.EmitSized(puff, from + BODY, 1, Color.white, BLINK_PUFF_SIZE);
+            landing.Play(to + BODY, FxSizes.METRE_UNIT, fxScale, color);
+            EmitSized(glint, to + BODY, RogueLooks.STEEL_WHITE, GLINT_SIZE * fxScale);
+            PlayAt("knife_throw", to, BLINK_VOLUME, BLINK_PITCH);
+            if (hits > 0)
+            {
+                ctx.feel.Shake(LAND_TRAUMA);
+            }
         }
 
         /// <summary>Legion bursts: crescent blades sliding around the clone (counter-clockwise from above).</summary>

@@ -7,6 +7,8 @@ namespace Survivors
     /// <summary>Read-only lookups and the spatial queries weapons and the game use. Main thread.</summary>
     public sealed partial class EnemyWorld
     {
+        /// <summary>A boss counts as this much nearer (squared distance), so a weapon aiming at the nearest does not spend itself on stragglers.</summary>
+        private const float BOSS_NEAREST_SHARE_SQUARED = 0.1f;
         /// <summary>A cone whose forward is shorter than this has no direction and finds nothing.</summary>
         private const float MIN_CONE_FORWARD = 1e-5f;
         /// <summary>A segment shorter than this (squared, m^2) is treated as its first point.</summary>
@@ -35,6 +37,9 @@ namespace Survivors
         public int GetType(int row) => typeOf[row];
 
         public bool IsElite(int row) => elite[row];
+
+        /// <summary>Whether the row is a boss's.</summary>
+        public bool IsBoss(int row) => types[typeOf[row]].isBoss;
 
         /// <summary>Whether the row is a proxy: a boss, a lantern or a pyre whose owner drives it.</summary>
         public bool IsProxy(int row) => types[typeOf[row]].isProxy;
@@ -140,7 +145,7 @@ namespace Survivors
             return written;
         }
 
-        /// <summary>The targetable enemy nearest to a point.</summary>
+        /// <summary>The targetable enemy nearest to a point; a boss in reach counts as much nearer than it is.</summary>
         /// <returns>False when none is within <paramref name="maxDistance"/>.</returns>
         public bool QueryNearest(Vector3 center, float maxDistance, out int nearestRow)
         {
@@ -156,6 +161,7 @@ namespace Survivors
                     continue;
                 }
                 float distance = Ground.DistanceSquared(currentPositions[row], center);
+                distance *= IsBoss(row) ? BOSS_NEAREST_SHARE_SQUARED : 1.0f;
                 if (distance < best)
                 {
                     best = distance;
