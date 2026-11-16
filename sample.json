@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "title": "Barrowlight",
+  "topic": "Complete game",
+  "description": "A survivors-style game from the title screen to the final boss: four heroes, weapons that fire on their own, an upgrade every level and fifteen minutes against thousands of animated enemies. Shows crowds simulated in parallel in C# and drawn as instances, particles, menus for gamepad and touch, audio buses and save data.",
+  "tags": [
+    "Complete Game",
+    "Crowds",
+    "C# Scripts"
+  ],
+  "icon": "sword-cross",
+  "order": 10,
+  "added": "2026-10-29",
+  "thumbnail": "thumbnail.jpg"
+}
